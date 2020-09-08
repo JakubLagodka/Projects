@@ -1,12 +1,14 @@
-package pl.polsl.hotelapplication.hotel;
+package pl.polsl.Hotel;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Hotel")
 public class Hotel {
+
     @Id
-    @GeneratedValue
-    private long hotel_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long hotel_id;
 
     private String hotel_name;
 
@@ -14,13 +16,13 @@ public class Hotel {
 
     private String phone_number;
 
-
-    public long getHotel_id() {
-        return hotel_id;
+    public Hotel() {
     }
 
-    public void setHotel_id(long hotel_id) {
-        this.hotel_id = hotel_id;
+    public Hotel(String hotel_name, int number_of_free_rooms, String phone_number) {
+        this.hotel_name = hotel_name;
+        this.number_of_free_rooms = number_of_free_rooms;
+        this.phone_number = phone_number;
     }
 
     public String getHotel_name() {
@@ -47,8 +49,11 @@ public class Hotel {
         this.phone_number = phone_number;
     }
 
-    @Override
-    public String toString(){
-        return "Hotel{"+"id="+hotel_id+", name='"+hotel_name+"', free rooms="+number_of_free_rooms+", number="+phone_number;
+    public Long getHotel_id() {
+        return hotel_id;
+    }
+
+    public void setHotel_id(long hotel_id) {
+        this.hotel_id = hotel_id;
     }
 }
