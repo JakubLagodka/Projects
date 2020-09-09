@@ -1,13 +1,12 @@
-package pl.polsl.Hotel;
+package pl.polsl.Hotel.dao.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Hotel")
 public class Hotel {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long hotel_id;
 
     private String hotel_name;
@@ -19,7 +18,8 @@ public class Hotel {
     public Hotel() {
     }
 
-    public Hotel(String hotel_name, int number_of_free_rooms, String phone_number) {
+    public Hotel(Long hotel_id, String hotel_name, int number_of_free_rooms, String phone_number) {
+        this.hotel_id = hotel_id;
         this.hotel_name = hotel_name;
         this.number_of_free_rooms = number_of_free_rooms;
         this.phone_number = phone_number;
@@ -53,7 +53,8 @@ public class Hotel {
         return hotel_id;
     }
 
-    public void setHotel_id(long hotel_id) {
+    public void setHotel_id(Long hotel_id) {
         this.hotel_id = hotel_id;
     }
+
 }
