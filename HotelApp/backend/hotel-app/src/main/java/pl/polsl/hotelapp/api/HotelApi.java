@@ -1,8 +1,8 @@
 package pl.polsl.hotelapp.api;
 
 import org.springframework.web.bind.annotation.*;
-import pl.polsl.hotelapp.dao.entity.Hotel;
-import pl.polsl.hotelapp.manager.HotelManager;
+import pl.polsl.hotelapp.dao.entities.Hotel;
+import pl.polsl.hotelapp.managers.HotelManager;
 
 import java.util.Optional;
 
