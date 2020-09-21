@@ -6,9 +6,8 @@ import { HttpService } from './services/http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'hotel-app-client';
-
   constructor(private httpService: HttpService) { }
 
   getHotels(){
@@ -101,3 +100,4 @@ export interface HotelRoom{
 export enum PillowType{
   ANTIALLERGIC, NATURAL, SYNTHETIC, SPECIALISED
 }
+
