@@ -1,4 +1,4 @@
-package pl.polsl.hotelapp.hotel.app;
+package pl.polsl.hotelapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
