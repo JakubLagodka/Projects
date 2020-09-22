@@ -1,10 +1,10 @@
-package pl.polsl.hotelapp;
+package pl.polsl.hotelapp.hotel.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HotelAppApplicationTests {
+class HotelApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,13 +1,13 @@
-package pl.polsl.hotelapp;
+package pl.polsl.hotelapp.hotel.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HotelAppApplication {
+public class HotelApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HotelAppApplication.class, args);
+		SpringApplication.run(HotelApplication.class, args);
 	}
 
 }
