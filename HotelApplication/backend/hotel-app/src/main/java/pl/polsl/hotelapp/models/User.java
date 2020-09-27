@@ -22,6 +22,10 @@ private String password;
 
 private String role;
 
+private boolean enabled;
+
+private String mail;
+
     public Long getUserId() {
         return userId;
     }
@@ -78,7 +82,19 @@ private String role;
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     @Override

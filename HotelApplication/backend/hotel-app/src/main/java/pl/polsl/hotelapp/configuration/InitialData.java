@@ -16,12 +16,15 @@ public class InitialData {
         userJan.setUsername("Jan");
         userJan.setPassword(passwordEncoder.encode("Jan111"));
         userJan.setRole("ROLE_ADMIN");
-        userRepo.save(userJan);
+        userJan.setEnabled(true);
 
         User userJanusz = new User();
         userJanusz.setUsername("Janusz");
         userJanusz.setPassword(passwordEncoder.encode("Janusz111"));
         userJanusz.setRole("ROLE_USER");
+        userJanusz.setEnabled(true);
+
+        userRepo.save(userJan);
         userRepo.save(userJanusz);
     }
 }

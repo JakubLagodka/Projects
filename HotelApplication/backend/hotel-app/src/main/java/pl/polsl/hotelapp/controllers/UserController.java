@@ -4,8 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.polsl.hotelapp.models.Token;
 import pl.polsl.hotelapp.models.User;
+import pl.polsl.hotelapp.repositories.TokenRepo;
+import pl.polsl.hotelapp.repositories.UserRepo;
 import pl.polsl.hotelapp.services.UserService;
 
 @Controller
@@ -13,8 +17,14 @@ public class UserController {
 
     private UserService userService;
 
-    public UserController(UserService userService) {
+    private UserRepo userRepo;
+
+    private TokenRepo tokenRepo;
+
+    public UserController(UserService userService, UserRepo userRepo, TokenRepo tokenRepo) {
         this.userService = userService;
+        this.userRepo = userRepo;
+        this.tokenRepo = tokenRepo;
     }
 
     @GetMapping("/loggedUser")
@@ -43,5 +53,15 @@ public class UserController {
     public String register(User user){
         userService.addUser(user);
         return "register";
+    }
+
+    @GetMapping("/token")
+    public String token(@RequestParam String value){
+        Token byValue = tokenRepo.findByValue(value);
+        User user = byValue.getUser();
+        user.setEnabled(true);
+        userRepo.save(user);
+
+        return "loggedUser";
     }
 }
