@@ -1,21 +1,21 @@
-package pl.polsl.hotelapp.managers;
+package pl.polsl.hotelapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
-import pl.polsl.hotelapp.entities.Hotel;
+import pl.polsl.hotelapp.models.Hotel;
 import pl.polsl.hotelapp.repositories.HotelRepo;
 
 import java.util.Optional;
 
 @Service
-public class HotelManager {
+public class HotelService {
 
     private HotelRepo hotelRepo;
 
     @Autowired
-    public HotelManager(HotelRepo hotelRepo) {
+    public HotelService(HotelRepo hotelRepo) {
         this.hotelRepo = hotelRepo;
     }
 

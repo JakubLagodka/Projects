@@ -1,4 +1,4 @@
-package pl.polsl.hotelapp.entities;
+package pl.polsl.hotelapp.models;
 
 import pl.polsl.hotelapp.PillowType;
 

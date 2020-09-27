@@ -1,4 +1,4 @@
-package pl.polsl.hotelapp.entities;
+package pl.polsl.hotelapp.models;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,9 +11,10 @@ import java.util.Collections;
 @Entity
 @Table(name = "Users")
 public class User implements UserDetails {
+
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+private Long userId;
 
 private String username;
 
@@ -78,5 +79,15 @@ private String role;
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

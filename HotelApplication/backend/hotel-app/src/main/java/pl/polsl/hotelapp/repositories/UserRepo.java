@@ -2,7 +2,7 @@ package pl.polsl.hotelapp.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.polsl.hotelapp.entities.User;
+import pl.polsl.hotelapp.models.User;
 
 import java.util.Optional;
 

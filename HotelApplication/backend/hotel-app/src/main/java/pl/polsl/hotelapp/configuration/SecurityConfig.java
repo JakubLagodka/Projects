@@ -32,5 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     //http.csrf().disable();
     //http.headers().disable();
+        http.authorizeRequests()
+                .antMatchers("/loggedUser").authenticated()
+                .antMatchers("/for-admin").hasRole("ADMIN")
+                .antMatchers("/for-user").hasRole("USER")
+                .and()
+                .formLogin().defaultSuccessUrl("/loggedUser");
     }
 }

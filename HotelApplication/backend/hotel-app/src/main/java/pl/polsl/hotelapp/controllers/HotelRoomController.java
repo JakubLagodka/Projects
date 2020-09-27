@@ -1,17 +1,17 @@
-package pl.polsl.hotelapp.api;
+package pl.polsl.hotelapp.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import pl.polsl.hotelapp.entities.HotelRoom;
-import pl.polsl.hotelapp.managers.HotelRoomManager;
+import pl.polsl.hotelapp.models.HotelRoom;
+import pl.polsl.hotelapp.services.HotelRoomService;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/hotelRoom")
-public class HotelRoomApi {
-    private HotelRoomManager hotelRooms;
+public class HotelRoomController {
+    private HotelRoomService hotelRooms;
 
-    public HotelRoomApi(HotelRoomManager hotelRooms) {
+    public HotelRoomController(HotelRoomService hotelRooms) {
         this.hotelRooms = hotelRooms;
     }
 
