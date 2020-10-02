@@ -15,12 +15,14 @@ public class InitialData {
         User userJan = new User();
         userJan.setUsername("Jan");
         userJan.setPassword(passwordEncoder.encode("Jan111"));
+        userJan.setMail("Jan.example@gmail.com");
         userJan.setRole("ROLE_ADMIN");
         userJan.setEnabled(true);
 
         User userJanusz = new User();
         userJanusz.setUsername("Janusz");
         userJanusz.setPassword(passwordEncoder.encode("Janusz111"));
+        userJanusz.setMail("Janusz.example@gmail.com");
         userJanusz.setRole("ROLE_USER");
         userJanusz.setEnabled(true);
 

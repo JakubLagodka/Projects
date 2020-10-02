@@ -8,6 +8,7 @@ import pl.polsl.hotelapp.repositories.TokenRepo;
 import pl.polsl.hotelapp.repositories.UserRepo;
 
 import javax.mail.MessagingException;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -53,5 +54,22 @@ public class UserService {
         }
     }
     //TODO zrobić role jako enum!
+
+    public Optional<User> findById(Long id) {
+        return userRepo.findById(id);
+    }
+
+    public Iterable<User> findAll() {
+        return userRepo.findAll();
+
+    }
+
+    public User save(User user) {
+        return userRepo.save(user);
+    }
+
+    public void deleteById(Long id) {
+        userRepo.deleteById(id);
+    }
 
 }

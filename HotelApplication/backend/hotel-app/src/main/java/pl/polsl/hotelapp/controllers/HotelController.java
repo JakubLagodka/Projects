@@ -7,7 +7,7 @@ import pl.polsl.hotelapp.services.HotelService;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/hotel")
+@RequestMapping("/hotel")
 public class HotelController {
     private HotelService hotels;
 

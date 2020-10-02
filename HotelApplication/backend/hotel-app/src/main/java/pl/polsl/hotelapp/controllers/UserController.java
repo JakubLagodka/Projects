@@ -1,36 +1,55 @@
 package pl.polsl.hotelapp.controllers;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.polsl.hotelapp.models.Token;
 import pl.polsl.hotelapp.models.User;
 import pl.polsl.hotelapp.repositories.TokenRepo;
 import pl.polsl.hotelapp.repositories.UserRepo;
 import pl.polsl.hotelapp.services.UserService;
 
-@Controller
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/user")
 public class UserController {
 
-    private UserService userService;
+    private UserService users;
 
     private UserRepo userRepo;
 
     private TokenRepo tokenRepo;
 
-    public UserController(UserService userService, UserRepo userRepo, TokenRepo tokenRepo) {
-        this.userService = userService;
+    public UserController(UserService users, UserRepo userRepo, TokenRepo tokenRepo) {
+        this.users = users;
         this.userRepo = userRepo;
         this.tokenRepo = tokenRepo;
     }
 
-    @GetMapping("/loggedUser")
-    @ResponseBody
-    public String loggedUser(){
-        return "hello, you are logged in!";
+    @GetMapping("/all")
+    public Iterable<User> getAll(){
+        return users.findAll();
+    }
+
+    @GetMapping
+    public Optional<User> getByUserId(@RequestParam Long index){
+        return users.findById(index);
+    }
+
+    @PostMapping
+    public User addUser(@RequestBody User user){
+        return users.save(user);
+    }
+
+    @PutMapping
+    public User updateUser(@RequestBody User user){
+        return users.save(user);
+    }
+
+    @DeleteMapping
+    public void deleteUser(@RequestParam Long index){
+        users.deleteById(index);
+
     }
 
     @GetMapping("/for-admin")
@@ -51,7 +70,7 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(User user){
-        userService.addUser(user);
+        users.addUser(user);
         return "register";
     }
 
