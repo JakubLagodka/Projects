@@ -11,12 +11,15 @@ import java.util.Collections;
 @Entity
 @Table(name = "Users")
 public class User implements UserDetails {
-
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long userId;
+private Long id;
+
+private String name;
 
 private String username;
+
+private String surname;
 
 private String password;
 
@@ -27,15 +30,41 @@ private boolean enabled;
 private String mail;
 
     public Long getUserId() {
-        return userId;
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public void setPassword(String password) {
@@ -60,10 +89,6 @@ private String mail;
         return password;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -100,8 +125,8 @@ private String mail;
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
+                "id=" + id +
+                ", username='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 '}';

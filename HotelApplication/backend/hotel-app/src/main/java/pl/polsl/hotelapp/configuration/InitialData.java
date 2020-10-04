@@ -14,6 +14,8 @@ public class InitialData {
 
         User userJan = new User();
         userJan.setUsername("Jan");
+        userJan.setName("Jan");
+        userJan.setSurname("Kowalski");
         userJan.setPassword(passwordEncoder.encode("Jan111"));
         userJan.setMail("Jan.example@gmail.com");
         userJan.setRole("ROLE_ADMIN");
@@ -21,6 +23,8 @@ public class InitialData {
 
         User userJanusz = new User();
         userJanusz.setUsername("Janusz");
+        userJanusz.setName("Janusz");
+        userJanusz.setSurname("Nowak");
         userJanusz.setPassword(passwordEncoder.encode("Janusz111"));
         userJanusz.setMail("Janusz.example@gmail.com");
         userJanusz.setRole("ROLE_USER");

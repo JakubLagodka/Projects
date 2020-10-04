@@ -1,3 +1,4 @@
+import { HttpService } from './../services/http.service';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[];
+  users: Array<User>;
 
-  constructor(private userService: UserService) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.userService.getAll().subscribe(data => {
-      this.users = data;
+    this.httpService.getHotels().subscribe(data => {
+     this.users = data;
     });
-  }
+   }
+
+   getUsers(){
+    this.httpService.getHotels().subscribe(data => {
+      console.log(data);
+    });
+
+   }
 
 }

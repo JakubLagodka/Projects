@@ -1,4 +1,4 @@
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,11 +12,11 @@ export class UserService {
   private usersUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = '${environment.apiUrl}/user/all';
+    this.usersUrl = `${environment.apiUrl}/user/all`;
    }
 
-   public getAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+   public getUsers(): Observable<Array<User>> {
+    return this.http.get<Array<User>>(`${environment.apiUrl}/user/all`);
   }
 
   public save(user: User) {
