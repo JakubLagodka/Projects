@@ -9,7 +9,7 @@
   <div class="container">
   <div class="navbar-brand">HotelSite</div>
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item text-light pt-2 pr-5" *ngIf="loggedtUser">Logged in as {{loggedtUser.name}} {{loggedtUser.surname}},  {{loggedtUser.role}}</li>
+    <li class="nav-item text-light pt-2 pr-5" *ngIf="loggedUser">Logged in as {{loggedUser.name}} {{loggedUser.surname}},  {{loggedUser.role}}</li>
     <li><a class="nav-item nav-link" routerLink="/">Home</a></li>
     <li *ngIf="authenticationService.isUserLoggedIn"><a class="nav-item nav-link" (click)="logout()">Logout</a></li>
   </ul>

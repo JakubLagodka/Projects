@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { User } from './models/user';
+import { AuthenticationService } from './services/authentication.service';
 import { HttpService } from './services/http.service';
 
 @Component({
@@ -6,14 +10,34 @@ import { HttpService } from './services/http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
-  title = 'hotel-app-client';
-  constructor(private httpService: HttpService) { }
+export class AppComponent implements OnDestroy{
+  loggedUser: User;
+  userSub: Subscription;
 
+  title = 'hotel-app-client';
+  name = Array<User>();
+
+
+  constructor(
+    private httpService: HttpService,
+    private router: Router,
+    public authenticationService: AuthenticationService
+  ) {
+    this.httpService.getHotels().subscribe(hotels => {
+      console.log(hotels);
+      this.name = hotels;
+  });
+  this.userSub = this.authenticationService.loggedUser.subscribe(x => this.loggedUser = x);
+}
+ logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
   getHotels(){
-this.httpService.getHotels().subscribe(hotels => {
-  console.log(hotels);
-});
   }
 
   getHotel(){
