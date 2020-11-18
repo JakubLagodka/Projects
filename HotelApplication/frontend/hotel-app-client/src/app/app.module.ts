@@ -48,6 +48,6 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule
   ],
   providers: [HttpService, AuthGuard, UserService],
-  bootstrap: [AppComponent]
+  // bootstrap: [AppComponent]
 })
 export class AppModule { }
