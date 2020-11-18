@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpService } from './services/http.service';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { NoPermissionComponent } from './no-permission/no-permission.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -38,7 +38,7 @@ import {MatInputModule} from '@angular/material/input';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    // NgbModule,
+    NgbModule,
     AppRoutingModule,
     HomeRoutingModule,
     HomeModule,
@@ -48,6 +48,6 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule
   ],
   providers: [HttpService, AuthGuard, UserService],
-  // bootstrap: [AppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
