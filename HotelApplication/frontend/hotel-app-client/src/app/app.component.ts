@@ -1,9 +1,11 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from './models/user';
 import { AuthenticationService } from './services/authentication.service';
 import { HttpService } from './services/http.service';
+import {MatSidenav} from '@angular/material/sidenav';
+import {FormControl} from '@angular/forms';
 
 
 @Component({
@@ -11,13 +13,20 @@ import { HttpService } from './services/http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy{
+export class AppComponent implements OnDestroy, OnInit{
   loggedUser: User;
   userSub: Subscription;
 
   title = 'hotel-app-client';
   name = Array<User>();
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
+  reason = '';
+  mode = new FormControl('over');
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
 
   constructor(
     private httpService: HttpService,
@@ -82,6 +91,10 @@ export class AppComponent implements OnDestroy{
 
   phoneNumber: '245698542',
  });
+  }
+
+  ngOnInit(): void {
+    this.sidenav.open();
   }
 }
 

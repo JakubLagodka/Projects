@@ -4,8 +4,17 @@
 <button type="button" class="btn btn-success"(click)="updateHotel()">updateHotel</button>
 <button type="button" class="btn btn-success"(click)="deleteHotel()">deleteHotel</button>
 <button type="button" class="btn btn-success"(click)="changeHotel()">changeHotel</button>
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<nav class="navbar navbar-expand navbar-dark bg-dark py-3">
+<!-- Creates a layout with a left-positioned sidenav and explicit content. -->
+<mat-sidenav-container  class="example-container" >
+  <mat-sidenav #sidenav mode="side" [opened]="true" (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
+    <app-calendar></app-calendar>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p><button mat-button (click)="sidenav.open()">Open</button></p>
+    <p>Closed due to: {{reason}}</p>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-3">
   <div class="container">
   <div class="navbar-brand">HotelSite</div>
   <ul class="navbar-nav ml-auto">
@@ -19,7 +28,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="card bg-dark my-5">@CrossOrigin(origins = "http://localhost:4200")
+      <div class="card bg-dark my-5">
         <div class="card-body">
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
           <ul class="text-center list-inline py-3">
@@ -37,3 +46,5 @@
   </div>
 </div>
 
+  </mat-sidenav-content>
+</mat-sidenav-container>

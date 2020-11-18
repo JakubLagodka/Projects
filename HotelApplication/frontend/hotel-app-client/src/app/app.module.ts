@@ -22,6 +22,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {MatInputModule} from '@angular/material/input';
     MatDatepickerModule,        // <----- import(must)
     MatSliderModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   providers: [HttpService, AuthGuard, UserService],
   bootstrap: [AppComponent]

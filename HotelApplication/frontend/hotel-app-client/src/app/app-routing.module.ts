@@ -15,7 +15,6 @@ const APP_ROUTES: Route[] = [
   { path: 'no-permission', component: NoPermissionComponent },
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: RegisterComponent },
-  { path: 'calendar', component: CalendarComponent },
 
   { path: '**', redirectTo: '' }
 ];
