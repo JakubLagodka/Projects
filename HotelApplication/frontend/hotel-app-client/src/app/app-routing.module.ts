@@ -24,7 +24,7 @@ const APP_ROUTES: Route[] = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES, { relativeLinkResolution: 'legacy' })
   ],
   exports: [RouterModule]
 })
