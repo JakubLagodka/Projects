@@ -13,9 +13,15 @@ import { NoPermissionComponent } from './no-permission/no-permission.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeRoutingModule } from './home/home-routing.module';
+
 import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './model-lists/user-list.component';
+import { CalendarComponent } from './calendar/calendar/calendar.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ import { UserListComponent } from './model-lists/user-list.component';
     NoPermissionComponent,
     NotFoundComponent,
     UserListComponent,
-    RegisterComponent
+    RegisterComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +42,10 @@ import { UserListComponent } from './model-lists/user-list.component';
     AppRoutingModule,
     HomeRoutingModule,
     HomeModule,
-
-
+    MatDatepickerModule,        // <----- import(must)
+    MatSliderModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [HttpService, AuthGuard, UserService],
   bootstrap: [AppComponent]

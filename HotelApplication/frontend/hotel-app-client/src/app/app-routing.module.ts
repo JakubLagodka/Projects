@@ -7,7 +7,7 @@ import { NoPermissionComponent } from './no-permission/no-permission.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserListComponent } from './model-lists/user-list.component';
 import { RegisterComponent } from './register/register.component';
-
+import { CalendarComponent } from './calendar/calendar/calendar.component';
 const APP_ROUTES: Route[] = [
   { path: '', pathMatch: 'full', redirectTo: 'home', canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -15,6 +15,7 @@ const APP_ROUTES: Route[] = [
   { path: 'no-permission', component: NoPermissionComponent },
   { path: 'users', component: UserListComponent },
   { path: 'adduser', component: RegisterComponent },
+  { path: 'calendar', component: CalendarComponent },
 
   { path: '**', redirectTo: '' }
 ];

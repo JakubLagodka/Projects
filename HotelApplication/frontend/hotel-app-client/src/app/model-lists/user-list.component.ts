@@ -22,7 +22,7 @@ export class UserListComponent implements OnInit {
 
    getUsers(){
     this.httpService.getHotels().subscribe(data => {
-      console.log(data);
+      this.users = data;
     });
 
    }
