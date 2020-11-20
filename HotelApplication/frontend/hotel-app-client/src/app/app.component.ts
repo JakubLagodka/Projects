@@ -5,7 +5,7 @@ import { User } from './models/user';
 import { AuthenticationService } from './services/authentication.service';
 import { HttpService } from './services/http.service';
 import {MatSidenav} from '@angular/material/sidenav';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -16,11 +16,12 @@ import {FormControl} from '@angular/forms';
 export class AppComponent implements OnDestroy, OnInit{
   loggedUser: User;
   userSub: Subscription;
-
+  // authenticationService: AuthenticationService;
   title = 'hotel-app-client';
   name = Array<User>();
+  loginForm: FormGroup;
   @ViewChild('sidenav') sidenav: MatSidenav;
-
+  formBuilder: FormBuilder;
   reason = '';
   mode = new FormControl('over');
   close(reason: string) {
@@ -31,7 +32,8 @@ export class AppComponent implements OnDestroy, OnInit{
   constructor(
     private httpService: HttpService,
     private router: Router,
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    // private formBuilder: FormBuilder
   ) {
     this.httpService.getHotels().subscribe(hotels => {
       console.log(hotels);
@@ -95,6 +97,13 @@ export class AppComponent implements OnDestroy, OnInit{
 
   ngOnInit(): void {
     this.sidenav.open();
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+  onSubmit(){
+ this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
   }
 }
 

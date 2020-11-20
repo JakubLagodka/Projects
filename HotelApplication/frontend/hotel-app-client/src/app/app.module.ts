@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { GreetingComponent } from './greeting/greeting.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     NotFoundComponent,
     UserListComponent,
     RegisterComponent,
-    CalendarComponent
+    CalendarComponent,
+    GreetingComponent
   ],
   imports: [
     BrowserModule,
