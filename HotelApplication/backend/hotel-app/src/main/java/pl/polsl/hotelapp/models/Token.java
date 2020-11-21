@@ -1,6 +1,7 @@
 package pl.polsl.hotelapp.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Token {
@@ -11,8 +12,11 @@ public class Token {
 
     private String value;
 
+    private Date expirationDate;
+
     @OneToOne
     private User user;
+
 
     public Long getTokenId() {
         return tokenId;
@@ -36,5 +40,13 @@ public class Token {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
     }
 }

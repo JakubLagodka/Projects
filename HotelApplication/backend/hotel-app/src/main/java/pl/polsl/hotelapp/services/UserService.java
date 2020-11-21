@@ -1,5 +1,7 @@
 package pl.polsl.hotelapp.services;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.polsl.hotelapp.models.Token;
@@ -72,4 +74,8 @@ public class UserService {
         userRepo.deleteById(id);
     }
 
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        //todo throw if not exist - obsługa błędów
+        return userRepo.findByUsername(s).get();
+    }
 }
