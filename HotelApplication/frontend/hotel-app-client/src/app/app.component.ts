@@ -6,6 +6,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { HttpService } from './services/http.service';
 import {MatSidenav} from '@angular/material/sidenav';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
 
 @Component({
@@ -24,6 +25,11 @@ export class AppComponent implements OnDestroy, OnInit{
   formBuilder: FormBuilder;
   reason = '';
   mode = new FormControl('over');
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
+  subscription: Subscription;
   close(reason: string) {
     this.reason = reason;
     this.sidenav.close();
@@ -39,7 +45,7 @@ export class AppComponent implements OnDestroy, OnInit{
       console.log(hotels);
       this.name = hotels;
   });
-  this.userSub = this.authenticationService.loggedUser.subscribe(x => this.loggedUser = x);
+    this.userSub = this.authenticationService.loggedUser.subscribe(x => this.loggedUser = x);
 }
  logout() {
     this.authenticationService.logout();
@@ -103,7 +109,20 @@ export class AppComponent implements OnDestroy, OnInit{
     });
   }
   onSubmit(){
- this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
+    this.loading = true;
+    this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
+   .pipe(first())
+   .subscribe(
+     data => {
+
+     },
+     error => {
+       this.error = error;
+       this.loading = false;
+     });
+    this.subscription = this.authenticationService.loggedUser.subscribe(x => {
+      this.router.navigate([this.returnUrl]);
+    });
   }
 }
 

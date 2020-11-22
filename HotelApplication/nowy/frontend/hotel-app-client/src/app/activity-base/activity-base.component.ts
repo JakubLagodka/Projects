@@ -1,0 +1,61 @@
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivityGet} from '../_models/activity-get';
+import {Status} from '../_models/status';
+import {ActivityType} from '../_models/activity-type';
+import {ActivityService} from '../_services/activity.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EditActivityComponent} from '../edit-activity/edit-activity.component';
+import {take} from 'rxjs/operators';
+import {StatusService} from '../_services/status.service';
+
+@Component({
+  selector: 'app-activity-base',
+  template: ``
+})
+export class ActivityBaseComponent implements OnInit {
+  @Input() activity: ActivityGet;
+  @Output() edited = new EventEmitter<ActivityGet>();
+  statuses: Status[];
+  activityTypes: ActivityType[];
+  openButtonLabel = 'Open';
+  isOpened = false;
+
+  constructor(
+    protected activityService: ActivityService,
+    private statusService: StatusService,
+    protected modalService: NgbModal
+  ) { }
+
+  toggleOpen() {
+    this.isOpened = !this.isOpened;
+    this.openButtonLabel = (this.isOpened ? 'Close' : 'Open');
+    if(!this.activityTypes)
+      this.activityService.getActivityTypes().pipe(take(1)).subscribe(x => {
+        this.activityTypes = x;
+      });
+  }
+
+  getActivityType() {
+    return this.activityTypes.find(x => x.code === this.activity.activityTypeCode);
+  }
+
+  getStatus(code: string): Status {
+    return this.statuses.find(x => x.code === code);
+  }
+
+  launchEdit() {
+    const newRequestModal = this.modalService.open(EditActivityComponent, {backdrop: 'static', size: 'lg'});
+    newRequestModal.componentInstance.activity = this.activity;
+    newRequestModal.result.then(x => {
+      this.activity = x;
+      this.edited.emit(this.activity);
+    }).catch(e => {});
+  }
+
+  ngOnInit(): void {
+    this.statusService.getStatuses().pipe(take(1)).subscribe(x => {
+      this.statuses = x;
+    });
+  }
+
+}

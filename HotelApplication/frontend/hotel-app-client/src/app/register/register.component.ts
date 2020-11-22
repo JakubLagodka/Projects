@@ -23,10 +23,10 @@ export class RegisterComponent implements OnInit {
   }
 
 onSubmit(){
-  this.userService.save(this.user).subscribe(result =>
+  /*this.userService.save(this.user).subscribe(result =>
     this.goToUserList());
 }
 goToUserList(){
-  this.router.navigate(['/users']);
+  this.router.navigate(['/users']);*/
 }
 }
