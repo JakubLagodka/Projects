@@ -1,4 +1,15 @@
+.navbar {
+  min-height: 8px;
+}
 
+.navbar-brand {
+  padding: 0 0px;
+  height: 20px;
+  line-height: 8px;
+}
 
-#cb_span{color:white;}
-
+.navbar-toggle {
+  /* (80px - button height 34px) / 2 = 23px */
+  margin-top: 23px;
+  padding: 9px 10px !important;
+}

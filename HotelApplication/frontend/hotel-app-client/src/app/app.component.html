@@ -1,82 +1,123 @@
-<button type="button" class="btn btn-success" (click)="getHotels()">getHotels</button>
-<button type="button" class="btn btn-success"(click)="getHotel()">getHotel</button>
-<button type="button" class="btn btn-success"(click)="addHotel()">addHotel</button>
-<button type="button" class="btn btn-success"(click)="updateHotel()">updateHotel</button>
-<button type="button" class="btn btn-success"(click)="deleteHotel()">deleteHotel</button>
-<button type="button" class="btn btn-success"(click)="changeHotel()">changeHotel</button>
-<!-- Creates a layout with a left-positioned sidenav and explicit content. -->
-<mat-sidenav-container  class="example-container" >
-  <mat-sidenav #sidenav mode="side" [opened]="true" (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
-    <app-calendar></app-calendar>
+﻿
 
+<mat-sidenav-container  class="example-container" >
+  <mat-sidenav #sidenav mode="side" [opened]="true" (keydown.escape)="this.sidenav.close()" disableClose>
+
+    <ul class="navbar-nav ml-auto">
+      <a id="closePanel" class="nav-item nav-link  text-center " style="color: dimgray; cursor: pointer" (click)=" this.sidenav.close()"> X zamknij panel rezerwacji</a>
+      <app-side-pannel></app-side-pannel>
+    </ul>
   </mat-sidenav>
   <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.open()">Open</button></p>
-    <p>Closed due to: {{reason}}</p>
-    <nav class="navbar navbar-expand navbar-dark bg-dark py-3">
-  <div class="container">
-  <div class="navbar-brand">HotelSite</div>
-  <ul class="navbar-nav ml-auto">
-    <li><a class="nav-item nav-link" routerLink="/">Nie jesteś zalogowany - zaloguj się</a></li>
-    <li class="nav-item text-light pt-2 pr-5" *ngIf="loggedUser">Logged in as {{loggedUser.name}} {{loggedUser.surname}},  {{loggedUser.role}}</li>
-    <li><a class="nav-item nav-link" routerLink="/">Home</a></li>
-    <li *ngIf="authenticationService.isUserLoggedIn"><a class="nav-item nav-link" (click)="logout()">Logout</a></li>
-  </ul>
-  </div>
-</nav>
-    <nav class="navbar navbar-expand navbar-dark bg-dark py-3">
-      <div class="container">
-        <div class="navbar-brand"></div>
-        <ul class="navbar-nav ml-auto">
-            <input type="login" id="username"  class="form-control" placeholder="login" required autofocus>
-            <label for="password" class="sr-only">Hasło</label>
-            <input type="password" id="password" class="form-control" placeholder="Hasło" required>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit" style="height:40px;width:300px;font-size:small" value="Login">Zaloguj się</button>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+      <div class="container"  >
+        <ul class="navbar-nav ">
+          <a id="openPanel" class="nav-item nav-link  text-center "style="cursor: pointer" (click)=" this.sidenav.open()">otwórz panel rezerwacji</a>
+        </ul>
+      </div>
+
+    </nav>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+
+
+
+      <div class="col-md-4 col-12 offset-md-4 mt-1 text-center">
+        <div class="navbar-brand"  *ngIf="!authenticationService.isUserLoggedIn">Witaj na stronie hotelowej! Nie jesteś zalogowany - zaloguj się!</div>
+        <div class="navbar-brand"  *ngIf="authenticationService.isUserLoggedIn">Zalogowano jako {{loggedUser.name}} {{loggedUser.surname}},  {{loggedUser.roleCode}}</div>
+
+        <ul class="navbar-nav ml-auto">
+          <div class="navbar-brand"></div>
+
+
+
+          <li  class="col-md-20 col-20 offset-md-4 mt-5 text-center" *ngIf="authenticationService.isUserLoggedIn"><a class="btn btn-info btn-block" (click)="logout()">Wyloguj się</a></li>
         </ul>
       </div>
     </nav>
-    <nav class="navbar navbar-expand navbar-dark bg-dark py-3">
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
       <div class="container">
-        <ul class="navbar-nav ml-auto">
-          <a id="forgotPassword" class="nav-item nav-link" routerLink="/" style="position: absolute;left: 10px;">Zapomniałem hasła</a>
-          <div id="lower" class="checkbox mb-3">
 
-            <label>
-              <input type="checkbox" value="remember-me"  style="color:white"><span id="cb_span"> Pamiętaj mnie</span>
-            </label>
+        <ul class="navbar-nav  ml-auto">
 
 
-          </div>
 
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"   *ngIf="!authenticationService.isUserLoggedIn" >
+            <a class="form-group col-md-5 col-12  mt-50 text-center " style="position: relative; float: left">
+              <input type="login" id="username"  formControlName="username" class="form-control"  size="100" placeholder="nazwa użytkownika"   [ngClass]="{ 'is-invalid': submitted && this.loginForm.controls.username.errors }">
+              <div *ngIf="submitted && this.loginForm.controls.username.errors" class="invalid-feedback">
+                <div *ngIf="this.loginForm.controls.username.errors.required">nazwa użytkownika jest wymagana do zalogowania się</div>
+              </div>
+            </a>
+            <a class="form-group  col-md-5 col-12 mt-50 text-center" style="float: left">
+              <input  type="password" formControlName="password"  id="password" class="form-control " size="100"  placeholder="Hasło"  [ngClass]="{ 'is-invalid': submitted && this.loginForm.controls.password.errors }">
+              <div *ngIf="submitted && this.loginForm.controls.password.errors" class="invalid-feedback">
+                <div *ngIf="this.loginForm.controls.password.errors.required">hasło jest wymagane do zalogowania się</div>
+              </div>
+            </a>
 
-          <li class="nav-item text-light pt-2 pr-5" *ngIf="loggedUser">Logged in as {{loggedUser.name}} {{loggedUser.surname}},  {{loggedUser.role}}</li>
+              <button [disabled]="loading" class="btn col-md-2 col-12 mt-50 text-center btn-info btn-block" >
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Zaloguj się
+              </button>
 
-          <li *ngIf="authenticationService.isUserLoggedIn"><a class="nav-item nav-link" (click)="logout()">Logout</a></li>
+            <div class="form-group col-md-40 col-12 mt-50 text-center " style="position: relative; color: white">
+              <input type="checkbox"value="remember-me"  style="position: relative;  "><span id="cb_span"> Pamiętaj mnie</span>
+            </div>
+
+          </form>
         </ul>
       </div>
     </nav>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item">
-              <a routerLink="/users" class="btn btn-info">List Users</a>
-                </li>
-            <li class="list-inline-item">
-              <a routerLink="/adduser" class="btn btn-info">Add User</a>
-                </li>
-          </ul>
-        </div>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1" *ngIf="!authenticationService.isUserLoggedIn">
+
+      <div class="container" >
+
+        <ul class="navbar-nav ">
+
+          <a id="forgotPassword" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/" >Nie masz konta? Zarejestruj się</a>
+
+
+          <a id="register" class="nav-item nav-link col-md-40 col-4 mt-1 text-right " routerLink="/" style="position: absolute; left: 60%;  " >Zapomniałem hasła</a>
+
+          <p></p>
+
+        </ul>
       </div>
+    </nav>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+      <div class="container"  >
+        <ul class="navbar-nav ">
+          <a id="home" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/" >Wróć do strony głównej</a>
+        </ul>
+      </div>
+
+    </nav>
+
+    <div class="container">
       <router-outlet></router-outlet>
     </div>
-  </div>
-</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card bg-dark my-5">
+            <div class="card-body">
+              <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+              <ul class="text-center list-inline py-3">
+                <li class="list-inline-item">
+                  <a routerLink="/users" class="btn btn-info">List Users</a>
+                </li>
+                <li class="list-inline-item">
+                  <a routerLink="/adduser" class="btn btn-info">Add User</a>
+                </li>
+              </ul>
+            </div>
+          </div>
 
+        </div>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+

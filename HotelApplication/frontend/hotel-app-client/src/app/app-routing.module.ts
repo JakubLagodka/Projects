@@ -1,30 +1,23 @@
-import { AuthGuard } from './auth/auth.guard';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Route } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { NoPermissionComponent } from './no-permission/no-permission.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { UserListComponent } from './model-lists/user-list.component';
-import { RegisterComponent } from './register/register.component';
-import { CalendarComponent } from './calendar/calendar/calendar.component';
-const APP_ROUTES: Route[] = [
-  { path: '', pathMatch: 'full', redirectTo: 'home', canActivate: [AuthGuard] },
+import { AuthGuard } from './_helpers/auth.guard';
+import {ObjectsComponent} from './manager/objects/objects.component';
+import {ModalComponent} from './modal/modal.component';
+import {ReservationComponent} from './reservation/reservation.component';
+const routes: Routes = [
+  { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
-  {  path: 'not-found', component: NotFoundComponent },
-  { path: 'no-permission', component: NoPermissionComponent },
-  { path: 'users', component: UserListComponent },
-  { path: 'adduser', component: RegisterComponent },
-
-  { path: '**', redirectTo: '' }
+  { path: 'objects', component: ObjectsComponent, canActivate: [AuthGuard] },
+  { path: 'not-authorized', component: ModalComponent },
+  { path: 'reservation', component: ReservationComponent },
+  // otherwise redirect to home
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(APP_ROUTES, { relativeLinkResolution: 'legacy' })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
