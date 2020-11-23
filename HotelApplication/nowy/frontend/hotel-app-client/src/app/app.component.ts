@@ -25,17 +25,14 @@ export class AppComponent implements OnInit, OnDestroy {
   returnUrl: string;
   error = '';
   subscription: Subscription;
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
-  }
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     public authenticationService: AuthenticationService
   ) {
-    // this.userSub = this.authenticationService.currentUser.subscribe(x => this.loggedUser = x);
+     this.userSub = this.authenticationService.currentUser.subscribe(x => this.loggedUser = x);
 // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -76,7 +73,13 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
   logout() {
+    this.loading = false;
+    this.submitted = false;
     this.authenticationService.logout();
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
     this.router.navigate(['/login']);
   }
 

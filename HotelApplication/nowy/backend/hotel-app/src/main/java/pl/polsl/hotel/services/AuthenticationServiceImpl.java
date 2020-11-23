@@ -20,8 +20,8 @@ import java.util.function.Function;
 @Component
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    private static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60; // 5h
-    private static final String secret = "halorozwoj2";
+    private static final long JWT_TOKEN_VALIDITY = 2 * 3600; // 2 godziny
+    private static final String secret = "jakieshaslo";
 
     private final UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
