@@ -25,16 +25,16 @@ import { AdminComponent } from './admin/admin.component';
 import { NewUserComponent } from './admin/new-user/new-user.component';
 import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CalendarMaterialComponent } from './calendar/calendar/calendar.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { GreetingComponent } from './greeting/greeting.component';
 import { SidePannelComponent } from './side-pannel/side-pannel/side-pannel.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ReservationComponent } from './reservation/reservation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,10 +57,10 @@ import { CalendarComponent } from './calendar/calendar.component';
     AdminComponent,
     NewUserComponent,
     EditUserComponent,
-    CalendarMaterialComponent,
     GreetingComponent,
     SidePannelComponent,
-    CalendarComponent
+    CalendarComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +76,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     MatSidenavModule,
     MatCheckboxModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

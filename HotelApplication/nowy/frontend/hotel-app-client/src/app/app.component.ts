@@ -80,7 +80,6 @@ export class AppComponent implements OnInit, OnDestroy {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.router.navigate(['/login']);
   }
 
   ngOnDestroy(): void {
