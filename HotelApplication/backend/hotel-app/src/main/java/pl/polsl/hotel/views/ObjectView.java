@@ -1,15 +1,10 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class ObjectView {
 
     @ApiModelProperty(required = true)
@@ -62,5 +57,18 @@ public class ObjectView {
 
     public void setClientId(@NonNull Long clientId) {
         this.clientId = clientId;
+    }
+
+    public ObjectView() {
+    }
+
+    @Override
+    public String toString() {
+        return "ObjectView{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", objectTypeCode='" + objectTypeCode + '\'' +
+                ", clientId=" + clientId +
+                '}';
     }
 }

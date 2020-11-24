@@ -1,9 +1,5 @@
 package pl.polsl.hotel.models;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -13,10 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "activities")
-@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@Data
-@NoArgsConstructor
-@ToString
+
 public class Activity extends Action {
 
     @ManyToOne
@@ -30,5 +23,44 @@ public class Activity extends Action {
     @ManyToOne(optional = false)
     @NonNull
     private Request request;
+
+    public Activity() {
+    }
+
+    @Nullable
+    public Worker getWorker() {
+        return worker;
+    }
+
+    public void setWorker(@Nullable Worker worker) {
+        this.worker = worker;
+    }
+
+    @Nullable
+    public ActivityType getActivityType() {
+        return activityType;
+    }
+
+    public void setActivityType(@Nullable ActivityType activityType) {
+        this.activityType = activityType;
+    }
+
+    @NonNull
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(@NonNull Request request) {
+        this.request = request;
+    }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "worker=" + worker +
+                ", activityType=" + activityType +
+                ", request=" + request +
+                '}';
+    }
 
 }

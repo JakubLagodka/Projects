@@ -1,13 +1,15 @@
 package pl.polsl.hotel.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import pl.polsl.hotel.exceptions.NotFoundException;
-import pl.polsl.hotel.models.IdEntity;
 
-public interface BaseIdRepository<T extends IdEntity> extends JpaRepository<T, Long> {
+import pl.polsl.hotel.models.Room;
 
-    default T getById(Long id) {
+
+@Repository
+public interface RoomRepository extends JpaRepository<Room, Long> {
+    default Room getById(Long id) {
         return findById(id).orElseThrow(() -> new NotFoundException(id));
     }
-
 }

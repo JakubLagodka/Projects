@@ -1,15 +1,10 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class UserPost {
 
     @ApiModelProperty(required = true, example = "John")
@@ -36,5 +31,72 @@ public class UserPost {
     @Nullable
     private String roleCode;
 
+    public UserPost() {
+    }
 
+    @NonNull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@NonNull String name) {
+        this.name = name;
+    }
+
+    @NonNull
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(@NonNull String surname) {
+        this.surname = surname;
+    }
+
+    @NonNull
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@NonNull String email) {
+        this.email = email;
+    }
+
+    @NonNull
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(@NonNull String username) {
+        this.username = username;
+    }
+
+    @NonNull
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NonNull String password) {
+        this.password = password;
+    }
+
+    @Nullable
+    public String getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(@Nullable String roleCode) {
+        this.roleCode = roleCode;
+    }
+
+    @Override
+    public String toString() {
+        return "UserPost{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roleCode='" + roleCode + '\'' +
+                '}';
+    }
 }

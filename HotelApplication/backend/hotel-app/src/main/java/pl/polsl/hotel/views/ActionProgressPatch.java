@@ -1,14 +1,9 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.Nullable;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class ActionProgressPatch {
 
     @ApiModelProperty(example = "OPN")
@@ -19,4 +14,32 @@ public class ActionProgressPatch {
     @Nullable
     private String result;
 
+    public ActionProgressPatch() {
+    }
+
+    @Nullable
+    public String getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(@Nullable String statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    @Nullable
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(@Nullable String result) {
+        this.result = result;
+    }
+
+    @Override
+    public String toString() {
+        return "ActionProgressPatch{" +
+                "statusCode='" + statusCode + '\'' +
+                ", result='" + result + '\'' +
+                '}';
+    }
 }

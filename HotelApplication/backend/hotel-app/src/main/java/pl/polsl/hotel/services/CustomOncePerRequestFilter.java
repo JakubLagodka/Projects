@@ -18,9 +18,9 @@ import java.io.IOException;
 public class CustomOncePerRequestFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
-    private final AuthenticationServiceImpl authenticationService;
+    private final AuthenticationService authenticationService;
 
-    public CustomOncePerRequestFilter(CustomUserDetailsService userDetailsService, AuthenticationServiceImpl authenticationService) {
+    public CustomOncePerRequestFilter(CustomUserDetailsService userDetailsService, AuthenticationService authenticationService) {
         this.userDetailsService = userDetailsService;
         this.authenticationService = authenticationService;
     }

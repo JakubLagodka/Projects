@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/object")
 public class ObjectController {
 
-    private final ObjectService objectService;
+    private ObjectService objectService;
 
     public ObjectController(ObjectService objectService) {
         this.objectService = objectService;

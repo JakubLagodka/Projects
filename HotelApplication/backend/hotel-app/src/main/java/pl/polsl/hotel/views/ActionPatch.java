@@ -1,14 +1,9 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.Nullable;
 
-@Getter
-@NoArgsConstructor
-@ToString
+
 public abstract class ActionPatch {
 
     @ApiModelProperty(example = "Fix integer types")
@@ -23,4 +18,23 @@ public abstract class ActionPatch {
         this.hasDescription = true;
     }
 
+    @Nullable
+    public String getDescription() {
+        return description;
+    }
+
+    public Boolean getHasDescription() {
+        return hasDescription;
+    }
+
+    public ActionPatch() {
+    }
+
+    @Override
+    public String toString() {
+        return "ActionPatch{" +
+                "description='" + description + '\'' +
+                ", hasDescription=" + hasDescription +
+                '}';
+    }
 }

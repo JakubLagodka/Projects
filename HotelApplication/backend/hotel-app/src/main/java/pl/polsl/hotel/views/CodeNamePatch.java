@@ -1,18 +1,31 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.Nullable;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class CodeNamePatch {
 
     @ApiModelProperty(example = "Programming")
     @Nullable
     private String name;
 
+    public CodeNamePatch() {
+    }
+
+    @Nullable
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@Nullable String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "CodeNamePatch{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

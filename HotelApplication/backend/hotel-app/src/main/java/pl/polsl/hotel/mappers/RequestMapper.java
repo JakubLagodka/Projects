@@ -1,19 +1,38 @@
 package pl.polsl.hotel.mappers;
 
-import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
 import pl.polsl.hotel.models.Request;
 import pl.polsl.hotel.views.RequestPatch;
 import pl.polsl.hotel.views.RequestPost;
 import pl.polsl.hotel.views.RequestView;
 
-public interface RequestMapper {
+@Component
+public class RequestMapper  {
 
-    @NonNull
-    Request map(RequestPost requestPost);
+    private final ActionMapper actionMapper;
 
-    void map(RequestPatch requestPatch, Request request);
+    public RequestMapper(ActionMapper actionMapper) {
+        this.actionMapper = actionMapper;
+    }
 
-    @NonNull
-    RequestView map(Request request);
+
+    public Request map(RequestPost requestPost) {
+        Request request = new Request();
+        actionMapper.map(requestPost, request);
+        return request;
+    }
+
+
+    public void map(RequestPatch requestPatch, Request request) {
+        actionMapper.map(requestPatch, request);
+    }
+
+
+    public RequestView map(Request request) {
+        RequestView requestView = new RequestView();
+        actionMapper.map(request, requestView);
+        requestView.setObjectId(request.getObject().getId());
+        return requestView;
+    }
 
 }

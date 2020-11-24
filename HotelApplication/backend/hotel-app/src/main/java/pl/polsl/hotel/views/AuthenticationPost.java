@@ -1,14 +1,9 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.NonNull;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class AuthenticationPost {
 
     @ApiModelProperty(required = true, example = "admin")
@@ -19,4 +14,32 @@ public class AuthenticationPost {
     @NonNull
     private String password;
 
+    public AuthenticationPost() {
+    }
+
+    @NonNull
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(@NonNull String username) {
+        this.username = username;
+    }
+
+    @NonNull
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NonNull String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthenticationPost{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

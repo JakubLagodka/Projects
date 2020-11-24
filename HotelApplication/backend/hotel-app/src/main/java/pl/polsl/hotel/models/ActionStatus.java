@@ -1,25 +1,18 @@
 package pl.polsl.hotel.models;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.NonNull;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
-@Data
-@NoArgsConstructor
-@ToString
 @Entity
 @Table(name = "action_statuses")
 public class ActionStatus extends CodeEntity {
+
+    @Id
+    @NonNull
+    private String code;
 
     @Column(name = "name", nullable = false)
     @NonNull
@@ -33,4 +26,52 @@ public class ActionStatus extends CodeEntity {
     @NonNull
     private Set<ActionStatus> parentActionStatuses = new HashSet<>();
 
+    public ActionStatus() {
+    }
+
+    @NonNull
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(@NonNull String code) {
+        this.code = code;
+    }
+
+    @NonNull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@NonNull String name) {
+        this.name = name;
+    }
+
+    @NonNull
+    public Set<ActionStatus> getChildActionStatuses() {
+        return childActionStatuses;
+    }
+
+    public void setChildActionStatuses(@NonNull Set<ActionStatus> childActionStatuses) {
+        this.childActionStatuses = childActionStatuses;
+    }
+
+    @NonNull
+    public Set<ActionStatus> getParentActionStatuses() {
+        return parentActionStatuses;
+    }
+
+    public void setParentActionStatuses(@NonNull Set<ActionStatus> parentActionStatuses) {
+        this.parentActionStatuses = parentActionStatuses;
+    }
+
+    @Override
+    public String toString() {
+        return "ActionStatus{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", childActionStatuses=" + childActionStatuses +
+                ", parentActionStatuses=" + parentActionStatuses +
+                '}';
+    }
 }

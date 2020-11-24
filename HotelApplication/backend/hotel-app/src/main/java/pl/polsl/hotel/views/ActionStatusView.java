@@ -1,16 +1,10 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.NonNull;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@ToString
 public class ActionStatusView {
 
     @ApiModelProperty(required = true, example = "OPN")
@@ -25,4 +19,42 @@ public class ActionStatusView {
     @NonNull
     private List<String> childrenCodes;
 
+    @NonNull
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(@NonNull String code) {
+        this.code = code;
+    }
+
+    @NonNull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@NonNull String name) {
+        this.name = name;
+    }
+
+    @NonNull
+    public List<String> getChildrenCodes() {
+        return childrenCodes;
+    }
+
+    public void setChildrenCodes(@NonNull List<String> childrenCodes) {
+        this.childrenCodes = childrenCodes;
+    }
+
+    public ActionStatusView() {
+    }
+
+    @Override
+    public String toString() {
+        return "ActionStatusView{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", childrenCodes=" + childrenCodes +
+                '}';
+    }
 }

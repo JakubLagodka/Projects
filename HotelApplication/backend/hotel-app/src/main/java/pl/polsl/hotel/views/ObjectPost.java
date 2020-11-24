@@ -1,14 +1,10 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 import org.springframework.lang.NonNull;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class ObjectPost {
 
     @ApiModelProperty(required = true, example = "IOS")
@@ -48,5 +44,17 @@ public class ObjectPost {
 
     public void setClientId(@NonNull Long clientId) {
         this.clientId = clientId;
+    }
+
+    public ObjectPost() {
+    }
+
+    @Override
+    public String toString() {
+        return "ObjectPost{" +
+                "name='" + name + '\'' +
+                ", objectTypeCode='" + objectTypeCode + '\'' +
+                ", clientId=" + clientId +
+                '}';
     }
 }

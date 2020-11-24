@@ -1,19 +1,42 @@
 package pl.polsl.hotel.mappers;
 
-import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
 import pl.polsl.hotel.models.Activity;
 import pl.polsl.hotel.views.ActivityPatch;
 import pl.polsl.hotel.views.ActivityPost;
 import pl.polsl.hotel.views.ActivityView;
 
-public interface ActivityMapper {
+@Component
+public class ActivityMapper{
 
-    @NonNull
-    Activity map(ActivityPost activityPost);
+    private final ActionMapper actionMapper;
 
-    void map(ActivityPatch activityPatch, Activity activity);
+    public ActivityMapper(ActionMapper actionMapper) {
+        this.actionMapper = actionMapper;
+    }
 
-    @NonNull
-    ActivityView map(Activity activity);
+
+    public Activity map(ActivityPost activityPost) {
+        Activity activity = new Activity();
+        actionMapper.map(activityPost, activity);
+        return activity;
+    }
+
+
+    public void map(ActivityPatch activityPatch, Activity activity) {
+        actionMapper.map(activityPatch, activity);
+    }
+
+
+    public ActivityView map(Activity activity) {
+        ActivityView activityView = new ActivityView();
+        actionMapper.map(activity, activityView);
+        if (activity.getWorker() != null)
+            activityView.setWorkerId(activity.getWorker().getId());
+        activityView.setRequestId(activity.getRequest().getId());
+        if (activity.getActivityType() != null)
+            activityView.setActivityTypeCode(activity.getActivityType().getCode());
+        return activityView;
+    }
 
 }

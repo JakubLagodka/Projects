@@ -1,12 +1,9 @@
 package pl.polsl.hotel.views;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
 import org.springframework.lang.Nullable;
 
-@Data
-@NoArgsConstructor
-@ToString
+
 public class UserPatch {
 
     @ApiModelProperty(example = "John")
@@ -21,7 +18,7 @@ public class UserPatch {
     @Nullable
     private String email;
 
-    @Setter(AccessLevel.NONE)
+
     @ApiModelProperty(example = "MAN", position = 3)
     @Nullable
     private String roleCode;
@@ -38,5 +35,67 @@ public class UserPatch {
         this.hasRoleCode = true;
     }
 
+    public UserPatch() {
+    }
 
+    @Nullable
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@Nullable String name) {
+        this.name = name;
+    }
+
+    @Nullable
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(@Nullable String surname) {
+        this.surname = surname;
+    }
+
+    @Nullable
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@Nullable String email) {
+        this.email = email;
+    }
+
+    @Nullable
+    public String getRoleCode() {
+        return roleCode;
+    }
+
+    public Boolean getHasRoleCode() {
+        return hasRoleCode;
+    }
+
+    public void setHasRoleCode(Boolean hasRoleCode) {
+        this.hasRoleCode = hasRoleCode;
+    }
+
+    @Nullable
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@Nullable String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UserPatch{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", roleCode='" + roleCode + '\'' +
+                ", hasRoleCode=" + hasRoleCode +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
