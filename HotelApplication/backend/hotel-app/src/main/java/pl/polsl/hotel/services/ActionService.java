@@ -5,7 +5,6 @@ import pl.polsl.hotel.exceptions.BadRequestException;
 import pl.polsl.hotel.models.Action;
 import pl.polsl.hotel.models.ActionStatus;
 import pl.polsl.hotel.repositories.StatusRepository;
-import pl.polsl.hotel.views.ActionProgressPatch;
 
 import java.util.Date;
 
@@ -19,14 +18,14 @@ public class ActionService {
     }
 
 
-    public <T extends Action> void patchAction(ActionProgressPatch actionProgressPatch, T action) {
-        if (actionProgressPatch.getStatusCode() != null) {
-            ActionStatus actionStatus = statusRepository.getById(actionProgressPatch.getStatusCode());
+    public <T extends Action> void patchAction(ActionStatus actionStatus, T action) {
+        if (actionStatus.getCode() != null) {
+            ActionStatus ret_actionStatus = statusRepository.getById(actionStatus.getCode());
             if (!action.getActionStatus().getChildActionStatuses().contains(actionStatus))
                 throw new BadRequestException("Status broke requested flow");
-            action.setActionStatus(actionStatus);
+            action.setActionStatus(ret_actionStatus);
             if (actionStatus.getChildActionStatuses().isEmpty()) {
-                action.setResult(actionProgressPatch.getResult());
+                action.setResult(actionStatus.getCode());
                 action.setEndDate(new Date());
             }
         }

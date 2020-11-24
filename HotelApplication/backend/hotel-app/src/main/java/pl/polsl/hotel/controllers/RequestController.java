@@ -3,11 +3,10 @@ package pl.polsl.hotel.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import pl.polsl.hotel.models.ActionStatus;
+import pl.polsl.hotel.models.Request;
 import pl.polsl.hotel.services.RequestService;
-import pl.polsl.hotel.views.ActionProgressPatch;
-import pl.polsl.hotel.views.RequestPatch;
-import pl.polsl.hotel.views.RequestPost;
-import pl.polsl.hotel.views.RequestView;
+
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
@@ -24,13 +23,13 @@ public class RequestController {
 
     @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public RequestView createRequest(@ApiIgnore @RequestHeader(value = "Authorization") String token,
-                                     @RequestBody RequestPost requestPost) {
-        return requestService.createRequest(token, requestPost);
+    public Request createRequest(@ApiIgnore @RequestHeader(value = "Authorization") String token,
+                                 @RequestBody Request request) {
+        return requestService.createRequest(token, request);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<RequestView> getRequests(@ApiIgnore @RequestHeader(value = "Authorization") String token,
+    public List<Request> getRequests(@ApiIgnore @RequestHeader(value = "Authorization") String token,
                                          @RequestParam(required = false) Long objectId) {
         if (objectId != null)
             return requestService.getRequests(token, objectId);
@@ -39,17 +38,17 @@ public class RequestController {
     }
 
     @PatchMapping(value = "/progress/{requestId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public RequestView updateRequestProgress(@ApiIgnore @RequestHeader(value = "Authorization") String token,
+    public Request updateRequestProgress(@ApiIgnore @RequestHeader(value = "Authorization") String token,
                                              @PathVariable Long requestId,
-                                             @RequestBody ActionProgressPatch actionProgressPatch) {
-        return requestService.getPatchedRequest(token, requestId, actionProgressPatch);
+                                             @RequestBody ActionStatus actionStatus) {
+        return requestService.getPatchedRequest(token, requestId, actionStatus);
     }
 
     @PatchMapping(value = "/{requestId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public RequestView updateRequest(@ApiIgnore @RequestHeader(value = "Authorization") String token,
+    public Request updateRequest(@ApiIgnore @RequestHeader(value = "Authorization") String token,
                                      @PathVariable Long requestId,
-                                     @RequestBody RequestPatch requestPatch) {
-        return requestService.getPatchedRequest(token, requestId, requestPatch);
+                                     @RequestBody ActionStatus actionStatus) {
+        return requestService.getPatchedRequest(token, requestId, actionStatus);
     }
 
     @ResponseStatus(value = HttpStatus.NO_CONTENT)

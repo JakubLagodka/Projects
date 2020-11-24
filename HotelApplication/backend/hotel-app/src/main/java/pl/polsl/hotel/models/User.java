@@ -1,5 +1,6 @@
 package pl.polsl.hotel.models;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -39,7 +40,17 @@ public class User  {
     @Nullable
     private Role role;
 
+
     public User() {
+    }
+
+
+    public String getRoleCode() {
+        return role.getCode();
+    }
+
+    public void setRoleCode(@Nullable String roleCode) {
+        this.role.setCode(roleCode);
     }
 
     public Long getId() {

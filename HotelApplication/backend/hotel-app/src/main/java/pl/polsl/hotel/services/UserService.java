@@ -6,13 +6,9 @@ import org.springframework.stereotype.Component;
 import pl.polsl.hotel.exceptions.ForbiddenAccessException;
 import pl.polsl.hotel.exceptions.NotImplementedException;
 import pl.polsl.hotel.exceptions.UsernameAlreadyUsedException;
-import pl.polsl.hotel.mappers.UserMapper;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.RoleRepository;
 import pl.polsl.hotel.repositories.UserRepository;
-import pl.polsl.hotel.views.UserPatch;
-import pl.polsl.hotel.views.UserPost;
-import pl.polsl.hotel.views.UserView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,30 +17,28 @@ import java.util.stream.Collectors;
 public class UserService implements  StartUpFiller {
 
     private final UserRepository userRepository;
-    private final AuthenticationService authenticationService;
+    private final AuthenticationTokenService authenticationService;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final UserMapper userMapper;
 
-    public UserService(UserRepository userRepository, AuthenticationService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder, UserMapper userMapper) {
+    public UserService(UserRepository userRepository, AuthenticationTokenService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.authenticationService = authenticationService;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-        this.userMapper = userMapper;
     }
 
 
-    public UserView createUser(String token, UserPost userPost) {
+    public UserView createUser(String token, User user) {
         User currentUser = authenticationService.getUserFromToken(token);
         if (!(currentUser instanceof Admin))
             throw new ForbiddenAccessException(Admin.class);
-        if (userRepository.findByUsername(userPost.getUsername()).isPresent())
-            throw new UsernameAlreadyUsedException(userPost.getUsername());
-        User user = userMapper.map(userPost);
-        if (userPost.getRoleCode() != null)
-            user.setRole(roleRepository.getById(userPost.getRoleCode()));
-        UserView userView = userMapper.map(userRepository.save(user));
+        if (userRepository.findByUsername(user.getUsername()).isPresent())
+            throw new UsernameAlreadyUsedException(user.getUsername());
+
+        if (user.getRole().getCode() != null)
+            user.setRole(roleRepository.getById(user.getRole().getCode()));
+        UserView userView = map(userRepository.save(user));
         if (userView.getRoleCode() != null)
             userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
         return userView;
@@ -52,28 +46,28 @@ public class UserService implements  StartUpFiller {
 
 
     public UserView getUser(String token) {
-        return userMapper.map(authenticationService.getUserFromToken(token));
+        return map(authenticationService.getUserFromToken(token));
     }
 
 
-    public UserView getPatchedUser(String token, Long userId, UserPatch userPatch) {
+    public UserView getPatchedUser(String token, Long userId, User user) {
         User currentUser = authenticationService.getUserFromToken(token);
         User userToUpdate = userRepository.getById(userId);
         if (!(currentUser instanceof Admin))
             throw new ForbiddenAccessException(Admin.class);
         if (userToUpdate instanceof Admin)
             throw new ForbiddenAccessException("Cannot change other administrator");
-        userMapper.map(userPatch, userToUpdate);
-        if(userPatch.getPassword() != null)
-            userToUpdate.setPassword(bCryptPasswordEncoder.encode(userPatch.getPassword()));
-        if(userPatch.getHasRoleCode()) {
-            if(userPatch.getRoleCode() != null)
-                userToUpdate.setRole(roleRepository.getById(userPatch.getRoleCode()));
+
+        if(user.getPassword() != null)
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+            if(user.getRole().getCode() != null)
+                user.setRole(roleRepository.getById(user.getRole().getCode()));
             else
-                userToUpdate.setRole(null);
-            userRepository.updateRole(userToUpdate.getId(), getClassName(userPatch.getRoleCode()));
-        }
-        return userMapper.map(userRepository.save(userToUpdate));
+                user.setRole(null);
+            userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
+
+            return map(userRepository.save(user));
     }
 
     private String getClassName(@Nullable String roleCode) {
@@ -96,10 +90,9 @@ public class UserService implements  StartUpFiller {
 
     public List<UserView> getUsers() {
         List<User> users = userRepository.findAll();
-        return users.stream().map(userMapper::map).collect(Collectors.toList());
+        return users.stream().map(this::map).collect(Collectors.toList());
     }
 
-    @Override
     public void createInitialData() throws RuntimeException {
         Admin admin = new Admin();
         admin.setEmail("primaryAdmin@wp.pl");
@@ -138,4 +131,15 @@ public class UserService implements  StartUpFiller {
         userRepository.save(manager);
     }
 
+    public UserView map(User user) {
+        UserView userView = new UserView();
+        if (user.getRole() != null)
+            userView.setRoleCode(user.getRole().getCode());
+        userView.setId(user.getId());
+        userView.setEmail(user.getEmail());
+        userView.setName(user.getName());
+        userView.setSurname(user.getSurname());
+        userView.setUsername(user.getUsername());
+        return userView;
+    }
 }

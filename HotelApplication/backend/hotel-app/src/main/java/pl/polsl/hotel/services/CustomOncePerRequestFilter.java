@@ -18,11 +18,11 @@ import java.io.IOException;
 public class CustomOncePerRequestFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
-    private final AuthenticationService authenticationService;
+    private final AuthenticationTokenService authenticationTokenService;
 
-    public CustomOncePerRequestFilter(CustomUserDetailsService userDetailsService, AuthenticationService authenticationService) {
+    public CustomOncePerRequestFilter(CustomUserDetailsService userDetailsService, AuthenticationTokenService authenticationTokenService) {
         this.userDetailsService = userDetailsService;
-        this.authenticationService = authenticationService;
+        this.authenticationTokenService = authenticationTokenService;
     }
 
     @Override
@@ -32,10 +32,10 @@ public class CustomOncePerRequestFilter extends OncePerRequestFilter {
             response.setHeader("Access-Control-Allow-Headers", "*");
             response.setHeader("Access-Control-Allow-Methods", "*");
             final String token = request.getHeader("Authorization");
-            String username = authenticationService.getUsernameFromToken(token);
+            String username = authenticationTokenService.getUsernameFromToken(token);
             if (SecurityContextHolder.getContext().getAuthentication() == null) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                if (authenticationService.validateToken(token, userDetails)) {
+                if (authenticationTokenService.validateToken(token, userDetails)) {
                     UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);

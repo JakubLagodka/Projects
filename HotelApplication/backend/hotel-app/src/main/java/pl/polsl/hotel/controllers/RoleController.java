@@ -4,10 +4,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.polsl.hotel.models.Role;
 import pl.polsl.hotel.services.RoleService;
-import pl.polsl.hotel.views.CodeNameView;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/role")
@@ -20,7 +18,7 @@ public class RoleController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CodeNameView> getRoles() {
+    public Iterable<Role> getRoles() {
         return roleService.getRoles();
     }
 

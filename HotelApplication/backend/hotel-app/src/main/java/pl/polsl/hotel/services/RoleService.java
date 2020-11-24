@@ -1,30 +1,23 @@
 package pl.polsl.hotel.services;
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.mappers.CodeNameMapper;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.RoleRepository;
-import pl.polsl.hotel.views.CodeNameView;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class RoleService implements StartUpFiller {
 
     private final RoleRepository roleRepository;
-    private final CodeNameMapper codeNameMapper;
 
-    public RoleService(RoleRepository roleRepository, CodeNameMapper codeNameMapper) {
+    public RoleService(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
-        this.codeNameMapper = codeNameMapper;
     }
 
 
-    public List<CodeNameView> getRoles() {
-        List<Role> roles = roleRepository.findAll();
-        return roles.stream().map(codeNameMapper::map).collect(Collectors.toList());
+    public Iterable<Role> getRoles() {
+        return roleRepository.findAll();
     }
 
 

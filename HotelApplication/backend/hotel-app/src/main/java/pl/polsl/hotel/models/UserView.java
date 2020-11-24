@@ -1,6 +1,7 @@
-package pl.polsl.hotel.views;
+package pl.polsl.hotel.models;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -86,17 +87,5 @@ public class UserView {
 
     public void setRoleCode(@Nullable String roleCode) {
         this.roleCode = roleCode;
-    }
-
-    @Override
-    public String toString() {
-        return "UserView{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", roleCode='" + roleCode + '\'' +
-                '}';
     }
 }

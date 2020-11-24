@@ -1,4 +1,4 @@
-package pl.polsl.hotel.views;
+package pl.polsl.hotel.models;
 
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -6,8 +6,7 @@ import org.springframework.lang.NonNull;
 
 import java.util.Date;
 
-public class AuthenticationView {
-
+public class Token {
     @ApiModelProperty(required = true, example = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW5vIiwiZXhwIjoxNTc0OTQ1NDY3LCJpYXQiOjE1NzQ5Mjc0Njd9.1nVS9zoTiJ7ZRBLRsKwxf2rrcTxn6M6HfCRHNvnI5nC-52cvjtR0PiLMjU4XQaUkKPywttOi8OS6jeloHbQ8LA")
     @NonNull
     private String token;
@@ -17,7 +16,7 @@ public class AuthenticationView {
     @NonNull
     private Date expirationDate;
 
-    public AuthenticationView() {
+    public Token() {
     }
 
     @NonNull
@@ -40,7 +39,7 @@ public class AuthenticationView {
 
     @Override
     public String toString() {
-        return "AuthenticationView{" +
+        return "Token{" +
                 "token='" + token + '\'' +
                 ", expirationDate=" + expirationDate +
                 '}';

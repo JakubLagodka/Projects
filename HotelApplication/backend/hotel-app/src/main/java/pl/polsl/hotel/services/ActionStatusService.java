@@ -1,32 +1,27 @@
 package pl.polsl.hotel.services;
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.mappers.ActionStatusMapper;
 import pl.polsl.hotel.models.ActionStatus;
 import pl.polsl.hotel.repositories.StatusRepository;
-import pl.polsl.hotel.views.ActionStatusView;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Component
 public class ActionStatusService implements StartUpFiller {
 
     private final StatusRepository statusRepository;
-    private final ActionStatusMapper actionStatusMapper;
 
-    public ActionStatusService(StatusRepository statusRepository, ActionStatusMapper actionStatusMapper) {
+    public ActionStatusService(StatusRepository statusRepository) {
         this.statusRepository = statusRepository;
-        this.actionStatusMapper = actionStatusMapper;
-    }
+     }
 
 
-    public List<ActionStatusView> getAvailableStatuses() {
-        List<ActionStatus> actionStatuses = statusRepository.findAll();
-        return actionStatuses.stream().map(actionStatusMapper::map).collect(Collectors.toList());
+    public Iterable<ActionStatus> getAvailableStatuses() {
+        return statusRepository.findAll();
+
     }
 
 

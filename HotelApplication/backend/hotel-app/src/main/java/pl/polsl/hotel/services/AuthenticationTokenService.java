@@ -8,17 +8,16 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import pl.polsl.hotel.exceptions.NotAuthorizedException;
+import pl.polsl.hotel.models.Token;
 import pl.polsl.hotel.models.User;
 import pl.polsl.hotel.repositories.UserRepository;
-import pl.polsl.hotel.views.AuthenticationPost;
-import pl.polsl.hotel.views.AuthenticationView;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.function.Function;
 
 @Component
-public class AuthenticationService  {
+public class AuthenticationTokenService {
 
     private static final long JWT_TOKEN_VALIDITY = 2 * 3600; // 2 godziny
     private static final String secret = "jakieshaslo";
@@ -27,7 +26,7 @@ public class AuthenticationService  {
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService userDetailsService;
 
-    public AuthenticationService(UserRepository userRepository, AuthenticationManager authenticationManager, CustomUserDetailsService userDetailsService) {
+    public AuthenticationTokenService(UserRepository userRepository, AuthenticationManager authenticationManager, CustomUserDetailsService userDetailsService) {
         this.userRepository = userRepository;
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
@@ -72,15 +71,15 @@ public class AuthenticationService  {
     }
 
 
-    public AuthenticationView loginUser(AuthenticationPost authenticationPost) {
+    public Token loginUser(User user) {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationPost.getUsername(), authenticationPost.getPassword()));
-            UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationPost.getUsername());
-            String token = generateToken(userDetails);
-            AuthenticationView authenticationView = new AuthenticationView();
-            authenticationView.setToken(token);
-            authenticationView.setExpirationDate(getExpirationDateFromToken(token));
-            return authenticationView;
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+            UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+            String geretated_token = generateToken(userDetails);
+            Token token = new Token();
+            token.setToken(geretated_token);
+            token.setExpirationDate(getExpirationDateFromToken(geretated_token));
+            return token;
         }  catch (Exception e){
             throw new NotAuthorizedException("Wrong credentials");
         }

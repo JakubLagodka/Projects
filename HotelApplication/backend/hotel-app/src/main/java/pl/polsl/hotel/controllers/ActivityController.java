@@ -3,14 +3,10 @@ package pl.polsl.hotel.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import pl.polsl.hotel.models.Activity;
 import pl.polsl.hotel.services.ActivityService;
-import pl.polsl.hotel.views.ActionProgressPatch;
-import pl.polsl.hotel.views.ActivityPatch;
-import pl.polsl.hotel.views.ActivityPost;
-import pl.polsl.hotel.views.ActivityView;
-import springfox.documentation.annotations.ApiIgnore;
 
-import java.util.List;
+import springfox.documentation.annotations.ApiIgnore;
 
 @RestController
 @RequestMapping(value = "/activity")
@@ -22,10 +18,10 @@ public class ActivityController {
         this.activityService = activityService;
     }
 
-    @ResponseStatus(value = HttpStatus.CREATED)
+   /* @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ActivityView createActivity(@ApiIgnore @RequestHeader(value = "Authorization") String token,
-                                       @RequestBody ActivityPost activityPost) {
+    public Activity createActivity(@ApiIgnore @RequestHeader(value = "Authorization") String token,
+                                   @RequestBody Activity activityPost) {
         return activityService.createActivity(token, activityPost);
     }
 
@@ -59,7 +55,7 @@ public class ActivityController {
     public void deleteActivity(@ApiIgnore @RequestHeader(value = "Authorization") String token,
                                @PathVariable Long activityId) {
         activityService.deleteActivity(token, activityId);
-    }
+    }*/
 
 
 }

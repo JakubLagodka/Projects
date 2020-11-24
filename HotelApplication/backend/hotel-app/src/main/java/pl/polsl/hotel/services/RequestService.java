@@ -3,73 +3,65 @@ package pl.polsl.hotel.services;
 import org.springframework.stereotype.Component;
 import pl.polsl.hotel.exceptions.BadRequestException;
 import pl.polsl.hotel.exceptions.ForbiddenAccessException;
-import pl.polsl.hotel.mappers.RequestMapper;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.models.Object;
 import pl.polsl.hotel.repositories.ObjectRepository;
 import pl.polsl.hotel.repositories.RequestRepository;
-import pl.polsl.hotel.views.ActionProgressPatch;
-import pl.polsl.hotel.views.RequestPatch;
-import pl.polsl.hotel.views.RequestPost;
-import pl.polsl.hotel.views.RequestView;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class RequestService {
 
     private final RequestRepository requestRepository;
-    private final AuthenticationService authenticationService;
+    private final AuthenticationTokenService authenticationTokenService;
     private final ObjectRepository objectRepository;
     private final ActionService actionService;
-    private final RequestMapper requestMapper;
 
-    public RequestService(RequestRepository requestRepository, AuthenticationService authenticationService, ObjectRepository objectRepository, ActionService actionService, RequestMapper requestMapper) {
+    public RequestService(RequestRepository requestRepository, AuthenticationTokenService authenticationTokenService, ObjectRepository objectRepository, ActionService actionService) {
         this.requestRepository = requestRepository;
-        this.authenticationService = authenticationService;
+        this.authenticationTokenService = authenticationTokenService;
         this.objectRepository = objectRepository;
         this.actionService = actionService;
-        this.requestMapper = requestMapper;
     }
 
 
-    public RequestView createRequest(String token, RequestPost requestPost) {
-        User currentUser = authenticationService.getUserFromToken(token);
+    public Request createRequest(String token, Request request) {
+        User currentUser = authenticationTokenService.getUserFromToken(token);
         if (!(currentUser instanceof Manager))
             throw new ForbiddenAccessException(Manager.class);
-        Request request = requestMapper.map(requestPost);
-        request.setManager((Manager) currentUser);
-        request.setActionStatus(actionService.getInitialStatus());
-        request.setObject(objectRepository.getById(requestPost.getObjectId()));
-        return requestMapper.map(requestRepository.save(request));
+        Request ret_request = new Request();
+        ret_request.setManager((Manager) currentUser);
+        ret_request.setActionStatus(actionService.getInitialStatus());
+        ret_request.setObject(objectRepository.getById(request.getId()));
+        return requestRepository.save(ret_request);
     }
 
 
-    public RequestView getPatchedRequest(String token, Long requestId, ActionProgressPatch actionProgressPatch) {
-        User currentUser = authenticationService.getUserFromToken(token);
+    public Request getPatchedRequest(String token, Long requestId, ActionStatus actionStatus) {
+        User currentUser = authenticationTokenService.getUserFromToken(token);
         Request request = requestRepository.getById(requestId);
         if (request.getEndDate() != null)
             throw new BadRequestException("Cannot update progress in already finished request");
         if (!currentUser.equals(request.getManager()))
             throw new ForbiddenAccessException("Only manager that created request can update its progress");
-        actionService.patchAction(actionProgressPatch, request);
-        return requestMapper.map(requestRepository.save(request));
+        actionService.patchAction(actionStatus, request);
+        return requestRepository.save(request);
     }
 
 
-    public RequestView getPatchedRequest(String token, Long requestId, RequestPatch requestPatch) {
+  /*  public Request getPatchedRequest(String token, Long requestId, RequestPatch requestPatch) {
         User currentUser = authenticationService.getUserFromToken(token);
         Request request = requestRepository.getById(requestId);
         if (!currentUser.equals(request.getManager()))
             throw new ForbiddenAccessException("Only manager that created request can update it");
-        requestMapper.map(requestPatch, request);
-        return requestMapper.map(requestRepository.save(request));
-    }
+
+        return requestRepository.save(request);
+    }*/
 
 
     public void deleteRequest(String token, Long requestId) {
-        User currentUser = authenticationService.getUserFromToken(token);
+        User currentUser = authenticationTokenService.getUserFromToken(token);
         Request request = requestRepository.getById(requestId);
         if (!currentUser.equals(request.getManager()))
             throw new ForbiddenAccessException("Only manager that created request can remove it");
@@ -77,8 +69,8 @@ public class RequestService {
     }
 
 
-    public List<RequestView> getRequests(String token, Long objectId) {
-        User currentUser = authenticationService.getUserFromToken(token);
+    public List<Request> getRequests(String token, Long objectId) {
+        User currentUser = authenticationTokenService.getUserFromToken(token);
         Object object = objectRepository.getById(objectId);
         List<Request> requests = null;
         if (currentUser instanceof Manager)
@@ -92,12 +84,12 @@ public class RequestService {
             requests = requestRepository.findAllByActivitiesContainsAndObject(((Worker) currentUser).getActivities(), object);
         if (requests == null)
             throw new ForbiddenAccessException(Manager.class, Worker.class, Client.class);
-        return requests.stream().map(requestMapper::map).collect(Collectors.toList());
+        return requests;
     }
 
 
-    public List<RequestView> getRequests(String token) {
-        User currentUser = authenticationService.getUserFromToken(token);
+    public List<Request> getRequests(String token) {
+        User currentUser = authenticationTokenService.getUserFromToken(token);
         List<Request> requests = null;
         if (currentUser instanceof Client)
             requests = requestRepository.findAllByObjectClient((Client) currentUser);
@@ -107,7 +99,7 @@ public class RequestService {
             requests = requestRepository.findAllByActivitiesContains(((Worker) currentUser).getActivities());
         if (requests == null)
             throw new ForbiddenAccessException(Manager.class, Worker.class, Client.class);
-        return requests.stream().map(requestMapper::map).collect(Collectors.toList());
+        return requests;
     }
 
 }
