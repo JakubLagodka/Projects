@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
       <div class="container"  >
         <ul class="navbar-nav ">
-          <a id="openPanel" class="nav-item nav-link  text-center "style="cursor: pointer" (click)=" this.sidenav.open()">otwórz panel rezerwacji</a>
+          <a *ngIf="!this.sidenav.opened" id="openPanel" class="nav-item nav-link  text-center "style="cursor: pointer" (click)=" this.sidenav.open()">otwórz panel rezerwacji</a>
         </ul>
       </div>
 

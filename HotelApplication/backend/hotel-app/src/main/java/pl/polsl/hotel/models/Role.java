@@ -12,6 +12,7 @@ import java.util.List;
 public class Role extends CodeName {
 
 
+
     @OneToMany(mappedBy = "role")
     @NonNull
     private List<User> users = new LinkedList<>();

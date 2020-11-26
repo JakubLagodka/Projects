@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Role} from '../../_models/role';
-import {UserPost} from '../../_models/user-post';
+
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from '../../_services/user.service';
 import {take} from 'rxjs/operators';
-import {UserPatch} from '../../_models/user-patch';
+
 import {User} from '../../_models/user';
 
 @Component({
@@ -17,7 +17,7 @@ export class EditUserComponent implements OnInit {
 
   @Input() user: User;
   roles$: Observable<Role[]>;
-  userPatch: UserPatch = new UserPatch();
+  userPatch: User = new User();
 
   constructor(
     public modal: NgbActiveModal,

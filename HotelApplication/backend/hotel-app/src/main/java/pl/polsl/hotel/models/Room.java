@@ -5,19 +5,23 @@ import pl.polsl.hotel.PillowType;
 
 import javax.persistence.*;
 
-@Table(name = "rooms")
-@Entity
+import java.time.LocalDate;
+
+import java.util.LinkedList;
+import java.util.List;
+
+
+@Entity(name = "rooms")
 public class Room  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @NonNull
     private Long id;
 
+
     private int numberOfBeds;
 
     private int storey;
-
-    private boolean highStorey;
 
     private boolean CloseToElevator;
 
@@ -35,14 +39,32 @@ public class Room  {
 
     private boolean canBeReserved;
 
-    public Room() { }
+    @ElementCollection
+    List<LocalDate> availableDates;
 
-    public Room(int numberOfBeds, int storey, boolean highStorey, boolean CloseToElevator, boolean BeautifulViewFromTheWindows,
+    @ElementCollection
+    List<Boolean> isAvailable;
+
+    public Room() {
+
+        this.availableDates = new LinkedList<>();
+        this.isAvailable= new LinkedList<>();
+
+        LocalDate start = LocalDate.now();
+        LocalDate end = LocalDate.now().plusYears(10);
+
+        for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+            this.availableDates.add(date);
+            this.isAvailable.add(true);
+
+        }
+    }
+    public Room(int numberOfBeds, int storey,  boolean CloseToElevator, boolean BeautifulViewFromTheWindows,
                      PillowType typeOfPillow, boolean balcony, long priceForOneDay, long hotelId, boolean readyToUseOnAGivenDay,
                      boolean canBeReserved) {
         this.numberOfBeds = numberOfBeds;
         this.storey = storey;
-        this.highStorey = highStorey;
+
         this.CloseToElevator = CloseToElevator;
         this.BeautifulViewFromTheWindows = BeautifulViewFromTheWindows;
         this.typeOfPillow = typeOfPillow;
@@ -51,22 +73,26 @@ public class Room  {
         this.hotelId = hotelId;
         this.readyToUseOnAGivenDay = readyToUseOnAGivenDay;
         this.canBeReserved = canBeReserved;
+        this.availableDates = new LinkedList<>();
+        this.isAvailable= new LinkedList<>();
+
+        LocalDate start = LocalDate.now();
+        LocalDate end = LocalDate.now().plusYears(10);
+
+        for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+            this.availableDates.add(date);
+            this.isAvailable.add(true);
+
+        }
 
     }
 
+    @NonNull
     public Long getId() {
-        return this.id;
+        return id;
     }
 
-    public int getStorey() {
-        return storey;
-    }
-
-    public void setStorey(int storey) {
-        this.storey = storey;
-    }
-
-    public void setId(Long id) {
+    public void setId(@NonNull Long id) {
         this.id = id;
     }
 
@@ -78,13 +104,14 @@ public class Room  {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public boolean isHighStorey() {
-        return highStorey;
+    public int getStorey() {
+        return storey;
     }
 
-    public void setHighStorey(boolean highStorey) {
-        this.highStorey = highStorey;
+    public void setStorey(int storey) {
+        this.storey = storey;
     }
+
 
     public boolean isCloseToElevator() {
         return CloseToElevator;
@@ -102,11 +129,12 @@ public class Room  {
         BeautifulViewFromTheWindows = beautifulViewFromTheWindows;
     }
 
+    @NonNull
     public PillowType getTypeOfPillow() {
         return typeOfPillow;
     }
 
-    public void setTypeOfPillow(PillowType typeOfPillow) {
+    public void setTypeOfPillow(@NonNull PillowType typeOfPillow) {
         this.typeOfPillow = typeOfPillow;
     }
 
@@ -148,5 +176,21 @@ public class Room  {
 
     public void setCanBeReserved(boolean canBeReserved) {
         this.canBeReserved = canBeReserved;
+    }
+
+    public List<LocalDate> getAvailableDates() {
+        return availableDates;
+    }
+
+    public void setAvailableDates(List<LocalDate> availableDates) {
+        this.availableDates = availableDates;
+    }
+
+    public List<Boolean> getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(List<Boolean> isAvailable) {
+        this.isAvailable = isAvailable;
     }
 }

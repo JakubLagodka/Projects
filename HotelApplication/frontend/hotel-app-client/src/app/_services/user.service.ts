@@ -5,9 +5,9 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {Status} from '../_models/status';
 import {shareReplay, take} from 'rxjs/operators';
 import {User} from '../_models/user';
-import {UserPost} from '../_models/user-post';
+
 import {Role} from '../_models/role';
-import {UserPatch} from '../_models/user-patch';
+
 
 
 @Injectable({
@@ -130,7 +130,7 @@ export class UserService {
     }
   }
 
-  registerUser(userPost: UserPost): Observable<User> {
+  registerUser(userPost: User): Observable<User> {
     const user = this.http.post<User>(`${environment.apiUrl}/user/register`, userPost).pipe(shareReplay());
 
     user.pipe(take(1)).subscribe(x => {
@@ -139,11 +139,11 @@ export class UserService {
     return user;
   }
 
-  updateUser(userPatch: UserPatch, oldUser: User): Observable<User> {
-    const result = this.http.patch<User>(`${environment.apiUrl}/user/` + oldUser.id + `/`, userPatch).pipe(shareReplay());
+  updateUser(user: User, oldUser: User): Observable<User> {
+    const result = this.http.patch<User>(`${environment.apiUrl}/user/` + oldUser.id + `/`, user).pipe(shareReplay());
 
     result.pipe(take(1)).subscribe(x => {
-      if(oldUser.roleCode !== userPatch.roleCode) {
+      if(oldUser.roleCode !== user.roleCode) {
         this.deleteUserFromArray(oldUser);
         this.placeUserInArray(x);
       }

@@ -1,5 +1,8 @@
 package pl.polsl.hotel.services;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.internal.SessionImpl;
 import org.springframework.lang.Nullable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -14,18 +17,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserService implements  StartUpFiller {
+public class UserService extends MySession implements StartUpFiller {
 
     private final UserRepository userRepository;
     private final AuthenticationTokenService authenticationService;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+
     public UserService(UserRepository userRepository, AuthenticationTokenService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.authenticationService = authenticationService;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+
     }
 
 
@@ -94,41 +99,46 @@ public class UserService implements  StartUpFiller {
     }
 
     public void createInitialData() throws RuntimeException {
-        Admin admin = new Admin();
-        admin.setEmail("primaryAdmin@wp.pl");
-        admin.setName("Primary");
-        admin.setSurname("Admin");
-        admin.setUsername("admin1");
-        admin.setPassword(bCryptPasswordEncoder.encode("admin1"));
-        admin.setRole(roleRepository.getOne("ADM"));
-        userRepository.save(admin);
 
-        Client client = new Client();
-        client.setEmail("client@wp.pl");
-        client.setName("Josh");
-        client.setSurname("Clint");
-        client.setUsername("client1");
-        client.setPassword(bCryptPasswordEncoder.encode("client1"));
-        client.setRole(roleRepository.getOne("CLI"));
-        userRepository.save(client);
 
-        Worker worker = new Worker();
-        worker.setEmail("worker@wp.pl");
-        worker.setName("Bob");
-        worker.setSurname("Worens");
-        worker.setUsername("worker1");
-        worker.setPassword(bCryptPasswordEncoder.encode("worker1"));
-        worker.setRole(roleRepository.getOne("WOR"));
-        userRepository.save(worker);
+        if(this.session.get(Admin.class.getSimpleName(),1) == null)
+         {
+            Admin admin = new Admin();
+            admin.setEmail("glownyAdmin@gmail.com");
+            admin.setName("Główny");
+            admin.setSurname("Admin");
+            admin.setUsername("admin1");
+            admin.setPassword(bCryptPasswordEncoder.encode("admin1"));
+            admin.setRole(roleRepository.getOne("ADM"));
+            userRepository.save(admin);
 
-        Manager manager = new Manager();
-        manager.setEmail("manager@wp.pl");
-        manager.setName("Lucian");
-        manager.setSurname("Maners");
-        manager.setUsername("manager1");
-        manager.setPassword(bCryptPasswordEncoder.encode("manager1"));
-        manager.setRole(roleRepository.getOne("MAN"));
-        userRepository.save(manager);
+            Client client = new Client();
+            client.setEmail("klient@gmail.com");
+            client.setName("Jan");
+            client.setSurname("Kowalski");
+            client.setUsername("klient1");
+            client.setPassword(bCryptPasswordEncoder.encode("klient1"));
+            client.setRole(roleRepository.getOne("CLI"));
+            userRepository.save(client);
+
+            Worker worker = new Worker();
+            worker.setEmail("recepcjonista@gmail.com");
+            worker.setName("Janusz");
+            worker.setSurname("Nowak");
+            worker.setUsername("recepcjonista1");
+            worker.setPassword(bCryptPasswordEncoder.encode("recepcjonista1"));
+            worker.setRole(roleRepository.getOne("WOR"));
+            userRepository.save(worker);
+
+            Manager manager = new Manager();
+            manager.setEmail("menadzer@gmail.com");
+            manager.setName("Władysław");
+            manager.setSurname("Władczy");
+            manager.setUsername("menadzer1");
+            manager.setPassword(bCryptPasswordEncoder.encode("menadzer1"));
+            manager.setRole(roleRepository.getOne("MAN"));
+            userRepository.save(manager);
+        }
     }
 
     public UserView map(User user) {

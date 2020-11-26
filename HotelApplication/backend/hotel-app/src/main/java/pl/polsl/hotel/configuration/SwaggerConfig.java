@@ -33,17 +33,7 @@ public class SwaggerConfig {
                 .build();
     }
 
-    @Bean
-    public Docket docket() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .useDefaultResponseMessages(false)
-                .apiInfo(apiInfo())
-                .securityContexts(Lists.newArrayList(securityContext()))
-                .securitySchemes(Lists.newArrayList(apiKey()))
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("pl.polsl.hotel"))
-                .build();
-    }
+
 
     private ApiKey apiKey() {
         return new ApiKey("JWT", AUTHORIZATION_HEADER, "header");

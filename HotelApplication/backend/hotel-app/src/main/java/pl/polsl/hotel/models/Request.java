@@ -20,9 +20,6 @@ public class Request extends Action {
     @NonNull
     private List<Activity> activities = new LinkedList<>();
 
-    @ManyToOne(optional = false)
-    @NonNull
-    private Object object;
 
     @Nullable
     public Manager getManager() {
@@ -42,21 +39,11 @@ public class Request extends Action {
         this.activities = activities;
     }
 
-    @NonNull
-    public Object getObject() {
-        return object;
-    }
-
-    public void setObject(@NonNull Object object) {
-        this.object = object;
-    }
-
     @Override
     public String toString() {
         return "Request{" +
                 "manager=" + manager +
                 ", activities=" + activities +
-                ", object=" + object +
                 '}';
     }
 

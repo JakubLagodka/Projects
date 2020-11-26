@@ -2,9 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from '../../_services/user.service';
-import {UserPost} from '../../_models/user-post';
 import {Role} from '../../_models/role';
 import {take} from 'rxjs/operators';
+import {User} from '../../_models/user';
 
 @Component({
   selector: 'app-new-user',
@@ -14,7 +14,7 @@ import {take} from 'rxjs/operators';
 export class NewUserComponent implements OnInit {
 
   roles$: Observable<Role[]>;
-  userPost: UserPost = new UserPost();
+  userPost: User = new User();
 
   constructor(
     public modal: NgbActiveModal,
@@ -25,7 +25,7 @@ export class NewUserComponent implements OnInit {
   submit() {
     if(this.userPost.roleCode === 'null')
       this.userPost.roleCode = null;
-    
+
     this.userService.registerUser(this.userPost).pipe(take(1)).subscribe(x => {
       this.modal.close(x);
     });

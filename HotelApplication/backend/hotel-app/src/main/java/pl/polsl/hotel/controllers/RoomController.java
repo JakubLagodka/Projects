@@ -9,35 +9,35 @@ import pl.polsl.hotel.services.RoomService;
 @RestController
 @RequestMapping(value = "/room")
 public class RoomController {
-    private RoomService rooms;
+    private final RoomService roomService;
 
-    public RoomController(RoomService rooms) {
-        this.rooms = rooms;
+    public RoomController(RoomService roomService) {
+        this.roomService = roomService;
     }
 
     @GetMapping("/all")
     public Iterable<Room> getAll(){
-        return rooms.findAll();
+        return roomService.findAll();
     }
 
     @GetMapping
     public Optional<Room> getByRoomId(@RequestParam Long index){
-        return rooms.findById(index);
+        return roomService.findById(index);
     }
 
     @PostMapping
     public Room addRoom(@RequestBody Room room){
-        return rooms.save(room);
+        return roomService.save(room);
     }
 
     @PutMapping
     public Room updateRoom(@RequestBody Room room){
-        return rooms.save(room);
+        return roomService.save(room);
     }
 
     @DeleteMapping
     public void deleteRoom(@RequestParam Long index){
-        rooms.deleteById(index);
+        roomService.deleteById(index);
 
     }
 }

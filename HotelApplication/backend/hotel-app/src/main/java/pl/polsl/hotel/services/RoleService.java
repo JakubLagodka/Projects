@@ -7,7 +7,7 @@ import pl.polsl.hotel.repositories.RoleRepository;
 import java.util.Arrays;
 
 @Component
-public class RoleService implements StartUpFiller {
+public class RoleService extends MySession implements StartUpFiller {
 
     private final RoleRepository roleRepository;
 
@@ -22,23 +22,28 @@ public class RoleService implements StartUpFiller {
 
 
     public void createInitialData() throws RuntimeException {
-        Role adminRole = new Role();
-        adminRole.setCode("ADM");
-        adminRole.setName(Admin.class.getSimpleName());
 
-        Role clientRole = new Role();
-        clientRole.setCode("CLI");
-        clientRole.setName(Client.class.getSimpleName());
+        if(this.session.get(Role.class.getSimpleName(),1) == null)
+        {
+            Role adminRole = new Role();
+            adminRole.setCode("ADM");
+            adminRole.setName(Admin.class.getSimpleName());
 
-        Role managerRole = new Role();
-        managerRole.setCode("MAN");
-        managerRole.setName(Manager.class.getSimpleName());
+            Role clientRole = new Role();
+            clientRole.setCode("CLI");
+            clientRole.setName(Client.class.getSimpleName());
 
-        Role workerRole = new Role();
-        workerRole.setCode("WOR");
-        workerRole.setName(Worker.class.getSimpleName());
+            Role managerRole = new Role();
+            managerRole.setCode("MAN");
+            managerRole.setName(Manager.class.getSimpleName());
 
-        roleRepository.saveAll(Arrays.asList(adminRole, clientRole, managerRole, workerRole));
+            Role workerRole = new Role();
+            workerRole.setCode("WOR");
+            workerRole.setName(Worker.class.getSimpleName());
+
+            roleRepository.saveAll(Arrays.asList(adminRole, clientRole, managerRole, workerRole));
+        }
+
     }
 
 }

@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.loading = false;
         });
 
-    this.subscription = this.authenticationService.currentUser.subscribe(x => {
+    this.subscription = this.authenticationService.loggedUser.subscribe(x => {
       this.router.navigate([this.returnUrl]);
     });
     this.router.navigate(['/greeting']);

@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private router: Router,
     public authenticationService: AuthenticationService
   ) {
-     this.userSub = this.authenticationService.currentUser.subscribe(x => this.loggedUser = x);
+     this.userSub = this.authenticationService.loggedUser.subscribe(x => this.loggedUser = x);
 // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -68,7 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
           this.loading = false;
         });
 
-    this.subscription = this.authenticationService.currentUser.subscribe(x => {
+    this.subscription = this.authenticationService.loggedUser.subscribe(x => {
       this.router.navigate([this.returnUrl]);
     });
   }
