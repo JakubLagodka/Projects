@@ -30,7 +30,6 @@ public class UserService extends MySession implements StartUpFiller {
         this.authenticationService = authenticationService;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-
     }
 
 

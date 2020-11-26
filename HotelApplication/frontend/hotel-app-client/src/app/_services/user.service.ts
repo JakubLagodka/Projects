@@ -188,7 +188,7 @@ export class UserService {
   }
 
   getRoles(): Observable<Role[]> {
-    if(this.roles.value.length === 0) {
+    if (this.roles.value.length === 0) {
       this.http.get<Role[]>(`${environment.apiUrl}/role`).subscribe(x => {
         this.roles.next(x);
       });

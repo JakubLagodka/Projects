@@ -18,7 +18,6 @@ public class Room  {
     @NonNull
     private Long id;
 
-
     private int numberOfBeds;
 
     private int storey;

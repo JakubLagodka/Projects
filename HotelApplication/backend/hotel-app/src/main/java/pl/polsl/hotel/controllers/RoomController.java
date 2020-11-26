@@ -1,5 +1,6 @@
 package pl.polsl.hotel.controllers;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -15,8 +16,8 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping("/all")
-    public Iterable<Room> getAll(){
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Room> getRooms(){
         return roomService.findAll();
     }
 
@@ -26,12 +27,12 @@ public class RoomController {
     }
 
     @PostMapping
-    public Room addRoom(@RequestBody Room room){
+    public Room addRoom(@RequestParam Room room){
         return roomService.save(room);
     }
 
     @PutMapping
-    public Room updateRoom(@RequestBody Room room){
+    public Room updateRoom(@RequestParam Room room){
         return roomService.save(room);
     }
 

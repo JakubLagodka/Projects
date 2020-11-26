@@ -27,7 +27,7 @@ import { EditUserComponent } from './admin/edit-user/edit-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSliderModule } from '@angular/material/slider';
-import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -35,6 +35,11 @@ import { GreetingComponent } from './greeting/greeting.component';
 import { SidePannelComponent } from './side-pannel/side-pannel/side-pannel.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { RegisterComponent } from './register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +65,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     GreetingComponent,
     SidePannelComponent,
     CalendarComponent,
-    ReservationComponent
+    ReservationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +80,11 @@ import { ReservationComponent } from './reservation/reservation.component';
     MatNativeDateModule,
     MatInputModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDividerModule,
+    MatListModule,
+    MatOptionModule,
+    MatAutocompleteModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}],
