@@ -8,19 +8,19 @@ import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.RoomRepository;
 
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.Random;
+import java.time.LocalDate;
+import java.util.*;
 
 @Component
 public class RoomService extends MySession implements StartUpFiller {
     private final RoomRepository roomRepository;
     private Random generator;
-
+    private ArrayList<Room> roomsAvailable;
     @Autowired
     public RoomService(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
         this.generator = new Random();
+        this.roomsAvailable = new ArrayList<Room>();
     }
 
     public Optional<Room> findById(Long id) {
@@ -30,6 +30,36 @@ public class RoomService extends MySession implements StartUpFiller {
     public Iterable<Room> findAll() {
         return roomRepository.findAll();
 
+    }
+
+    public Iterable<Room> getRoomsAvailable(LocalDate from, int number_of_days) {
+        int index = 0;
+        boolean isAvailable = true;
+        for (Room room : roomRepository.findAll()) {
+            for (LocalDate date: room.getAvailableDates()) {
+
+                if(date == from)
+                {
+                    if(room.getIsAvailable().get(index))
+                    {
+                       for(int i = index + 1; i < index + number_of_days;i++)
+                       {
+                           if(!room.getIsAvailable().get(i))
+                           {
+                               isAvailable = false;
+                               break;
+                           }
+                       }
+                       if(isAvailable)
+                        roomsAvailable.add(room);
+                    }
+                    break;
+                }
+                index++;
+            }
+
+        }
+        return roomsAvailable;
     }
 
     public Room save(Room room) {

@@ -3,6 +3,8 @@ package pl.polsl.hotel.controllers;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 import pl.polsl.hotel.models.Room;
 import pl.polsl.hotel.services.RoomService;
@@ -20,6 +22,12 @@ public class RoomController {
     public Iterable<Room> getRooms(){
         return roomService.findAll();
     }
+
+    @GetMapping(value = "/available",produces = MediaType.APPLICATION_JSON_VALUE)
+    public Iterable<Room> getRoomsAvailable(@RequestParam LocalDate from, @RequestParam int number_of_days){
+        return roomService.getRoomsAvailable(from, number_of_days);
+    }
+
 
     @GetMapping
     public Optional<Room> getByRoomId(@RequestParam Long index){

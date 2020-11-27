@@ -30,19 +30,19 @@
       <input type="email" class="form-control" id="email" [(ngModel)]="userPost.email" name="email" required>
     </div>
 
-    <div class="form-group">
+    <!--<div class="form-group">
       <label for="role">Role</label>
       <select class="form-control" id="role" [(ngModel)]="userPost.roleCode" name="roleCode" required>
         <option class="form-control-range" [value]="null">Empty (inactive user)</option>
         <option class="form-control-range" *ngFor="let role of roles$ | async" [hidden]="role.code === 'ADM'" [value]="role.code">{{role.name}}</option>
       </select>
-    </div>
+    </div>!-->
 
   </div>
   <div class="modal-footer">
     <button type="submit" [disabled]="form.invalid" class="btn btn-success">Submit</button>
-    <button class="btn btn-danger" (click)="modal.dismiss()">Cancel</button>
-  </div>
-</form>
+    <!-- <button class="btn btn-danger" (click)="modal.dismiss()">Cancel</button>!-->
+   </div>
+ </form>
 
 

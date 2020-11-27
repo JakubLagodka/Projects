@@ -31,7 +31,7 @@ export class ReservationComponent implements OnInit {
   options: string[] = ['One', 'Two', 'Three'];
 
   ngOnInit(): void {
-    if (this.authenticationService.currentUserValue) {
+    if (!this.authenticationService.currentUserValue) {
       this.router.navigate(['/register']);
     }
     this.rooms$ = this.roomService.getRooms();

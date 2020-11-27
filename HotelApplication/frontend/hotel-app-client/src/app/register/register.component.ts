@@ -12,11 +12,11 @@ import {take} from 'rxjs/operators';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  roles$: Observable<Role[]>;
+  // roles$: Observable<Role[]>;
   userPost: User = new User();
 
   constructor(
-    public modal: NgbActiveModal,
+    // public modal: NgbActiveModal,
     private userService: UserService
 
   ) { }
@@ -26,12 +26,12 @@ export class RegisterComponent implements OnInit {
       this.userPost.roleCode = null;
 
     this.userService.registerUser(this.userPost).pipe(take(1)).subscribe(x => {
-      this.modal.close(x);
+     // this.modal.close(x);
     });
   }
 
   ngOnInit(): void {
-   // this.roles$ = this.userService.getRoles();
+    // this.roles$ = this.userService.getRoles();
   }
 
 

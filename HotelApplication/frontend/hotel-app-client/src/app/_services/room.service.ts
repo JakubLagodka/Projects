@@ -3,11 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Room} from '../_models/room';
+import {User} from '../_models/user';
+import {shareReplay, take} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
   private rooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
+ // private availableRooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
   private rooms$: Observable<Room[]> = this.rooms.asObservable();
 
   constructor( private http: HttpClient) { }
@@ -22,6 +25,13 @@ export class RoomService {
     }
     return this.rooms$;
   }
+  /*getAvailableRooms(from: Date, numberOfDays: number): Observable< Room[]> {
+    this.http.get<Room[]>(`${environment.apiUrl}/room/available`).subscribe(x => {
+      this.availableRooms.next(x);
+    });
+    return this.rooms$;
+  }*/
+
   getRoomsById(objectId: number): Observable< Room[]> {
     return this.http.get< Room[]>(`${environment.apiUrl}/room?id=` + objectId);
   }

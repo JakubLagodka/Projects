@@ -33,10 +33,10 @@ public class UserService extends MySession implements StartUpFiller {
     }
 
 
-    public UserView createUser(String token, User user) {
-        User currentUser = authenticationService.getUserFromToken(token);
-        if (!(currentUser instanceof Admin))
-            throw new ForbiddenAccessException(Admin.class);
+    public UserView createUser(User user) {
+
+       /* if (!(user instanceof Admin))
+            throw new ForbiddenAccessException(Admin.class);*/
         if (userRepository.findByUsername(user.getUsername()).isPresent())
             throw new UsernameAlreadyUsedException(user.getUsername());
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Reservation} from '../_models/reservation';
 
 @Component({
   selector: 'app-calendar',
@@ -11,6 +12,7 @@ export class CalendarComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
   submitted = false;
+  reservation: Reservation;
   range = new FormGroup({
     start: new FormControl(['', Validators.required]),
     end: new FormControl(['', Validators.required])
@@ -37,6 +39,8 @@ export class CalendarComponent implements OnInit {
     if (this.range.invalid) {
       return;
     }
+    // this.reservation.startDate = this.range.controls.start.value;
+    // this.reservation.endDate = this.range.controls.end.value;
     this.router.navigate(['/reservation']);
   }
 }
