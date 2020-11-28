@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.polsl.hotel.PillowType;
 import pl.polsl.hotel.models.*;
+import pl.polsl.hotel.repositories.ReservationRepository;
 import pl.polsl.hotel.repositories.RoomRepository;
 
 
@@ -17,14 +18,17 @@ import java.util.*;
 @Component
 public class RoomService extends MySession implements StartUpFiller {
     private final RoomRepository roomRepository;
+    private final ReservationRepository reservationRepository;
     private Random generator;
     private ArrayList<Room> roomsAvailable;
-    private LocalDate fromDate;
+    private LocalDate fromLocalDate;
+    private Date fromDate;
     @Autowired
-    public RoomService(RoomRepository roomRepository) {
+    public RoomService(RoomRepository roomRepository, ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
         this.generator = new Random();
         this.roomsAvailable = new ArrayList<Room>();
+        this.reservationRepository = reservationRepository;
     }
 
     public Optional<Room> findById(Long id) {
@@ -40,12 +44,13 @@ public class RoomService extends MySession implements StartUpFiller {
         roomsAvailable.clear();
         int index = 0;
         boolean isAvailable = true;
-        fromDate = LocalDate.parse(from);
+        fromLocalDate = LocalDate.parse(from);
+        fromDate = convertToDate(fromLocalDate);
         for (Room room : roomRepository.findAll()) {
             index = 0;
             for (LocalDate date: room.getAvailableDates()) {
 
-                if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromDate.getMonth())&& (date.getDayOfMonth() == fromDate.getDayOfMonth()))
+                if((date.getYear() == fromLocalDate.getYear())&&(date.getMonth() == fromLocalDate.getMonth())&& (date.getDayOfMonth() == fromLocalDate.getDayOfMonth()))
                 {
                     if(room.getIsAvailable().get(index))
                     {
@@ -58,12 +63,24 @@ public class RoomService extends MySession implements StartUpFiller {
                             }
                         }
                         if(isAvailable)
-                            roomsAvailable.add(room);
+                        {
+                            for (Reservation reservation : reservationRepository.findAll())
+                            {
+                                if(reservation.getRoom().getId() == room.getId() && !(fromDate.before(reservation.getStartDate()) || fromDate.after((reservation.getEndDate()))))
+                                {
+                                    isAvailable = false;
+                                    break;
+                                }
+                            }
+                            if(isAvailable)
+                                roomsAvailable.add(room);
+                        }
                     }
                     break;
                 }
                 index++;
             }
+
         }
         return roomsAvailable;
     }
@@ -117,15 +134,18 @@ public class RoomService extends MySession implements StartUpFiller {
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();
     }
+    public Date convertToDate (LocalDate dateToConvert) {
+        return java.sql.Date.valueOf(dateToConvert);
+    }
 
     public Room bookRoom(Long roomId, String from, int numberOfDays) {
-        fromDate = LocalDate.parse(from);
+        fromLocalDate = LocalDate.parse(from);
         Room room = roomRepository.getById(roomId);
         int index = 0;
         for (LocalDate date: room.getAvailableDates())
         {
 
-            if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromDate.getMonth())&& (date.getDayOfMonth() == fromDate.getDayOfMonth()))
+            if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromLocalDate.getMonth())&& (date.getDayOfMonth() == fromLocalDate.getDayOfMonth()))
             {
                 room.getIsAvailable().set(index,false);
                 for(int i = index + 1; i < index + numberOfDays;i++)
