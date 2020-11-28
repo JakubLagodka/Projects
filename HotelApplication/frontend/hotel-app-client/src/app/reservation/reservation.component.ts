@@ -10,6 +10,8 @@ import {FormControl, Validators} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../_services/authentication.service';
+import {CalendarComponent} from '../calendar/calendar.component';
+import {CalendarService} from '../_services/calendar.service';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
@@ -17,7 +19,7 @@ import {AuthenticationService} from '../_services/authentication.service';
 })
 export class ReservationComponent implements OnInit {
 
-  @Input() reservation: Reservation;
+ // @Input() calendar: CalendarComponent;
   rooms$: Observable<Room[]>;
   reservations$: Observable<Reservation[]>;
   myControl = new FormControl();
@@ -26,15 +28,18 @@ export class ReservationComponent implements OnInit {
   public roomService: RoomService,
   public reservationService: ReservationService,
   private router: Router,
-  public authenticationService: AuthenticationService) {}
-
+  public authenticationService: AuthenticationService,
+  private calendarService: CalendarService) {}
+private diff;
   options: string[] = ['One', 'Two', 'Three'];
 
   ngOnInit(): void {
+
     if (!this.authenticationService.currentUserValue) {
       this.router.navigate(['/register']);
     }
-    this.rooms$ = this.roomService.getRooms();
+    this.diff = new Date(Math.abs(this.calendarService.range.controls.end.value - this.calendarService.range.controls.start.value));
+    this.rooms$ = this.roomService.getAvailableRooms( this.diff, this.diff.getDate());
     this.reservations$ = this.reservationService.getReservations();
     this.filteredOptions = this.myControl.valueChanges
       .pipe(

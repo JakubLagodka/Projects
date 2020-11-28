@@ -26,6 +26,9 @@ public class UserView {
     @Nullable
     private String roleCode;
 
+    @NonNull
+    private String password;
+
     public UserView() {
     }
 
@@ -81,5 +84,14 @@ public class UserView {
 
     public void setRoleCode(@Nullable String roleCode) {
         this.roleCode = roleCode;
+    }
+
+    @NonNull
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@NonNull String password) {
+        this.password = password;
     }
 }

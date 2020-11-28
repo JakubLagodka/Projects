@@ -2,7 +2,8 @@ export class Reservation {
   id: number;
   roomNumber: number;
   userId: number;
-  startDate: string;
-  endDate: string;
+  startDate: any;
+  endDate: any;
+  numberOfDays: number;
   price: number;
 }

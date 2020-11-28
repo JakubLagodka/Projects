@@ -23,8 +23,8 @@ public class UserController {
 
     @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserView registerUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserView registerUser(@RequestBody UserView userPost) {
+        return userService.createUser(userPost);
     }
 
     @GetMapping(value = "/self", produces = MediaType.APPLICATION_JSON_VALUE)

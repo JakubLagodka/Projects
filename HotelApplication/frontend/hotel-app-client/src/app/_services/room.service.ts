@@ -10,7 +10,7 @@ import {shareReplay, take} from 'rxjs/operators';
 })
 export class RoomService {
   private rooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
- // private availableRooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
+  private availableRooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
   private rooms$: Observable<Room[]> = this.rooms.asObservable();
 
   constructor( private http: HttpClient) { }
@@ -25,12 +25,12 @@ export class RoomService {
     }
     return this.rooms$;
   }
-  /*getAvailableRooms(from: Date, numberOfDays: number): Observable< Room[]> {
+  getAvailableRooms(from: Date, numberOfDays: number): Observable< Room[]> {
     this.http.get<Room[]>(`${environment.apiUrl}/room/available`).subscribe(x => {
       this.availableRooms.next(x);
     });
     return this.rooms$;
-  }*/
+  }
 
   getRoomsById(objectId: number): Observable< Room[]> {
     return this.http.get< Room[]>(`${environment.apiUrl}/room?id=` + objectId);

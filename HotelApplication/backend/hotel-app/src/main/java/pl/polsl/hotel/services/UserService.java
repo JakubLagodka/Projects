@@ -33,15 +33,16 @@ public class UserService extends MySession implements StartUpFiller {
     }
 
 
-    public UserView createUser(User user) {
+    public UserView createUser(UserView userPost) {
 
        /* if (!(user instanceof Admin))
             throw new ForbiddenAccessException(Admin.class);*/
-        if (userRepository.findByUsername(user.getUsername()).isPresent())
-            throw new UsernameAlreadyUsedException(user.getUsername());
+        if (userRepository.findByUsername(userPost.getUsername()).isPresent())
+            throw new UsernameAlreadyUsedException(userPost.getUsername());
+        User user = map(userPost);
 
-        if (user.getRole().getCode() != null)
-            user.setRole(roleRepository.getById(user.getRole().getCode()));
+        if (userPost.getRoleCode() != null)
+            user.setRole(roleRepository.getById(userPost.getRoleCode()));
         UserView userView = map(userRepository.save(user));
         if (userView.getRoleCode() != null)
             userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
@@ -138,6 +139,15 @@ public class UserService extends MySession implements StartUpFiller {
             manager.setRole(roleRepository.getOne("MAN"));
             userRepository.save(manager);
         }
+    }
+    public User map(UserView userView) {
+        User user = new User();
+        user.setUsername(userView.getUsername());
+        user.setSurname(userView.getSurname());
+        user.setEmail(userView.getEmail());
+        user.setName(userView.getName());
+        user.setPassword(bCryptPasswordEncoder.encode(userView.getPassword()));
+        return user;
     }
 
     public UserView map(User user) {
