@@ -19,6 +19,7 @@ public class RoomService extends MySession implements StartUpFiller {
     private final RoomRepository roomRepository;
     private Random generator;
     private ArrayList<Room> roomsAvailable;
+    private LocalDate fromDate;
     @Autowired
     public RoomService(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
@@ -39,8 +40,9 @@ public class RoomService extends MySession implements StartUpFiller {
         roomsAvailable.clear();
         int index = 0;
         boolean isAvailable = true;
-        LocalDate fromDate = LocalDate.parse(from);
+        fromDate = LocalDate.parse(from);
         for (Room room : roomRepository.findAll()) {
+            index = 0;
             for (LocalDate date: room.getAvailableDates()) {
 
                 if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromDate.getMonth())&& (date.getDayOfMonth() == fromDate.getDayOfMonth()))
@@ -60,11 +62,9 @@ public class RoomService extends MySession implements StartUpFiller {
                     }
                     break;
                 }
-
+                index++;
             }
-            index++;
         }
-
         return roomsAvailable;
     }
 
@@ -81,7 +81,7 @@ public class RoomService extends MySession implements StartUpFiller {
     public void createInitialData() throws RuntimeException {
 
         //if(this.session.get(Admin.class.getSimpleName(),1) == null)
-        if("tak" != null)
+        if("tak" == null)
         {
             generator = new Random();
             RoomsAvailable roomsAvailable = new RoomsAvailable();
@@ -116,5 +116,28 @@ public class RoomService extends MySession implements StartUpFiller {
         return dateToConvert.toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();
+    }
+
+    public Room bookRoom(Long roomId, String from, int numberOfDays) {
+        fromDate = LocalDate.parse(from);
+        Room room = roomRepository.getById(roomId);
+        int index = 0;
+        for (LocalDate date: room.getAvailableDates())
+        {
+
+            if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromDate.getMonth())&& (date.getDayOfMonth() == fromDate.getDayOfMonth()))
+            {
+                room.getIsAvailable().set(index,false);
+                for(int i = index + 1; i < index + numberOfDays;i++)
+                {
+                    room.getIsAvailable().set(i,false);
+                }
+
+               break;
+            }
+            index++;
+        }
+        roomRepository.save(room);
+        return room;
     }
 }

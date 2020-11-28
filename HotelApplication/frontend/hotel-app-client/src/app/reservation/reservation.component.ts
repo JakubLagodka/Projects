@@ -70,4 +70,8 @@ export class ReservationComponent implements OnInit {
     return this.returned;
   }
 
+  onSubmit()
+  {
+    this.roomService.bookRoom(1, this.convertToString(this.start), this.diff.getDate());
+  }
 }

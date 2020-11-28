@@ -31,7 +31,9 @@ export class RoomService {
     });
     return this.rooms$;
   }
-
+  bookRoom(roomId: number, from: string, numberOfDays: number): Observable<Room> {
+    return this.http.get<Room>(`${environment.apiUrl}/room/booking?roomId=` + roomId + `&from=` + from + `&numberOfDays=` + numberOfDays).pipe(shareReplay());
+  }
   getRoomsById(objectId: number): Observable< Room[]> {
     return this.http.get< Room[]>(`${environment.apiUrl}/room?id=` + objectId);
   }

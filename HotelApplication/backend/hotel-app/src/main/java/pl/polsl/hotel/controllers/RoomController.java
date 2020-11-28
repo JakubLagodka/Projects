@@ -1,6 +1,7 @@
 package pl.polsl.hotel.controllers;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import pl.polsl.hotel.models.Room;
+import pl.polsl.hotel.models.UserView;
 import pl.polsl.hotel.services.RoomService;
 
 @RestController
@@ -31,6 +33,10 @@ public class RoomController {
         return roomService.getRoomsAvailable(from, numberOfDays);
     }
 
+    @GetMapping("/booking")
+    public Room bookRoom(@RequestParam Long roomId, @RequestParam String from, @RequestParam int numberOfDays) {
+        return roomService.bookRoom(roomId, from,numberOfDays);
+    }
 
     @GetMapping
     public Optional<Room> getByRoomId(@RequestParam Long index){
