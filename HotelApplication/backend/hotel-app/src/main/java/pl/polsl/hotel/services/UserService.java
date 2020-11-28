@@ -101,7 +101,8 @@ public class UserService extends MySession implements StartUpFiller {
     public void createInitialData() throws RuntimeException {
 
 
-        if(this.session.get(Admin.class.getSimpleName(),1) == null)
+        //if(this.session.get(Admin.class.getSimpleName(),1) == null)
+        if("tak" != null)
          {
             Admin admin = new Admin();
             admin.setEmail("glownyAdmin@gmail.com");

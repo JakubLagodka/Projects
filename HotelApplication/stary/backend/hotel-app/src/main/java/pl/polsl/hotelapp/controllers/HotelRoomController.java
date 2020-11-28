@@ -20,6 +20,11 @@ public class HotelRoomController {
         return hotelRooms.findAll();
     }
 
+    @GetMapping("/available")
+    public Iterable<HotelRoom> getRoomsAvailable(@RequestParam String from, @RequestParam int numberOfDays){
+        return hotelRooms.getRoomsAvailable(from, numberOfDays);
+    }
+
     @GetMapping
     public Optional<HotelRoom> getByHotelRoomId(@RequestParam Long index){
         return hotelRooms.findById(index);

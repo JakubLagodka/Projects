@@ -23,7 +23,8 @@ public class RoleService extends MySession implements StartUpFiller {
 
     public void createInitialData() throws RuntimeException {
 
-        if(this.session.get(Role.class.getSimpleName(),1) == null)
+        //if(this.session.get(Admin.class.getSimpleName(),1) == null)
+        if("tak" != null)
         {
             Role adminRole = new Role();
             adminRole.setCode("ADM");

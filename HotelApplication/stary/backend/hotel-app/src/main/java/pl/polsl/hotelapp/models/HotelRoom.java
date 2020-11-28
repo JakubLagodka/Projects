@@ -3,6 +3,9 @@ package pl.polsl.hotelapp.models;
 import pl.polsl.hotelapp.PillowType;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "HotelRoom")
@@ -32,8 +35,25 @@ public class HotelRoom {
     private boolean readyToUseOnAGivenDay;
 
     private boolean canBeReserved;
+    @ElementCollection
+    List<LocalDate> availableDates;
 
-    public HotelRoom() { }
+    @ElementCollection
+    List<Boolean> isAvailable;
+
+    public HotelRoom() {
+        this.availableDates = new LinkedList<>();
+        this.isAvailable= new LinkedList<>();
+
+        LocalDate start = LocalDate.now();
+        LocalDate end = LocalDate.now().plusYears(10);
+
+        for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+            this.availableDates.add(date);
+            this.isAvailable.add(true);
+
+        }
+    }
 
     public HotelRoom(int numberOfBeds, int storey, boolean highStorey, boolean CloseToElevator, boolean BeautifulViewFromTheWindows,
                      PillowType typeOfPillow, boolean balcony, long priceForOneDay, long hotelId, boolean readyToUseOnAGivenDay,
@@ -49,7 +69,33 @@ public class HotelRoom {
         this.hotelId = hotelId;
         this.readyToUseOnAGivenDay = readyToUseOnAGivenDay;
         this.canBeReserved = canBeReserved;
+        this.availableDates = new LinkedList<>();
+        this.isAvailable= new LinkedList<>();
 
+        LocalDate start = LocalDate.now();
+        LocalDate end = LocalDate.now().plusYears(10);
+
+        for (LocalDate date = start; date.isBefore(end); date = date.plusDays(1)) {
+            this.availableDates.add(date);
+            this.isAvailable.add(true);
+
+        }
+    }
+
+    public List<LocalDate> getAvailableDates() {
+        return availableDates;
+    }
+
+    public void setAvailableDates(List<LocalDate> availableDates) {
+        this.availableDates = availableDates;
+    }
+
+    public List<Boolean> getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(List<Boolean> isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     public Long getRoomId() {

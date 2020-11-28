@@ -8,7 +8,10 @@ import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.RoomRepository;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 @Component
@@ -27,40 +30,45 @@ public class RoomService extends MySession implements StartUpFiller {
         return roomRepository.findById(id);
     }
 
-    public Iterable<Room> findAll() {
+    public List<Room> findAll() {
         return roomRepository.findAll();
 
     }
 
-    public Iterable<Room> getRoomsAvailable(LocalDate from, int number_of_days) {
+    public List<Room> getRoomsAvailable(String from, int numberOfDays) {
+        roomsAvailable.clear();
         int index = 0;
         boolean isAvailable = true;
+        LocalDate fromDate = LocalDate.parse(from);
         for (Room room : roomRepository.findAll()) {
             for (LocalDate date: room.getAvailableDates()) {
 
-                if(date == from)
+                if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromDate.getMonth())&& (date.getDayOfMonth() == fromDate.getDayOfMonth()))
                 {
                     if(room.getIsAvailable().get(index))
                     {
-                       for(int i = index + 1; i < index + number_of_days;i++)
-                       {
-                           if(!room.getIsAvailable().get(i))
-                           {
-                               isAvailable = false;
-                               break;
-                           }
-                       }
-                       if(isAvailable)
-                        roomsAvailable.add(room);
+                        for(int i = index + 1; i < index + numberOfDays;i++)
+                        {
+                            if(!room.getIsAvailable().get(i))
+                            {
+                                isAvailable = false;
+                                break;
+                            }
+                        }
+                        if(isAvailable)
+                            roomsAvailable.add(room);
                     }
                     break;
                 }
-                index++;
-            }
 
+            }
+            index++;
         }
+
         return roomsAvailable;
     }
+
+
 
     public Room save(Room room) {
         return roomRepository.save(room);
@@ -72,10 +80,11 @@ public class RoomService extends MySession implements StartUpFiller {
 
     public void createInitialData() throws RuntimeException {
 
-        if(session.get(Room.class.getSimpleName(),1) == null)
+        //if(this.session.get(Admin.class.getSimpleName(),1) == null)
+        if("tak" != null)
         {
             generator = new Random();
-
+            RoomsAvailable roomsAvailable = new RoomsAvailable();
             Room room1 = new Room();
             room1.setNumberOfBeds(generator.nextInt(3) + 1);
             room1.setStorey(generator.nextInt(9));
@@ -102,5 +111,10 @@ public class RoomService extends MySession implements StartUpFiller {
 
             roomRepository.saveAll(Arrays.asList(room1,room2));
         }
+    }
+    public LocalDate convertToLocalDate (Date dateToConvert) {
+        return dateToConvert.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
     }
 }

@@ -25,9 +25,9 @@ export class RoomService {
     }
     return this.rooms$;
   }
-  getAvailableRooms(from: Date, numberOfDays: number): Observable< Room[]> {
-    this.http.get<Room[]>(`${environment.apiUrl}/room/available`).subscribe(x => {
-      this.availableRooms.next(x);
+  getAvailableRooms(from: string, numberOfDays: number): Observable< Room[]> {
+    this.http.get<Room[]>(`${environment.apiUrl}/room/available?from=` + from + `&numberOfDays=` + numberOfDays).subscribe(x => {
+      this.rooms.next(x);
     });
     return this.rooms$;
   }

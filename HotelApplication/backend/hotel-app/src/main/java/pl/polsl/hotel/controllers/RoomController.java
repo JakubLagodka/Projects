@@ -1,10 +1,13 @@
 package pl.polsl.hotel.controllers;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import pl.polsl.hotel.models.Room;
 import pl.polsl.hotel.services.RoomService;
@@ -19,13 +22,13 @@ public class RoomController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Room> getRooms(){
+    public List<Room> getRooms(){
         return roomService.findAll();
     }
 
-    @GetMapping(value = "/available",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Iterable<Room> getRoomsAvailable(@RequestParam LocalDate from, @RequestParam int number_of_days){
-        return roomService.getRoomsAvailable(from, number_of_days);
+    @GetMapping("/available")
+    public List<Room> getRoomsAvailable(@RequestParam String from, @RequestParam int numberOfDays)  {
+        return roomService.getRoomsAvailable(from, numberOfDays);
     }
 
 

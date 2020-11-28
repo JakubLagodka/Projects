@@ -30,7 +30,9 @@ export class ReservationComponent implements OnInit {
   private router: Router,
   public authenticationService: AuthenticationService,
   private calendarService: CalendarService) {}
-private diff;
+  private diff;
+  private start: Date;
+  private returned: string;
   options: string[] = ['One', 'Two', 'Three'];
 
   ngOnInit(): void {
@@ -39,7 +41,9 @@ private diff;
       this.router.navigate(['/register']);
     }
     this.diff = new Date(Math.abs(this.calendarService.range.controls.end.value - this.calendarService.range.controls.start.value));
-    this.rooms$ = this.roomService.getAvailableRooms( this.diff, this.diff.getDate());
+    this.start = new Date(this.calendarService.range.controls.end.value);
+    this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(this.start), this.diff.getDate());
+   // this.rooms$ = this.roomService.getRooms();
     this.reservations$ = this.reservationService.getReservations();
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -52,6 +56,18 @@ private diff;
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  convertToString( date: Date)
+  {
+    this.returned = '';
+    this.returned += date.getFullYear().toString().substr(0, 4);
+    this.returned += '-';
+    this.returned += date.getMonth() + 1;
+    this.returned += '-';
+    this.returned += date.getDate();
+
+    return this.returned;
   }
 
 }
