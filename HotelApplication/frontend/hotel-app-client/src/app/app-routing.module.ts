@@ -6,6 +6,7 @@ import { AuthGuard } from './_helpers/auth.guard';
 import {ObjectsComponent} from './manager/objects/objects.component';
 import {ModalComponent} from './modal/modal.component';
 import {ReservationComponent} from './reservation/reservation.component';
+import {NewReservationComponent} from './new-reservation/new-reservation.component';
 import {RegisterComponent} from './register/register.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'not-authorized', component: ModalComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'new-reservation', component: NewReservationComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '/home' }
 ];

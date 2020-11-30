@@ -1,4 +1,4 @@
-export class Room {
+export interface Room {
   id: number;
   numberOfBeds: number;
   storey: number;

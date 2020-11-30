@@ -46,8 +46,8 @@ export class RoomService {
     return this.http.delete<any>(`${environment.apiUrl}/room/` + roomId);
   }
 
-  updateRoom(roomId: number, roomPatch: Room): Observable< Room> {
+  /*updateRoom(roomId: number, roomPatch: Room): Observable< Room> {
     return this.http.patch<Room>(`${environment.apiUrl}/room/` + roomId, Room);
-  }
+  }*/
 
 }

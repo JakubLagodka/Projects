@@ -39,7 +39,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RegisterComponent } from './register/register.component';
-
+import {MatSelectModule} from '@angular/material/select';
+import { NewReservationComponent } from './new-reservation/new-reservation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { RegisterComponent } from './register/register.component';
     SidePannelComponent,
     CalendarComponent,
     ReservationComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { RegisterComponent } from './register/register.component';
     MatDividerModule,
     MatListModule,
     MatOptionModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {provide: MAT_DATE_LOCALE, useValue: 'pl-PL'}],
