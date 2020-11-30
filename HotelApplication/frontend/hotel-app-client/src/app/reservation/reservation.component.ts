@@ -7,21 +7,10 @@ import {Room} from '../_models/room';
 import {ReservationService} from '../_services/reservation.service';
 import {RoomService} from '../_services/room.service';
 import {FormControl, Validators} from '@angular/forms';
-import {distinct, mergeMap, toArray} from 'rxjs/operators';
+import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../_services/authentication.service';
 import {CalendarService} from '../_services/calendar.service';
-import {forEachComment} from 'tslint';
-import { Pipe, PipeTransform } from '@angular/core';
-interface Animal {
-  name: string;
-  sound: string;
-  age: number;
-}
-interface Person {
-  age: number;
-  name: Room[];
-}
 
 @Component({
   selector: 'app-reservation',
@@ -34,7 +23,7 @@ export class ReservationComponent implements OnInit {
   rooms$: Observable<Room[]>;
   reservations$: Observable<Reservation[]>;
   myControl = new FormControl();
-  filteredOptions: Observable<string[]>;
+
   constructor(
   public roomService: RoomService,
   public reservationService: ReservationService,
@@ -45,20 +34,10 @@ export class ReservationComponent implements OnInit {
   private start: Date;
   private returned: string;
   public numbersOfBeds;
-  public rooms: Room[];
-  public pack: Person = {age: 1, name: null};
-  private options: string[] = ['One', 'Two', 'Three'];
+  public storey;
   numberOfBedsControl = new FormControl('', Validators.required);
-  xxx = new FormControl('', Validators.required);
-  animalControl = new FormControl('', Validators.required);
-  selectFormControl = new FormControl('', Validators.required);
-  animals: Animal[] = [
-    {name: 'Dog', sound: 'Woof!', age: 1},
-    {name: 'Dog', sound: 'ffff!', age: 2},
-    {name: 'Cat', sound: 'Meow!', age: 1},
-    {name: 'Cow', sound: 'Moo!', age: 1},
-    {name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!', age: 1},
-  ];
+  storeyControl = new FormControl('', Validators.required);
+
 
   ngOnInit(): void {
 
@@ -70,6 +49,7 @@ export class ReservationComponent implements OnInit {
     this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(this.start), this.diff.getDate());
     // this.rooms$ = this.roomService.getRooms();
     this.reservations$ = this.reservationService.getReservations();
+
     this.rooms$.subscribe(rooms => {
       of(rooms.sort((a, b) => a.numberOfBeds - b.numberOfBeds)).pipe(
         mergeMap(x => rooms),
@@ -77,7 +57,7 @@ export class ReservationComponent implements OnInit {
         toArray(),
       ).subscribe(x => this.numbersOfBeds = x);
     });
-    this.numbersOfBeds = this.numbersOfBeds.sort((a, b) => a.numberOfBeds > b.numberOfBeds);
+
 
     // this.numbersOfBeds = this.rooms.map(m => m.numberOfBeds).distinct().toArray();
 
@@ -141,7 +121,21 @@ export class ReservationComponent implements OnInit {
 
   onSubmit()
   {
-
+    this.rooms$.subscribe(rooms => {
+      of(rooms.sort((a, b) => a.storey - b.storey)).pipe(
+        mergeMap(x => rooms),
+        distinct(v => v.storey),
+        toArray(),
+      ).subscribe(x => this.storey = x);
+    });
+    this.rooms$.subscribe(rooms => {
+      of(rooms.sort((a, b) => a.storey - b.storey)).pipe(
+        mergeMap(x => rooms),
+        distinct(v => v.storey),
+        filter(v => v.numberOfBeds === this.numberOfBedsControl.value),
+        toArray(),
+      ).subscribe(x => console.log(x));
+    });
     // this.roomService.bookRoom(1, this.convertToString(this.start), this.diff.getDate());
   }
 }
