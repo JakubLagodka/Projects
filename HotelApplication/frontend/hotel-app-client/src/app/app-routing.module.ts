@@ -10,6 +10,9 @@ import {ChoosingCloseToElevatorComponent} from './_reservations/choosing-close-t
 import {RegisterComponent} from './register/register.component';
 import {ChosingBalconyComponent} from './_reservations/chosing-balcony/chosing-balcony.component';
 import {ChosingBeatifulViewFromWindowsComponent} from './_reservations/chosing-beatiful-view-from-windows/chosing-beatiful-view-from-windows.component';
+import {ChoosingPillowTypeComponent} from './_reservations/choosing-pillow-type/choosing-pillow-type.component';
+import {ChoosingStoreyComponent} from './_reservations/choosing-storey/choosing-storey.component';
+import {SummaryComponent} from './_reservations/summary/summary.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
@@ -20,6 +23,9 @@ const routes: Routes = [
   { path: 'choosing-close-to-elevator', component: ChoosingCloseToElevatorComponent },
   { path: 'choosing-balcony', component: ChosingBalconyComponent },
   { path: 'choosing-beautiful-view-from-windows', component: ChosingBeatifulViewFromWindowsComponent },
+  { path: 'choosing-pillow-type', component: ChoosingPillowTypeComponent },
+  { path: 'choosing-storey', component: ChoosingStoreyComponent },
+  { path: 'summary', component: SummaryComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '/home' }
 ];

@@ -19,7 +19,7 @@ export class ReservationService {
     return this.http.get< Reservation[]>(`${environment.apiUrl}/reservation?id=` + objectId);
   }
 
-  createReservation(reservation: Reservation): Observable< Reservation> {
+  addReservation(reservation: Reservation): Observable< Reservation> {
     return this.http.post< Reservation>(`${environment.apiUrl}/reservation`, reservation);
   }
 

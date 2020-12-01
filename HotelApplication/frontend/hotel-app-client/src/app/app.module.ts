@@ -43,7 +43,10 @@ import {MatSelectModule} from '@angular/material/select';
 import { NewReservationComponent } from './new-reservation/new-reservation.component';
 import { ChoosingCloseToElevatorComponent } from './_reservations/choosing-close-to-elevator/choosing-close-to-elevator.component';
 import { ChosingBalconyComponent } from './_reservations/chosing-balcony/chosing-balcony.component';
-import { ChosingBeatifulViewFromWindowsComponent } from './_/reservations/chosing-beatiful-view-from-windows/chosing-beatiful-view-from-windows.component';
+import { ChosingBeatifulViewFromWindowsComponent } from './_reservations/chosing-beatiful-view-from-windows/chosing-beatiful-view-from-windows.component';
+import { ChoosingPillowTypeComponent } from './_reservations/choosing-pillow-type/choosing-pillow-type.component';
+import { ChoosingStoreyComponent } from './_reservations/choosing-storey/choosing-storey.component';
+import { SummaryComponent } from './_reservations/summary/summary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +77,10 @@ import { ChosingBeatifulViewFromWindowsComponent } from './_/reservations/chosin
     NewReservationComponent,
     ChoosingCloseToElevatorComponent,
     ChosingBalconyComponent,
-    ChosingBeatifulViewFromWindowsComponent
+    ChosingBeatifulViewFromWindowsComponent,
+    ChoosingPillowTypeComponent,
+    ChoosingStoreyComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

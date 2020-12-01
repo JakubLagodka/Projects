@@ -1,1 +1,22 @@
-<p>chosing-beatiful-view-from-windows works!</p>
+<div>
+  <mat-form-field >
+    <mat-label>Wybierz czy pokój ma mieć piękny widok z okien</mat-label>
+    <mat-select [formControl]="beautifulViewControl" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let room of beautifulView " [value]="room.beautifulViewFromTheWindows">
+        {{room.beautifulViewFromTheWindows}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="beautifulViewControl.hasError('required')">
+      This field is required
+    </mat-error>
+    <mat-hint>You can pick up your favorite car here</mat-hint>
+  </mat-form-field>
+</div>
+
+<div class="form-group" >
+  <button class="btn btn-dark btn-block" (click)="onSubmit()" >
+
+    Przejdź dalej
+  </button>
+</div>

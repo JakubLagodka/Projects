@@ -42,11 +42,6 @@ export class CalendarComponent implements OnInit {
       return;
     }
 
-    // this.reservation.startDate = this.range.controls.start.value;
-    // this.reservation.endDate = this.range.controls.end.value;
-    // this.calendarService.change.subscribe
-    // console.log( this.range.controls.start.value);
-    // this.reservation.endDate = this.range.controls.end.value;
     this.calendarService.takeDates( this.range);
     this.router.navigate(['/reservation']);
   }

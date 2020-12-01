@@ -17,17 +17,15 @@ export class ChoosingCloseToElevatorComponent implements OnInit {
   closeToElevator;
   closeToElevatorControl = new FormControl('', Validators.required);
 
-  constructor( public reservationService: ReservationService,
-               private router: Router,
-               public authenticationService: AuthenticationService,
-               private calendarService: CalendarService) { }
+  constructor( private router: Router, private calendarService: CalendarService) { }
 
   ngOnInit(): void {
 
     this.calendarService.rooms$.subscribe(rooms => {
       of(rooms).pipe(
         mergeMap(x => rooms),
-        filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds.value),
+        filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
+        filter(v => v.typeOfPillow === this.calendarService.chosenPillowType),
         distinct(v => v.closeToElevator),
         toArray(),
       ).subscribe(x => this.closeToElevator = x);
@@ -35,9 +33,9 @@ export class ChoosingCloseToElevatorComponent implements OnInit {
   }
   onSubmit()
   {
-    this.calendarService.chosenCloseToElevator = this.closeToElevatorControl;
+    this.calendarService.chosenCloseToElevator = this.closeToElevatorControl.value;
 
-    this.router.navigate(['/choosing-beautiful-view-from-windows']);
+    this.router.navigate(['/choosing-balcony']);
 
   }
 }

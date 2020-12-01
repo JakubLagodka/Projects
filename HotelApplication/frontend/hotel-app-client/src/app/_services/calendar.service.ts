@@ -11,11 +11,15 @@ import {Room} from '../_models/room';
 })
 export class CalendarService {
   private returned: string;
-  private diff;
+  public diff;
   rooms$: Observable<Room[]>;
   public chosenNumberOfBeds;
   public chosenCloseToElevator;
   public chosenBalcony;
+  public chosenBeautifulView;
+  public chosenPillowType;
+  public chosenStorey;
+  public choosenRooms;
   range = new FormGroup({
     start: new FormControl(['', Validators.required]),
     end: new FormControl(['', Validators.required])

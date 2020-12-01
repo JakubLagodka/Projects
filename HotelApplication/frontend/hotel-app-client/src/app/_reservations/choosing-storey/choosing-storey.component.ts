@@ -8,14 +8,14 @@ import {of} from 'rxjs';
 import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-chosing-balcony',
-  templateUrl: './chosing-balcony.component.html',
-  styleUrls: ['./chosing-balcony.component.css']
+  selector: 'app-choosing-storey',
+  templateUrl: './choosing-storey.component.html',
+  styleUrls: ['./choosing-storey.component.css']
 })
-export class ChosingBalconyComponent implements OnInit {
+export class ChoosingStoreyComponent implements OnInit {
 
-  balcony;
-  balconyControl = new FormControl('', Validators.required);
+  storey;
+  storeyControl = new FormControl('', Validators.required);
 
   constructor(private router: Router, private calendarService: CalendarService) { }
 
@@ -27,16 +27,20 @@ export class ChosingBalconyComponent implements OnInit {
         filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
         filter(v => v.typeOfPillow === this.calendarService.chosenPillowType),
         filter(v => v.closeToElevator === this.calendarService.chosenCloseToElevator),
-        distinct(v => v.balcony),
+        filter(v => v.balcony === this.calendarService.chosenBalcony),
+        filter(v => v.beautifulViewFromTheWindows === this.calendarService.chosenBeautifulView),
+        distinct(v => v.storey),
         toArray(),
-      ).subscribe(x => this.balcony = x);
+      ).subscribe(x => this.storey = x);
     });
   }
   onSubmit()
   {
-    this.calendarService.chosenBalcony = this.balconyControl.value;
+    this.calendarService.chosenStorey = this.storeyControl.value;
 
-    this.router.navigate(['/choosing-beautiful-view-from-windows']);
+    this.calendarService.choosenRooms = this.storey;
+
+    this.router.navigate(['/summary']);
 
   }
 }

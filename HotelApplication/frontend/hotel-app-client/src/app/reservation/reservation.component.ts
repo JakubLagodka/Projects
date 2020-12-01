@@ -22,21 +22,19 @@ export class ReservationComponent implements OnInit {
 
   rooms$: Observable<Room[]>;
   reservations$: Observable<Reservation[]>;
-  myControl = new FormControl();
+
 
   constructor(
   public reservationService: ReservationService,
   private router: Router,
   public authenticationService: AuthenticationService,
   private calendarService: CalendarService) {}
-  private diff;
-  private start: Date;
-  private returned: string;
+
   public numbersOfBeds;
 
-  public storey;
+
   numberOfBedsControl = new FormControl('', Validators.required);
-  storeyControl = new FormControl('', Validators.required);
+
 
 
   ngOnInit(): void {
@@ -108,9 +106,9 @@ export class ReservationComponent implements OnInit {
 
   onSubmit()
   {
-    this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl;
+    this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
 
-    this.router.navigate(['/choosing-close-to-elevator']);
+    this.router.navigate(['/choosing-pillow-type']);
 
   }
 }
