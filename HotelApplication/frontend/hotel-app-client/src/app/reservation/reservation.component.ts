@@ -25,7 +25,6 @@ export class ReservationComponent implements OnInit {
   myControl = new FormControl();
 
   constructor(
-  public roomService: RoomService,
   public reservationService: ReservationService,
   private router: Router,
   public authenticationService: AuthenticationService,
@@ -34,6 +33,7 @@ export class ReservationComponent implements OnInit {
   private start: Date;
   private returned: string;
   public numbersOfBeds;
+
   public storey;
   numberOfBedsControl = new FormControl('', Validators.required);
   storeyControl = new FormControl('', Validators.required);
@@ -44,13 +44,11 @@ export class ReservationComponent implements OnInit {
     if (!this.authenticationService.currentUserValue) {
       this.router.navigate(['/register']);
     }
-    this.diff = new Date(Math.abs(this.calendarService.range.controls.end.value - this.calendarService.range.controls.start.value));
-    this.start = new Date(this.calendarService.range.controls.end.value);
-    this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(this.start), this.diff.getDate());
+
     // this.rooms$ = this.roomService.getRooms();
     this.reservations$ = this.reservationService.getReservations();
 
-    this.rooms$.subscribe(rooms => {
+    this.calendarService.rooms$.subscribe(rooms => {
       of(rooms.sort((a, b) => a.numberOfBeds - b.numberOfBeds)).pipe(
         mergeMap(x => rooms),
         distinct(v => v.numberOfBeds),
@@ -107,35 +105,12 @@ export class ReservationComponent implements OnInit {
      return this.options.filter(option => option.toLowerCase().includes(filterValue));
    }*/
   }
-  convertToString( date: Date)
-  {
-    this.returned = '';
-    this.returned += date.getFullYear().toString().substr(0, 4);
-    this.returned += '-';
-    this.returned += date.getMonth() + 1;
-    this.returned += '-';
-    this.returned += date.getDate();
-
-    return this.returned;
-  }
 
   onSubmit()
   {
-    this.rooms$.subscribe(rooms => {
-      of(rooms.sort((a, b) => a.storey - b.storey)).pipe(
-        mergeMap(x => rooms),
-        distinct(v => v.storey),
-        toArray(),
-      ).subscribe(x => this.storey = x);
-    });
-    this.rooms$.subscribe(rooms => {
-      of(rooms.sort((a, b) => a.storey - b.storey)).pipe(
-        mergeMap(x => rooms),
-        distinct(v => v.storey),
-        filter(v => v.numberOfBeds === this.numberOfBedsControl.value),
-        toArray(),
-      ).subscribe(x => console.log(x));
-    });
-    // this.roomService.bookRoom(1, this.convertToString(this.start), this.diff.getDate());
+    this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl;
+
+    this.router.navigate(['/choosing-close-to-elevator']);
+
   }
 }

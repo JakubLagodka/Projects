@@ -41,6 +41,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RegisterComponent } from './register/register.component';
 import {MatSelectModule} from '@angular/material/select';
 import { NewReservationComponent } from './new-reservation/new-reservation.component';
+import { ChoosingCloseToElevatorComponent } from './_reservations/choosing-close-to-elevator/choosing-close-to-elevator.component';
+import { ChosingBalconyComponent } from './_reservations/chosing-balcony/chosing-balcony.component';
+import { ChosingBeatifulViewFromWindowsComponent } from './_/reservations/chosing-beatiful-view-from-windows/chosing-beatiful-view-from-windows.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +71,10 @@ import { NewReservationComponent } from './new-reservation/new-reservation.compo
     CalendarComponent,
     ReservationComponent,
     RegisterComponent,
-    NewReservationComponent
+    NewReservationComponent,
+    ChoosingCloseToElevatorComponent,
+    ChosingBalconyComponent,
+    ChosingBeatifulViewFromWindowsComponent
   ],
   imports: [
     BrowserModule,
