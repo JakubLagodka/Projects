@@ -19,13 +19,13 @@ export class CalendarService {
   public chosenBeautifulView;
   public chosenPillowType;
   public chosenStorey;
-  public choosenRooms;
+  public chosenRooms;
   range = new FormGroup({
     start: new FormControl(['', Validators.required]),
     end: new FormControl(['', Validators.required])
   });
   constructor(  public roomService: RoomService) { }
-  @Output() change: EventEmitter<boolean> = new EventEmitter();
+
 
   takeDates(formGroup: FormGroup)
   {

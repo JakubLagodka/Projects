@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Reservation} from '../_models/reservation';
+import {shareReplay, take} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,18 @@ export class ReservationService {
     return this.http.get< Reservation[]>(`${environment.apiUrl}/reservation?id=` + objectId);
   }
 
+  getReservationsByUserId(userId: number): Observable< Reservation[]> {
+    return this.http.get< Reservation[]>(`${environment.apiUrl}/reservation?UserId=` + userId);
+  }
+
+
   addReservation(reservation: Reservation): Observable< Reservation> {
-    return this.http.post< Reservation>(`${environment.apiUrl}/reservation`, reservation);
+    const returnedReservation = this.http.post< Reservation>(`${environment.apiUrl}/reservation/add`, reservation).pipe(shareReplay());
+
+    /*returnedReservation.pipe(take(1)).subscribe(x => {
+      this.placeInArray(x);
+    });*/
+    return returnedReservation;
   }
 
   deleteReservation(reservationId: number): Observable<any> {

@@ -37,15 +37,15 @@ public class Room  {
     private boolean readyToUseOnAGivenDay;
 
     private boolean canBeReserved;
-
+/*
     @ElementCollection
     List<LocalDate> availableDates;
 
     @ElementCollection
     List<Boolean> isAvailable;
-
+*/
     public Room() {
-
+/*
         this.availableDates = new LinkedList<>();
         this.isAvailable= new LinkedList<>();
 
@@ -56,7 +56,7 @@ public class Room  {
             this.availableDates.add(date);
             this.isAvailable.add(true);
 
-        }
+        }*/
     }
     public Room(int numberOfBeds, int storey,  boolean CloseToElevator, boolean BeautifulViewFromTheWindows,
                      PillowType typeOfPillow, boolean balcony, long priceForOneDay, long hotelId, boolean readyToUseOnAGivenDay,
@@ -72,7 +72,7 @@ public class Room  {
         this.hotelId = hotelId;
         this.readyToUseOnAGivenDay = readyToUseOnAGivenDay;
         this.canBeReserved = canBeReserved;
-        this.availableDates = new LinkedList<>();
+       /* this.availableDates = new LinkedList<>();
         this.isAvailable= new LinkedList<>();
 
         LocalDate start = LocalDate.now();
@@ -82,7 +82,7 @@ public class Room  {
             this.availableDates.add(date);
             this.isAvailable.add(true);
 
-        }
+        }*/
 
     }
 
@@ -176,7 +176,7 @@ public class Room  {
     public void setCanBeReserved(boolean canBeReserved) {
         this.canBeReserved = canBeReserved;
     }
-
+/*
     public List<LocalDate> getAvailableDates() {
         return availableDates;
     }
@@ -191,5 +191,5 @@ public class Room  {
 
     public void setIsAvailable(List<Boolean> isAvailable) {
         this.isAvailable = isAvailable;
-    }
+    }*/
 }

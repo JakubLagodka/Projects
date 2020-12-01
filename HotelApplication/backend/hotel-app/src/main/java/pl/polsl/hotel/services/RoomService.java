@@ -47,7 +47,7 @@ public class RoomService extends MySession implements StartUpFiller {
         fromLocalDate = LocalDate.parse(from);
         fromDate = convertToDate(fromLocalDate);
         for (Room room : roomRepository.findAll()) {
-            index = 0;
+           /* index = 0;
             for (LocalDate date: room.getAvailableDates()) {
 
                 if((date.getYear() == fromLocalDate.getYear())&&(date.getMonth() == fromLocalDate.getMonth())&& (date.getDayOfMonth() == fromLocalDate.getDayOfMonth()))
@@ -63,7 +63,7 @@ public class RoomService extends MySession implements StartUpFiller {
                             }
                         }
                         if(isAvailable)
-                        {
+                        {*/
                             for (Reservation reservation : reservationRepository.findAll())
                             {
                                 if(reservation.getRoom().getId() == room.getId() && !(fromDate.before(reservation.getStartDate()) || fromDate.after((reservation.getEndDate()))))
@@ -73,13 +73,13 @@ public class RoomService extends MySession implements StartUpFiller {
                                 }
                             }
                             if(isAvailable)
-                                roomsAvailable.add(room);
+                                roomsAvailable.add(room);/*
                         }
                     }
                     break;
                 }
                 index++;
-            }
+            }*/
 
         }
         return roomsAvailable;
@@ -142,7 +142,7 @@ public class RoomService extends MySession implements StartUpFiller {
         fromLocalDate = LocalDate.parse(from);
         Room room = roomRepository.getById(roomId);
         int index = 0;
-        for (LocalDate date: room.getAvailableDates())
+        /*for (LocalDate date: room.getAvailableDates())
         {
 
             if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromLocalDate.getMonth())&& (date.getDayOfMonth() == fromLocalDate.getDayOfMonth()))
@@ -156,7 +156,7 @@ public class RoomService extends MySession implements StartUpFiller {
                break;
             }
             index++;
-        }
+        }*/
         roomRepository.save(room);
         return room;
     }

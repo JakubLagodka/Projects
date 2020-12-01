@@ -38,7 +38,7 @@ export class ChoosingStoreyComponent implements OnInit {
   {
     this.calendarService.chosenStorey = this.storeyControl.value;
 
-    this.calendarService.choosenRooms = this.storey;
+    this.calendarService.chosenRooms = this.storey;
 
     this.router.navigate(['/summary']);
 

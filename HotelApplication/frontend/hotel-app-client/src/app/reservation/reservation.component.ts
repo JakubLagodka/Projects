@@ -25,7 +25,6 @@ export class ReservationComponent implements OnInit {
 
 
   constructor(
-  public reservationService: ReservationService,
   private router: Router,
   public authenticationService: AuthenticationService,
   private calendarService: CalendarService) {}
@@ -44,7 +43,7 @@ export class ReservationComponent implements OnInit {
     }
 
     // this.rooms$ = this.roomService.getRooms();
-    this.reservations$ = this.reservationService.getReservations();
+   //  this.reservations$ = this.reservationService.getReservations();
 
     this.calendarService.rooms$.subscribe(rooms => {
       of(rooms.sort((a, b) => a.numberOfBeds - b.numberOfBeds)).pipe(

@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.hotel.models.Reservation;
 
+import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.services.ReservationService;
 
 import java.util.Optional;
@@ -29,13 +30,14 @@ public class ReservationController {
         return reservationService.findById(index);
     }
 
-    @PostMapping
-    public Reservation addReservation(@RequestBody Reservation reservation){
+    @ResponseStatus(value = HttpStatus.CREATED)
+    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ReservationView addReservation(@RequestBody ReservationView reservation){
         return reservationService.save(reservation);
     }
 
     @PutMapping
-    public Reservation updateReservation(@RequestBody Reservation reservation){
+    public ReservationView updateReservation(@RequestBody ReservationView reservation){
         return reservationService.save(reservation);
     }
 
