@@ -29,14 +29,14 @@ public class RoomController {
     }
 
     @GetMapping("/available")
-    public List<Room> getRoomsAvailable(@RequestParam String from, @RequestParam int numberOfDays)  {
-        return roomService.getRoomsAvailable(from, numberOfDays);
+    public List<Room> getRoomsAvailable(@RequestParam String startDate, @RequestParam String endDate)  {
+        return roomService.getRoomsAvailable(startDate, endDate);
     }
 
-    @GetMapping("/booking")
+   /* @GetMapping("/booking")
     public Room bookRoom(@RequestParam Long roomId, @RequestParam String from, @RequestParam int numberOfDays) {
         return roomService.bookRoom(roomId, from,numberOfDays);
-    }
+    }*/
 
     @GetMapping
     public Optional<Room> getByRoomId(@RequestParam Long index){

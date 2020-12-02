@@ -21,8 +21,10 @@ public class RoomService extends MySession implements StartUpFiller {
     private final ReservationRepository reservationRepository;
     private Random generator;
     private ArrayList<Room> roomsAvailable;
-    private LocalDate fromLocalDate;
-    private Date fromDate;
+    private LocalDate startLocalDate;
+    private Date startDate;
+    private LocalDate endLocalDate;
+    private Date endDate;
     @Autowired
     public RoomService(RoomRepository roomRepository, ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
@@ -40,12 +42,19 @@ public class RoomService extends MySession implements StartUpFiller {
 
     }
 
-    public List<Room> getRoomsAvailable(String from, int numberOfDays) {
+    public List<Room> getRoomsAvailable(String start, String end) {
         roomsAvailable.clear();
         int index = 0;
         boolean isAvailable = true;
-        fromLocalDate = LocalDate.parse(from);
-        fromDate = convertToDate(fromLocalDate);
+        startLocalDate = LocalDate.parse(start);
+        startDate = convertToDate(startLocalDate);
+        Calendar startCal = Calendar.getInstance();
+        startCal.setTime(startDate);
+        startCal.add(Calendar.HOUR, 23);
+        startDate = startCal.getTime();
+        endLocalDate = LocalDate.parse(end);
+        endDate = convertToDate(endLocalDate);
+
         for (Room room : roomRepository.findAll()) {
             isAvailable = true;
            /* index = 0;
@@ -68,7 +77,7 @@ public class RoomService extends MySession implements StartUpFiller {
 
                             for (Reservation reservation : reservationRepository.findAll())
                             {
-                                if(reservation.getRoom().getId() == room.getId() && !(fromDate.before(reservation.getStartDate()) || fromDate.after((reservation.getEndDate()))))
+                                if(reservation.getRoom().getId() == room.getId() && (!startDate.before(reservation.getStartDate()) || !endDate.after(reservation.getEndDate())))
                                 {
                                     isAvailable = false;
                                     break;
@@ -139,7 +148,7 @@ public class RoomService extends MySession implements StartUpFiller {
         return java.sql.Date.valueOf(dateToConvert);
     }
 
-    public Room bookRoom(Long roomId, String from, int numberOfDays) {
+   /* public Room bookRoom(Long roomId, String from, int numberOfDays) {
         fromLocalDate = LocalDate.parse(from);
         Room room = roomRepository.getById(roomId);
         int index = 0;
@@ -157,8 +166,8 @@ public class RoomService extends MySession implements StartUpFiller {
                break;
             }
             index++;
-        }*/
+        }
         roomRepository.save(room);
         return room;
-    }
+    }*/
 }

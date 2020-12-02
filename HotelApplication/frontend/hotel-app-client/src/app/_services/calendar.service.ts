@@ -23,10 +23,8 @@ export class CalendarService {
   public chosenStorey;
   public chosenRooms;
   public hotelNight;
-  range = new FormGroup({
-    start: new FormControl(['', Validators.required]),
-    end: new FormControl(['', Validators.required])
-  });
+  startDate;
+  endDate;
   constructor(  public roomService: RoomService,
                 private hotelNightService: HotelNightService) {
      this.hotelNightService.getHotelNight().subscribe(
@@ -34,13 +32,19 @@ export class CalendarService {
   }
 
 
-  takeDates(formGroup: FormGroup)
+  takeDates(startDate, endDate)
   {
+    this.rooms$ = null;
+    console.log(this.rooms$);
+    startDate.setHours(this.hotelNight[0].checkInTime);
+    endDate.setDate(endDate.getDate() + 1 );
+    endDate.setHours(this.hotelNight[0].checkOutTime);
+    this.diff = endDate.getDate() -  startDate.getDate();
+    // this.start = new Date(this.range.controls.end.value);
+    this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(startDate), this.convertToString(endDate));
+  this.startDate = startDate;
+  this.endDate = endDate;
 
-    this.range = formGroup;
-    this.diff = new Date(Math.abs(this.range.controls.end.value - this.range.controls.start.value));
-   // this.start = new Date(this.range.controls.end.value);
-    this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(this.range.controls.end.value), this.diff.getDate());
   }
 
   convertToString( date: Date)

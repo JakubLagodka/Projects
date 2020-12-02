@@ -7,11 +7,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr><td>Czas rezerwacji</td><td> od {{ this.checkInTime.getDate()}}
-    {{this.translatorService.translateMonthToPolish(this.checkInTime.getMonth())}} {{ this.checkInTime.getFullYear()}}
-    od rozpoczęcia doby hotelowej (godzina {{ this.checkInTime.getHours()}}) do  {{ this.checkOutTime.getDate()}}
-    {{this.translatorService.translateMonthToPolish(this.checkOutTime.getMonth())}} {{ this.checkOutTime.getFullYear()}}
-    do zakończenia doby hotelowej (godzina {{ this.checkOutTime.getHours()}})</td>
+  <tr><td>Czas rezerwacji</td><td> od {{ this.calendarService.startDate.getDate()}}
+    {{this.translatorService.translateMonthToPolish(this.calendarService.startDate.getMonth())}} {{ this.calendarService.startDate.getFullYear()}}
+    od rozpoczęcia doby hotelowej (godzina {{ this.calendarService.startDate.getHours()}}) do  {{ this.calendarService.endDate.getDate()}}
+    {{this.translatorService.translateMonthToPolish(this.calendarService.endDate.getMonth())}} {{ this.calendarService.endDate.getFullYear()}}
+    do zakończenia doby hotelowej (godzina {{ this.calendarService.endDate.getHours()}})</td>
   <tr><td>Liczba łózek w pokoju</td><td>{{this.calendarService.chosenRooms[0].numberOfBeds}}</td></tr>
   <tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
   <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>

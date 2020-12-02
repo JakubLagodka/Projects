@@ -64,11 +64,11 @@ export class AppComponent implements OnInit, OnDestroy {
   calendarSubmit() {
      this.submitted = true;
     // stop here if form is invalid
-    if (this.calendarService.range.invalid) {
+    if (this.range.invalid) {
       return;
     }
     this.notLogged = true;
-    this.calendarService.takeDates( this.range);
+    this.calendarService.takeDates( this.range.controls.start.value, this.range.controls.end.value);
     this.sidenav.close();
     this.router.navigate(['/reservation']);
   }

@@ -13,3 +13,10 @@
   margin-top: 23px;
   padding: 9px 10px !important;
 }
+.card.highlight-card {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  width: auto;
+  position: relative;
+}

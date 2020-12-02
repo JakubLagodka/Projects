@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 @SuppressWarnings("rawtypes")
 @ResponseStatus(value = HttpStatus.FORBIDDEN)
-public class ForbiddenAccessException extends BaseException {
+public class ForbiddenAccessException extends RuntimeException {
 
     public ForbiddenAccessException(String message) {
         super(message);

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subscription, interval} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Room} from '../_models/room';
 import {User} from '../_models/user';
@@ -8,14 +8,14 @@ import {shareReplay, take} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class RoomService {
+export class RoomService  {
   private rooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
   private availableRooms: BehaviorSubject<Room[]> = new BehaviorSubject([]);
   private rooms$: Observable<Room[]> = this.rooms.asObservable();
+  private updateSubscription: Subscription;
+  constructor( private http: HttpClient) {
 
-  constructor( private http: HttpClient) { }
-
-
+  }
 
   getRooms(): Observable< Room[]> {
     if (this.rooms.value.length === 0) {
@@ -25,8 +25,10 @@ export class RoomService {
     }
     return this.rooms$;
   }
-  getAvailableRooms(from: string, numberOfDays: number): Observable< Room[]> {
-    this.http.get<Room[]>(`${environment.apiUrl}/room/available?from=` + from + `&numberOfDays=` + numberOfDays).subscribe(x => {
+  getAvailableRooms(startDate: string, endDate: string): Observable< Room[]> {
+    console.log(startDate);
+    console.log(endDate);
+    this.http.get<Room[]>(`${environment.apiUrl}/room/available?startDate=` + startDate + `&endDate=` + endDate).subscribe(x => {
       this.rooms.next(x);
     });
     return this.rooms$;

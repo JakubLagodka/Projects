@@ -18,8 +18,6 @@ import {TranslatorService} from '../../_services/translator.service';
 export class SummaryComponent implements OnInit {
  reservation: Reservation = new Reservation();
  hotelNight;
-  checkInTime;
-  checkOutTime;
   constructor(public reservationService: ReservationService,
               private router: Router,
               public authenticationService: AuthenticationService,
@@ -35,18 +33,13 @@ export class SummaryComponent implements OnInit {
     this.router.navigate(['']);
   }
   ngOnInit(): void {
-    this.reservation.startDate = this.calendarService.range.controls.start.value;
-    this.reservation.endDate = this.calendarService.range.controls.end.value;
-    this.reservation.numberOfDays = this.calendarService.diff.getDate();
+    this.reservation.startDate = this.calendarService.startDate;
+    this.reservation.endDate = this.calendarService.endDate;
+    this.reservation.numberOfDays = this.calendarService.diff;
     this.reservation.roomNumber = this.calendarService.chosenRooms[0].id;
     this.reservation.userId = this.authenticationService.currentUserValue.id;
     this.reservation.priceForOneDay = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
-
-    this.checkInTime = this.reservation.startDate;
-    this.checkInTime.setHours(this.calendarService.hotelNight[0].checkInTime);
-    this.checkOutTime = this.reservation.endDate;
-    this.checkOutTime.setHours(this.calendarService.hotelNight[0].checkOutTime);
-    this.checkOutTime.setDate( this.checkInTime.getDate() + 1);
+    console.log(this.reservation.startDate);
   }
 dismiss(){}
 

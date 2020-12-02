@@ -2,7 +2,6 @@ import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Status} from '../_models/status';
 import {shareReplay, take} from 'rxjs/operators';
 import {User} from '../_models/user';
 

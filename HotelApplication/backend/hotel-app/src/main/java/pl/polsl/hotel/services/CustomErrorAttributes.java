@@ -2,10 +2,6 @@ package pl.polsl.hotel.services;
 
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.WebRequest;
-import pl.polsl.hotel.exceptions.BaseException;
-
-import java.util.Map;
 
 @Component
 public class CustomErrorAttributes extends DefaultErrorAttributes {
