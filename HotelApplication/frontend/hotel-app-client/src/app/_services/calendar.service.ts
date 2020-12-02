@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {RoomService} from './room.service';
 import {Observable} from 'rxjs';
 import {Room} from '../_models/room';
+import {HotelNight} from '../_models/hotel-night';
+import {HotelNightService} from './hotel-night.service';
 
 
 
@@ -20,11 +22,16 @@ export class CalendarService {
   public chosenPillowType;
   public chosenStorey;
   public chosenRooms;
+  public hotelNight;
   range = new FormGroup({
     start: new FormControl(['', Validators.required]),
     end: new FormControl(['', Validators.required])
   });
-  constructor(  public roomService: RoomService) { }
+  constructor(  public roomService: RoomService,
+                private hotelNightService: HotelNightService) {
+     this.hotelNightService.getHotelNight().subscribe(
+      x => this.hotelNight = x);
+  }
 
 
   takeDates(formGroup: FormGroup)

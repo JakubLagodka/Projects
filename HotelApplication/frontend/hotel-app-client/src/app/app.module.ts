@@ -78,7 +78,7 @@ import { SummaryComponent } from './_reservations/summary/summary.component';
     ChosingBeatifulViewFromWindowsComponent,
     ChoosingPillowTypeComponent,
     ChoosingStoreyComponent,
-    SummaryComponent
+    SummaryComponent,
   ],
   imports: [
     BrowserModule,

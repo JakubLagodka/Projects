@@ -7,7 +7,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr><td>Czas rezerwacji</td><td> od {{this.reservation.startDate}} do  {{this.reservation.endDate}}</td></tr>
+  <tr><td>Czas rezerwacji</td><td> od {{ this.checkInTime.getDate()}}
+    {{this.translatorService.translateToPolish(this.checkInTime.getMonth())}} {{ this.checkInTime.getFullYear()}}
+    od rozpoczęcia doby hotelowej (godzina {{ this.checkInTime.getHours()}}) do  {{ this.checkOutTime.getDate()}}
+    {{this.translatorService.translateToPolish(this.checkOutTime.getMonth())}} {{ this.checkOutTime.getFullYear()}}
+    do zakończenia doby hotelowej (godzina {{ this.checkOutTime.getHours()}})</td>
   <tr><td>Liczba łózek w pokoju</td><td>{{this.calendarService.chosenRooms[0].numberOfBeds}}</td></tr>
   <tr><td>Wybrany typ poduszki</td><td>{{this.calendarService.chosenRooms[0].typeOfPillow}}</td></tr>
   <tr><td>Czy pokój ma być blisko windy</td><td>{{this.calendarService.chosenRooms[0].closeToElevator}}</td></tr>

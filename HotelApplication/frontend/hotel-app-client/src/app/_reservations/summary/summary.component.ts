@@ -7,6 +7,8 @@ import {Reservation} from '../../_models/reservation';
 import {distinct, filter, mergeMap, take, toArray} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {Room} from '../../_models/room';
+import {HotelNightService} from '../../_services/hotel-night.service';
+import {TranslatorService} from '../../_services/translator.service';
 
 @Component({
   selector: 'app-summary',
@@ -15,11 +17,15 @@ import {Room} from '../../_models/room';
 })
 export class SummaryComponent implements OnInit {
  reservation: Reservation = new Reservation();
-private room: Room[];
+ hotelNight;
+  checkInTime;
+  checkOutTime;
   constructor(public reservationService: ReservationService,
               private router: Router,
               public authenticationService: AuthenticationService,
-              public calendarService: CalendarService) { }
+              public calendarService: CalendarService,
+              public translatorService: TranslatorService
+              ) { }
 
   submit()
   {
@@ -36,6 +42,11 @@ private room: Room[];
     this.reservation.userId = this.authenticationService.currentUserValue.id;
     this.reservation.priceForOneDay = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
 
+    this.checkInTime = this.reservation.startDate;
+    this.checkInTime.setHours(this.calendarService.hotelNight[0].checkInTime);
+    this.checkOutTime = this.reservation.endDate;
+    this.checkOutTime.setHours(this.calendarService.hotelNight[0].checkOutTime);
+    this.checkOutTime.setDate( this.checkInTime.getDate() + 1);
   }
 dismiss(){}
 

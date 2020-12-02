@@ -5,7 +5,8 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from '../../_services/authentication.service';
 import {CalendarService} from '../../_services/calendar.service';
 import {of} from 'rxjs';
-import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
+import {distinct, filter, mergeMap, take, toArray} from 'rxjs/operators';
+import {HotelNightService} from '../../_services/hotel-night.service';
 
 @Component({
   selector: 'app-choosing-storey',
@@ -17,7 +18,8 @@ export class ChoosingStoreyComponent implements OnInit {
   storey;
   storeyControl = new FormControl('', Validators.required);
 
-  constructor(private router: Router, private calendarService: CalendarService) { }
+  constructor(private router: Router, private calendarService: CalendarService,
+              private hotelNightService: HotelNightService) { }
 
   ngOnInit(): void {
 
