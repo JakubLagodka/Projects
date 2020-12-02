@@ -8,21 +8,21 @@
   </thead>
   <tbody>
   <tr><td>Czas rezerwacji</td><td> od {{ this.checkInTime.getDate()}}
-    {{this.translatorService.translateToPolish(this.checkInTime.getMonth())}} {{ this.checkInTime.getFullYear()}}
+    {{this.translatorService.translateMonthToPolish(this.checkInTime.getMonth())}} {{ this.checkInTime.getFullYear()}}
     od rozpoczęcia doby hotelowej (godzina {{ this.checkInTime.getHours()}}) do  {{ this.checkOutTime.getDate()}}
-    {{this.translatorService.translateToPolish(this.checkOutTime.getMonth())}} {{ this.checkOutTime.getFullYear()}}
+    {{this.translatorService.translateMonthToPolish(this.checkOutTime.getMonth())}} {{ this.checkOutTime.getFullYear()}}
     do zakończenia doby hotelowej (godzina {{ this.checkOutTime.getHours()}})</td>
   <tr><td>Liczba łózek w pokoju</td><td>{{this.calendarService.chosenRooms[0].numberOfBeds}}</td></tr>
-  <tr><td>Wybrany typ poduszki</td><td>{{this.calendarService.chosenRooms[0].typeOfPillow}}</td></tr>
-  <tr><td>Czy pokój ma być blisko windy</td><td>{{this.calendarService.chosenRooms[0].closeToElevator}}</td></tr>
-  <tr><td>Czy pokój ma mieć balkon</td><td>{{this.calendarService.chosenRooms[0].balcony}}</td></tr>
-  <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.calendarService.chosenRooms[0].beautifulViewFromTheWindows}}</td></tr>
+  <tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
+  <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>
+  <tr><td>Czy pokój ma mieć balkon</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].balcony)}}</td></tr>
+  <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].beautifulViewFromTheWindows)}}</td></tr>
   <tr><td>Piętro, na którym znajduje się pokój</td><td>{{this.calendarService.chosenRooms[0].storey}}</td></tr>
   <tr><td>Cena rezerwacji</td><td>{{this.reservation.priceForOneDay}} złotych</td></tr>
   </tbody>
 </table>
   <div class="modal-footer col-md-7 col-12 mt-5 text-center">
-    <button type="submit" class="btn btn-success">Przejdź dalej</button>
+    <button type="submit" class="btn btn-success">Zarezerwuj pokój</button>
     <button class="btn btn-danger" (click)="dismiss()">Wróć</button>
   </div>
 </form>

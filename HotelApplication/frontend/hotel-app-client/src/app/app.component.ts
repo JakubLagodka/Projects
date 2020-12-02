@@ -31,6 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
   minDate: Date;
   maxDate: Date;
   reservation: Reservation;
+  notLogged = false;
   range = new FormGroup({
     start: new FormControl(['', Validators.required]),
     end: new FormControl(['', Validators.required])
@@ -66,14 +67,14 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.calendarService.range.invalid) {
       return;
     }
-
+    this.notLogged = true;
     this.calendarService.takeDates( this.range);
     this.sidenav.close();
     this.router.navigate(['/reservation']);
   }
   onSubmit() {
     this.submitted = true;
-
+    this.notLogged = false;
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;

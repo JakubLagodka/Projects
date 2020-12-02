@@ -6,7 +6,7 @@
       <mat-select [formControl]="beautifulViewControl" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of beautifulView " [value]="room.beautifulViewFromTheWindows">
-          {{room.beautifulViewFromTheWindows}}
+          {{this.translatorService.translateBoolToPolish(room.beautifulViewFromTheWindows)}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="beautifulViewControl.hasError('required')">

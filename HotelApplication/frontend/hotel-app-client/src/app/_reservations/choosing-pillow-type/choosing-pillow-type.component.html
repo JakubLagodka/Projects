@@ -7,7 +7,7 @@
           <mat-select [formControl]="pillowTypeControl" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let room of pillowType " [value]="room.typeOfPillow">
-              {{room.typeOfPillow}}
+              {{this.translatorService.translatePillowToPolish(room.typeOfPillow)}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="pillowTypeControl.hasError('required')">

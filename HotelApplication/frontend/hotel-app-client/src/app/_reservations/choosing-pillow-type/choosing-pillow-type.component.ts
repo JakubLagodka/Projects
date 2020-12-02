@@ -6,6 +6,7 @@ import {AuthenticationService} from '../../_services/authentication.service';
 import {CalendarService} from '../../_services/calendar.service';
 import {of} from 'rxjs';
 import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
+import {TranslatorService} from '../../_services/translator.service';
 
 @Component({
   selector: 'app-choosing-pillow-type',
@@ -17,7 +18,8 @@ export class ChoosingPillowTypeComponent implements OnInit {
   pillowType;
   pillowTypeControl = new FormControl('', Validators.required);
 
-  constructor(private router: Router, private calendarService: CalendarService) { }
+  constructor(private router: Router, private calendarService: CalendarService,
+              public translatorService: TranslatorService) { }
 
   ngOnInit(): void {
 

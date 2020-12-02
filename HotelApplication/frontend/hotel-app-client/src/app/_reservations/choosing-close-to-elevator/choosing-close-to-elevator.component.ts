@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from '../../_services/authentication.service';
 import {CalendarService} from '../../_services/calendar.service';
 import {FormControl, Validators} from '@angular/forms';
+import {TranslatorService} from '../../_services/translator.service';
 
 @Component({
   selector: 'app-choosing-close-to-elevator',
@@ -17,7 +18,8 @@ export class ChoosingCloseToElevatorComponent implements OnInit {
   closeToElevator;
   closeToElevatorControl = new FormControl('', Validators.required);
 
-  constructor( private router: Router, private calendarService: CalendarService) { }
+  constructor( private router: Router, private calendarService: CalendarService,
+               public translatorService: TranslatorService) { }
 
   ngOnInit(): void {
 

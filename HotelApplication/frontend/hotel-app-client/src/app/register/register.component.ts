@@ -37,10 +37,10 @@ export class RegisterComponent implements OnInit {
 
     this.router.navigate([this.returnUrl]);
   }
-
+dismiss(){}
   ngOnInit(): void {
     // this.roles$ = this.userService.getRoles();
-    this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '/login';
+    this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '';
   }
 
 
