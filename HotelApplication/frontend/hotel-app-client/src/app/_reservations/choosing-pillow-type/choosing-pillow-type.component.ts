@@ -29,11 +29,12 @@ export class ChoosingPillowTypeComponent implements OnInit {
         ).subscribe(x => this.pillowType = x);
       });
   }
-  onSubmit()
+  submit()
   {
     this.calendarService.chosenPillowType = this.pillowTypeControl.value;
 
     this.router.navigate(['/choosing-close-to-elevator']);
 
   }
+  dismiss(){}
 }

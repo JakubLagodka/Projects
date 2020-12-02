@@ -4,8 +4,6 @@ import {from, observable, Observable, of} from 'rxjs';
 
 import {Room} from '../_models/room';
 
-import {ReservationService} from '../_services/reservation.service';
-import {RoomService} from '../_services/room.service';
 import {FormControl, Validators} from '@angular/forms';
 import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
 import {Router} from '@angular/router';
@@ -103,11 +101,16 @@ export class ReservationComponent implements OnInit {
    }*/
   }
 
-  onSubmit()
+  submit()
   {
     this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
 
     this.router.navigate(['/choosing-pillow-type']);
 
+  }
+
+  dismiss()
+  {
+    this.router.navigate(['']);
   }
 }

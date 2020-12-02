@@ -32,7 +32,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { GreetingComponent } from './greeting/greeting.component';
-import { SidePannelComponent } from './side-pannel/side-pannel/side-pannel.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import {MatDividerModule} from '@angular/material/divider';
@@ -70,7 +69,6 @@ import { SummaryComponent } from './_reservations/summary/summary.component';
     NewUserComponent,
     EditUserComponent,
     GreetingComponent,
-    SidePannelComponent,
     CalendarComponent,
     ReservationComponent,
     RegisterComponent,

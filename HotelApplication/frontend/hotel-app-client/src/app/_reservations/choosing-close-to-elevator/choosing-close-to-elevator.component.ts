@@ -31,11 +31,12 @@ export class ChoosingCloseToElevatorComponent implements OnInit {
       ).subscribe(x => this.closeToElevator = x);
     });
   }
-  onSubmit()
+  submit()
   {
     this.calendarService.chosenCloseToElevator = this.closeToElevatorControl.value;
 
     this.router.navigate(['/choosing-balcony']);
 
   }
+  dismiss(){}
 }

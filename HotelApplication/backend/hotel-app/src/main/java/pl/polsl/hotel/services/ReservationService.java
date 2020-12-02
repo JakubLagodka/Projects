@@ -1,16 +1,12 @@
 package pl.polsl.hotel.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
+
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.exceptions.UsernameAlreadyUsedException;
 import pl.polsl.hotel.models.Reservation;
 
 import pl.polsl.hotel.models.ReservationView;
-import pl.polsl.hotel.models.User;
-import pl.polsl.hotel.models.UserView;
 import pl.polsl.hotel.repositories.ReservationRepository;
 import pl.polsl.hotel.repositories.RoomRepository;
 import pl.polsl.hotel.repositories.UserRepository;
@@ -65,8 +61,9 @@ public class ReservationService {
         Reservation reservation = new Reservation();
         reservation.setEndDate(reservationView.getEndDate());
         reservation.setId(reservationView.getId());
-        reservation.setPrice(reservationView.getPrice());
+        reservation.setPriceForOneDay(reservationView.getPriceForOneDay());
         reservation.setStartDate(reservationView.getStartDate());
+        reservation.setNumberOfDays(reservationView.getNumberOfDays());
         return reservation;
     }
 
@@ -76,8 +73,10 @@ public class ReservationService {
             reservationView.setUserId(reservation.getUser().getId());
         reservationView.setId(reservation.getId());
         reservationView.setEndDate(reservation.getEndDate());
+        reservationView.setStartDate(reservation.getStartDate());
+        reservationView.setNumberOfDays(reservation.getNumberOfDays());
         reservationView.setUserId(reservation.getUser().getId());
-        reservationView.setPrice(reservation.getPrice());
+        reservationView.setPriceForOneDay(reservation.getPriceForOneDay());
         if(reservation.getRoom()!= null)
             reservationView.setRoomNumber(reservation.getRoom().getId());
         return reservationView;

@@ -22,22 +22,26 @@ public class Reservation {
     @ManyToOne
     @Nullable
     private User user;
-
+    @NonNull
     private Date startDate;
-
+    @NonNull
     private Date endDate;
 
-    private double price;
+    @NonNull
+    private int numberOfDays;
+    @NonNull
+    private int priceForOneDay;
 
     public Reservation() {
     }
 
-    public Reservation( @Nullable Room room, @Nullable User user, Date startDate, Date endDate, double price) {
+    public Reservation(@Nullable Room room, @Nullable User user, @NonNull Date startDate, @NonNull Date endDate, int numberOfDays, int priceForOneDay) {
         this.room = room;
         this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.price = price;
+        this.numberOfDays = numberOfDays;
+        this.priceForOneDay = priceForOneDay;
     }
 
     @NonNull
@@ -67,27 +71,37 @@ public class Reservation {
         this.user = user;
     }
 
+    @NonNull
     public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(@NonNull Date startDate) {
         this.startDate = startDate;
     }
 
+    @NonNull
     public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(@NonNull Date endDate) {
         this.endDate = endDate;
     }
 
-    public double getPrice() {
-        return price;
+    public int getNumberOfDays() {
+        return numberOfDays;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setNumberOfDays(int numberOfDays) {
+        this.numberOfDays = numberOfDays;
+    }
+
+    public int getPriceForOneDay() {
+        return priceForOneDay;
+    }
+
+    public void setPriceForOneDay(int priceForOneDay) {
+        this.priceForOneDay = priceForOneDay;
     }
 }

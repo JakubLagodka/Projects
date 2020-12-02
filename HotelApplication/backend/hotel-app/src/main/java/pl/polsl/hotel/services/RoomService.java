@@ -47,6 +47,7 @@ public class RoomService extends MySession implements StartUpFiller {
         fromLocalDate = LocalDate.parse(from);
         fromDate = convertToDate(fromLocalDate);
         for (Room room : roomRepository.findAll()) {
+            isAvailable = true;
            /* index = 0;
             for (LocalDate date: room.getAvailableDates()) {
 
@@ -64,6 +65,7 @@ public class RoomService extends MySession implements StartUpFiller {
                         }
                         if(isAvailable)
                         {*/
+
                             for (Reservation reservation : reservationRepository.findAll())
                             {
                                 if(reservation.getRoom().getId() == room.getId() && !(fromDate.before(reservation.getStartDate()) || fromDate.after((reservation.getEndDate()))))
@@ -101,7 +103,6 @@ public class RoomService extends MySession implements StartUpFiller {
         if("tak" == null)
         {
             generator = new Random();
-            RoomsAvailable roomsAvailable = new RoomsAvailable();
             Room room1 = new Room();
             room1.setNumberOfBeds(generator.nextInt(3) + 1);
             room1.setStorey(generator.nextInt(9));

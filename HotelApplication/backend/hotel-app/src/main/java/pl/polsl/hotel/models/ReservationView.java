@@ -19,7 +19,9 @@ public class ReservationView {
     @NonNull
     private Date endDate;
     @NonNull
-    private double price;
+    private int numberOfDays;
+    @NonNull
+    private int priceForOneDay;
 
     public ReservationView() {
     }
@@ -69,11 +71,19 @@ public class ReservationView {
         this.endDate = endDate;
     }
 
-    public double getPrice() {
-        return price;
+    public int getNumberOfDays() {
+        return numberOfDays;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setNumberOfDays(int numberOfDays) {
+        this.numberOfDays = numberOfDays;
+    }
+
+    public int getPriceForOneDay() {
+        return priceForOneDay;
+    }
+
+    public void setPriceForOneDay(int priceForOneDay) {
+        this.priceForOneDay = priceForOneDay;
     }
 }

@@ -33,11 +33,11 @@ export class ChosingBeatifulViewFromWindowsComponent implements OnInit {
       ).subscribe(x => this.beautifulView = x);
     });
   }
-  onSubmit()
+  submit()
   {
     this.calendarService.chosenBeautifulView = this.beautifulViewControl.value;
 
     this.router.navigate(['/choosing-storey']);
-
   }
+  dismiss(){}
 }

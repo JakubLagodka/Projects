@@ -34,13 +34,25 @@ export class ChoosingStoreyComponent implements OnInit {
       ).subscribe(x => this.storey = x);
     });
   }
-  onSubmit()
+  submit()
   {
     this.calendarService.chosenStorey = this.storeyControl.value;
 
-    this.calendarService.chosenRooms = this.storey;
+    this.calendarService.rooms$.subscribe(rooms => {
+      of(rooms).pipe(
+        mergeMap(x => rooms),
+        filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
+        filter(v => v.typeOfPillow === this.calendarService.chosenPillowType),
+        filter(v => v.closeToElevator === this.calendarService.chosenCloseToElevator),
+        filter(v => v.balcony === this.calendarService.chosenBalcony),
+        filter(v => v.beautifulViewFromTheWindows === this.calendarService.chosenBeautifulView),
+        filter(v => v.storey === this.calendarService.chosenStorey),
+        distinct(v => v.beautifulViewFromTheWindows),
+        toArray(),
+      ).subscribe(x => this.calendarService.chosenRooms = x);
+    });
 
     this.router.navigate(['/summary']);
-
   }
+  dismiss(){}
 }

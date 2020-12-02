@@ -5,5 +5,5 @@ export class Reservation {
   startDate: any;
   endDate: any;
   numberOfDays: number;
-  price: number;
+  priceForOneDay: number;
 }

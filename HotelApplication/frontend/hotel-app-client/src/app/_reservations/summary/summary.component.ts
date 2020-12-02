@@ -14,44 +14,29 @@ import {Room} from '../../_models/room';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-private reservation: Reservation = new Reservation();
+ reservation: Reservation = new Reservation();
 private room: Room[];
   constructor(public reservationService: ReservationService,
               private router: Router,
               public authenticationService: AuthenticationService,
-              private calendarService: CalendarService) { }
+              public calendarService: CalendarService) { }
 
-  onSubmit()
+  submit()
   {
-    console.log('fads');
-    this.reservation.startDate = this.calendarService.range.controls.start.value;
-    this.reservation.endDate = this.calendarService.range.controls.end.value;
-    this.reservation.numberOfDays = this.calendarService.diff;
-    this.reservation.roomNumber = this.room[0].id;
-     console.log(  this.reservation.roomNumber);
-    this.reservation.userId = this.authenticationService.currentUserValue.id;
-    // this.reservation.price = this.calendarService.chosenRooms.pop.price * this.reservation.numberOfDays;
-    // console.log( this.reservation.roomNumber);
-    this.reservationService.addReservation(this.reservation).pipe(take(1)).subscribe(x => {
-      // this.modal.close(x);
-    });
 
+    this.reservationService.addReservation(this.reservation).pipe(take(1)).subscribe(x => {
+    });
+    this.router.navigate(['']);
   }
   ngOnInit(): void {
-    this.calendarService.rooms$.subscribe(rooms => {
-      of(rooms).pipe(
-        mergeMap(x => rooms),
-        filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
-        filter(v => v.typeOfPillow === this.calendarService.chosenPillowType),
-        filter(v => v.closeToElevator === this.calendarService.chosenCloseToElevator),
-        filter(v => v.balcony === this.calendarService.chosenBalcony),
-        filter(v => v.beautifulViewFromTheWindows === this.calendarService.chosenBeautifulView),
-        filter(v => v.storey === this.calendarService.chosenStorey),
-        distinct(v => v.beautifulViewFromTheWindows),
-        toArray(),
-      ).subscribe(x => this.room = x);
-    });
-  }
+    this.reservation.startDate = this.calendarService.range.controls.start.value;
+    this.reservation.endDate = this.calendarService.range.controls.end.value;
+    this.reservation.numberOfDays = this.calendarService.diff.getDate();
+    this.reservation.roomNumber = this.calendarService.chosenRooms[0].id;
+    this.reservation.userId = this.authenticationService.currentUserValue.id;
+    this.reservation.priceForOneDay = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
 
+  }
+dismiss(){}
 
 }

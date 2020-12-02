@@ -32,11 +32,12 @@ export class ChosingBalconyComponent implements OnInit {
       ).subscribe(x => this.balcony = x);
     });
   }
-  onSubmit()
+  submit()
   {
     this.calendarService.chosenBalcony = this.balconyControl.value;
 
     this.router.navigate(['/choosing-beautiful-view-from-windows']);
 
   }
+  dismiss(){}
 }

@@ -104,8 +104,9 @@
     </button>
   </div>
 </form>!-->
+<form (ngSubmit)="submit()" #form="ngForm">
 <div>
-<mat-form-field  class="example col-md-7 col-12 mt-5 text-center" appearance="fill" >
+<mat-form-field  class="example col-md-7 col-12 mt-5 text-center"  >
   <mat-label>Wybierz iloosobowy pokój chcesz zamówić</mat-label>
   <mat-select [formControl]="numberOfBedsControl" required>
     <mat-option>--</mat-option>
@@ -117,10 +118,8 @@
   <mat-hint>{{numberOfBedsControl.value}}</mat-hint>
 </mat-form-field>
 </div>
-
-<div class="form-group" >
-  <button class="btn btn-dark btn-block" (click)="onSubmit()" >
-
-    Book a room
-  </button>
+<div class="modal-footer col-md-7 col-12 mt-5 text-center">
+  <button type="submit" [disabled]="numberOfBedsControl.invalid" class="btn btn-success">Przejdź dalej</button>
+   <button class="btn btn-danger" (click)="dismiss()">Wróć</button>
 </div>
+</form>

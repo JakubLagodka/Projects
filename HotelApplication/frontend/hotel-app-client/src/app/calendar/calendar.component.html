@@ -1,29 +1,3 @@
 
 
 
-<mat-form-field appearance="fill">
-  <mat-label>Podaj termin rezerwacji</mat-label>
-  <mat-date-range-input [min]="minDate" [max]="maxDate" [formGroup]="range" [rangePicker]="picker" >
-
-    <input  matStartDate formControlName="start" placeholder="Data przyjazdu" >
-
-    <input  matEndDate formControlName="end"  placeholder="Data odjazdu" >
-  </mat-date-range-input>
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
-  <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')" >Invalid start date</mat-error>
-  <mat-error *ngIf="range.controls.start.hasError('required')" >Invalid start date</mat-error>
-
-  <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-  <mat-error *ngIf="range.controls.end.hasError('required')" >Invalid start date</mat-error>
-</mat-form-field>
-
-<div *ngIf="submitted && this.range.invalid" class="alert alert-danger" role="alert"  >podaj datę przyjazdu i odjazdu!</div>
-<div class="form-group">
-  <button  class="btn btn-info col-md-6 col-12 offset-md-3 mt-5 text-center" (click)="onSubmit()" >
-
-    Zarezerwuj pokój
-  </button>
-
-</div>
-
