@@ -9,6 +9,9 @@ import {first} from 'rxjs/operators';
 import {CalendarService} from './_services/calendar.service';
 import {CalendarComponent} from './calendar/calendar.component';
 import {Reservation} from './_models/reservation';
+import {RoomService} from './_services/room.service';
+import {HotelNightService} from './_services/hotel-night.service';
+import {HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -41,15 +44,11 @@ export class AppComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     public authenticationService: AuthenticationService,
-    private calendarService: CalendarService
+    private calendarService: CalendarService,
+    private http: HttpClient
   ) {
       this.userSub = this.authenticationService.loggedUser.subscribe(x => this.loggedUser = x);
-      const currentYear = new Date().getFullYear();
-      const currentMonth = new Date().getMonth();
-      const currentDay = new Date().getDate();
 
-      this.minDate = new Date(currentYear, currentMonth, currentDay);
-      this.maxDate = new Date(currentYear + 10, currentMonth, currentDay);
     }
 
   ngOnInit(): void {
@@ -58,24 +57,42 @@ export class AppComponent implements OnInit, OnDestroy {
       password: ['', Validators.required]
     });
 
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '/';
+    this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '/greeting';
+
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDay = new Date().getDate();
+
+    this.minDate = new Date(currentYear, currentMonth, currentDay);
+    this.maxDate = new Date(currentYear + 10, currentMonth, currentDay);
+
   }
+
   calendarSubmit() {
+
      this.submitted = true;
-    // stop here if form is invalid
+
     if (this.range.invalid) {
       return;
     }
     this.notLogged = true;
-    this.calendarService.takeDates( this.range.controls.start.value, this.range.controls.end.value);
-    this.sidenav.close();
-    this.router.navigate(['/reservation']);
+
+    // this.calendarService = new CalendarService(new RoomService(this.http), new HotelNightService(this.http, this.authenticationService));
+    if(this.authenticationService.isUserLoggedIn)
+    {
+      this.calendarService.takeDates( this.range.controls.start.value, this.range.controls.end.value);
+      this.sidenav.close();
+    }
+    else {
+      this.router.navigate(['/reservation']);
+    }
+
   }
+
   onSubmit() {
     this.submitted = true;
     this.notLogged = false;
-    // stop here if form is invalid
+
     if (this.loginForm.invalid) {
       return;
     }
@@ -95,6 +112,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscription = this.authenticationService.loggedUser.subscribe(x => {
       this.router.navigate([this.returnUrl]);
     });
+
+
   }
   logout() {
     this.loading = false;

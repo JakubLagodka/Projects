@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,7 +8,7 @@ import { User } from '../_models/user';
 import {Token} from '../_models/token';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
+export class AuthenticationService implements OnInit{
   private loggedUserSubject: BehaviorSubject<User>;
   public loggedUser: Observable<User>;
 
@@ -16,14 +16,23 @@ export class AuthenticationService {
     if (!this.isUserLoggedIn) { // make sure to delete data from previous login
       localStorage.removeItem('token');
       localStorage.removeItem('currentUser');
+
+      this.loggedUserSubject = new BehaviorSubject(new User());
     }
-    this.loggedUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+    else
+    {
+      this.loggedUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+    }
+
     this.loggedUser = this.loggedUserSubject.asObservable();
   }
 
   public get currentUserValue(): User {
     return this.loggedUserSubject.value;
   }
+ngOnInit() {
+  this.loggedUser = this.loggedUserSubject.asObservable();
+}
 
   public get isUserLoggedIn() {
     const token: Token = JSON.parse(localStorage.getItem('token'));
@@ -47,7 +56,7 @@ export class AuthenticationService {
             localStorage.setItem('currentUser', JSON.stringify(user));
 
           });
-        return token;
+        this.loggedUser = this.loggedUserSubject.asObservable();
       }));
   }
 
@@ -55,6 +64,7 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
     localStorage.removeItem('currentUser');
-    this.loggedUserSubject.next(null);
+    this.loggedUserSubject.next(new User());
+    this.loggedUser = this.loggedUserSubject.asObservable();
   }
 }

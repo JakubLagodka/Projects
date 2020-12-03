@@ -102,7 +102,7 @@
 
         <ul class="navbar-nav ">
 
-          <a id="forgotPassword" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/" >Nie masz konta? Zarejestruj się</a>
+          <a id="forgotPassword" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/reservation" >Nie masz konta? Zarejestruj się</a>
 
 
           <a id="register" class="nav-item nav-link col-md-40 col-4 mt-1 text-right " routerLink="/" style="position: absolute; left: 60%;  " >Zapomniałem hasła</a>
@@ -122,17 +122,12 @@
 
     </nav>
 
-    <div class="container ">
+    <div class="container " class="my-5 text-center text-green py-3"style="background-color: bisque">
       <router-outlet></router-outlet>
-    </div>
-    <header>
-      <h2 class="my-5 text-center text-green py-3"style="background-color: olivedrab"><span style="font-size: xx-large">Witaj na stronie przeznaczonej do rezerwacji pokoi w hotelu!</span></h2>
-
-
-
-
-    </header>
-
+<br>
+      <h2><div style="font-size: xx-large;">Witaj na stronie przeznaczonej do rezerwacji pokoi w hotelu!</div></h2>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

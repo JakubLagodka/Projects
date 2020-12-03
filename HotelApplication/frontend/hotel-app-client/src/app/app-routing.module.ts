@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './_helpers/auth.guard';
+import { AuthGuard } from './_authentication/auth.guard';
 import {ReservationComponent} from './reservation/reservation.component';
 import {ChoosingCloseToElevatorComponent} from './_reservations/choosing-close-to-elevator/choosing-close-to-elevator.component';
 import {RegisterComponent} from './register/register.component';
@@ -12,11 +12,14 @@ import {ChoosingPillowTypeComponent} from './_reservations/choosing-pillow-type/
 import {ChoosingStoreyComponent} from './_reservations/choosing-storey/choosing-storey.component';
 import {SummaryComponent} from './_reservations/summary/summary.component';
 import {GreetingComponent} from './greeting/greeting.component';
+import {UnauthorizedComponent} from './unauthorized/unauthorized.component';
+
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'choosing-close-to-elevator', component: ChoosingCloseToElevatorComponent },
   { path: 'choosing-balcony', component: ChosingBalconyComponent },
   { path: 'choosing-beautiful-view-from-windows', component: ChosingBeatifulViewFromWindowsComponent },
@@ -24,7 +27,6 @@ const routes: Routes = [
   { path: 'choosing-storey', component: ChoosingStoreyComponent },
   { path: 'greeting', component: GreetingComponent, canActivate: [AuthGuard] },
   { path: 'summary', component: SummaryComponent },
-  // otherwise redirect to home
   { path: '**', redirectTo: '/home' }
 ];
 

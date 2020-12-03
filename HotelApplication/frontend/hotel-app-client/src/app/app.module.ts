@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {AuthInterceptor} from './_helpers/auth.interceptor';
+import {AuthInterceptor} from './_authentication/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSliderModule } from '@angular/material/slider';
@@ -28,6 +28,7 @@ import { ChosingBeatifulViewFromWindowsComponent } from './_reservations/chosing
 import { ChoosingPillowTypeComponent } from './_reservations/choosing-pillow-type/choosing-pillow-type.component';
 import { ChoosingStoreyComponent } from './_reservations/choosing-storey/choosing-storey.component';
 import { SummaryComponent } from './_reservations/summary/summary.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { SummaryComponent } from './_reservations/summary/summary.component';
     ChoosingPillowTypeComponent,
     ChoosingStoreyComponent,
     SummaryComponent,
+    UnauthorizedComponent,
   ],
   imports: [
     BrowserModule,

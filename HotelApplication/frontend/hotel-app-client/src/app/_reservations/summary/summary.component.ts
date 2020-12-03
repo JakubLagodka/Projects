@@ -5,9 +5,6 @@ import {AuthenticationService} from '../../_services/authentication.service';
 import {CalendarService} from '../../_services/calendar.service';
 import {Reservation} from '../../_models/reservation';
 import {distinct, filter, mergeMap, take, toArray} from 'rxjs/operators';
-import {of} from 'rxjs';
-import {Room} from '../../_models/room';
-import {HotelNightService} from '../../_services/hotel-night.service';
 import {TranslatorService} from '../../_services/translator.service';
 
 @Component({
@@ -38,7 +35,7 @@ export class SummaryComponent implements OnInit {
     this.reservation.numberOfDays = this.calendarService.diff;
     this.reservation.roomNumber = this.calendarService.chosenRooms[0].id;
     this.reservation.userId = this.authenticationService.currentUserValue.id;
-    this.reservation.priceForOneDay = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
+    this.reservation.price = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
     console.log(this.reservation.startDate);
   }
 dismiss(){}

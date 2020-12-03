@@ -61,7 +61,7 @@ public class ReservationService {
         Reservation reservation = new Reservation();
         reservation.setEndDate(reservationView.getEndDate());
         reservation.setId(reservationView.getId());
-        reservation.setPriceForOneDay(reservationView.getPriceForOneDay());
+        reservation.setPrice(reservationView.getPrice());
         reservation.setStartDate(reservationView.getStartDate());
         reservation.setNumberOfDays(reservationView.getNumberOfDays());
         return reservation;
@@ -76,7 +76,7 @@ public class ReservationService {
         reservationView.setStartDate(reservation.getStartDate());
         reservationView.setNumberOfDays(reservation.getNumberOfDays());
         reservationView.setUserId(reservation.getUser().getId());
-        reservationView.setPriceForOneDay(reservation.getPriceForOneDay());
+        reservationView.setPrice(reservation.getPrice());
         if(reservation.getRoom()!= null)
             reservationView.setRoomNumber(reservation.getRoom().getId());
         return reservationView;

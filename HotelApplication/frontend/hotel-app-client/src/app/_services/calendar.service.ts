@@ -1,9 +1,7 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Injectable, Output, EventEmitter, OnInit} from '@angular/core';
 import {RoomService} from './room.service';
 import {Observable} from 'rxjs';
 import {Room} from '../_models/room';
-import {HotelNight} from '../_models/hotel-night';
 import {HotelNightService} from './hotel-night.service';
 
 
@@ -11,7 +9,7 @@ import {HotelNightService} from './hotel-night.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CalendarService {
+export class CalendarService{
   private returned: string;
   public diff;
   rooms$: Observable<Room[]>;
@@ -27,13 +25,18 @@ export class CalendarService {
   endDate;
   constructor(  public roomService: RoomService,
                 private hotelNightService: HotelNightService) {
-     this.hotelNightService.getHotelNight().subscribe(
+    this.hotelNightService.getHotelNight().subscribe(
       x => this.hotelNight = x);
   }
 
-
+public getHotelNight(){
+  this.hotelNightService.getHotelNight().subscribe(
+    x => this.hotelNight = x);
+}
   takeDates(startDate, endDate)
   {
+
+    this.getHotelNight();
     this.rooms$ = null;
     console.log(this.rooms$);
     startDate.setHours(this.hotelNight[0].checkInTime);
@@ -42,8 +45,8 @@ export class CalendarService {
     this.diff = endDate.getDate() -  startDate.getDate();
     // this.start = new Date(this.range.controls.end.value);
     this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(startDate), this.convertToString(endDate));
-  this.startDate = startDate;
-  this.endDate = endDate;
+    this.startDate = startDate;
+    this.endDate = endDate;
 
   }
 

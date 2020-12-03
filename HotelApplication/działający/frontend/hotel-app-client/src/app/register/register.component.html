@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <div class="modal-title"><h2>Rejestracja nowego klienta</h2></div>
+</div>
+
+<form (ngSubmit)="submit()" #form="ngForm">
+  <div class="modal-body">
+
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="name" [(ngModel)]="userPost.name" placeholder="imię" name="name" required>
+    </div>
+
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="surname" [(ngModel)]="userPost.surname" placeholder="nazwisko" name="surname"required>
+    </div>
+
+    <div class="form-group">
+
+      <input type="text" class="form-control" id="username" [(ngModel)]="userPost.username" placeholder="login"  name="username" required>
+    </div>
+
+    <div class="form-group">
+
+      <input type="password" class="form-control" id="password" [(ngModel)]="userPost.password" placeholder="hasło" name="password" required>
+    </div>
+
+    <div class="form-group">
+
+      <input type="email" class="form-control" id="email" [(ngModel)]="userPost.email" placeholder="email" name="email" required>
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-success">Dodaj użytkownika</button>
+   <button class="btn btn-danger" (click)="dismiss()">Anuluj</button>
+   </div>
+ </form>
+
+

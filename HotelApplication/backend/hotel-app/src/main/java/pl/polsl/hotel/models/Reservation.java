@@ -29,19 +29,14 @@ public class Reservation {
 
     @NonNull
     private int numberOfDays;
+
     @NonNull
-    private int priceForOneDay;
+    private double price;
+    @NonNull
+    private boolean paid;
 
     public Reservation() {
-    }
-
-    public Reservation(@Nullable Room room, @Nullable User user, @NonNull Date startDate, @NonNull Date endDate, int numberOfDays, int priceForOneDay) {
-        this.room = room;
-        this.user = user;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.numberOfDays = numberOfDays;
-        this.priceForOneDay = priceForOneDay;
+        paid = false;
     }
 
     @NonNull
@@ -97,11 +92,19 @@ public class Reservation {
         this.numberOfDays = numberOfDays;
     }
 
-    public int getPriceForOneDay() {
-        return priceForOneDay;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPriceForOneDay(int priceForOneDay) {
-        this.priceForOneDay = priceForOneDay;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
 }

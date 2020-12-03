@@ -21,7 +21,10 @@ public class ReservationView {
     @NonNull
     private int numberOfDays;
     @NonNull
-    private int priceForOneDay;
+    private double price;
+
+    @NonNull
+    private boolean paid;
 
     public ReservationView() {
     }
@@ -79,11 +82,19 @@ public class ReservationView {
         this.numberOfDays = numberOfDays;
     }
 
-    public int getPriceForOneDay() {
-        return priceForOneDay;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPriceForOneDay(int priceForOneDay) {
-        this.priceForOneDay = priceForOneDay;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
 }
