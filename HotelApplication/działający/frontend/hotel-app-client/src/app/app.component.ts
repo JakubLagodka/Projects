@@ -68,9 +68,15 @@ export class AppComponent implements OnInit, OnDestroy {
       return;
     }
     this.notLogged = true;
-    this.calendarService.takeDates( this.range.controls.start.value, this.range.controls.end.value);
-    this.sidenav.close();
-    this.router.navigate(['/reservation']);
+    if(this.authenticationService.isUserLoggedIn)
+    {
+      this.calendarService.takeDates( this.range.controls.start.value, this.range.controls.end.value);
+      this.sidenav.close();
+      this.router.navigate(['/reservation']);
+    }
+  else {
+      this.router.navigate(['/register']);
+    }
   }
   onSubmit() {
     this.submitted = true;

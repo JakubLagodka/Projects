@@ -9,7 +9,7 @@ import {HotelNightService} from './hotel-night.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CalendarService{
+export class CalendarService {
   private returned: string;
   public diff;
   rooms$: Observable<Room[]>;
@@ -20,16 +20,18 @@ export class CalendarService{
   public chosenPillowType;
   public chosenStorey;
   public chosenRooms;
-  public hotelNight;
+  public hotelNight = null;
   startDate;
   endDate;
   constructor(  public roomService: RoomService,
                 private hotelNightService: HotelNightService) {
+
     this.hotelNightService.getHotelNight().subscribe(
-      x => this.hotelNight = x);
+      x => {this.hotelNight = x;} );
   }
 
-public getHotelNight(){
+
+  public getHotelNight(){
   this.hotelNightService.getHotelNight().subscribe(
     x => this.hotelNight = x);
 }
@@ -47,7 +49,6 @@ public getHotelNight(){
     this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(startDate), this.convertToString(endDate));
     this.startDate = startDate;
     this.endDate = endDate;
-
   }
 
   convertToString( date: Date)

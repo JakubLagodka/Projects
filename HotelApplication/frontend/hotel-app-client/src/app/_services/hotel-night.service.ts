@@ -9,20 +9,19 @@ import {AuthenticationService} from './authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HotelNightService implements OnDestroy{
-
+export class HotelNightService {
+  private roles: BehaviorSubject<HotelNight[]> = new BehaviorSubject([]);
+  private roles$: Observable<HotelNight[]> = this.roles.asObservable();
   constructor(private http: HttpClient,
               public authenticationService: AuthenticationService) { }
 
   getHotelNight(): Observable< HotelNight[]> {
     if (this.authenticationService.isUserLoggedIn) {
-      return this.http.get< HotelNight[]>(`${environment.apiUrl}/hotel_night`);
+       this.http.get<HotelNight[]>(`${environment.apiUrl}/hotel_night`).subscribe(x => {
+        this.roles.next(x);
+      });
+
     }
-
-    return new Observable< HotelNight[]>();
-  }
-
-  ngOnDestroy() {
-
+    return this.roles$;
   }
 }

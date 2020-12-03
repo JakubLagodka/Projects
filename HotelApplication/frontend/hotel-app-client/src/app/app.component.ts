@@ -82,9 +82,10 @@ export class AppComponent implements OnInit, OnDestroy {
     {
       this.calendarService.takeDates( this.range.controls.start.value, this.range.controls.end.value);
       this.sidenav.close();
+      this.router.navigate(['/reservation']);
     }
     else {
-      this.router.navigate(['/reservation']);
+      this.router.navigate(['/register']);
     }
 
   }
@@ -111,6 +112,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.subscription = this.authenticationService.loggedUser.subscribe(x => {
       this.router.navigate([this.returnUrl]);
+      this.calendarService.getHotelNight();
     });
 
 

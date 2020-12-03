@@ -36,7 +36,7 @@ export class ReservationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (!this.authenticationService.isUserLoggedIn) {
+    if (!this.authenticationService.currentUserValue) {
       this.router.navigate(['/register']);
     }
 
