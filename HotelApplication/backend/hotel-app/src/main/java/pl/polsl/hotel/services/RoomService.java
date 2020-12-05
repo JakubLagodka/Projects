@@ -77,7 +77,7 @@ public class RoomService extends MySession implements StartUpFiller {
 
                             for (Reservation reservation : reservationRepository.findAll())
                             {
-                                if(reservation.getRoom().getId() == room.getId() && (!startDate.before(reservation.getStartDate()) || !endDate.after(reservation.getEndDate())))
+                                if(reservation.getRoom().getId() == room.getId() && ((startDate.after(reservation.getStartDate()) && startDate.before(reservation.getEndDate())) || (endDate.before(reservation.getEndDate()) && endDate.after(reservation.getStartDate()))))
                                 {
                                     isAvailable = false;
                                     break;
