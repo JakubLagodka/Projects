@@ -4,12 +4,13 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Reservation} from '../_models/reservation';
 import {shareReplay, take} from 'rxjs/operators';
+import {User} from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
-
+  status = null;
   constructor( private http: HttpClient) { }
 
   getReservations(): Observable< Reservation[]> {
@@ -28,6 +29,11 @@ export class ReservationService {
   addReservation(reservation: Reservation): Observable< Reservation> {
     const returnedReservation = this.http.post< Reservation>(`${environment.apiUrl}/reservation/add`, reservation).pipe(shareReplay());
 
+    returnedReservation.pipe(take(1)).subscribe(x => {
+      },
+      err => {
+        this.status = err.status;
+      });
     /*returnedReservation.pipe(take(1)).subscribe(x => {
       this.placeInArray(x);
     });*/

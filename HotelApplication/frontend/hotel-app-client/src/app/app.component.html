@@ -1,5 +1,4 @@
 ﻿
-
 <mat-sidenav-container  class="example-container" >
   <mat-sidenav #sidenav mode="side" [opened]="true" (keydown.escape)="this.sidenav.close()" disableClose>
 
@@ -19,12 +18,10 @@
         <mat-error *ngIf="range.controls.start.hasError('required')" >Invalid start date</mat-error>
 
         <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
-        <mat-error *ngIf="range.controls.end.hasError('required')" >Invalid start date</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('required')" >Invalid end date</mat-error>
       </mat-form-field>
 
       <div *ngIf="submitted && this.range.invalid" class="alert alert-danger" role="alert"  >podaj datę przyjazdu i odjazdu!</div>
-
-
 
       <div class="form-group">
         <button  class="btn btn-info col-md-6 col-12 offset-md-3 mt-5 text-center" (click)="calendarSubmit()" >
@@ -46,8 +43,6 @@
     </nav>
     <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
 
-
-
       <div class="col-md-4 col-12 offset-md-4 mt-1 text-center">
         <div class="navbar-brand"  *ngIf="!authenticationService.isUserLoggedIn">Witaj na stronie hotelowej! Nie jesteś zalogowany - zaloguj się!</div>
         <div class="navbar-brand"  *ngIf="authenticationService.isUserLoggedIn">Zalogowano jako {{loggedUser.name}} {{loggedUser.surname}},  {{loggedUser.roleCode}}</div>
@@ -65,8 +60,6 @@
       <div class="container">
 
         <ul class="navbar-nav  ml-auto">
-
-
 
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"   *ngIf="!authenticationService.isUserLoggedIn" >
             <a class="form-group col-md-5 col-12  mt-50 text-center " style="position: relative; float: left">
@@ -116,13 +109,19 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
       <div class="container"  >
         <ul class="navbar-nav ">
-          <a id="home" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/" >Wróć do strony głównej</a>
+          <a id="home" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/" (click)=" this.sidenav.open()">Wróć do strony głównej</a>
         </ul>
+        <div *ngIf="lostData" class="alert alert-danger" role="alert"  >Dane z Twojej rezerwacji zostały utracone, podaj je jeszcze raz by zarezerwować pokój!</div>
+        <div *ngIf="createdNewUser" class="alert alert-success" role="alert"  >Stworzono nowego użytkownika!</div>
+        <div *ngIf="userAlreadyExists" class="alert alert-danger" role="alert"  >Użytkownik o podanej nazwie już istnieje w bazie!</div>
+        <div *ngIf="userNotCreated" class="alert alert-danger" role="alert"  >Nie udało się stworzyć nowego użytkownika, wystąpił nieoczekiwany błąd!</div>
+        <div *ngIf="reservationNotCreated" class="alert alert-danger" role="alert"  >Nie udało się dokonać rezerwacji, wystąpił nieoczekiwany błąd!</div>
+        <div *ngIf="createdNewReservation" class="alert alert-success" role="alert"  >Dokonano rezerwacji na podany termin!</div>
       </div>
 
     </nav>
 
-    <div class="container " class="my-5 text-center text-green py-3"style="background-color: bisque">
+    <div class="container " class="my-5 text-center text-green py-3"style="background-color: #ffe4c4">
       <router-outlet></router-outlet>
 <br>
       <h2><div style="font-size: xx-large;">Witaj na stronie przeznaczonej do rezerwacji pokoi w hotelu!</div></h2>

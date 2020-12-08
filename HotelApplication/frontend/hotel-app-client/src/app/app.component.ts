@@ -21,11 +21,8 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'hotel-app-client';
   loggedUser: User;
   userSub: Subscription;
-  name = Array<User>();
   loginForm: FormGroup;
   @ViewChild('sidenav') sidenav: MatSidenav;
-  reason = '';
-  mode = new FormControl('over');
   loading = false;
   submitted = false;
   returnUrl: string;
@@ -35,6 +32,12 @@ export class AppComponent implements OnInit, OnDestroy {
   maxDate: Date;
   reservation: Reservation;
   notLogged = false;
+  lostData = false;
+  createdNewUser = false;
+  userAlreadyExists = false;
+  userNotCreated = false;
+  reservationNotCreated = false;
+  createdNewReservation = false;
   range = new FormGroup({
     start: new FormControl(['', Validators.required]),
     end: new FormControl(['', Validators.required])
@@ -44,8 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     public authenticationService: AuthenticationService,
-    private calendarService: CalendarService,
-    private http: HttpClient
+    private calendarService: CalendarService
   ) {
       this.userSub = this.authenticationService.loggedUser.subscribe(x => this.loggedUser = x);
 
@@ -65,17 +67,21 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.minDate = new Date(currentYear, currentMonth, currentDay);
     this.maxDate = new Date(currentYear + 10, currentMonth, currentDay);
-
   }
-
+  import(importedValue) {
+    console.log(importedValue);
+  }
   calendarSubmit() {
 
-     this.submitted = true;
+    if (this.range.invalid || this.range.controls.end.value === null) {
+      setTimeout(() => {
+        this.submitted = false;
+      }, 5000);
+      this.submitted = true;
 
-    if (this.range.invalid) {
       return;
     }
-    this.notLogged = true;
+
 
     // this.calendarService = new CalendarService(new RoomService(this.http), new HotelNightService(this.http, this.authenticationService));
     if(this.authenticationService.isUserLoggedIn)
@@ -85,6 +91,11 @@ export class AppComponent implements OnInit, OnDestroy {
       this.router.navigate(['/reservation']);
     }
     else {
+      setTimeout(() => {
+        this.notLogged = false;
+      }, 5000);
+      this.notLogged = true;
+
       this.router.navigate(['/register']);
     }
 
@@ -114,9 +125,8 @@ export class AppComponent implements OnInit, OnDestroy {
       this.router.navigate([this.returnUrl]);
       this.calendarService.getHotelNight();
     });
-
-
   }
+
   logout() {
     this.loading = false;
     this.submitted = false;

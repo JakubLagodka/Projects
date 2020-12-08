@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {ReservationService} from '../../_services/reservation.service';
 import {Router} from '@angular/router';
@@ -7,6 +7,7 @@ import {CalendarService} from '../../_services/calendar.service';
 import {of} from 'rxjs';
 import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
 import {TranslatorService} from '../../_services/translator.service';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-choosing-pillow-type',
@@ -18,11 +19,12 @@ export class ChoosingPillowTypeComponent implements OnInit {
   pillowType;
   pillowTypeControl = new FormControl('', Validators.required);
 
-  constructor(private router: Router, private calendarService: CalendarService,
+  constructor(@Inject(AppComponent) private parent: AppComponent,
+              private router: Router, private calendarService: CalendarService,
               public translatorService: TranslatorService) { }
 
   ngOnInit(): void {
-
+    if (this.calendarService.rooms$) {
      this.calendarService.rooms$.subscribe(rooms => {
           of(rooms).pipe(
           mergeMap(x => rooms), filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
@@ -31,6 +33,15 @@ export class ChoosingPillowTypeComponent implements OnInit {
         ).subscribe(x => this.pillowType = x);
       });
   }
+  else
+{
+  setTimeout(() => {
+  this.parent.lostData = false;
+}, 5000);
+this.parent.lostData = true;
+this.router.navigate(['']);
+}
+  }
   submit()
   {
     this.calendarService.chosenPillowType = this.pillowTypeControl.value;
@@ -38,5 +49,8 @@ export class ChoosingPillowTypeComponent implements OnInit {
     this.router.navigate(['/choosing-close-to-elevator']);
 
   }
-  dismiss(){}
+  dismiss()
+  {
+    this.router.navigate(['/reservation']);
+  }
 }

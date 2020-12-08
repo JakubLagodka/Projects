@@ -15,19 +15,16 @@ import {Role} from '../_models/role';
 export class UserService {
 
   private users: Observable<User[]>;
-  private usersArray: User[];
   private workers: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private clients: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private managers: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private workers$: Observable<User[]> = this.workers.asObservable();
   private clients$: Observable<User[]> = this.clients.asObservable();
   private managers$: Observable<User[]> = this.managers.asObservable();
-  private inactives: BehaviorSubject<User[]> = new BehaviorSubject([]);
-  private inactives$: Observable<User[]> = this.inactives.asObservable();
 
   private roles: BehaviorSubject<Role[]> = new BehaviorSubject([]);
   private roles$: Observable<Role[]> = this.roles.asObservable();
-
+status = null;
   constructor(
     private http: HttpClient
   ) {}
@@ -43,7 +40,6 @@ export class UserService {
         this.workers.next(x.filter(y => y.roleCode === 'WOR'));
         this.clients.next(x.filter(y => y.roleCode === 'CLI'));
         this.managers.next(x.filter(y => y.roleCode === 'MAN'));
-        this.inactives.next(x.filter(y => y.roleCode === null));
 
       });
     }
@@ -69,11 +65,6 @@ export class UserService {
         users.unshift(user);
         this.clients.next(users);
         break;
-      default:
-        users = this.inactives.value;
-        users.unshift(user);
-        this.inactives.next(users);
-        break;
     }
   }
 
@@ -94,11 +85,6 @@ export class UserService {
         users = this.clients.value;
         users.splice(users.findIndex(x => x.id === user.id), 1);
         this.clients.next(users);
-        break;
-      default:
-        users = this.inactives.value;
-        users.splice(users.findIndex(x => x.id === user.id), 1);
-        this.inactives.next(users);
         break;
     }
   }
@@ -121,11 +107,6 @@ export class UserService {
         users[users.findIndex(x => x.id === user.id)] = user;
         this.clients.next(users);
         break;
-      default:
-        users = this.inactives.value;
-        users[users.findIndex(x => x.id === user.id)] = user;
-        this.inactives.next(users);
-        break;
     }
   }
 
@@ -134,7 +115,10 @@ export class UserService {
 
     user.pipe(take(1)).subscribe(x => {
       this.placeUserInArray(x);
-    });
+    },
+      err => {
+      this.status = err.status;
+      });
     return user;
   }
 
@@ -159,10 +143,6 @@ export class UserService {
 
     return this.workers;*/
     return this.workers$;
-  }
-
-  getInactives(): Observable<User[]> {
-    return this.inactives$;
   }
 
   getClients(): Observable<User[]> {

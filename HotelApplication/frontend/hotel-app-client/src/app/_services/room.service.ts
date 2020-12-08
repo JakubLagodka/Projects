@@ -26,8 +26,6 @@ export class RoomService  {
     return this.rooms$;
   }
   getAvailableRooms(startDate: string, endDate: string): Observable< Room[]> {
-    console.log(startDate);
-    console.log(endDate);
     this.http.get<Room[]>(`${environment.apiUrl}/room/available?startDate=` + startDate + `&endDate=` + endDate).subscribe(x => {
       this.rooms.next(x);
     });

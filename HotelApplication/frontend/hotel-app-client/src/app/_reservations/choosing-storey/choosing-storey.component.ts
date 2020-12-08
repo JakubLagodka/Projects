@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {ReservationService} from '../../_services/reservation.service';
 import {Router} from '@angular/router';
@@ -7,6 +7,7 @@ import {CalendarService} from '../../_services/calendar.service';
 import {of} from 'rxjs';
 import {distinct, filter, mergeMap, take, toArray} from 'rxjs/operators';
 import {HotelNightService} from '../../_services/hotel-night.service';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-choosing-storey',
@@ -18,11 +19,12 @@ export class ChoosingStoreyComponent implements OnInit {
   storey;
   storeyControl = new FormControl('', Validators.required);
 
-  constructor(private router: Router, private calendarService: CalendarService,
+  constructor(@Inject(AppComponent) private parent: AppComponent,
+              private router: Router, private calendarService: CalendarService,
               private hotelNightService: HotelNightService) { }
 
   ngOnInit(): void {
-
+    if (this.calendarService.rooms$) {
     this.calendarService.rooms$.subscribe(rooms => {
       of(rooms).pipe(
         mergeMap(x => rooms),
@@ -35,6 +37,15 @@ export class ChoosingStoreyComponent implements OnInit {
         toArray(),
       ).subscribe(x => this.storey = x);
     });
+    }
+    else
+    {
+      setTimeout(() => {
+        this.parent.lostData = false;
+      }, 5000);
+      this.parent.lostData = true;
+      this.router.navigate(['']);
+    }
   }
   submit()
   {
@@ -56,5 +67,8 @@ export class ChoosingStoreyComponent implements OnInit {
 
     this.router.navigate(['/summary']);
   }
-  dismiss(){}
+  dismiss()
+  {
+    this.router.navigate(['/choosing-beautiful-view-from-windows']);
+  }
 }

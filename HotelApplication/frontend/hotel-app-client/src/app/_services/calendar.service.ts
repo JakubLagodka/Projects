@@ -40,7 +40,6 @@ export class CalendarService {
 
     this.getHotelNight();
     this.rooms$ = null;
-    console.log(this.rooms$);
     startDate.setHours(this.hotelNight[0].checkInTime);
     endDate.setDate(endDate.getDate() + 1 );
     endDate.setHours(this.hotelNight[0].checkOutTime);

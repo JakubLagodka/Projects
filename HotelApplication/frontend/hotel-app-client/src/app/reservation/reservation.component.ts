@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter, Inject} from '@angular/core';
 import {Reservation} from '../_models/reservation';
 import {from, observable, Observable, of} from 'rxjs';
 
@@ -9,6 +9,7 @@ import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../_services/authentication.service';
 import {CalendarService} from '../_services/calendar.service';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-reservation',
@@ -17,22 +18,17 @@ import {CalendarService} from '../_services/calendar.service';
 })
 
 export class ReservationComponent implements OnInit {
-
+  @Output() export = new EventEmitter();
   rooms$: Observable<Room[]>;
-  reservations$: Observable<Reservation[]>;
 
-
-  constructor(
+  constructor(@Inject(AppComponent) private parent: AppComponent,
   private router: Router,
   public authenticationService: AuthenticationService,
   private calendarService: CalendarService) {}
 
   public numbersOfBeds;
 
-
   numberOfBedsControl = new FormControl('', Validators.required);
-
-
 
   ngOnInit(): void {
 
@@ -42,7 +38,8 @@ export class ReservationComponent implements OnInit {
 
     // this.rooms$ = this.roomService.getRooms();
    //  this.reservations$ = this.reservationService.getReservations();
-
+    if (this.calendarService.rooms$)
+    {
     this.calendarService.rooms$.subscribe(rooms => {
       of(rooms.sort((a, b) => a.numberOfBeds - b.numberOfBeds)).pipe(
         mergeMap(x => rooms),
@@ -50,7 +47,15 @@ export class ReservationComponent implements OnInit {
         toArray(),
       ).subscribe(x => this.numbersOfBeds = x);
     });
-
+    }
+    else
+    {
+      setTimeout(() => {
+        this.parent.lostData = false;
+      }, 5000);
+      this.parent.lostData = true;
+      this.router.navigate(['']);
+    }
 
     // this.numbersOfBeds = this.rooms.map(m => m.numberOfBeds).distinct().toArray();
 
@@ -111,6 +116,7 @@ export class ReservationComponent implements OnInit {
 
   dismiss()
   {
+    this.parent.sidenav.open();
     this.router.navigate(['']);
   }
 }
