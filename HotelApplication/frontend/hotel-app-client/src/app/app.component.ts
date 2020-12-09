@@ -68,9 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.minDate = new Date(currentYear, currentMonth, currentDay);
     this.maxDate = new Date(currentYear + 10, currentMonth, currentDay);
   }
-  import(importedValue) {
-    console.log(importedValue);
-  }
+
   calendarSubmit() {
 
     if (this.range.invalid || this.range.controls.end.value === null) {

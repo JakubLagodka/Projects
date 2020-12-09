@@ -29,6 +29,7 @@ import { ChoosingPillowTypeComponent } from './_reservations/choosing-pillow-typ
 import { ChoosingStoreyComponent } from './_reservations/choosing-storey/choosing-storey.component';
 import { SummaryComponent } from './_reservations/summary/summary.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { MadeByGivenUserComponent } from './_reservations/made-by-given-user/made-by-given-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     ChoosingStoreyComponent,
     SummaryComponent,
     UnauthorizedComponent,
+    MadeByGivenUserComponent,
   ],
   imports: [
     BrowserModule,

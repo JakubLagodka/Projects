@@ -7,11 +7,14 @@ import org.springframework.stereotype.Component;
 import pl.polsl.hotel.models.Reservation;
 
 import pl.polsl.hotel.models.ReservationView;
+import pl.polsl.hotel.models.Room;
 import pl.polsl.hotel.repositories.ReservationRepository;
 import pl.polsl.hotel.repositories.RoomRepository;
 import pl.polsl.hotel.repositories.UserRepository;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -20,15 +23,30 @@ public class ReservationService {
     private ReservationRepository reservationRepository;
     private final UserRepository userRepository;
     private final RoomRepository roomRepository;
+    private ArrayList<ReservationView> reservationsFromCurrentUser;
+
     @Autowired
     public ReservationService(ReservationRepository reservationRepository,UserRepository userRepository,RoomRepository roomRepository) {
         this.reservationRepository = reservationRepository;
         this.roomRepository = roomRepository;
         this.userRepository = userRepository;
+        this.reservationsFromCurrentUser = new ArrayList<ReservationView>();
     }
 
     public Optional<Reservation> findById(Long id) {
         return reservationRepository.findById(id);
+    }
+
+    public List<ReservationView> getAllReservationsFromGivenUser(Long id) {
+        this.reservationsFromCurrentUser.clear();
+
+        for(Reservation reservation: reservationRepository.findAll())
+        {
+            if(reservation.getUser().getId() == id)
+                reservationsFromCurrentUser.add(map(reservation));
+        }
+
+        return reservationsFromCurrentUser;
     }
 
     public Iterable<Reservation> findAll() {

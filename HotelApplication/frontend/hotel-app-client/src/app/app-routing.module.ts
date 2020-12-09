@@ -13,6 +13,7 @@ import {ChoosingStoreyComponent} from './_reservations/choosing-storey/choosing-
 import {SummaryComponent} from './_reservations/summary/summary.component';
 import {GreetingComponent} from './greeting/greeting.component';
 import {UnauthorizedComponent} from './unauthorized/unauthorized.component';
+import {MadeByGivenUserComponent} from './_reservations/made-by-given-user/made-by-given-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'choosing-storey', component: ChoosingStoreyComponent },
   { path: 'greeting', component: GreetingComponent, canActivate: [AuthGuard] },
   { path: 'summary', component: SummaryComponent },
+  { path: 'made-by-given-user', component: MadeByGivenUserComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/home' }
 ];
 

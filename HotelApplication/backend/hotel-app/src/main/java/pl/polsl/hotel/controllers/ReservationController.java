@@ -8,6 +8,7 @@ import pl.polsl.hotel.models.Reservation;
 import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.services.ReservationService;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,6 +24,11 @@ public class ReservationController {
     @GetMapping("/all")
     public Iterable<Reservation> getAll(){
         return reservationService.findAll();
+    }
+
+    @GetMapping("/given_user")
+    public List<ReservationView> getAllReservationsFromGivenUser(@RequestParam Long userId){
+        return reservationService.getAllReservationsFromGivenUser(userId);
     }
 
     @GetMapping
