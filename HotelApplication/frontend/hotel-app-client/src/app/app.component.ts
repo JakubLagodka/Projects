@@ -7,11 +7,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatSidenav} from '@angular/material/sidenav';
 import {first} from 'rxjs/operators';
 import {CalendarService} from './_services/calendar.service';
-import {CalendarComponent} from './calendar/calendar.component';
+
 import {Reservation} from './_models/reservation';
-import {RoomService} from './_services/room.service';
-import {HotelNightService} from './_services/hotel-night.service';
-import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

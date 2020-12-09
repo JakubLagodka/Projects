@@ -40,11 +40,13 @@ export class ReservationService {
     return returnedReservation;
   }
 
-  deleteReservation(reservationId: number): Observable<any> {
-    return this.http.delete<any>(`${environment.apiUrl}/reservation/` + reservationId);
+  deleteReservation(id: number): Observable<Reservation> {
+    const returnedReservation = this.http.delete<Reservation>(`${environment.apiUrl}/reservation?id=` + id).pipe(shareReplay());
+    return returnedReservation;
   }
 
-  updateReservation(reservationId: number, reservationPatch: Reservation): Observable< Reservation> {
-    return this.http.patch<Reservation>(`${environment.apiUrl}/reservation/` + reservationId, Reservation);
+  updateReservation(id: number, reservationPatch: Reservation): Observable< Reservation> {
+    const returnedReservation = this.http.patch<Reservation>(`${environment.apiUrl}/reservation?id=` + id, reservationPatch).pipe(shareReplay());
+    return returnedReservation;
   }
 }

@@ -18,14 +18,13 @@ export class AuthGuard implements CanActivate {
     if (this.authenticationService.isUserLoggedIn) {
 
       if (state.url === '/greeting' && currentUser.roleCode === 'CLI') {
-        this.router.navigate(['/unauthorized'], {skipLocationChange: true});
+        this.router.navigate(['/made-by-given-user'], {skipLocationChange: true});
         return false;
       }
 
       return true;
     }
 
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 

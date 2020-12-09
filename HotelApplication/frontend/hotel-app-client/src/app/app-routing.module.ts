@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_authentication/auth.guard';
 import {ReservationComponent} from './reservation/reservation.component';
@@ -16,7 +15,6 @@ import {UnauthorizedComponent} from './unauthorized/unauthorized.component';
 import {MadeByGivenUserComponent} from './_reservations/made-by-given-user/made-by-given-user.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'register', component: RegisterComponent },
@@ -29,7 +27,7 @@ const routes: Routes = [
   { path: 'greeting', component: GreetingComponent, canActivate: [AuthGuard] },
   { path: 'summary', component: SummaryComponent },
   { path: 'made-by-given-user', component: MadeByGivenUserComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

@@ -6,13 +6,16 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { User } from '../_models/user';
 import {Token} from '../_models/token';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService implements OnInit{
   private loggedUserSubject: BehaviorSubject<User>;
   public loggedUser: Observable<User>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private route: ActivatedRoute,
+              private router: Router) {
     if (!this.isUserLoggedIn) { // make sure to delete data from previous login
       localStorage.removeItem('token');
       localStorage.removeItem('currentUser');
@@ -66,5 +69,7 @@ ngOnInit() {
     localStorage.removeItem('currentUser');
     this.loggedUserSubject.next(new User());
     this.loggedUser = this.loggedUserSubject.asObservable();
+
+    this.router.navigate(['/']);
   }
 }

@@ -1,17 +1,22 @@
 
   <div class="row">
     <div class="col-12">
-      <div class="card p-2 mt-3" *ngFor="let reservation of reservations$ | async">
-      <table class="table-striped table-bordered">
-      <tbody>
-      <tr><td>Czas rezerwacji</td><td> od {{ reservation.startDate.substr(8,2)}}
-        {{this.translatorService.translateMonthStringToPolish(reservation.startDate.substr(5,2))}} {{ reservation.startDate.substr(0,4)}}
-        od godziny {{ translatorService.fixUnproperHour(reservation.startDate.substr(11,2))}} do  {{ reservation.endDate.substr(8,2)}}
-        {{this.translatorService.translateMonthStringToPolish(reservation.endDate.substr(5,2))}} {{reservation.endDate.substr(0,4)}}
-        do godziny {{ translatorService.fixUnproperHour(reservation.endDate.substr(11,2))}}</td>
-      <tr><td>Cena rezerwacji</td><td>{{this.reservation.price}} złotych</td></tr>
-      </tbody>
-      </table>
+      <div class="card p-2 mt-3" *ngFor="let reservation of reservations$ | async" style="background-color: bisque">
+        <table class="table-striped table-bordered" style="float: left">
+        <tbody>
+        <tr style="background-color: burlywood"><td>Czas rezerwacji</td><td> od {{ reservation.startDate.substr(8,2)}}
+        {{this.translatorService.translateMonthStringToPolish(reservation.startDate.substr(5,2))}}
+          {{ reservation.startDate.substr(0,4)}}
+        od godziny {{ translatorService.fixUnproperHour(reservation.startDate.substr(11,2))}} do
+          {{ reservation.endDate.substr(8,2)}}
+        {{this.translatorService.translateMonthStringToPolish(reservation.endDate.substr(5,2))}}
+          {{reservation.endDate.substr(0,4)}}
+        do godziny {{ translatorService.fixUnproperHour(reservation.endDate.substr(11,2))}}</td><td>
+          <button class="btn btn-sm btn-success" (click)="pay(reservation)">Opłać rezerwację </button></td>
+        <tr style="background-color: burlywood"><td>Cena rezerwacji</td><td>{{this.reservation.price}} złotych</td><td>
+          <button class="btn btn-sm btn-danger" (click)="delete(reservation)"> Usuń rezerwację  </button> </td></tr>
+        </tbody>
+        </table>
       </div>
   </div>
 </div>

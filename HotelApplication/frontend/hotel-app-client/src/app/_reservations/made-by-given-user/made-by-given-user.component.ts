@@ -21,5 +21,14 @@ export class MadeByGivenUserComponent implements OnInit {
     this.reservations$ = this.reservationService.getReservationsByUserId(this.parent.authenticationService.currentUserValue.id);
 
   }
+  pay(reservation: Reservation)
+  {
+    reservation.paid = true;
+    this.reservationService.updateReservation(reservation.id, reservation);
+  }
 
+delete(reservation: Reservation)
+{
+  this.reservationService.deleteReservation(reservation.id);
+}
 }

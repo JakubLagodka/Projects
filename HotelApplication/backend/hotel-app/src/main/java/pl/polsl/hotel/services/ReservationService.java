@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.models.Reservation;
+import pl.polsl.hotel.exceptions.ForbiddenAccessException;
+import pl.polsl.hotel.models.*;
 
-import pl.polsl.hotel.models.ReservationView;
-import pl.polsl.hotel.models.Room;
 import pl.polsl.hotel.repositories.ReservationRepository;
 import pl.polsl.hotel.repositories.RoomRepository;
 import pl.polsl.hotel.repositories.UserRepository;
@@ -52,6 +51,15 @@ public class ReservationService {
     public Iterable<Reservation> findAll() {
         return reservationRepository.findAll();
 
+    }
+
+    public ReservationView updateReservation(Long reservationId, ReservationView reservationView) {
+
+        Reservation reservationToUpdate = map(reservationView);
+
+        reservationRepository.deleteById(reservationId);
+
+        return map(reservationRepository.save(reservationToUpdate));
     }
 
     public ReservationView save(ReservationView reservationView)
