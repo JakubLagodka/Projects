@@ -24,9 +24,9 @@ public class AuthenticationTokenService {
 
     private final UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
-    private final CustomUserDetailsService userDetailsService;
+    private final ModifiedUserDetailsService userDetailsService;
 
-    public AuthenticationTokenService(UserRepository userRepository, AuthenticationManager authenticationManager, CustomUserDetailsService userDetailsService) {
+    public AuthenticationTokenService(UserRepository userRepository, AuthenticationManager authenticationManager, ModifiedUserDetailsService userDetailsService) {
         this.userRepository = userRepository;
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;

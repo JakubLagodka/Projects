@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class CustomOncePerRequestFilter extends OncePerRequestFilter {
+public class ModifiedOncePerRequestFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
     private final AuthenticationTokenService authenticationTokenService;
 
-    public CustomOncePerRequestFilter(CustomUserDetailsService userDetailsService, AuthenticationTokenService authenticationTokenService) {
+    public ModifiedOncePerRequestFilter(ModifiedUserDetailsService userDetailsService, AuthenticationTokenService authenticationTokenService) {
         this.userDetailsService = userDetailsService;
         this.authenticationTokenService = authenticationTokenService;
     }

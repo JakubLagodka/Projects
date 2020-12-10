@@ -53,7 +53,7 @@ public class ReservationController {
     public ReservationView addReservation(@RequestBody ReservationView reservation) throws MessagingException {
         User booking = userRepository.getById(reservation.getUserId());
 
-        //mailService.sendMail(booking.getEmail(), "Reservation has been made!","xd",true);
+        // mailService.sendMail(booking.getEmail(), "Reservation has been made!","xd",false);
 
         return reservationService.save(reservation);
     }

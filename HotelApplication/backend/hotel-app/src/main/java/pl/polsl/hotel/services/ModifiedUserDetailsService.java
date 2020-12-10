@@ -10,11 +10,11 @@ import pl.polsl.hotel.repositories.UserRepository;
 import java.util.ArrayList;
 
 @Component
-public class CustomUserDetailsService implements UserDetailsService {
+public class ModifiedUserDetailsService implements UserDetailsService {
 
 	private final UserRepository userRepository;
 
-	public CustomUserDetailsService(UserRepository userRepository) {
+	public ModifiedUserDetailsService(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 
