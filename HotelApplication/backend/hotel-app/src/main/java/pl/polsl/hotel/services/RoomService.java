@@ -107,7 +107,7 @@ public class RoomService extends MySession implements StartUpFiller {
     public void createInitialData() throws RuntimeException {
 
         //if(this.session.get(Admin.class.getSimpleName(),1) == null)
-        if("tak" == null)
+       /* if("tak" == null)
         {
             generator = new Random();
             Room room1 = new Room();
@@ -135,7 +135,7 @@ public class RoomService extends MySession implements StartUpFiller {
 
 
             roomRepository.saveAll(Arrays.asList(room1,room2));
-        }
+        }*/
     }
     public LocalDate convertToLocalDate (Date dateToConvert) {
         return dateToConvert.toInstant()

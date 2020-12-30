@@ -55,7 +55,7 @@ export class SummaryComponent implements OnInit {
     {
     this.reservation.startDate = this.calendarService.startDate;
     this.reservation.endDate = this.calendarService.endDate;
-    this.reservation.numberOfDays = this.calendarService.diff;
+    this.reservation.numberOfDays = this.calendarService.differenceInDays;
     this.reservation.roomNumber = this.calendarService.chosenRooms[0].id;
     this.reservation.userId = this.authenticationService.currentUserValue.id;
     this.reservation.price = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
