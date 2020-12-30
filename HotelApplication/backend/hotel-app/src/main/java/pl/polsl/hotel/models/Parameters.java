@@ -19,7 +19,7 @@ public class Parameters {
 
     private int numberOfBeds;
 
-    private int storey;
+   /* private int storey;
 
     private boolean CloseToElevator;
 
@@ -27,7 +27,7 @@ public class Parameters {
 
     private PillowType typeOfPillow;
 
-    private boolean balcony;
+    private boolean balcony;*/
 
     private long priceForOneDay;
 
@@ -64,7 +64,7 @@ public class Parameters {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public int getStorey() {
+   /* public int getStorey() {
         return storey;
     }
 
@@ -102,7 +102,7 @@ public class Parameters {
 
     public void setBalcony(boolean balcony) {
         this.balcony = balcony;
-    }
+    }*/
 
     public long getPriceForOneDay() {
         return priceForOneDay;
