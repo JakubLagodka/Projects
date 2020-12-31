@@ -4,7 +4,6 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Reservation} from '../_models/reservation';
 import {shareReplay, take} from 'rxjs/operators';
-import {User} from '../_models/user';
 
 @Injectable({
   providedIn: 'root'

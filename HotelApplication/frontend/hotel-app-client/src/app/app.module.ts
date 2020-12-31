@@ -29,6 +29,10 @@ import { ChoosingStoreyComponent } from './_reservations/choosing-storey/choosin
 import { SummaryComponent } from './_reservations/summary/summary.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { MadeByGivenUserComponent } from './_reservations/made-by-given-user/made-by-given-user.component';
+import { EditParametersComponent } from './edit-parameters/edit-parameters.component';
+import { AdministrationPanelComponent } from './administration-panel/administration-panel.component';
+import { ReceptionPanelComponent } from './reception-panel/reception-panel.component';
+import { ClientPanelComponent } from './client-panel/client-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +49,10 @@ import { MadeByGivenUserComponent } from './_reservations/made-by-given-user/mad
     SummaryComponent,
     UnauthorizedComponent,
     MadeByGivenUserComponent,
+    EditParametersComponent,
+    AdministrationPanelComponent,
+    ReceptionPanelComponent,
+    ClientPanelComponent,
   ],
   imports: [
     BrowserModule,

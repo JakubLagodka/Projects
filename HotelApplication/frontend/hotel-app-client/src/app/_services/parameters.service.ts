@@ -21,7 +21,6 @@ export class ParametersService {
     return this.http.get< Parameters[]>(`${environment.apiUrl}/parameter?id=` + id);
   }
 
-
   addParameter(parameter: Parameters): Observable< Parameters> {
     const returnedParameter = this.http.post< Parameters>(`${environment.apiUrl}/parameter/add`, parameter).pipe(shareReplay());
 
@@ -43,3 +42,4 @@ export class ParametersService {
     return this.http.patch<Parameters>(`${environment.apiUrl}/parameter?id=` + id, parameters).pipe(shareReplay());
   }
 }
+
