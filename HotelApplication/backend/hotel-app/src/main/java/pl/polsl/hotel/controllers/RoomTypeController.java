@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.models.RoomType;
 import pl.polsl.hotel.models.RoomTypeView;
 import pl.polsl.hotel.services.RoomTypeService;
@@ -30,23 +29,18 @@ public class RoomTypeController {
         return roomTypeService.getRoomsAvailable(startDate, endDate);
     }
 
-   /* @GetMapping("/booking")
-    public Room bookRoom(@RequestParam Long roomId, @RequestParam String from, @RequestParam int numberOfDays) {
-        return roomService.bookRoom(roomId, from,numberOfDays);
-    }*/
-
     @GetMapping
     public Optional<RoomType> getByRoomId(@RequestParam Long index){
         return roomTypeService.findById(index);
     }
 
     @PostMapping
-    public ReservationView addRoom(@RequestParam RoomTypeView room){
+    public RoomTypeView addRoom(@RequestParam RoomTypeView room){
         return roomTypeService.save(room);
     }
 
     @PutMapping
-    public ReservationView updateRoom(@RequestParam RoomTypeView room){
+    public RoomTypeView updateRoom(@RequestParam RoomTypeView room){
         return roomTypeService.save(room);
     }
 

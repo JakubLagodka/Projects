@@ -4,7 +4,7 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 
-@Entity(name = "room_type")
+@Entity(name = "rooms_type")
 public class RoomType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

@@ -25,9 +25,7 @@ public class ParametersService {
         return parametersRepository.save(parameters);
     }
 
-    public Parameters save(Parameters parameters)
-    {
-
+    public Parameters save(Parameters parameters) {
         return parametersRepository.save(parameters);
     }
 

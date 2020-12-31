@@ -4,11 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.hotel.models.Parameters;
-import pl.polsl.hotel.models.ReservationView;
-import pl.polsl.hotel.models.User;
+
 import pl.polsl.hotel.services.ParametersService;
 
-import javax.mail.MessagingException;
 import java.util.Optional;
 
 public class ParametersController {
@@ -25,21 +23,19 @@ public class ParametersController {
 
     @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ReservationView addReservation(@RequestBody ReservationView reservation) throws MessagingException {
-        User booking = userRepository.getById(reservation.getUserId());
+    public Parameters addParameter(@RequestBody Parameters parameters)  {
 
-        // mailService.sendMail(booking.getEmail(), "Reservation has been made!","xd",false);
-
-        return reservationService.save(reservation);
+        return parametersService.save(parameters);
     }
+
     @PatchMapping(value = "/{id}/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ReservationView updateReservation(@PathVariable Long id,
-                                             @RequestBody ReservationView reservation) {
-        return reservationService.updateReservation(id, reservation);
+    public Parameters updateParameter(@PathVariable Long id, @RequestBody Parameters reservation) {
+        return parametersService.updateParameters(id, reservation);
     }
+
     @DeleteMapping
-    public void deleteReservation(@RequestParam Long id){
-        reservationService.deleteById(id);
+    public void deleteParameters(@RequestParam Long id){
+        parametersService.deleteById(id);
 
     }
 }

@@ -1,7 +1,5 @@
 package pl.polsl.hotel.models;
 
-import io.swagger.annotations.ApiModelProperty;
-
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 

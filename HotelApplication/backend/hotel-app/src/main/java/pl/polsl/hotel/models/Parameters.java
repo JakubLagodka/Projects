@@ -1,7 +1,6 @@
 package pl.polsl.hotel.models;
 
 import org.springframework.lang.NonNull;
-import pl.polsl.hotel.PillowType;
 
 import javax.persistence.*;
 

@@ -31,7 +31,6 @@ export class CalendarService {
       x => {this.hotelNight = x; } );
   }
 
-
   public getHotelNight(){
   this.hotelNightService.getHotelNight().subscribe(
     x => this.hotelNight = x);
