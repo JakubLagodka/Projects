@@ -3,44 +3,45 @@ package pl.polsl.hotel.services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.PillowType;
 import pl.polsl.hotel.models.*;
+import pl.polsl.hotel.repositories.ParametersRepository;
 import pl.polsl.hotel.repositories.ReservationRepository;
-import pl.polsl.hotel.repositories.RoomRepository;
+import pl.polsl.hotel.repositories.RoomTypeRepository;
 
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
 
 @Component
-public class RoomService extends MySession implements StartUpFiller {
-    private final RoomRepository roomRepository;
+public class RoomTypeService extends MySession implements StartUpFiller {
+    private final RoomTypeRepository roomTypeRepository;
     private final ReservationRepository reservationRepository;
+    private final ParametersRepository parametersRepository;
     private Random generator;
-    private ArrayList<Room> roomsAvailable;
+    private ArrayList<RoomType> roomsAvailable;
     private LocalDate startLocalDate;
     private Date startDate;
     private LocalDate endLocalDate;
     private Date endDate;
     @Autowired
-    public RoomService(RoomRepository roomRepository, ReservationRepository reservationRepository) {
-        this.roomRepository = roomRepository;
+    public RoomTypeService(RoomTypeRepository roomTypeRepository, ReservationRepository reservationRepository, ParametersRepository parametersRepository) {
+        this.roomTypeRepository = roomTypeRepository;
+        this.parametersRepository = parametersRepository;
         this.generator = new Random();
-        this.roomsAvailable = new ArrayList<Room>();
+        this.roomsAvailable = new ArrayList<RoomType>();
         this.reservationRepository = reservationRepository;
     }
 
-    public Optional<Room> findById(Long id) {
-        return roomRepository.findById(id);
+    public Optional<RoomType> findById(Long id) {
+        return roomTypeRepository.findById(id);
     }
 
-    public List<Room> findAll() {
-        return roomRepository.findAll();
+    public List<RoomType> findAll() {
+        return roomTypeRepository.findAll();
 
     }
 
-    public List<Room> getRoomsAvailable(String start, String end) {
+    public List<RoomType> getRoomsAvailable(String start, String end) {
         roomsAvailable.clear();
         int index = 0;
         boolean isAvailable = true;
@@ -53,7 +54,7 @@ public class RoomService extends MySession implements StartUpFiller {
         endLocalDate = LocalDate.parse(end);
         endDate = convertToDate(endLocalDate);
 
-        for (Room room : roomRepository.findAll()) {
+        for (RoomType room : roomTypeRepository.findAll()) {
             isAvailable = true;
            /* index = 0;
             for (LocalDate date: room.getAvailableDates()) {
@@ -96,12 +97,13 @@ public class RoomService extends MySession implements StartUpFiller {
 
 
 
-    public Room save(Room room) {
-        return roomRepository.save(room);
+    public RoomTypeView save(RoomTypeView room) {
+
+        return map(roomTypeRepository.save(map(room)));
     }
 
     public void deleteById(Long id) {
-        roomRepository.deleteById(id);
+        roomTypeRepository.deleteById(id);
     }
 
     public void createInitialData() throws RuntimeException {
@@ -137,35 +139,32 @@ public class RoomService extends MySession implements StartUpFiller {
             roomRepository.saveAll(Arrays.asList(room1,room2));
         }*/
     }
-    public LocalDate convertToLocalDate (Date dateToConvert) {
-        return dateToConvert.toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDate();
-    }
+
     public Date convertToDate (LocalDate dateToConvert) {
         return java.sql.Date.valueOf(dateToConvert);
     }
+    public RoomType map(RoomTypeView roomTypeView) {
+        RoomType roomType = new RoomType();
+        roomType.setId(roomTypeView.getId());
+        roomType.setHotelId(roomTypeView.getHotelId());
+        roomType.setNumberOfRoomsAvailable(roomTypeView.getNumberOfRoomsAvailable());
 
-   /* public Room bookRoom(Long roomId, String from, int numberOfDays) {
-        fromLocalDate = LocalDate.parse(from);
-        Room room = roomRepository.getById(roomId);
-        int index = 0;
-        /*for (LocalDate date: room.getAvailableDates())
-        {
+        if(roomTypeView.getRoomTypeParametersId() != null)
+            roomType.setRoomTypeParameters(parametersRepository.getById(roomTypeView.getRoomTypeParametersId()));
 
-            if((date.getYear() == fromDate.getYear())&&(date.getMonth() == fromLocalDate.getMonth())&& (date.getDayOfMonth() == fromLocalDate.getDayOfMonth()))
-            {
-                room.getIsAvailable().set(index,false);
-                for(int i = index + 1; i < index + numberOfDays;i++)
-                {
-                    room.getIsAvailable().set(i,false);
-                }
+        return roomType;
+    }
 
-               break;
-            }
-            index++;
-        }
-        roomRepository.save(room);
-        return room;
-    }*/
+    public RoomTypeView map(RoomType roomType) {
+        RoomTypeView roomTypeView = new RoomTypeView();
+
+        roomTypeView.setId(roomType.getId());
+        roomTypeView.setHotelId(roomType.getHotelId());
+        roomTypeView.setNumberOfRoomsAvailable(roomType.getNumberOfRoomsAvailable());
+
+        if(roomType.getRoomTypeParameters()!= null)
+            roomTypeView.setRoomTypeParametersId(roomType.getRoomTypeParameters().getId());
+        return roomTypeView;
+    }
+
 }

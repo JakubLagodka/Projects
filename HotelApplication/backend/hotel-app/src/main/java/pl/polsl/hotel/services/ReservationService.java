@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.exceptions.ForbiddenAccessException;
 import pl.polsl.hotel.models.*;
 
 import pl.polsl.hotel.repositories.ReservationRepository;
-import pl.polsl.hotel.repositories.RoomRepository;
+import pl.polsl.hotel.repositories.RoomTypeRepository;
 import pl.polsl.hotel.repositories.UserRepository;
 
 
@@ -21,13 +20,13 @@ public class ReservationService {
 
     private ReservationRepository reservationRepository;
     private final UserRepository userRepository;
-    private final RoomRepository roomRepository;
+    private final RoomTypeRepository roomTypeRepository;
     private ArrayList<ReservationView> reservationsFromCurrentUser;
 
     @Autowired
-    public ReservationService(ReservationRepository reservationRepository,UserRepository userRepository,RoomRepository roomRepository) {
+    public ReservationService(ReservationRepository reservationRepository, UserRepository userRepository, RoomTypeRepository roomTypeRepository) {
         this.reservationRepository = reservationRepository;
-        this.roomRepository = roomRepository;
+        this.roomTypeRepository = roomTypeRepository;
         this.userRepository = userRepository;
         this.reservationsFromCurrentUser = new ArrayList<ReservationView>();
     }
@@ -68,7 +67,7 @@ public class ReservationService {
         Reservation reservation = map(reservationView);
 
         if(reservationView.getRoomNumber() != null)
-            reservation.setRoom(roomRepository.getById(reservationView.getRoomNumber()));
+            reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomNumber()));
 
         if(reservationView.getUserId() != null)
             reservation.setUser(userRepository.getById(reservationView.getUserId()));

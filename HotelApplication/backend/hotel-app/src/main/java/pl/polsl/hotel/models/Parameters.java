@@ -31,6 +31,7 @@ public class Parameters {
 
     private long priceForOneDay;
 
+
     @NonNull
     public Long getId() {
         return id;

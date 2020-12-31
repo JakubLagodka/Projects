@@ -17,7 +17,7 @@ public class Reservation {
 
     @ManyToOne
     @Nullable
-    private Room room;
+    private RoomType room;
 
     @ManyToOne
     @Nullable
@@ -49,11 +49,11 @@ public class Reservation {
     }
 
     @Nullable
-    public Room getRoom() {
+    public RoomType getRoom() {
         return room;
     }
 
-    public void setRoom(@Nullable Room room) {
+    public void setRoom(@Nullable RoomType room) {
         this.room = room;
     }
 

@@ -4,8 +4,8 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 
-@Entity(name = "rooms")
-public class Room  {
+@Entity(name = "room_type")
+public class RoomType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @NonNull
@@ -15,14 +15,13 @@ public class Room  {
 
     private long numberOfRoomsAvailable;
 
-    public Room() {
+    @ManyToOne
+    private Parameters roomTypeParameters;
+
+    public RoomType() {
 
     }
-    public Room(long hotelId) {
 
-        this.hotelId = hotelId;
-
-    }
 
     @NonNull
     public Long getId() {
@@ -47,5 +46,13 @@ public class Room  {
 
     public void setNumberOfRoomsAvailable(long numberOfRoomsAvailable) {
         this.numberOfRoomsAvailable = numberOfRoomsAvailable;
+    }
+
+    public Parameters getRoomTypeParameters() {
+        return roomTypeParameters;
+    }
+
+    public void setRoomTypeParameters(Parameters roomTypeParameters) {
+        this.roomTypeParameters = roomTypeParameters;
     }
 }
