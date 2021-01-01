@@ -97,9 +97,9 @@ public class RoomTypeService extends MySession implements StartUpFiller {
 
 
 
-    public RoomTypeView save(RoomTypeView room) {
+    public RoomType save(RoomType room) {
 
-        return map(roomTypeRepository.save(map(room)));
+        return roomTypeRepository.save(room);
     }
 
     public void deleteById(Long id) {
@@ -143,7 +143,7 @@ public class RoomTypeService extends MySession implements StartUpFiller {
     public Date convertToDate (LocalDate dateToConvert) {
         return java.sql.Date.valueOf(dateToConvert);
     }
-    public RoomType map(RoomTypeView roomTypeView) {
+    /*public RoomType map(RoomTypeView roomTypeView) {
         RoomType roomType = new RoomType();
         roomType.setId(roomTypeView.getId());
         roomType.setHotelId(roomTypeView.getHotelId());
@@ -165,6 +165,6 @@ public class RoomTypeService extends MySession implements StartUpFiller {
         if(roomType.getRoomTypeParameters()!= null)
             roomTypeView.setRoomTypeParametersId(roomType.getRoomTypeParameters().getId());
         return roomTypeView;
-    }
+    }*/
 
 }

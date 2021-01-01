@@ -21,7 +21,7 @@
         <mat-error *ngIf="range.controls.end.hasError('required')" >Invalid end date</mat-error>
       </mat-form-field>
 
-      <div *ngIf="submitted && this.range.invalid" class="alert alert-danger" role="alert"  >podaj datę przyjazdu i odjazdu!</div>
+      <div *ngIf="calendarSubmitted && this.range.invalid" class="alert alert-danger" role="alert"  >podaj datę przyjazdu i odjazdu!</div>
 
       <div class="form-group">
         <button  class="btn btn-info col-md-6 col-12 offset-md-3 mt-5 text-center" (click)="calendarSubmit()" >

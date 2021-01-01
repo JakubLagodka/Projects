@@ -12,13 +12,17 @@ public class Parameters {
     @NonNull
     private Long id;
 
-    private Long checkInTime;
+    private String parameterName;
+
+    private String parameterType;
+
+    /*private Long checkInTime;
 
     private Long checkOutTime;
 
     private int numberOfBeds;
 
-   /* private int storey;
+    private int storey;
 
     private boolean CloseToElevator;
 
@@ -26,9 +30,9 @@ public class Parameters {
 
     private PillowType typeOfPillow;
 
-    private boolean balcony;*/
+    private boolean balcony;
 
-    private long priceForOneDay;
+    private long priceForOneDay;*/
 
 
     @NonNull
@@ -40,7 +44,23 @@ public class Parameters {
         this.id = id;
     }
 
-    public Long getCheckInTime() {
+    public String getParameterName() {
+        return parameterName;
+    }
+
+    public void setParameterName(String parameterName) {
+        this.parameterName = parameterName;
+    }
+
+    public String getParameterType() {
+        return parameterType;
+    }
+
+    public void setParameterType(String parameterType) {
+        this.parameterType = parameterType;
+    }
+
+    /*  public Long getCheckInTime() {
         return checkInTime;
     }
 
@@ -102,7 +122,7 @@ public class Parameters {
 
     public void setBalcony(boolean balcony) {
         this.balcony = balcony;
-    }*/
+    }
 
     public long getPriceForOneDay() {
         return priceForOneDay;
@@ -110,5 +130,6 @@ public class Parameters {
 
     public void setPriceForOneDay(long priceForOneDay) {
         this.priceForOneDay = priceForOneDay;
-    }
+    }*/
+
 }

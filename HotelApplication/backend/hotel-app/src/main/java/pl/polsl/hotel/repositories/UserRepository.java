@@ -18,10 +18,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByUsername(String userName);
 
-    @Transactional
+   /* @Transactional
     @Modifying
     @Query(value = "update users set dtype = ?2 where id = ?1", nativeQuery = true)
-    void updateRole(Long id, String roleClassName);
+    void updateRole(Long id, String roleClassName);*/
 
     default User getById(Long id) {
         return findById(id).orElseThrow(() -> new NotFoundException(id));

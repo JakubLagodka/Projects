@@ -35,12 +35,12 @@ public class RoomTypeController {
     }
 
     @PostMapping
-    public RoomTypeView addRoom(@RequestParam RoomTypeView room){
+    public RoomType addRoom(@RequestParam RoomType room){
         return roomTypeService.save(room);
     }
 
     @PutMapping
-    public RoomTypeView updateRoom(@RequestParam RoomTypeView room){
+    public RoomType updateRoom(@RequestParam RoomType room){
         return roomTypeService.save(room);
     }
 

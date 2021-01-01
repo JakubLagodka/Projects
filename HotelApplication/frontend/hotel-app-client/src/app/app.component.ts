@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('sidenav') sidenav: MatSidenav;
   loading = false;
   submitted = false;
+  calendarSubmitted = false;
   returnUrl: string;
   error = '';
   subscription: Subscription;
@@ -71,9 +72,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
     if (this.range.invalid || this.range.controls.end.value === null) {
       setTimeout(() => {
-        this.submitted = false;
+        this.calendarSubmitted = false;
       }, 5000);
-      this.submitted = true;
+      this.calendarSubmitted = true;
 
       return;
     }

@@ -15,8 +15,8 @@ public class RoomType {
 
     private long numberOfRoomsAvailable;
 
-    @ManyToOne
-    private Parameters roomTypeParameters;
+   /* @ManyToOne
+    private Parameters roomTypeParameters;*/
 
     public RoomType() {
 
@@ -48,11 +48,11 @@ public class RoomType {
         this.numberOfRoomsAvailable = numberOfRoomsAvailable;
     }
 
-    public Parameters getRoomTypeParameters() {
+   /* public Parameters getRoomTypeParameters() {
         return roomTypeParameters;
     }
 
     public void setRoomTypeParameters(Parameters roomTypeParameters) {
         this.roomTypeParameters = roomTypeParameters;
-    }
+    }*/
 }

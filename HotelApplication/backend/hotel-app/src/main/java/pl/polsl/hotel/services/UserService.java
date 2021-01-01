@@ -41,8 +41,8 @@ public class UserService extends MySession implements StartUpFiller {
         if (userPost.getRoleCode() != null)
             user.setRole(roleRepository.getById(userPost.getRoleCode()));
         UserView userView = map(userRepository.save(user));
-        if (userView.getRoleCode() != null)
-            userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
+       // if (userView.getRoleCode() != null)
+           // userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
         return userView;
     }
 
@@ -67,7 +67,7 @@ public class UserService extends MySession implements StartUpFiller {
                 user.setRole(roleRepository.getById(user.getRole().getCode()));
             else
                 user.setRole(null);
-            userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
+         //   userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
 
             return map(userRepository.save(user));
     }

@@ -9,10 +9,7 @@ import pl.polsl.hotel.models.Parameters;
 
 
 public interface ParametersRepository extends JpaRepository<Parameters, Long> {
-    @Transactional
-    @Modifying
-    @Query(value = "update parameters set Name = ?1", nativeQuery = true)
-    void updateParameters(String parameterName);
+
     default Parameters getById(Long id) {
         return findById(id).orElseThrow(() -> new NotFoundException(id));
     }

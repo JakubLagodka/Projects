@@ -13,7 +13,7 @@ public class Role extends CodeName {
 
 
 
-    @OneToMany(mappedBy = "role")
+   /* @OneToMany(mappedBy = "role")
     @NonNull
     private List<User> users = new LinkedList<>();
 
@@ -33,7 +33,7 @@ public class Role extends CodeName {
 
                 ", users=" + users +
                 '}';
-    }
+    }*/
 
     public Role() {
     }
