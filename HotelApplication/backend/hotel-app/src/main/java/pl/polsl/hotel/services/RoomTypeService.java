@@ -95,7 +95,10 @@ public class RoomTypeService extends MySession implements StartUpFiller {
         return roomsAvailable;
     }
 
-
+/*public RoomType addParameters()
+{
+    var sql = "UPDATE room_type"
+}*/
 
     public RoomType save(RoomType room) {
 
