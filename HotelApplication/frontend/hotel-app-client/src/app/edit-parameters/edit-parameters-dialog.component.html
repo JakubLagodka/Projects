@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Czy jesteś pewien, że chcesz zmodyfikować parametry?</h1>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Kontynuuj</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Anuluj</button>
+  <button mat-button (click)="close()">Anuluj</button>
 </div>

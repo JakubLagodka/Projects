@@ -1,0 +1,29 @@
+<form (ngSubmit)="submit()" #form="ngForm">
+<table class="table-striped table-bordered">
+  <thead>
+  <tr>
+  <th>Nazwa typu pokoju</th>
+  <th>Typ wybrany w rezerwacji</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>Czas rezerwacji</td><td> od {{ this.calendarService.startDate.getDate()}}
+    {{this.translatorService.translateMonthToPolish(this.calendarService.startDate.getMonth())}} {{ this.calendarService.startDate.getFullYear()}}
+    od rozpoczęcia doby hotelowej (godzina {{ this.calendarService.startDate.getHours()}}) do  {{ this.calendarService.endDate.getDate()}}
+    {{this.translatorService.translateMonthToPolish(this.calendarService.endDate.getMonth())}} {{ this.calendarService.endDate.getFullYear()}}
+    do zakończenia doby hotelowej (godzina {{ this.calendarService.endDate.getHours()}})</td>
+  <tr><td>Liczba łózek w pokoju</td><td>{{this.calendarService.chosenRooms[0].numberOfBeds}}</td></tr>
+  <tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
+  <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>
+  <tr><td>Czy pokój ma mieć balkon</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].balcony)}}</td></tr>
+  <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].beautifulViewFromTheWindows)}}</td></tr>
+  <tr><td>Piętro, na którym znajduje się pokój</td><td>{{this.calendarService.chosenRooms[0].storey}}</td></tr>
+  <tr><td>Cena rezerwacji</td><td>{{this.reservation.price}} złotych</td></tr>
+  </tbody>
+</table>
+  <div class="modal-footer col-md-7 col-12 mt-5 text-center">
+    <button type="submit" class="btn btn-success">Zarezerwuj pokój</button>
+    <button class="btn btn-danger" (click)="dismiss()">Wróć</button>
+  </div>
+</form>
+

@@ -53,7 +53,7 @@ export class EditParametersComponent implements OnInit {
 
 @Component({
   selector: 'app-edit-parameters-dialog',
-  templateUrl: 'edit-parameters-dialog.html',
+  templateUrl: './edit-parameters-dialog.component.html',
 })
 export class EditParametersDialogComponent {
 
@@ -61,7 +61,10 @@ export class EditParametersDialogComponent {
     public dialogRef: MatDialogRef<EditParametersDialogComponent>) {}
 
   onNoClick(): void {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
 
+  close(): void {
+    this.dialogRef.close();
+  }
 }
