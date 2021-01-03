@@ -51,6 +51,18 @@ public class ParameterService implements StartUpFiller{
             numberOfRoomsAvailable.setParameterType("number");
             numberOfRoomsAvailable.setModifiable(false);
             parameterRepository.save(numberOfRoomsAvailable);
+
+            Parameter checkInTime = new Parameter();
+            checkInTime.setParameterName("checkInTime");
+            checkInTime.setParameterType("number");
+            checkInTime.setModifiable(false);
+            parameterRepository.save(checkInTime);
+
+            Parameter CheckOutTime = new Parameter();
+            CheckOutTime.setParameterName("CheckOutTime");
+            CheckOutTime.setParameterType("number");
+            CheckOutTime.setModifiable(false);
+            parameterRepository.save(CheckOutTime);
         }
 
 
