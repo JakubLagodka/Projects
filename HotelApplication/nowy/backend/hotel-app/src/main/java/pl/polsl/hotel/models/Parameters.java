@@ -1,8 +1,6 @@
 package pl.polsl.hotel.models;
 
 import org.springframework.lang.NonNull;
-import pl.polsl.hotel.PillowType;
-
 import javax.persistence.*;
 
 @Table(name = "parameters")
@@ -13,7 +11,11 @@ public class Parameters {
     @NonNull
     private Long id;
 
-    private Long checkInTime;
+    private String parameterName;
+
+    private String parameterType;
+
+    /*private Long checkInTime;
 
     private Long checkOutTime;
 
@@ -29,7 +31,8 @@ public class Parameters {
 
     private boolean balcony;
 
-    private long priceForOneDay;
+    private long priceForOneDay;*/
+
 
     @NonNull
     public Long getId() {
@@ -40,7 +43,23 @@ public class Parameters {
         this.id = id;
     }
 
-    public Long getCheckInTime() {
+    public String getParameterName() {
+        return parameterName;
+    }
+
+    public void setParameterName(String parameterName) {
+        this.parameterName = parameterName;
+    }
+
+    public String getParameterType() {
+        return parameterType;
+    }
+
+    public void setParameterType(String parameterType) {
+        this.parameterType = parameterType;
+    }
+
+    /*  public Long getCheckInTime() {
         return checkInTime;
     }
 
@@ -64,7 +83,7 @@ public class Parameters {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public int getStorey() {
+   /* public int getStorey() {
         return storey;
     }
 
@@ -110,5 +129,5 @@ public class Parameters {
 
     public void setPriceForOneDay(long priceForOneDay) {
         this.priceForOneDay = priceForOneDay;
-    }
+    }*/
 }

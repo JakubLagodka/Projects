@@ -14,8 +14,8 @@ public class InitialDataFiller implements ApplicationRunner {
 
     private final List<StartUpFiller> startUpFillers = new LinkedList<>();
 
-    public InitialDataFiller(HotelNightService hotelNightService, RoomService roomService, UserService userService, RoleService roleService) {
-        startUpFillers.addAll(Arrays.asList(hotelNightService, roomService, userService, roleService));
+    public InitialDataFiller(HotelNightService hotelNightService, RoomTypeService roomTypeService, UserService userService, RoleService roleService) {
+        startUpFillers.addAll(Arrays.asList(hotelNightService, roomTypeService, userService, roleService));
     }
 
     @Override
