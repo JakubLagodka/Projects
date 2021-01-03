@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {shareReplay, take} from 'rxjs/operators';
-import {Parameters} from '../_models/parameters';
+import {Parameter} from '../_models/parameter';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +13,17 @@ export class ParametersService {
   status = null;
   constructor( private http: HttpClient) { }
 
-  getParameters(): Observable< Parameters[]> {
-    return this.http.get< Parameters[]>(`${environment.apiUrl}/parameters`);
+  getParameters(): Observable< Parameter[]> {
+    return this.http.get< Parameter[]>(`${environment.apiUrl}/parameters/all`);
   }
 
-  getParameterById(id: number): Observable< Parameters[]> {
-    return this.http.get< Parameters[]>(`${environment.apiUrl}/parameter?id=` + id);
+
+  getParameterById(id: number): Observable< Parameter[]> {
+    return this.http.get< Parameter[]>(`${environment.apiUrl}/parameter?id=` + id);
   }
 
-  addParameter(parameter: Parameters): Observable< Parameters> {
-    const returnedParameter = this.http.post< Parameters>(`${environment.apiUrl}/parameter/add`, parameter).pipe(shareReplay());
+  addParameter(parameter: Parameter): Observable< Parameter> {
+    const returnedParameter = this.http.post< Parameter>(`${environment.apiUrl}/parameter/add`, parameter).pipe(shareReplay());
 
     returnedParameter.pipe(take(1)).subscribe(x => {
       },
@@ -33,13 +34,13 @@ export class ParametersService {
     return returnedParameter;
   }
 
-  deleteParameter(id: number): Observable<Parameters> {
-    return this.http.delete<Parameters>(`${environment.apiUrl}/parameter?id=` + id).pipe(shareReplay());
+  deleteParameter(id: number): Observable<Parameter> {
+    return this.http.delete<Parameter>(`${environment.apiUrl}/parameter?id=` + id).pipe(shareReplay());
 
   }
 
-  updateParameter(id: number, parameters: Parameters): Observable< Parameters> {
-    return this.http.patch<Parameters>(`${environment.apiUrl}/parameter?id=` + id, parameters).pipe(shareReplay());
+  updateParameter(id: number, parameter: Parameter): Observable< Parameter> {
+    return this.http.patch<Parameter>(`${environment.apiUrl}/parameter?id=` + id, parameter).pipe(shareReplay());
   }
 }
 

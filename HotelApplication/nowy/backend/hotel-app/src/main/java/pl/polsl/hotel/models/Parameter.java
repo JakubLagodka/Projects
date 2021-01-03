@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Table(name = "parameters")
 @Entity
-public class Parameters {
+public class Parameter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @NonNull
@@ -14,6 +14,8 @@ public class Parameters {
     private String parameterName;
 
     private String parameterType;
+
+    private boolean modifiable;
 
     /*private Long checkInTime;
 
@@ -59,7 +61,14 @@ public class Parameters {
         this.parameterType = parameterType;
     }
 
-    /*  public Long getCheckInTime() {
+    public boolean isModifiable() {
+        return modifiable;
+    }
+
+    public void setModifiable(boolean modifiable) {
+        this.modifiable = modifiable;
+    }
+/*  public Long getCheckInTime() {
         return checkInTime;
     }
 

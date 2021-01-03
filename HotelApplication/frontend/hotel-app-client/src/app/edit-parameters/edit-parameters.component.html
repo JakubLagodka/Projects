@@ -1,4 +1,4 @@
-
+<div class="navbar-brand" >Aktualne parametry pokoi w Hotelu:</div>
 <div class="row">
   <div class="col-12">
     <div class="card p-2 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: bisque">
@@ -8,8 +8,14 @@
           typ parametru {{parameter.parameterType}}</td><td>
         </tbody>
       </table>
-      <button class="btn btn-sm btn-success" (click)="openDialog()">Edytuj parametry</button>
     </div>
   </div>
 </div>
+<br>
+<div class="form-group">
 
+  <input *ngIf="confirmed" type="text" class="form-control" id="name" [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" required>
+</div>
+
+<button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
+<button *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
