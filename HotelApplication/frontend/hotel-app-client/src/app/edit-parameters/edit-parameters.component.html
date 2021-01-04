@@ -1,20 +1,21 @@
 <div class="navbar-brand" >Aktualne parametry pokoi w Hotelu:</div>
 <div class="row">
   <div class="col-12">
-    <div class="card p-2 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: bisque">
+
       <table class="table-striped table-bordered" style="float: left">
+        <div class="card p-2 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: bisque">
         <tbody>
-        <tr style="background-color: burlywood"><td>Nazwa parametru</td><td> od {{ parameter.parameterName}}
-          typ parametru {{parameter.parameterType}}</td><td>
+        <tr><td>Nazwa parametru: </td><td> {{ parameter.parameterName}}</tr>
+        <tr> typ parametru: {{parameter.parameterType}}</tr>
         </tbody>
+        </div>
       </table>
-    </div>
+
   </div>
 </div>
-<br>
 <div class="form-group">
 
-  <input *ngIf="confirmed" type="text" class="form-control" id="name" [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" required>
+  <input *ngIf="confirmed" type="text" class="form-control col-md-5 col-12 mt-50 text-center" id="name" [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" required>
 </div>
 
 <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
