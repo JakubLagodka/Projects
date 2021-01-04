@@ -3,16 +3,25 @@
   <div class="col-12">
 
       <table class="table-striped table-bordered" style="float: left">
-        <div class="card p-2 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: bisque">
+        <div class="card p-3 mt-3 text-left"  *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
         <tbody>
-        <tr><td>Nazwa parametru: </td><td> {{ parameter.parameterName}}</tr>
-        <tr> typ parametru: {{parameter.parameterType}}</tr>
+        Nazwa parametru:  {{ parameter.parameterName }}
+        <button *ngIf="confirmed" class="btn btn-sm btn-info" style="float: right"(click)="delete(parameter)">Edytuj parametr</button>
         </tbody>
         </div>
       </table>
+    <table class="table-striped table-bordered" style="float: left">
+      <div class="card p-3 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
+        <tbody>
+           typ parametru: {{parameter.parameterType}}
+           <button *ngIf="confirmed" class="btn btn-sm btn-info" style="float: right" (click)="delete(parameter)">Usuń parametr</button>
+        </tbody>
 
   </div>
+    </table>
 </div>
+</div>
+<br>
 <div class="form-group">
 
   <input *ngIf="confirmed" type="text" class="form-control col-md-5 col-12 mt-50 text-center" id="name" [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" required>

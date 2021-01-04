@@ -28,6 +28,7 @@ export class EditParametersComponent implements OnInit {
   add(parameter: Parameter)
   {
     this.parametersService.addParameter(parameter);
+    this.parameters$ = this.parametersService.getParameters();
   }
 
   update(parameter: Parameter)
@@ -62,10 +63,9 @@ export class EditParametersComponent implements OnInit {
 })
 export class EditParametersDialogComponent {
 
-  constructor(@Inject(EditParametersComponent) private parent: EditParametersComponent,
-              public dialogRef: MatDialogRef<EditParametersDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<EditParametersDialogComponent>,
               private route: ActivatedRoute,
-              private router: Router,) {}
+              private router: Router) {}
 
   onClick(): void {
     this.dialogRef.close();

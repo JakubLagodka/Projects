@@ -14,7 +14,7 @@ export class ParametersService {
   constructor( private http: HttpClient) { }
 
   getParameters(): Observable< Parameter[]> {
-    return this.http.get< Parameter[]>(`${environment.apiUrl}/parameters/all`);
+    return this.http.get< Parameter[]>(`${environment.apiUrl}/parameter/all`);
   }
 
 
@@ -35,7 +35,7 @@ export class ParametersService {
   }
 
   deleteParameter(id: number): Observable<Parameter> {
-    return this.http.delete<Parameter>(`${environment.apiUrl}/parameter?id=` + id).pipe(shareReplay());
+    return this.http.delete<Parameter>(`${environment.apiUrl}/parameter/delete` + id).pipe(shareReplay());
 
   }
 

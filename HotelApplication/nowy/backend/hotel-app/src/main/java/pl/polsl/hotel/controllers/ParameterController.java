@@ -8,7 +8,7 @@ import pl.polsl.hotel.services.ParameterService;
 
 import java.util.Optional;
 @RestController
-@RequestMapping(value = "/parameters")
+@RequestMapping(value = "/parameter")
 public class ParameterController {
     private final ParameterService parameterService;
 
@@ -38,8 +38,8 @@ public class ParameterController {
         return parameterService.updateParameters(id, parameter);
     }
 
-    @DeleteMapping
-    public void deleteParameters(@RequestParam Long id){
+    @DeleteMapping("/delete")
+    public void deleteParameter(@RequestParam Long id){
         parameterService.deleteById(id);
 
 
