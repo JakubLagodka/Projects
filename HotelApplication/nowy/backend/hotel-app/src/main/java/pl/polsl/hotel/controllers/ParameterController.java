@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.hotel.models.Parameter;
 import pl.polsl.hotel.services.ParameterService;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Optional;
 @RestController
@@ -35,11 +36,12 @@ public class ParameterController {
 
     @PatchMapping(value = "/{id}/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Parameter updateParameter(@PathVariable Long id, @RequestBody Parameter parameter) {
-        return parameterService.updateParameters(id, parameter);
+        return parameterService.updateParameter(id, parameter);
     }
 
-    @DeleteMapping("/delete")
-    public void deleteParameter(@RequestParam Long id){
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteParameter(@PathVariable Long id){
         parameterService.deleteById(id);
 
 

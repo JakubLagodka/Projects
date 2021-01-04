@@ -17,7 +17,7 @@ public class ParameterService implements StartUpFiller{
         return parameterRepository.findById(id);
     }
 
-    public Parameter updateParameters(Long id, Parameter parameter) {
+    public Parameter updateParameter(Long id, Parameter parameter) {
 
         parameterRepository.deleteById(id);
 
@@ -38,7 +38,7 @@ public class ParameterService implements StartUpFiller{
 
     public void createInitialData() throws RuntimeException
     {
-        if(parameterRepository.findAll().isEmpty())
+        if(parameterRepository.findAll().iterator() == null)
         {
             Parameter numberOfBeds = new Parameter();
             numberOfBeds.setParameterName("numberOfBeds");

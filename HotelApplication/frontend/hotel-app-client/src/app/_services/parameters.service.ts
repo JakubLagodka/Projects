@@ -34,13 +34,26 @@ export class ParametersService {
     return returnedParameter;
   }
 
-  deleteParameter(id: number): Observable<Parameter> {
-    return this.http.delete<Parameter>(`${environment.apiUrl}/parameter/delete` + id).pipe(shareReplay());
+  deleteParameter(id: number): Observable<any> {
+    const returnedParameter = this.http.delete<any>(`${environment.apiUrl}/parameter/` + id).pipe(shareReplay());
+    returnedParameter.pipe(take(1)).subscribe(x => {
+      },
+      err => {
+        this.status = err.status;
+      });
 
+    return returnedParameter;
   }
 
   updateParameter(id: number, parameter: Parameter): Observable< Parameter> {
-    return this.http.patch<Parameter>(`${environment.apiUrl}/parameter?id=` + id, parameter).pipe(shareReplay());
+    const returnedParameter =  this.http.patch<Parameter>(`${environment.apiUrl}/parameter?id=` + id, parameter).pipe(shareReplay());
+    returnedParameter.pipe(take(1)).subscribe(x => {
+      },
+      err => {
+        this.status = err.status;
+      });
+
+    return returnedParameter;
   }
 }
 
