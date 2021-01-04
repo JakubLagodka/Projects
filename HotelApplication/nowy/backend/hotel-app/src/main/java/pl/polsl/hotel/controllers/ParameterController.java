@@ -44,6 +44,5 @@ public class ParameterController {
     public void deleteParameter(@PathVariable Long id){
         parameterService.deleteById(id);
 
-
     }
 }

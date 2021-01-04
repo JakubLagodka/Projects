@@ -1,9 +1,8 @@
 <div class="navbar-brand" >Aktualne parametry pokoi w Hotelu:</div>
 <div class="row">
-  <div class="col-12" style="text-align: center">
+  <div class="col-12">
 
-      <table class="table-striped table-bordered" style="width: 500px; text-align: left; margin-left: auto; margin-right: auto; float: left">
-
+      <table class="table-striped table-bordered" style="float: left">
         <div class="card p-3 mt-3 text-left"  *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
         <tbody>
         Nazwa parametru:  {{ parameter.parameterName }}
@@ -11,7 +10,7 @@
         </tbody>
         </div>
       </table>
-    <table class="table-striped table-bordered" style="width: 500px; text-align: left; margin-left: auto; margin-right: auto; float: left">
+    <table class="table-striped table-bordered" style="float: left">
       <div class="card p-3 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
         <tbody>
            typ parametru: {{parameter.parameterType}}
@@ -29,9 +28,8 @@
   <input *ngIf="confirmed" type="text" class="form-control col-md-3 col-12 mt-5 text-center" id="type"
          [(ngModel)]="parameter.parameterName" placeholder="typ parametru" name="type" style="float: left" required>
 </div>
-
-<div>
-  <br>
+<br>
+<div class="form-group">
 <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
-<button *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)" style="clear: both" >Dodaj parametr</button>
+<button *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
 </div>
