@@ -34,8 +34,8 @@ export class ParametersService {
     return returnedParameter;
   }
 
-  deleteParameter(id: number): Observable<any> {
-    const returnedParameter = this.http.delete<any>(`${environment.apiUrl}/parameter/` + id).pipe(shareReplay());
+  deleteParameter(id: number, type: number, typeId: number): Observable<any> {
+    const returnedParameter = this.http.delete<any>(`${environment.apiUrl}/parameter/` + id + type + typeId).pipe(shareReplay());
     returnedParameter.pipe(take(1)).subscribe(x => {
       },
       err => {

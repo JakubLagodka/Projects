@@ -1,7 +1,8 @@
 export class Parameter {
   id: number;
-  parameterName: string;
-  parameterType: string;
+  name: string;
+  type: string;
+  typeId: number;
   modifiable: boolean;
 }
 

@@ -17,9 +17,9 @@
       </tr>
       <tr class="p-3 mt-3" style="border: 1px solid black; margin: 100pt auto 100pt auto;line-height: 30px; background-color: lightblue" *ngFor="let parameter of parameters$ | async">
 
-        <td style="width: 8%;border: 1px solid black;">{{ parameter.parameterName }}</td>
+        <td style="width: 8%;border: 1px solid black;">{{ parameter.name}}</td>
 
-        <td style="width: 8%;border: 1px solid black;"> {{parameter.parameterType}}</td>
+        <td style="width: 8%;border: 1px solid black;"> {{parameter.type}}</td>
 
         <td style="width: 8%;border: 1px solid black;"> {{parameter.modifiable}}</td>
 
@@ -31,9 +31,9 @@
     </table>
 
   <input *ngIf="confirmed" type="text" class="form-control col-md-3 col-1 mt-1 text-center" id="name"
-         [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" style="float: left" required>
+         [(ngModel)]="parameter.name" placeholder="nazwa parametru" name="name" style="float: left" required>
   <input *ngIf="confirmed" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="type"
-         [(ngModel)]="parameter.parameterType" placeholder="typ parametru" name="type" style="float: left" required>
+         [(ngModel)]="parameter.type" placeholder="typ parametru" name="type" style="float: left" required>
   <button style="margin: 0pt  60pt;" *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
 </div>
 

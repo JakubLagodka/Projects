@@ -237,14 +237,29 @@ public class ParameterService implements StartUpFiller{
     }
     public Parameter save(Parameter parameter) {
 
-        if(parameter.getParameterType() == "number")
-        type = Type.INT;
-        else if(parameter.getParameterType() == "double")
+        if(parameter.getTypeId() == 0)
+        {
+            type = Type.INT;
+            parameter.setTypeNumber((long) columnIntIndex);
+        }
+
+        else if(parameter.getTypeId() == 1)
+        {
             type = Type.DOUBLE;
-        else if(parameter.getParameterType() == "string")
+            parameter.setTypeNumber((long) columnDoubleIndex);
+        }
+
+        else if(parameter.getTypeId() == 2)
+        {
             type = Type.STRING;
+            parameter.setTypeNumber((long) columnStringIndex);
+        }
+
         else
+        {
             type = Type.BOOLEAN;
+            parameter.setTypeNumber((long) columnBooleanIndex);
+        }
 
         createColumn(type);
 
@@ -456,42 +471,73 @@ public class ParameterService implements StartUpFiller{
         if(parameterRepository.findAll().isEmpty())
         {
             Parameter numberOfRoomsAvailable = new Parameter();
-            numberOfRoomsAvailable.setParameterName("liczba pokoi danego typu");
-            numberOfRoomsAvailable.setParameterType("number");
+            numberOfRoomsAvailable.setName("liczba pokoi danego typu");
+            numberOfRoomsAvailable.setType("number");
+            numberOfRoomsAvailable.setTypeId((long) 0);
             numberOfRoomsAvailable.setModifiable(false);
+            numberOfRoomsAvailable.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(numberOfRoomsAvailable);
             type = Type.INT;
             createColumn(type);
 
             Parameter numberOfBeds = new Parameter();
-            numberOfBeds.setParameterName("liczba łóżek");
-            numberOfBeds.setParameterType("number");
+            numberOfBeds.setName("liczba łóżek");
+            numberOfBeds.setType("number");
+            numberOfBeds.setTypeId((long) 0);
             numberOfBeds.setModifiable(false);
+            numberOfBeds.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(numberOfBeds);
             createColumn(type);
 
             Parameter checkInTime = new Parameter();
-            checkInTime.setParameterName("godzina rozpoczęcia doby hotelowej");
-            checkInTime.setParameterType("number");
+            checkInTime.setName("godzina rozpoczęcia doby hotelowej");
+            checkInTime.setType("number");
+            checkInTime.setTypeId((long) 0);
             checkInTime.setModifiable(false);
+            checkInTime.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(checkInTime);
             createColumn(type);
 
             Parameter checkOutTime = new Parameter();
-            checkOutTime.setParameterName("godzina zakończenia doby hotelowej");
-            checkOutTime.setParameterType("number");
+            checkOutTime.setName("godzina zakończenia doby hotelowej");
+            checkOutTime.setType("number");
+            checkOutTime.setTypeId((long) 0);
             checkOutTime.setModifiable(false);
+            checkOutTime.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(checkOutTime);
             createColumn(type);
 
             Parameter price = new Parameter();
-            price.setParameterName("cena");
-            price.setParameterType("double");
+            price.setName("cena");
+            price.setTypeId((long) 1);
+            price.setType("double");
             price.setModifiable(false);
+            price.setTypeNumber((long) columnDoubleIndex);
             parameterRepository.save(price);
             type = Type.DOUBLE;
             createColumn(type);
-
+        }
+        else
+        {
+            for (Parameter parameter: parameterRepository.findAll())
+            {
+                if(parameter.getTypeId() == 0)
+                {
+                    columnIntIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
+                }
+                else if(parameter.getTypeId() == 1)
+                {
+                    columnDoubleIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                }
+                else if(parameter.getTypeId() == 2)
+                {
+                    columnStringIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                }
+                else
+                {
+                    columnBooleanIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                }
+            }
         }
     }
 }

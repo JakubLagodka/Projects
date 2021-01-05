@@ -11,9 +11,13 @@ public class Parameter {
     @NonNull
     private Long id;
 
-    private String parameterName;
+    private String name;
 
-    private String parameterType;
+    private String type;
+
+    private Long typeId;
+
+    private Long typeNumber;
 
     private boolean modifiable;
 
@@ -45,20 +49,36 @@ public class Parameter {
         this.id = id;
     }
 
-    public String getParameterName() {
-        return parameterName;
+    public String getName() {
+        return name;
     }
 
-    public void setParameterName(String parameterName) {
-        this.parameterName = parameterName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getParameterType() {
-        return parameterType;
+    public String getType() {
+        return type;
     }
 
-    public void setParameterType(String parameterType) {
-        this.parameterType = parameterType;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Long getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(Long typeId) {
+        this.typeId = typeId;
+    }
+
+    public Long getTypeNumber() {
+        return typeNumber;
+    }
+
+    public void setTypeNumber(Long typeNumber) {
+        this.typeNumber = typeNumber;
     }
 
     public boolean isModifiable() {

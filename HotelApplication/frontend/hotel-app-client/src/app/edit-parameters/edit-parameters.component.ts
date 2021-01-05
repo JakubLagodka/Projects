@@ -30,6 +30,7 @@ export class EditParametersComponent implements OnInit {
   add(parameter: Parameter)
   {
     parameter.modifiable = true;
+    parameter.typeId = 0;
     this.parametersService.addParameter(parameter);
 
     this.parameters$ = this.parametersService.getParameters();
@@ -52,7 +53,14 @@ export class EditParametersComponent implements OnInit {
 
   delete(parameter: Parameter)
   {
-    this.parametersService.deleteParameter(parameter.id);
+    if (parameter.type === 'number')
+    this.parametersService.deleteParameter(parameter.id,0, parameter.typeId);
+    else  if (parameter.type === 'double')
+      this.parametersService.deleteParameter(parameter.id,1, parameter.typeId);
+    else  if (parameter.type === 'string')
+      this.parametersService.deleteParameter(parameter.id,2, parameter.typeId);
+    else
+      this.parametersService.deleteParameter(parameter.id,3, parameter.typeId);
 
     this.parameters$ = this.parametersService.getParameters();
     setTimeout(() => {
