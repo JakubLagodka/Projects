@@ -1,16 +1,22 @@
 package pl.polsl.hotel.services;
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.ParameterRepository;
+import pl.polsl.hotel.repositories.RoomTypeRepository;
 
 import java.util.Optional;
 @Component
 public class ParameterService implements StartUpFiller{
     private final ParameterRepository parameterRepository;
+    private final RoomTypeRepository roomTypeRepository;
 
-    public ParameterService(ParameterRepository parameterRepository) {
+    public ParameterService(ParameterRepository parameterRepository, RoomTypeRepository roomTypeRepository) {
         this.parameterRepository = parameterRepository;
+        this.roomTypeRepository = roomTypeRepository;
     }
 
     public Optional<Parameter> findById(Long id) {
@@ -46,11 +52,15 @@ public class ParameterService implements StartUpFiller{
             numberOfBeds.setModifiable(false);
             parameterRepository.save(numberOfBeds);
 
+            roomTypeRepository.addTableInt();
+
             Parameter numberOfRoomsAvailable = new Parameter();
             numberOfRoomsAvailable.setParameterName("numberOfRoomsAvailable");
             numberOfRoomsAvailable.setParameterType("number");
             numberOfRoomsAvailable.setModifiable(false);
             parameterRepository.save(numberOfRoomsAvailable);
+
+            roomTypeRepository.addTableInt2();
 
             Parameter checkInTime = new Parameter();
             checkInTime.setParameterName("checkInTime");
@@ -58,11 +68,17 @@ public class ParameterService implements StartUpFiller{
             checkInTime.setModifiable(false);
             parameterRepository.save(checkInTime);
 
+            roomTypeRepository.addTableInt3();
+
             Parameter CheckOutTime = new Parameter();
             CheckOutTime.setParameterName("CheckOutTime");
             CheckOutTime.setParameterType("number");
             CheckOutTime.setModifiable(false);
             parameterRepository.save(CheckOutTime);
+
+            roomTypeRepository.addTableInt4();
+
+
         }
 
 

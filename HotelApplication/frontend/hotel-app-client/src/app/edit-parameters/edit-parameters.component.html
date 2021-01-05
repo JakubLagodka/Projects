@@ -30,12 +30,11 @@
       </tr>
     </table>
 
-
   <input *ngIf="confirmed" type="text" class="form-control col-md-3 col-1 mt-1 text-center" id="name"
          [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" style="float: left" required>
   <input *ngIf="confirmed" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="type"
          [(ngModel)]="parameter.parameterType" placeholder="typ parametru" name="type" style="float: left" required>
-  <button style="margin: 0pt  60pt ;" *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
+  <button style="margin: 0pt  60pt;" *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
 </div>
 
 <div class="form-group">

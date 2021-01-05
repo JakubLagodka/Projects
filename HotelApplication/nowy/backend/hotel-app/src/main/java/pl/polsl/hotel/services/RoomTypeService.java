@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.ReservationRepository;
-import pl.polsl.hotel.repositories.RoomRepository;
+import pl.polsl.hotel.repositories.RoomTypeRepository;
 
 
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ import java.util.*;
 
 @Component
 public class RoomTypeService implements StartUpFiller {
-    private final RoomRepository roomRepository;
+    private final RoomTypeRepository roomTypeRepository;
     private final ReservationRepository reservationRepository;
     private Random generator;
     private ArrayList<RoomType> roomsAvailable;
@@ -23,19 +23,19 @@ public class RoomTypeService implements StartUpFiller {
     private LocalDate endLocalDate;
     private Date endDate;
     @Autowired
-    public RoomTypeService(RoomRepository roomRepository, ReservationRepository reservationRepository) {
-        this.roomRepository = roomRepository;
+    public RoomTypeService(RoomTypeRepository roomTypeRepository, ReservationRepository reservationRepository) {
+        this.roomTypeRepository = roomTypeRepository;
         this.generator = new Random();
         this.roomsAvailable = new ArrayList<RoomType>();
         this.reservationRepository = reservationRepository;
     }
 
     public Optional<RoomType> findById(Long id) {
-        return roomRepository.findById(id);
+        return roomTypeRepository.findById(id);
     }
 
     public List<RoomType> findAll() {
-        return roomRepository.findAll();
+        return roomTypeRepository.findAll();
 
     }
 
@@ -52,7 +52,7 @@ public class RoomTypeService implements StartUpFiller {
         endLocalDate = LocalDate.parse(end);
         endDate = convertToDate(endLocalDate);
 
-        for (RoomType roomType : roomRepository.findAll()) {
+        for (RoomType roomType : roomTypeRepository.findAll()) {
             isAvailable = true;
            /* index = 0;
             for (LocalDate date: room.getAvailableDates()) {
@@ -96,11 +96,11 @@ public class RoomTypeService implements StartUpFiller {
 
 
     public RoomType save(RoomType roomType) {
-        return roomRepository.save(roomType);
+        return roomTypeRepository.save(roomType);
     }
 
     public void deleteById(Long id) {
-        roomRepository.deleteById(id);
+        roomTypeRepository.deleteById(id);
     }
 
     public void createInitialData() throws RuntimeException {
