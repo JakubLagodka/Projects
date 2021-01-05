@@ -41,8 +41,8 @@ public class ParameterController {
 
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteParameter(@PathVariable Long id){
-        parameterService.deleteById(id);
+    public void deleteParameter(@PathVariable Long id, @PathVariable Long type, @PathVariable Long typeId){
+        parameterService.deleteById(id, type, typeId);
 
     }
 }
