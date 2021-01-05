@@ -30,7 +30,15 @@ export class EditParametersComponent implements OnInit {
   add(parameter: Parameter)
   {
     parameter.modifiable = true;
-    parameter.typeId = 0;
+
+    if (parameter.type === 'number')
+      parameter.typeId = 0;
+    else  if (parameter.type === 'double')
+      parameter.typeId = 1;
+    else  if (parameter.type === 'string')
+      parameter.typeId = 2;
+    else
+      parameter.typeId = 3;
     this.parametersService.addParameter(parameter);
 
     this.parameters$ = this.parametersService.getParameters();
@@ -50,17 +58,33 @@ export class EditParametersComponent implements OnInit {
       this.router.navigate(['/edit-parameters']);
     }, 5);
   }
+  /* delete(parameter: Parameter)
+   {
+     if (parameter.type === 'number')
+     this.parametersService.deleteParameter(parameter.id);
+     else  if (parameter.type === 'double')
+       this.parametersService.deleteParameter(parameter.id);
+     else  if (parameter.type === 'string')
+       this.parametersService.deleteParameter(parameter.id);
+     else
+       this.parametersService.deleteParameter(parameter.id);
 
+     this.parameters$ = this.parametersService.getParameters();
+     setTimeout(() => {
+       this.parameters$ = this.parametersService.getParameters();
+       this.router.navigate(['/edit-parameters']);
+     }, 5);
+   }*/
   delete(parameter: Parameter)
   {
     if (parameter.type === 'number')
-    this.parametersService.deleteParameter(parameter.id,0, parameter.typeId);
+    this.parametersService.deleteParameterAndColumn(parameter.id,0, parameter.typeNumber);
     else  if (parameter.type === 'double')
-      this.parametersService.deleteParameter(parameter.id,1, parameter.typeId);
+      this.parametersService.deleteParameterAndColumn(parameter.id,1, parameter.typeNumber);
     else  if (parameter.type === 'string')
-      this.parametersService.deleteParameter(parameter.id,2, parameter.typeId);
+      this.parametersService.deleteParameterAndColumn(parameter.id,2, parameter.typeNumber);
     else
-      this.parametersService.deleteParameter(parameter.id,3, parameter.typeId);
+      this.parametersService.deleteParameterAndColumn(parameter.id,3, parameter.typeNumber);
 
     this.parameters$ = this.parametersService.getParameters();
     setTimeout(() => {
