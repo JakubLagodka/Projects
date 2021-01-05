@@ -19,7 +19,9 @@ export class EditParametersComponent implements OnInit {
   confirmed = false;
   constructor(public parametersService: ParametersService,
               public translatorService: TranslatorService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.parameters$ = this.parametersService.getParameters();
@@ -27,18 +29,36 @@ export class EditParametersComponent implements OnInit {
   }
   add(parameter: Parameter)
   {
+    parameter.modifiable = true;
     this.parametersService.addParameter(parameter);
+
     this.parameters$ = this.parametersService.getParameters();
+    setTimeout(() => {
+      this.parameters$ = this.parametersService.getParameters();
+      this.router.navigate(['/edit-parameters']);
+    }, 5);
   }
 
   update(parameter: Parameter)
   {
     this.parametersService.updateParameter(parameter.id, parameter);
+
+    this.parameters$ = this.parametersService.getParameters();
+    setTimeout(() => {
+      this.parameters$ = this.parametersService.getParameters();
+      this.router.navigate(['/edit-parameters']);
+    }, 5);
   }
 
   delete(parameter: Parameter)
   {
     this.parametersService.deleteParameter(parameter.id);
+
+    this.parameters$ = this.parametersService.getParameters();
+    setTimeout(() => {
+      this.parameters$ = this.parametersService.getParameters();
+      this.router.navigate(['/edit-parameters']);
+    }, 5);
   }
 
 
@@ -63,8 +83,7 @@ export class EditParametersComponent implements OnInit {
 export class EditParametersDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<EditParametersDialogComponent>,
-              private route: ActivatedRoute,
-              private router: Router) {}
+              ) {}
 
   onClick(): void {
     this.dialogRef.close();
@@ -72,7 +91,6 @@ export class EditParametersDialogComponent {
 
   close(): void {
     this.dialogRef.close();
-    this.router.navigate(['/administrator-panel']);
   }
 
 }

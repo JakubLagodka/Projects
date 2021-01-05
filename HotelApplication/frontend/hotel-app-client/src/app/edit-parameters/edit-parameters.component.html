@@ -1,55 +1,43 @@
 <div class="navbar-brand" >Aktualne parametry pokoi w Hotelu:</div>
 <div class="row">
-    <table style="border: 1px solid black; margin: 10pt auto 10pt auto;">
+    <table style="border: 1px solid black; margin: 10pt auto 10pt auto;line-height: 30px;background-color: lightblue">
 
       <tr>
 
-        <th style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;"> Nazwa parametru</th>
+        <th style="width: 8%;border: 1px solid black;"> Nazwa parametru</th>
 
-        <th style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;">Typ parametru</th>
+        <th style="width: 8%;border: 1px solid black;">Typ parametru</th>
 
-        <th style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;">Modyfikowalny</th>
+        <th style="width: 8%;border: 1px solid black;">Modyfikowalny</th>
+
+        <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Edytuj parametr</th>
+
+        <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Usuń parametr</th>
 
       </tr>
-      <tr class="p-3 mt-3" style="border: 1px solid green; margin: 100pt auto 100pt auto;" *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
+      <tr class="p-3 mt-3" style="border: 1px solid black; margin: 100pt auto 100pt auto;line-height: 30px; background-color: lightblue" *ngFor="let parameter of parameters$ | async">
 
-        <td style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;">{{ parameter.parameterName }}</td>
+        <td style="width: 8%;border: 1px solid black;">{{ parameter.parameterName }}</td>
 
-        <td style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;"> {{parameter.parameterType}}</td>
+        <td style="width: 8%;border: 1px solid black;"> {{parameter.parameterType}}</td>
 
-        <td style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;"> {{parameter.modifiable}}</td>
+        <td style="width: 8%;border: 1px solid black;"> {{parameter.modifiable}}</td>
 
+        <td *ngIf="confirmed"  style="width: 8%;border: 1px solid black;">
+          <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" (click)="delete(parameter)">Edytuj </button></td>
+        <td *ngIf="confirmed" style="width: 8%;border: 1px solid black;">
+          <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" (click)="delete(parameter)">Usuń</button></td>
       </tr>
     </table>
 
-      <table *ngIf="confirmed && parameter.modifiable" class="table-striped table-bordered" style="float: left">
-        <div class="card p-3 mt-3 text-left"  *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
-        <tbody>
 
-        <button  class="btn btn-sm btn-info" style="float: right"(click)="delete(parameter)">Edytuj parametr</button>
-        </tbody>
-        </div>
-      </table>
-    <table  *ngIf="confirmed && parameter.modifiable" class="table-striped table-bordered" style="float: left">
-      <div class="card p-3 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
-        <tbody>
-
-           <button class="btn btn-sm btn-info" style="float: right" (click)="delete(parameter)">Usuń parametr</button>
-        </tbody>
-
-  </div>
-    </table>
-
-</div>
-<div class="form-group">
-
-  <input *ngIf="confirmed" type="text" class="form-control col-md-3 col-12 mt-5 text-center" id="name"
+  <input *ngIf="confirmed" type="text" class="form-control col-md-3 col-1 mt-1 text-center" id="name"
          [(ngModel)]="parameter.parameterName" placeholder="nazwa parametru" name="name" style="float: left" required>
-  <input *ngIf="confirmed" type="text" class="form-control col-md-3 col-12 mt-5 text-center" id="type"
-         [(ngModel)]="parameter.parameterName" placeholder="typ parametru" name="type" style="float: left" required>
+  <input *ngIf="confirmed" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="type"
+         [(ngModel)]="parameter.parameterType" placeholder="typ parametru" name="type" style="float: left" required>
+  <button style="margin: 0pt  60pt ;" *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
 </div>
-<br>
+
 <div class="form-group">
 <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
-<button *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
 </div>
