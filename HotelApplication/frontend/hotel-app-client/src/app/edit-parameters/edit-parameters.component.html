@@ -1,25 +1,45 @@
 <div class="navbar-brand" >Aktualne parametry pokoi w Hotelu:</div>
 <div class="row">
-  <div class="col-12">
+    <table style="border: 1px solid black; margin: 10pt auto 10pt auto;">
 
-      <table class="table-striped table-bordered" style="float: left">
+      <tr>
+
+        <th style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;"> Nazwa parametru</th>
+
+        <th style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;">Typ parametru</th>
+
+        <th style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;">Modyfikowalny</th>
+
+      </tr>
+      <tr class="p-3 mt-3" style="border: 1px solid green; margin: 100pt auto 100pt auto;" *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
+
+        <td style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;">{{ parameter.parameterName }}</td>
+
+        <td style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;"> {{parameter.parameterType}}</td>
+
+        <td style="width: 8%;border: 1px solid black;margin: 100pt auto 100pt auto;line-height: 30px;"> {{parameter.modifiable}}</td>
+
+      </tr>
+    </table>
+
+      <table *ngIf="confirmed && parameter.modifiable" class="table-striped table-bordered" style="float: left">
         <div class="card p-3 mt-3 text-left"  *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
         <tbody>
-        Nazwa parametru:  {{ parameter.parameterName }}
-        <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" style="float: right"(click)="delete(parameter)">Edytuj parametr</button>
+
+        <button  class="btn btn-sm btn-info" style="float: right"(click)="delete(parameter)">Edytuj parametr</button>
         </tbody>
         </div>
       </table>
-    <table class="table-striped table-bordered" style="float: left">
+    <table  *ngIf="confirmed && parameter.modifiable" class="table-striped table-bordered" style="float: left">
       <div class="card p-3 mt-3" *ngFor="let parameter of parameters$ | async" style="background-color: lightblue">
         <tbody>
-           typ parametru: {{parameter.parameterType}}
-           <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" style="float: right" (click)="delete(parameter)">Usuń parametr</button>
+
+           <button class="btn btn-sm btn-info" style="float: right" (click)="delete(parameter)">Usuń parametr</button>
         </tbody>
 
   </div>
     </table>
-</div>
+
 </div>
 <div class="form-group">
 

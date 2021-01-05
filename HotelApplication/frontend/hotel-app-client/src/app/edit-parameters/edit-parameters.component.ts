@@ -58,8 +58,7 @@ export class EditParametersComponent implements OnInit {
 
 @Component({
   selector: 'app-edit-parameters-dialog',
-  templateUrl: './edit-parameters-dialog.component.html',
-  providers: [EditParametersComponent]
+  templateUrl: './edit-parameters-dialog.component.html'
 })
 export class EditParametersDialogComponent {
 
