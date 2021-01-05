@@ -115,7 +115,8 @@ export class EditParametersComponent implements OnInit {
 export class EditParametersDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<EditParametersDialogComponent>,
-              ) {}
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   onClick(): void {
     this.dialogRef.close();
@@ -123,6 +124,7 @@ export class EditParametersDialogComponent {
 
   close(): void {
     this.dialogRef.close();
+    this.router.navigate(['/administrator-panel']);
   }
 
 }
