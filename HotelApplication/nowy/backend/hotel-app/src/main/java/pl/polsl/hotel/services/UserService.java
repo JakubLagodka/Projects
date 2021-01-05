@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserService extends MySession implements StartUpFiller {
+public class UserService implements StartUpFiller {
 
     private final UserRepository userRepository;
     private final AuthenticationTokenService authenticationService;

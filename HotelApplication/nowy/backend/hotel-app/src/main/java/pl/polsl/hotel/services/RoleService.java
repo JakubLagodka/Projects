@@ -7,7 +7,7 @@ import pl.polsl.hotel.repositories.RoleRepository;
 import java.util.Arrays;
 
 @Component
-public class RoleService extends MySession implements StartUpFiller {
+public class RoleService implements StartUpFiller {
 
     private final RoleRepository roleRepository;
 

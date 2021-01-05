@@ -13,7 +13,7 @@ import java.time.ZoneId;
 import java.util.*;
 
 @Component
-public class RoomTypeService extends MySession implements StartUpFiller {
+public class RoomTypeService implements StartUpFiller {
     private final RoomRepository roomRepository;
     private final ReservationRepository reservationRepository;
     private Random generator;
