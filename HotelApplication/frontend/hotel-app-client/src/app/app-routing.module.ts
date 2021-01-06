@@ -21,6 +21,8 @@ import {EditParametersComponent} from './edit-parameters/edit-parameters.compone
 import {AdministrationPanelComponent} from './administration-panel/administration-panel.component';
 import {ClientPanelComponent} from './client-panel/client-panel.component';
 import {ReceptionPanelComponent} from './reception-panel/reception-panel.component';
+import {EditRoomsComponent} from './edit-rooms/edit-rooms.component';
+import {UserManagementComponent} from './user-management/user-management.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -39,6 +41,8 @@ const routes: Routes = [
   { path: 'edit-parameters', component: EditParametersComponent, canActivate: [AdminGuard] },
   { path: 'client-panel', component: ClientPanelComponent, canActivate: [ClientGuard] },
   { path: 'reception-panel', component: ReceptionPanelComponent, canActivate: [ReceptionGuard] },
+  { path: 'edit-rooms', component: EditRoomsComponent, canActivate: [AdminGuard] },
+  { path: 'user-management', component: UserManagementComponent, canActivate: [AdminGuard] },
   { path: '**', redirectTo: '' }
 ];
 

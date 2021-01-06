@@ -22,7 +22,15 @@ export class AdministrationPanelComponent implements OnInit {
     this.router.navigate(['/made-by-given-user']);
   }
 
-  goToHotelManagement() {
+  goToEditParameters() {
     this.router.navigate(['/edit-parameters']);
+  }
+
+  goToEditRooms() {
+    this.router.navigate(['/edit-rooms']);
+  }
+
+  goToUserManagement() {
+    this.router.navigate(['/user-management']);
   }
 }

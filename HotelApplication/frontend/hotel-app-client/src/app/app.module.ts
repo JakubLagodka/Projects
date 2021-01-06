@@ -34,6 +34,8 @@ import { AdministrationPanelComponent } from './administration-panel/administrat
 import { ReceptionPanelComponent } from './reception-panel/reception-panel.component';
 import { ClientPanelComponent } from './client-panel/client-panel.component';
 import { EditParametersDialogComponent } from './edit-parameters/edit-parameters.component';
+import { EditRoomsComponent } from './edit-rooms/edit-rooms.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { EditParametersDialogComponent } from './edit-parameters/edit-parameters
     AdministrationPanelComponent,
     ReceptionPanelComponent,
     ClientPanelComponent,
-    EditParametersDialogComponent
+    EditParametersDialogComponent,
+    EditRoomsComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,

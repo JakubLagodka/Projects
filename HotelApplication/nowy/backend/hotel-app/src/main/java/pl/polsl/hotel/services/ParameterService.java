@@ -311,7 +311,7 @@ public class ParameterService implements StartUpFiller{
             {
                 roomTypeRepository.deleteColumnInt12();
             }
-            this.columnIntIndex--;
+           // this.columnIntIndex--;
         }
 
         else if(type == 1)
@@ -361,7 +361,7 @@ public class ParameterService implements StartUpFiller{
             {
                 roomTypeRepository.deleteColumnDouble12();
             }
-            this.columnDoubleIndex--;
+         //   this.columnDoubleIndex--;
         }
 
         else if(type == 2)
@@ -409,7 +409,7 @@ public class ParameterService implements StartUpFiller{
             {
                 roomTypeRepository.deleteColumnString12();
             }
-            this.columnStringIndex--;
+         //   this.columnStringIndex--;
         }
 
         else
@@ -460,7 +460,7 @@ public class ParameterService implements StartUpFiller{
             {
                 roomTypeRepository.deleteColumnBoolean12();
             }
-            this.columnBooleanIndex--;
+         //   this.columnBooleanIndex--;
         }
 
         parameterRepository.delete(parameterRepository.getById(id));
