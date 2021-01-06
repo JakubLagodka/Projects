@@ -25,7 +25,7 @@ export class ChoosingStoreyComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.calendarService.rooms$) {
-    this.calendarService.rooms$.subscribe(rooms => {
+    /*this.calendarService.rooms$.subscribe(rooms => {
       of(rooms).pipe(
         mergeMap(x => rooms),
         filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
@@ -36,7 +36,7 @@ export class ChoosingStoreyComponent implements OnInit {
         distinct(v => v.storey),
         toArray(),
       ).subscribe(x => this.storey = x);
-    });
+    });*/
     }
     else
     {
@@ -51,7 +51,7 @@ export class ChoosingStoreyComponent implements OnInit {
   {
     this.calendarService.chosenStorey = this.storeyControl.value;
 
-    this.calendarService.rooms$.subscribe(rooms => {
+   /* this.calendarService.rooms$.subscribe(rooms => {
       of(rooms).pipe(
         mergeMap(x => rooms),
         filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
@@ -63,7 +63,7 @@ export class ChoosingStoreyComponent implements OnInit {
         distinct(v => v.beautifulViewFromTheWindows),
         toArray(),
       ).subscribe(x => this.calendarService.chosenRooms = x);
-    });
+    });*/
 
     this.router.navigate(['/summary']);
   }

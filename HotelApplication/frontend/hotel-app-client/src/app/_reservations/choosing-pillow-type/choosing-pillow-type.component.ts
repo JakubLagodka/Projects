@@ -25,13 +25,13 @@ export class ChoosingPillowTypeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.calendarService.rooms$) {
-     this.calendarService.rooms$.subscribe(rooms => {
+ /*    this.calendarService.rooms$.subscribe(rooms => {
           of(rooms).pipe(
           mergeMap(x => rooms), filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
           distinct(v => v.typeOfPillow),
           toArray(),
         ).subscribe(x => this.pillowType = x);
-      });
+      });*/
   }
   else
 {

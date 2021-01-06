@@ -3,6 +3,7 @@ import {RoomService} from './room.service';
 import {Observable} from 'rxjs';
 import {Room} from '../_models/room';
 import {HotelNightService} from './hotel-night.service';
+import {Data} from '../_models/data';
 
 
 
@@ -12,7 +13,7 @@ import {HotelNightService} from './hotel-night.service';
 export class CalendarService {
   private returned: string;
    differenceInDays;
-  rooms$: Observable<Room[]>;
+  rooms$: Observable<Data[]>;
   public chosenNumberOfBeds;
   public chosenCloseToElevator;
   public chosenBalcony;

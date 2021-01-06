@@ -58,23 +58,7 @@ export class EditParametersComponent implements OnInit {
       this.router.navigate(['/edit-parameters']);
     }, 5);
   }
-  /* delete(parameter: Parameter)
-   {
-     if (parameter.type === 'number')
-     this.parametersService.deleteParameter(parameter.id);
-     else  if (parameter.type === 'double')
-       this.parametersService.deleteParameter(parameter.id);
-     else  if (parameter.type === 'string')
-       this.parametersService.deleteParameter(parameter.id);
-     else
-       this.parametersService.deleteParameter(parameter.id);
 
-     this.parameters$ = this.parametersService.getParameters();
-     setTimeout(() => {
-       this.parameters$ = this.parametersService.getParameters();
-       this.router.navigate(['/edit-parameters']);
-     }, 5);
-   }*/
   delete(parameter: Parameter)
   {
     if (parameter.type === 'number')

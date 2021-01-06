@@ -1,1 +1,40 @@
-<p>edit-rooms works!</p>
+<div class="navbar-brand" >Aktualne rodzaje pokoi w Hotelu:</div>
+<br>
+<br>
+<div class="row" >
+  <table style="margin: 1pt auto 1pt auto;line-height: 20px; width: 90%; height: 150px;" *ngFor="let room of rooms$ | async">
+
+    <tr *ngFor="let parameter of parameters$ | async" style=" border: 1px solid black; float: left">
+
+      <th style="border: 10px solid lightblue; background-color: lightblue "> {{ parameter.name }}</th>
+    </tr>
+    <tr *ngFor="let parameter of parameters$ | async">
+      <td *ngIf="parameter.id===0"  style="width: 8%;border: 1px solid black;">{{ room.numberOfRoomsAvailable}}</td>
+      <td *ngIf="parameter.id===1"  style="width: 8%;border: 1px solid black;">{{ room.numberOfBeds}}</td>
+      <td *ngIf="parameter.id===2"  style="width: 8%;border: 1px solid black;">{{ room.checkInTime}}</td>
+      <td *ngIf="parameter.id===3"  style="width: 8%;border: 1px solid black;">{{ room.checkOutTime}}</td>
+ </tr>
+
+  </table>
+  <form class="form-group" #form="ngForm">
+  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfRoomsAvailable"
+         [(ngModel)]="data.numberOfRoomsAvailable" placeholder="liczba dostępnych pokoi" name="numberOfRoomsAvailable" style="float: left" required>
+  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfBeds"
+         [(ngModel)]="data.numberOfBeds" placeholder="liczba łóżek" name="numberOfBeds" style="float: left" required>
+  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="checkInTime"
+         [(ngModel)]="data.checkInTime" placeholder="godzina rozpoczęcia doby hotelowej" name="checkInTime" style="float: left" required>
+  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="checkOutTime"
+         [(ngModel)]="data.checkOutTime" placeholder="godzina zakończenia doby hotelowej" name="checkOutTime" style="float: left" required>
+  <input *ngIf="confirmed" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="price"
+         [(ngModel)]="data.price" placeholder="Cena jednej doby" name="price" style="float: left" required>
+  </form>
+</div>
+<br>
+  <button style="margin: 1pt auto 1pt auto;" *ngIf="confirmed" [disabled]="form.invalid" class="btn btn-sm btn-info" (click)="add(data)">Dodaj typ pokoju</button>
+<div>
+  <div *ngIf="noRooms && !confirmed" style="margin: 1pt auto 1pt auto;"class="navbar-brand" ><b> Brak pokoi istniejących w systemie, w celu dodania pokoi, kliknij poniższy przycisk!</b></div>
+</div>
+<br>
+<div class="form-group">
+  <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
+</div>

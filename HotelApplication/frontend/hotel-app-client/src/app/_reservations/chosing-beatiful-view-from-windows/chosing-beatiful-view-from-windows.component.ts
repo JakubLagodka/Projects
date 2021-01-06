@@ -28,7 +28,7 @@ export class ChosingBeatifulViewFromWindowsComponent implements OnInit {
 
     if (this.calendarService.rooms$)
     {
-  this.calendarService.rooms$.subscribe(rooms => {
+  /*this.calendarService.rooms$.subscribe(rooms => {
     of(rooms).pipe(
       mergeMap(x => rooms),
       filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
@@ -38,7 +38,7 @@ export class ChosingBeatifulViewFromWindowsComponent implements OnInit {
       distinct(v => v.beautifulViewFromTheWindows),
       toArray(),
     ).subscribe(x => this.beautifulView = x);
-  });
+  });*/
     }
     else
     {

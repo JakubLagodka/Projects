@@ -25,7 +25,7 @@ export class ChoosingCloseToElevatorComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.calendarService.rooms$) {
-    this.calendarService.rooms$.subscribe(rooms => {
+   /* this.calendarService.rooms$.subscribe(rooms => {
       of(rooms).pipe(
         mergeMap(x => rooms),
         filter(v => v.numberOfBeds === this.calendarService.chosenNumberOfBeds),
@@ -33,7 +33,7 @@ export class ChoosingCloseToElevatorComponent implements OnInit {
         distinct(v => v.closeToElevator),
         toArray(),
       ).subscribe(x => this.closeToElevator = x);
-    });
+    });*/
     }
     else
     {

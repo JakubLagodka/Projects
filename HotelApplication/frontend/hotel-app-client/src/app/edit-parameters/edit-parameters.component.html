@@ -21,7 +21,7 @@
 
         <td style="width: 8%;border: 1px solid black;"> {{parameter.type}}</td>
 
-        <td style="width: 8%;border: 1px solid black;"> {{parameter.modifiable}}</td>
+        <td style="width: 8%;border: 1px solid #000000;"> {{parameter.modifiable}}</td>
 
         <td *ngIf="confirmed"  style="width: 8%;border: 1px solid black;">
           <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" (click)="delete(parameter)">Edytuj </button></td>
@@ -38,5 +38,5 @@
 </div>
 
 <div class="form-group">
-<button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
+<button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj pokoje</button>
 </div>
