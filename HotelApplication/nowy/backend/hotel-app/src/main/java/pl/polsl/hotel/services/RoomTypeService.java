@@ -17,7 +17,7 @@ public class RoomTypeService implements StartUpFiller {
     private final RoomTypeRepository roomTypeRepository;
     private final ReservationRepository reservationRepository;
     private Random generator;
-    private ArrayList<RoomTypeView> roomsAvailable;
+    private ArrayList<RoomType> roomsAvailable;
     private LocalDate startLocalDate;
     private Date startDate;
     private LocalDate endLocalDate;
@@ -26,20 +26,20 @@ public class RoomTypeService implements StartUpFiller {
     public RoomTypeService(RoomTypeRepository roomTypeRepository, ReservationRepository reservationRepository) {
         this.roomTypeRepository = roomTypeRepository;
         this.generator = new Random();
-        this.roomsAvailable = new ArrayList<RoomTypeView>();
+        this.roomsAvailable = new ArrayList<RoomType>();
         this.reservationRepository = reservationRepository;
     }
 
-    public Optional<RoomTypeView> findById(Long id) {
+    public Optional<RoomType> findById(Long id) {
         return roomTypeRepository.findById(id);
     }
 
-    public Iterable<RoomTypeView> findAll() {
+    public Iterable<RoomType> findAll() {
         return roomTypeRepository.findAll();
 
     }
 
-    public List<RoomTypeView> getRoomsAvailable(String start, String end) {
+    public List<RoomType> getRoomsAvailable(String start, String end) {
         roomsAvailable.clear();
         int index = 0;
         boolean isAvailable = true;
@@ -52,7 +52,7 @@ public class RoomTypeService implements StartUpFiller {
         endLocalDate = LocalDate.parse(end);
         endDate = convertToDate(endLocalDate);
 
-        for (RoomTypeView roomType : roomTypeRepository.findAll()) {
+        for (RoomType roomType : roomTypeRepository.findAll()) {
             isAvailable = true;
            /* index = 0;
             for (LocalDate date: room.getAvailableDates()) {
@@ -95,7 +95,7 @@ public class RoomTypeService implements StartUpFiller {
 
 
 
-    public RoomTypeView save(RoomTypeView roomType) {
+    public RoomType save(RoomType roomType) {
         return roomTypeRepository.save(roomType);
     }
 

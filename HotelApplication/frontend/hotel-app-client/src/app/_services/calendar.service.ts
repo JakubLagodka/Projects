@@ -2,7 +2,6 @@ import {Injectable, Output, EventEmitter, OnInit} from '@angular/core';
 import {RoomService} from './room.service';
 import {Observable} from 'rxjs';
 import {Room} from '../_models/room';
-import {HotelNightService} from './hotel-night.service';
 import {Data} from '../_models/data';
 
 
@@ -25,21 +24,12 @@ export class CalendarService {
   differenceInTime;
   startDate;
   endDate;
-  constructor(  public roomService: RoomService,
-                private hotelNightService: HotelNightService) {
+  constructor(  public roomService: RoomService) {}
 
-    this.hotelNightService.getHotelNight().subscribe(
-      x => {this.hotelNight = x; } );
-  }
 
-  public getHotelNight(){
-  this.hotelNightService.getHotelNight().subscribe(
-    x => this.hotelNight = x);
-}
   takeDates(startDate, endDate)
   {
 
-    this.getHotelNight();
     this.rooms$ = null;
     startDate.setHours(this.hotelNight[0].checkInTime);
     if (startDate.getDate() === endDate.getDate()) {

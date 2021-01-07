@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.models.RoomType;
-import pl.polsl.hotel.models.RoomTypeView;
+
 import pl.polsl.hotel.services.RoomTypeService;
 
 @RestController
@@ -22,12 +21,12 @@ public class RoomTypeController {
     }
 
     @GetMapping("/all")
-    public Iterable<RoomTypeView> getRooms(){
+    public Iterable<RoomType> getRooms(){
         return roomTypeService.findAll();
     }
 
     @GetMapping("/available")
-    public List<RoomTypeView> getRoomsAvailable(@RequestParam String startDate, @RequestParam String endDate)  {
+    public List<RoomType> getRoomsAvailable(@RequestParam String startDate, @RequestParam String endDate)  {
         return roomTypeService.getRoomsAvailable(startDate, endDate);
     }
 
@@ -37,18 +36,18 @@ public class RoomTypeController {
     }*/
 
     @GetMapping
-    public Optional<RoomTypeView> getByRoomId(@RequestParam Long index){
+    public Optional<RoomType> getByRoomId(@RequestParam Long index){
         return roomTypeService.findById(index);
     }
 
     @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public RoomTypeView addRoom(@RequestBody RoomTypeView roomType){
+    public RoomType addRoom(@RequestBody RoomType roomType){
         return roomTypeService.save(roomType);
     }
 
     @PutMapping
-    public RoomTypeView updateRoom(@RequestParam RoomTypeView roomType){
+    public RoomType updateRoom(@RequestParam RoomType roomType){
         return roomTypeService.save(roomType);
     }
 

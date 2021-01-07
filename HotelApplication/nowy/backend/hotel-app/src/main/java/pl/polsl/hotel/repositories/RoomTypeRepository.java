@@ -3,16 +3,13 @@ package pl.polsl.hotel.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.polsl.hotel.exceptions.NotFoundException;
 
 import pl.polsl.hotel.models.RoomType;
-import pl.polsl.hotel.models.RoomTypeView;
 
 
-public interface RoomTypeRepository extends JpaRepository<RoomTypeView, Long> {
+public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
 
 
     @Transactional
@@ -454,7 +451,7 @@ public interface RoomTypeRepository extends JpaRepository<RoomTypeView, Long> {
 
 
 
-    default RoomTypeView getById(Long id) {
+    default RoomType getById(Long id) {
         return findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 }
