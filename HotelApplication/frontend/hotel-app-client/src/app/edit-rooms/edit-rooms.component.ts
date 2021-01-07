@@ -55,8 +55,7 @@ export class EditRoomsComponent implements OnInit {
   }
 
   add(data: Data) {
-    if(this.newRoom.invalid)
-    console.log('gnadkldskja');
+  this.roomService.addRoom(data);
   }
 }
 

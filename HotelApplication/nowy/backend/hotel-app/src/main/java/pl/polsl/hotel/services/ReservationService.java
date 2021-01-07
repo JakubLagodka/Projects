@@ -66,8 +66,8 @@ public class ReservationService {
 
         Reservation reservation = map(reservationView);
 
-        if(reservationView.getRoomNumber() != null)
-            reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomNumber()));
+       /* if(reservationView.getRoomNumber() != null)
+            reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomNumber()));*/
 
         if(reservationView.getUserId() != null)
             reservation.setUser(userRepository.getById(reservationView.getUserId()));

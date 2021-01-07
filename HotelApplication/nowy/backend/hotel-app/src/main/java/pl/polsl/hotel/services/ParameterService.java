@@ -487,6 +487,7 @@ public class ParameterService implements StartUpFiller{
             parameterRepository.save(numberOfRoomsAvailable);
             type = Type.INT;
             createColumn(type);
+            this.columnIntIndex--;
 
             Parameter numberOfBeds = new Parameter();
             numberOfBeds.setName("liczba łóżek");
@@ -496,6 +497,7 @@ public class ParameterService implements StartUpFiller{
             numberOfBeds.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(numberOfBeds);
             createColumn(type);
+            this.columnIntIndex--;
 
             Parameter checkInTime = new Parameter();
             checkInTime.setName("godzina rozpoczęcia doby hotelowej");
@@ -505,6 +507,7 @@ public class ParameterService implements StartUpFiller{
             checkInTime.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(checkInTime);
             createColumn(type);
+            this.columnIntIndex--;
 
             Parameter checkOutTime = new Parameter();
             checkOutTime.setName("godzina zakończenia doby hotelowej");
@@ -514,6 +517,7 @@ public class ParameterService implements StartUpFiller{
             checkOutTime.setTypeNumber((long) columnIntIndex);
             parameterRepository.save(checkOutTime);
             createColumn(type);
+            this.columnIntIndex--;
 
             Parameter price = new Parameter();
             price.setName("cena");
@@ -524,6 +528,7 @@ public class ParameterService implements StartUpFiller{
             parameterRepository.save(price);
             type = Type.DOUBLE;
             createColumn(type);
+            this.columnDoubleIndex--;
         }
         else
         {

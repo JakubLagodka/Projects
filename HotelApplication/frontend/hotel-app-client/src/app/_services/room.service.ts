@@ -39,8 +39,8 @@ export class RoomService  {
     return this.http.get< Room[]>(`${environment.apiUrl}/room?id=` + objectId);
   }
 
-  createRoom(room: Room): Observable< Room> {
-    return this.http.post< Room>(`${environment.apiUrl}/room`, room);
+  addRoom(room: Data): Observable< Data> {
+    return this.http.post< Data>(`${environment.apiUrl}/room`, room);
   }
 
   deleteRoom(roomId: number): Observable<any> {

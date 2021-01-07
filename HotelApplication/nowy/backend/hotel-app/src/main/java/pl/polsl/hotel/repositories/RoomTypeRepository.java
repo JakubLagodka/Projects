@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.polsl.hotel.exceptions.NotFoundException;
 
 import pl.polsl.hotel.models.RoomType;
+import pl.polsl.hotel.models.RoomTypeView;
 
 
 @Repository
-public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
+public interface RoomTypeRepository extends JpaRepository<RoomTypeView, Long> {
 
 
     @Transactional
@@ -454,7 +455,7 @@ public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
 
 
 
-    default RoomType getById(Long id) {
+    default RoomTypeView getById(Long id) {
         return findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 }
