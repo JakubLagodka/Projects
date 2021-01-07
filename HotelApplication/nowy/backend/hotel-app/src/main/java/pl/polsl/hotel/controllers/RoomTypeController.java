@@ -1,10 +1,13 @@
 package pl.polsl.hotel.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+
+import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.models.RoomType;
 import pl.polsl.hotel.models.RoomTypeView;
 import pl.polsl.hotel.services.RoomTypeService;
@@ -18,8 +21,8 @@ public class RoomTypeController {
         this.roomTypeService = roomTypeService;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<RoomTypeView> getRooms(){
+    @GetMapping("/all")
+    public Iterable<RoomTypeView> getRooms(){
         return roomTypeService.findAll();
     }
 
@@ -38,8 +41,9 @@ public class RoomTypeController {
         return roomTypeService.findById(index);
     }
 
-    @PostMapping
-    public RoomTypeView addRoom(@RequestParam RoomTypeView roomType){
+    @ResponseStatus(value = HttpStatus.CREATED)
+    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RoomTypeView addRoom(@RequestBody RoomTypeView roomType){
         return roomTypeService.save(roomType);
     }
 

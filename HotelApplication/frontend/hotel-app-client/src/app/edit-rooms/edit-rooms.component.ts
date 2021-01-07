@@ -17,18 +17,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class EditRoomsComponent implements OnInit {
   parameters$: Observable<Parameter[]>;
-  rooms$;
+  rooms$: Observable<Data[]>;
   first;
   data: Data = new Data();
   confirmed = false;
   noRooms = false;
-  newRoom = new FormGroup({
-    numberOfRoomsAvailable: new FormControl(['', Validators.required]),
-    numberOfBeds: new FormControl(['', Validators.required]),
-    checkInTime: new FormControl(['', Validators.required]),
-    checkOutTime: new FormControl(['', Validators.required]),
-    price: new FormControl(['', Validators.required])
-  });
+
   constructor(public parametersService: ParametersService,
               public roomService: RoomService,
               public dialog: MatDialog) { }
@@ -36,10 +30,14 @@ export class EditRoomsComponent implements OnInit {
   ngOnInit(): void {
     this.parameters$ = this.parametersService.getParameters();
     this.rooms$ = this.roomService.getRooms();
-    this.first = this.roomService.getRooms().pipe(take(1));
-   // console.log( this.rooms$.id );
-    if (this.rooms$.id === undefined)
-      this.noRooms = true;
+    this.first =  this.rooms$.pipe(take(1));
+    {
+      setTimeout(() => {
+        if (this.first === undefined)
+          this.noRooms = true;
+      }, 500);
+    }
+
   }
 
   openDialog(): void {
@@ -55,7 +53,8 @@ export class EditRoomsComponent implements OnInit {
   }
 
   add(data: Data) {
-  this.roomService.addRoom(data);
+    this.roomService.addRoom(data).pipe(take(1)).subscribe(x => {
+    });
   }
 }
 

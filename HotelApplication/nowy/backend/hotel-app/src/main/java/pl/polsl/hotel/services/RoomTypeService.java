@@ -34,7 +34,7 @@ public class RoomTypeService implements StartUpFiller {
         return roomTypeRepository.findById(id);
     }
 
-    public List<RoomTypeView> findAll() {
+    public Iterable<RoomTypeView> findAll() {
         return roomTypeRepository.findAll();
 
     }

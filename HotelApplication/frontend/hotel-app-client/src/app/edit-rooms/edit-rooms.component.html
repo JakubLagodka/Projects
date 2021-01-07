@@ -2,21 +2,71 @@
 <br>
 <br>
 <div class="row" >
-  <table style="margin: 1pt auto 1pt auto;line-height: 20px; width: 90%; height: 150px;" *ngFor="let room of rooms$ | async">
+
+  <table style="margin: 1pt auto 1pt auto;line-height: 20px; width: 90%; height: 150px;" *ngIf="!noRooms" >
 
     <tr *ngFor="let parameter of parameters$ | async" style=" border: 1px solid black; float: left">
 
       <th style="border: 10px solid lightblue; background-color: lightblue "> {{ parameter.name }}</th>
     </tr>
-    <tr *ngFor="let parameter of parameters$ | async">
-      <td *ngIf="parameter.id===0"  style="width: 8%;border: 1px solid black;">{{ room.numberOfRoomsAvailable}}</td>
-      <td *ngIf="parameter.id===1"  style="width: 8%;border: 1px solid black;">{{ room.numberOfBeds}}</td>
-      <td *ngIf="parameter.id===2"  style="width: 8%;border: 1px solid black;">{{ room.checkInTime}}</td>
-      <td *ngIf="parameter.id===3"  style="width: 8%;border: 1px solid black;">{{ room.checkOutTime}}</td>
- </tr>
+    <div *ngFor="let room of rooms$ | async">
+    <tr *ngFor="let parameter of parameters$ | async" style=" border: 1px solid black">
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===0"  style="border: 1px solid black;">{{ room.number1}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===1"  style="border: 1px solid black;">{{ room.number2}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;">{{ room.number3}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;">{{ room.number4}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;">{{ room.number5}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;">{{ room.number6}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;">{{ room.number7}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;">{{ room.number8}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;">{{ room.number9}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;">{{ room.number10}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;">{{ room.number11}}</td>
+      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;">{{ room.number12}}</td>
 
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===0"  style="width: 8%;border: 1px solid black;">{{ room.number13}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;">{{ room.number14}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;">{{ room.number15}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;">{{ room.number16}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;">{{ room.number17}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;">{{ room.number18}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;">{{ room.number19}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;">{{ room.number20}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;">{{ room.number21}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;">{{ room.number22}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;">{{ room.number23}}</td>
+      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;">{{ room.number24}}</td>
+
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===0"  style="width: 8%;border: 1px solid black;">{{ room.string1}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;">{{ room.string2}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;">{{ room.string3}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;">{{ room.string4}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;">{{ room.string5}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;">{{ room.string6}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;">{{ room.string7}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;">{{ room.string8}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;">{{ room.string9}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;">{{ room.string10}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;">{{ room.string11}}</td>
+      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;">{{ room.string12}}</td>
+
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===0"  style="width: 8%;border: 1px solid black;">{{ room.boolean1}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;">{{ room.boolean2}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;">{{ room.boolean3}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;">{{ room.boolean4}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;">{{ room.boolean5}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;">{{ room.boolean6}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;">{{ room.boolean7}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;">{{ room.boolean8}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;">{{ room.boolean9}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;">{{ room.boolean10}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;">{{ room.boolean11}}</td>
+      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;">{{ room.boolean12}}</td>
+
+ </tr>
+    </div>
   </table>
-  <div *ngFor="let parameter of parameters$ | async" style="width: 100%;">
+  <div *ngFor="let parameter of parameters$ | async" style="width: 100%; ">
   <form class="form-group" #form="ngForm">
   <!--<input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfRoomsAvailable"
          [(ngModel)]="data.numberOfRoomsAvailable" placeholder="liczba dostępnych pokoi" name="numberOfRoomsAvailable" style="float: left" required>
@@ -30,56 +80,56 @@
          [(ngModel)]="data.price" placeholder="Cena jednej doby" name="price" style="float: left" required>!-->
 
 
-      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===0" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
-      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===1" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
-      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===2" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number3" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
-      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===3" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number4" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===0" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="number1"
+             [(ngModel)]="data.number1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
+      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===1" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="number2"
+             [(ngModel)]="data.number2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
+      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===2" type="number" class="form-control col-md-2 col-1 mt-1 text-center"  id="number3"
+             [(ngModel)]="data.number3" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
+      <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===3" type="number" class="form-control col-md-2 col-1 mt-1 text-center"  id="number4"
+             [(ngModel)]="data.number4" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===4" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number5" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number5" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===5" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number6" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number6" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===6" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number7" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number7" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===7" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number8" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number8" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===8" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number9" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number9" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===9" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number10" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number10" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===10" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number11" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number11" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===11" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
 
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===1" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number13" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number13" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===2" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number14" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number14" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===3" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number15" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number15" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===4" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number16" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number16" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===5" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number17" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number17" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===6" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number18" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number18" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===7" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number19" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number19" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===8" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number20" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number20" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===9" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number21" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number21" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===10" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.number22" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.number22" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
 
       <input *ngIf="confirmed && parameter.typeId===2 && parameter.typeNumber===0" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.string1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.string1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===2 && parameter.typeNumber===1" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.string2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.string2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===2 && parameter.typeNumber===2" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.string3" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
       <input *ngIf="confirmed && parameter.typeId===2 && parameter.typeNumber===3" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
@@ -102,13 +152,13 @@
              [(ngModel)]="data.string12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
 
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===0" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.boolean1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.boolean1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===1" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.boolean2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.boolean2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===2" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.boolean3" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.boolean3" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===3" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.boolean4" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.boolean4" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===4" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.boolean5" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===5" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
@@ -128,10 +178,7 @@
 
 
   </form>
-
-
-<br>
-  <button style="margin: 1pt auto 1pt auto;" *ngIf="confirmed && parameter.id===1" [disabled]="form.invalid" class="btn btn-sm btn-info" (click)="add(data)">Dodaj typ pokoju</button>
+  <button style="margin: 1pt auto 1pt auto;" *ngIf="confirmed && parameter.id===8" [disabled]="form.invalid" class="btn btn-sm btn-info" (click)="add(data)">Dodaj typ pokoju</button>
 </div>
 </div>
   <div>

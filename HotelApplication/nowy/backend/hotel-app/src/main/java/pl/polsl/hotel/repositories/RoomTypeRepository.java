@@ -12,7 +12,6 @@ import pl.polsl.hotel.models.RoomType;
 import pl.polsl.hotel.models.RoomTypeView;
 
 
-@Repository
 public interface RoomTypeRepository extends JpaRepository<RoomTypeView, Long> {
 
 
