@@ -42,6 +42,7 @@ public class RoomTypeService implements StartUpFiller {
     public List<RoomType> getRoomsAvailable(String start, String end) {
         roomsAvailable.clear();
         int index = 0;
+        int numberOfRoomsAvailable;
         boolean isAvailable = true;
         startLocalDate = LocalDate.parse(start);
         startDate = convertToDate(startLocalDate);
@@ -74,10 +75,17 @@ public class RoomTypeService implements StartUpFiller {
 
                             for (Reservation reservation : reservationRepository.findAll())
                             {
+                                numberOfRoomsAvailable = roomType.getNumber1();
+
                                 if(reservation.getRoom().getId() == roomType.getId() && ((startDate.after(reservation.getStartDate()) && startDate.before(reservation.getEndDate())) || (endDate.before(reservation.getEndDate()) && endDate.after(reservation.getStartDate()))))
                                 {
-                                    isAvailable = false;
-                                    break;
+                                   numberOfRoomsAvailable--;
+
+                                   if(numberOfRoomsAvailable <= 0)
+                                   {
+                                       isAvailable = false;
+                                       break;
+                                   }
                                 }
                             }
                             if(isAvailable)

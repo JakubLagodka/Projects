@@ -1,7 +1,6 @@
 import {Injectable, Output, EventEmitter, OnInit} from '@angular/core';
 import {RoomService} from './room.service';
 import {Observable} from 'rxjs';
-import {Room} from '../_models/room';
 import {Data} from '../_models/data';
 
 
@@ -31,11 +30,11 @@ export class CalendarService {
   {
 
     this.rooms$ = null;
-    startDate.setHours(this.hotelNight[0].checkInTime);
+    // startDate.setHours(this.hotelNight[0].checkInTime);
     if (startDate.getDate() === endDate.getDate()) {
     endDate.setDate(endDate.getDate() + 1 );
     }
-    endDate.setHours(this.hotelNight[0].checkOutTime);
+    // endDate.setHours(this.hotelNight[0].checkOutTime);
     this.differenceInTime = endDate.getTime() - startDate.getTime();
     this.differenceInDays = Math.ceil(this.differenceInTime / (1000 * 24 * 60 * 60));
     this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(startDate), this.convertToString(endDate));

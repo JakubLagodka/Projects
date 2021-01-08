@@ -10,6 +10,9 @@ import {Router} from '@angular/router';
 import {AuthenticationService} from '../_services/authentication.service';
 import {CalendarService} from '../_services/calendar.service';
 import {AppComponent} from '../app.component';
+import {ParametersService} from '../_services/parameters.service';
+import {Parameter} from '../_models/parameter';
+import {Data} from '../_models/data';
 
 @Component({
   selector: 'app-reservation',
@@ -18,35 +21,326 @@ import {AppComponent} from '../app.component';
 })
 
 export class ReservationComponent implements OnInit {
-  @Output() export = new EventEmitter();
-  rooms$: Observable<Room[]>;
-
+  // @Output() export = new EventEmitter();
+  rooms$: Observable<Data[]>;
+  parameters$: Observable<Parameter[]>;
   constructor(@Inject(AppComponent) private parent: AppComponent,
-  private router: Router,
-  public authenticationService: AuthenticationService,
-  private calendarService: CalendarService) {}
-
-  public numbersOfBeds;
+              private router: Router,
+              public authenticationService: AuthenticationService,
+              public calendarService: CalendarService,
+              public parametersService: ParametersService) {}
+  private index = 0;
+  private forIndex = 0;
+  private numberIndex = 0;
+  private doubleIndex = 0;
+  private booleanIndex = 0;
+  private stringIndex = 0;
+  private roomParameterIndex = [];
+  public roomNumbersOfBeds;
+  public roomParameter2;
+  public roomParameter3;
+  public roomParameter4;
+  public roomParameter5;
+  public roomParameter6;
+  public roomParameter7;
+  public roomParameter8;
+  public roomParameter9;
+  public roomParameter10;
+  public roomParameter11;
+  private parameter = new Parameter();
 
   numberOfBedsControl = new FormControl('', Validators.required);
+  controlParameter2 = new FormControl('', Validators.required);
+  controlParameter3 = new FormControl('', Validators.required);
+  controlParameter4 = new FormControl('', Validators.required);
+  controlParameter5 = new FormControl('', Validators.required);
+  controlParameter6 = new FormControl('', Validators.required);
+  controlParameter7 = new FormControl('', Validators.required);
+  controlParameter8 = new FormControl('', Validators.required);
+  controlParameter9 = new FormControl('', Validators.required);
+  controlParameter10 = new FormControl('', Validators.required);
+
+
 
   ngOnInit(): void {
 
     if (!this.authenticationService.currentUserValue) {
       this.router.navigate(['/register']);
     }
-
+    this.parameters$ = this.parametersService.getParameters();
     // this.rooms$ = this.roomService.getRooms();
    //  this.reservations$ = this.reservationService.getReservations();
     if (this.calendarService.rooms$)
     {
+
     this.calendarService.rooms$.subscribe(rooms => {
-      of(rooms.sort((a, b) => a.numberOfBeds - b.numberOfBeds)).pipe(
+      of(rooms.sort((a, b) => a.number1 - b.number1)).pipe(
         mergeMap(x => rooms),
-        distinct(v => v.numberOfBeds),
+        distinct(v => v.number1),
         toArray(),
-      ).subscribe(x => this.numbersOfBeds = x);
+      ).subscribe(x => this.roomNumbersOfBeds = x);
     });
+
+      this.parametersService.getParameters().subscribe(parameters => {
+        for (this.forIndex; ; this.forIndex++)
+        {
+          this.parameter = parameters[this.index];
+
+          if( this.index === parameters.length )
+            break;
+          console.log(this.parameter);
+          this.index++;
+          if (this.index > 5)
+          {
+            this.index--;
+            if (this.parameter.typeId === 0)
+            {
+              this.numberIndex++;
+              this.roomParameterIndex.push(0);
+              if (this.index === 5)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number5 - b.number5)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter2 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 6)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number6 - b.number6)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number6),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter3 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 7)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number7 - b.number7)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number7),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter4 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 8)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number8 - b.number8)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number8),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter5 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 9)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number9 - b.number9)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number9),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter6 = x);
+                });
+                this.index++;
+              }
+            }
+
+            else if (this.parameter.typeId === 1)
+            {
+              this.doubleIndex++;
+              this.roomParameterIndex.push(1);
+              if (this.index === 5)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number13 - b.number13)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number13),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter2 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 6)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number14 - b.number14)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number14),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter3 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 7)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number15 - b.number15)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number15),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter4 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 8)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number16 - b.number16)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number16),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter5 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 9)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number17 - b.number17)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number17),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter6 = x);
+                });
+                this.index++;
+              }
+            }
+            else if (this.parameter.typeId === 2)
+            {
+              this.stringIndex++;
+              this.roomParameterIndex.push(2);
+              if (this.index === 5)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string1),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter2 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 6)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string2),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter3 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 7)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string3),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter4 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 8)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string4),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter5 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 9)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter6 = x);
+                });
+                this.index++;
+              }
+            }
+            else
+            {
+              this.booleanIndex++;
+              this.roomParameterIndex.push(3);
+              if (this.index === 5)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean1),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter2 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 6)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean2),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter3 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 7)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean3),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter4 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 8)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean4),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter5 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 9)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter6 = x);
+                });
+                this.index++;
+              }
+            }
+          }
+        }
+
+
+
+
+     });
     }
     else
     {
@@ -104,13 +398,14 @@ export class ReservationComponent implements OnInit {
 
      return this.options.filter(option => option.toLowerCase().includes(filterValue));
    }*/
+
   }
 
   submit()
   {
-    this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
+   // this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
 
-    this.router.navigate(['/choosing-pillow-type']);
+  //  this.router.navigate(['/choosing-pillow-type']);
 
   }
 
