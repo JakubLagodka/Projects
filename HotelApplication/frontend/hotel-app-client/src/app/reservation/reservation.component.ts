@@ -5,7 +5,7 @@ import {from, observable, Observable, of} from 'rxjs';
 import {Room} from '../_models/room';
 
 import {FormControl, Validators} from '@angular/forms';
-import {distinct, filter, mergeMap, toArray} from 'rxjs/operators';
+import {distinct, filter, mergeMap, take, toArray} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../_services/authentication.service';
 import {CalendarService} from '../_services/calendar.service';
@@ -14,6 +14,7 @@ import {ParametersService} from '../_services/parameters.service';
 import {Parameter} from '../_models/parameter';
 import {Data} from '../_models/data';
 import {TranslatorService} from '../_services/translator.service';
+import {ReservationService} from '../_services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -31,10 +32,13 @@ export class ReservationComponent implements OnInit {
               public authenticationService: AuthenticationService,
               public calendarService: CalendarService,
               public parametersService: ParametersService,
-              public translatorService: TranslatorService) {}
+              public translatorService: TranslatorService,
+              private reservationService: ReservationService) {}
+              private roomNumber = 0;
   private index = 0;
   private forIndex = 0;
   private forRoomIndex = 0;
+  private forRoomIndex2 = 0;
   private numberIndex = 0;
   private doubleIndex = 0;
   private booleanIndex = 0;
@@ -52,17 +56,23 @@ export class ReservationComponent implements OnInit {
   public roomParameter10;
   public roomParameter11;
   private parameter = new Parameter();
-
+ private reservation = new Reservation();
   numberOfBedsControl = new FormControl('', Validators.required);
-  controlParameter2 = new FormControl('', Validators.required);
-  controlParameter3 = new FormControl('', Validators.required);
-  controlParameter4 = new FormControl('', Validators.required);
-  controlParameter5 = new FormControl('', Validators.required);
-  controlParameter6 = new FormControl('', Validators.required);
-  controlParameter7 = new FormControl('', Validators.required);
-  controlParameter8 = new FormControl('', Validators.required);
-  controlParameter9 = new FormControl('', Validators.required);
-  controlParameter10 = new FormControl('', Validators.required);
+  controlParameterInt = new FormControl('', Validators.required);
+  controlParameterInt2 = new FormControl('', Validators.required);
+  controlParameterInt3 = new FormControl('', Validators.required);
+
+  controlParameterDouble = new FormControl('', Validators.required);
+  controlParameterDouble2 = new FormControl('', Validators.required);
+  controlParameterDouble3 = new FormControl('', Validators.required);
+
+  controlParameterString = new FormControl('', Validators.required);
+  controlParameterString2 = new FormControl('', Validators.required);
+  controlParameterString3 = new FormControl('', Validators.required);
+
+  controlParameterBoolean = new FormControl('', Validators.required);
+  controlParameterBoolean2 = new FormControl('', Validators.required);
+  controlParameterBoolean3 = new FormControl('', Validators.required);
 
   submitted = false;
 
@@ -101,7 +111,7 @@ export class ReservationComponent implements OnInit {
           //  console.log(this.index);
             if (this.parameter.typeId === 0)
             {
-              this.numberIndex++;
+             // this.numberIndex++;
               this.roomParameterIndex.push(0);
               if (this.index === 5)
               {
@@ -162,7 +172,7 @@ export class ReservationComponent implements OnInit {
 
             else if (this.parameter.typeId === 1)
             {
-              this.doubleIndex++;
+              // this.doubleIndex++;
               this.roomParameterIndex.push(1);
               if (this.index === 5)
               {
@@ -222,7 +232,7 @@ export class ReservationComponent implements OnInit {
             }
             else if (this.parameter.typeId === 2)
             {
-              this.stringIndex++;
+              // this.stringIndex++;
               this.roomParameterIndex.push(2);
               if (this.index === 5)
               {
@@ -282,7 +292,7 @@ export class ReservationComponent implements OnInit {
             }
             else
             {
-              this.booleanIndex++;
+              // this.booleanIndex++;
               this.roomParameterIndex.push(3);
               if (this.index === 5)
               {
@@ -434,7 +444,50 @@ export class ReservationComponent implements OnInit {
    // this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
     this.submitted =  true;
     this.data.number1 = this.numberOfBedsControl.value;
-    this.rooms$.subscribe(room => {
+    for (this.forRoomIndex2; this.forRoomIndex2 < this.roomParameterIndex.length; this.forRoomIndex2++)
+   {
+     if (this.roomParameterIndex[this.forRoomIndex2] === 0)
+     {
+       if ( this.numberIndex === 0) {
+         this.data.number5 = this.controlParameterInt.value;
+       }
+       else {
+         this.data.number6 = this.controlParameterInt2.value;
+       }
+       this.numberIndex++;
+     }
+     else if (this.roomParameterIndex[this.forRoomIndex2] === 1)
+     {
+       if ( this.doubleIndex === 0) {
+         this.data.number5 = this.controlParameterDouble.value;
+       }
+       else {
+         this.data.number6 = this.controlParameterDouble2.value;
+       }
+       this.doubleIndex++;
+     }
+     else if (this.roomParameterIndex[this.forRoomIndex2] === 2)
+     {
+       if ( this.stringIndex === 0) {
+         this.data.number5 = this.controlParameterString.value;
+       }
+       else {
+         this.data.number6 = this.controlParameterString2.value;
+       }
+       this.stringIndex++;
+     }
+     else
+     {
+       if ( this.booleanIndex === 0) {
+         this.data.boolean1 = this.controlParameterBoolean.value;
+       }
+       else {
+         this.data.boolean2 = this.controlParameterBoolean2.value;
+       }
+       this.booleanIndex++;
+     }
+   }
+    this.calendarService.rooms$.subscribe(room => {
      for (this.forRoomIndex; ; this.forRoomIndex++)
      {
        if (this.forRoomIndex === room.length) {
@@ -446,7 +499,8 @@ export class ReservationComponent implements OnInit {
          this.data.number2 = room[this.forRoomIndex].number2;
          this.data.number3 = room[this.forRoomIndex].number3;
          this.data.number4 = room[this.forRoomIndex].number4;
-         this.data.number5 = room[this.forRoomIndex].number5;
+         this.data.number13 = room[this.forRoomIndex].number13;
+         this.roomNumber = room[this.forRoomIndex].id;
          break;
        }
      }
@@ -462,6 +516,32 @@ export class ReservationComponent implements OnInit {
   }
 
   book() {
-
+    this.reservation.startDate = this.calendarService.startDate;
+    this.reservation.endDate = this.calendarService.endDate;
+    this.reservation.numberOfDays = this.calendarService.differenceInDays;
+    this.reservation.roomNumber = this.roomNumber;
+    this.reservation.userId = this.authenticationService.currentUserValue.id;
+    this.reservation.price = this.data.number5 * this.reservation.numberOfDays;
+    this.reservationService.addReservation(this.reservation).pipe(take(1)).subscribe(x => {
+    });
+    setTimeout(() => {
+      if (this.reservationService.status !== null)
+      {
+        setTimeout(() => {
+          this.parent.reservationNotCreated = false;
+        }, 5000);
+        this.parent.reservationNotCreated = true;
+        this.reservationService.status = null;
+      }
+      else
+      {
+        setTimeout(() => {
+          this.parent.createdNewReservation = false;
+        }, 5000);
+        this.parent.createdNewReservation = true;
+        this.parent.sidenav.open();
+        this.router.navigate(['']);
+      }
+    }, 50);
   }
 }

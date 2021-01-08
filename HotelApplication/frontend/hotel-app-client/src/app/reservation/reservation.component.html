@@ -122,7 +122,7 @@ Dobierz dla siebie odpowiedni pokój:
   <div *ngFor="let parameter of parameters$ | async ">
     <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===0" class="example col-md-7 col-12 mt-5 text-center"  >
     <mat-label>{{parameter.name}}</mat-label>
-    <mat-select [formControl]="controlParameter2" required>
+    <mat-select [formControl]="controlParameterInt" required>
       <mat-option>--</mat-option>
       <mat-option *ngFor="let room of roomParameter2 " [value]="room.number5">
         {{room.number5}}
@@ -131,7 +131,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter2" required>
+      <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter2 " [value]="room.number13">
           {{room.number13}}
@@ -140,7 +140,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter2" required>
+      <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter2 " [value]="room.string1">
           {{room.string1}}
@@ -149,7 +149,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter2" required>
+      <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter2 " [value]="room.boolean1">
           {{room.boolean1}}
@@ -159,7 +159,7 @@ Dobierz dla siebie odpowiedni pokój:
 
       <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===0 && this.roomParameterIndex[parameter.id - 7]===0" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
-        <mat-select [formControl]="controlParameter3" required>
+        <mat-select [formControl]="controlParameterInt2" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let room of roomParameter3 " [value]="room.number6">
             {{room.number6}}
@@ -168,7 +168,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===0 && this.roomParameterIndex[parameter.id - 7]!==0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter3" required>
+      <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter3 " [value]="room.number5">
           {{room.number5}}
@@ -177,7 +177,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
       <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
-        <mat-select [formControl]="controlParameter3" required>
+        <mat-select [formControl]="controlParameterDouble" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let room of roomParameter3 " [value]="room.number14">
             {{room.number14}}
@@ -186,7 +186,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===2 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter3" required>
+      <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter3 " [value]="room.string1">
           {{room.string1}}
@@ -195,7 +195,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
       <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===2 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
-        <mat-select [formControl]="controlParameter3" required>
+        <mat-select [formControl]="controlParameterBoolean" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let room of roomParameter3 " [value]="room.string2">
             {{room.string2}}
@@ -204,7 +204,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-form-field>
       <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
-        <mat-select [formControl]="controlParameter3" required>
+        <mat-select [formControl]="controlParameterBoolean2" required>
           <mat-option>--</mat-option>
           <mat-option *ngFor="let room of roomParameter3 " [value]="room.boolean2">
             {{room.boolean2}}
@@ -213,7 +213,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===3 &&  parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter3" required>
+      <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter3 " [value]="room.boolean1">
           {{room.boolean1}}
@@ -223,7 +223,7 @@ Dobierz dla siebie odpowiedni pokój:
 
         <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===0 && this.parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
-          <mat-select [formControl]="controlParameter4" required>
+          <mat-select [formControl]="controlParameterInt" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let room of roomParameter3 " [value]="room.number5">
               {{room.number5}}
@@ -232,7 +232,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-form-field>
     <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===0&& this.parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
-      <mat-select [formControl]="controlParameter4" required>
+      <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let room of roomParameter3 " [value]="room.number6">
           {{room.number6}}
@@ -241,7 +241,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
         <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===1" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
-          <mat-select [formControl]="controlParameter4" required>
+          <mat-select [formControl]="controlParameterDouble" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let room of roomParameter3 " [value]="room.number15">
               {{room.number15}}
@@ -250,7 +250,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-form-field>
         <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===2" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
-          <mat-select [formControl]="controlParameter4" required>
+          <mat-select [formControl]="controlParameterString" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let room of roomParameter3 " [value]="room.string3">
               {{room.string3}}
@@ -259,7 +259,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-form-field>
         <mat-form-field *ngIf="parameter.id === 8  && this.roomParameterIndex[parameter.id - 6]===3" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
-          <mat-select [formControl]="controlParameter4" required>
+          <mat-select [formControl]="controlParameterBoolean" required>
             <mat-option>--</mat-option>
             <mat-option *ngFor="let room of roomParameter3 " [value]="room.boolean3">
               {{room.boolean3}}
@@ -319,34 +319,41 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>!-->
   </div>
 <div class="modal-footer col-md-7 col-12 mt-5 text-center">
-  <button type="submit" [disabled]="numberOfBedsControl.invalid || controlParameter2.invalid|| controlParameter3.invalid|| controlParameter4.invalid" class="btn btn-success">Przejdź dalej</button>
-   <button class="btn btn-danger" (click)="dismiss()">Wróć</button>
+  <!--<button type="submit" [disabled]="numberOfBedsControl.invalid || controlParameterInt.invalid|| controlParameterInt2.invalid|| controlParameterDouble.invalid
+|| controlParameterDouble2.invalid || controlParameterString.invalid || controlParameterString2.invalid || controlParameterBoolean.invalid || controlParameterBoolean2.invalid" class="btn btn-success">Przejdź dalej</button>!-->
+  <button type="submit" [disabled]="numberOfBedsControl.invalid || controlParameterInt.invalid || controlParameterBoolean.invalid || controlParameterBoolean2.invalid" class="btn btn-success">Przejdź dalej</button>
+  <button class="btn btn-danger" (click)="dismiss()">Wróć</button>
 </div>
 </form>
 <form *ngIf="submitted" (ngSubmit)="book()" #form="ngForm">
-  <table class="table-striped table-bordered">
-    <thead>
-    <tr>
-      <th>Nazwa typu pokoju</th>
-      <th>Typ wybrany w rezerwacji</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr><td>Czas rezerwacji</td><td> od {{ this.calendarService.startDate.getDate()}}
-      {{this.translatorService.translateMonthToPolish(this.calendarService.startDate.getMonth())}} {{ this.calendarService.startDate.getFullYear()}}
-      od rozpoczęcia doby hotelowej (godzina {{ data.number3}}) do  {{ this.calendarService.endDate.getDate()}}
-      {{this.translatorService.translateMonthToPolish(this.calendarService.endDate.getMonth())}} {{ this.calendarService.endDate.getFullYear()}}
-      do zakończenia doby hotelowej (godzina {{ data.number4}})</td>
+ <table class="table-striped table-bordered">
+   <thead>
+   <tr>
+     <th>Nazwa typu pokoju</th>
+     <th>Typ wybrany w rezerwacji</th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr><td>Czas rezerwacji</td><td> od {{ this.calendarService.startDate.getDate()}}
+     {{this.translatorService.translateMonthToPolish(this.calendarService.startDate.getMonth())}} {{ this.calendarService.startDate.getFullYear()}}
+     od rozpoczęcia doby hotelowej (godzina {{ data.number3}}) do  {{ this.calendarService.endDate.getDate()}}
+     {{this.translatorService.translateMonthToPolish(this.calendarService.endDate.getMonth())}} {{ this.calendarService.endDate.getFullYear()}}
+     do zakończenia doby hotelowej (godzina {{ data.number4}})</td>
 
-    <tr><td>Liczba łózek w pokoju</td><td>{{data.number1}}</td></tr>
-    <!--<tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
-    <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>
-    <tr><td>Czy pokój ma mieć balkon</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].balcony)}}</td></tr>
-    <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].beautifulViewFromTheWindows)}}</td></tr>
-    <tr><td>Piętro, na którym znajduje się pokój</td><td>{{this.calendarService.chosenRooms[0].storey}}</td></tr>!-->
+   <tr><td>Liczba łózek w pokoju</td><td>{{data.number1}}</td></tr>
+   <!--<tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
+   <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>
+   <tr><td>Czy pokój ma mieć balkon</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].balcony)}}</td></tr>
+   <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].beautifulViewFromTheWindows)}}</td></tr>
+   <tr><td>Piętro, na którym znajduje się pokój</td><td>{{this.calendarService.chosenRooms[0].storey}}</td></tr>!-->
+    <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.id === 3 " >{{parameter.name}}</td><td *ngIf="parameter.id === 3  " >{{data.number3}}</td></tr>
+    <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.id === 4 " >{{parameter.name}}</td><td *ngIf="parameter.id === 4 " >{{data.number4}}</td></tr>
 
-    <tr *ngFor="let parameter of parameters$ | async "><td>Cena rezerwacji</td><td>złotych</td></tr>
-    <tr><td>Cena rezerwacji</td><td>złotych</td></tr>
+    <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===4" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===4" >{{data.number5}}</td></tr>
+    <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{data.boolean1}}</td></tr>
+    <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{data.boolean2}}</td></tr>
+
+    <tr><td>Cena rezerwacji</td><td>{{data.number13}}</td></tr>
     </tbody>
   </table>
   <div class="modal-footer col-md-7 col-12 mt-5 text-center">
