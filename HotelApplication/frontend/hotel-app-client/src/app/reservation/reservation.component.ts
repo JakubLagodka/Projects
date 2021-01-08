@@ -13,6 +13,7 @@ import {AppComponent} from '../app.component';
 import {ParametersService} from '../_services/parameters.service';
 import {Parameter} from '../_models/parameter';
 import {Data} from '../_models/data';
+import {TranslatorService} from '../_services/translator.service';
 
 @Component({
   selector: 'app-reservation',
@@ -24,13 +25,16 @@ export class ReservationComponent implements OnInit {
   // @Output() export = new EventEmitter();
   rooms$: Observable<Data[]>;
   parameters$: Observable<Parameter[]>;
+  data: Data = new Data();
   constructor(@Inject(AppComponent) private parent: AppComponent,
               private router: Router,
               public authenticationService: AuthenticationService,
               public calendarService: CalendarService,
-              public parametersService: ParametersService) {}
+              public parametersService: ParametersService,
+              public translatorService: TranslatorService) {}
   private index = 0;
   private forIndex = 0;
+  private forRoomIndex = 0;
   private numberIndex = 0;
   private doubleIndex = 0;
   private booleanIndex = 0;
@@ -60,7 +64,7 @@ export class ReservationComponent implements OnInit {
   controlParameter9 = new FormControl('', Validators.required);
   controlParameter10 = new FormControl('', Validators.required);
 
-
+  submitted = false;
 
   ngOnInit(): void {
 
@@ -81,18 +85,20 @@ export class ReservationComponent implements OnInit {
       ).subscribe(x => this.roomNumbersOfBeds = x);
     });
 
-      this.parametersService.getParameters().subscribe(parameters => {
+    this.parametersService.getParameters().subscribe(parameters => {
         for (this.forIndex; ; this.forIndex++)
         {
           this.parameter = parameters[this.index];
 
-          if( this.index === parameters.length )
+          if ( this.index === parameters.length ) {
             break;
-          console.log(this.parameter);
+          }
+        //  console.log(this.parameter);
           this.index++;
           if (this.index > 5)
           {
             this.index--;
+          //  console.log(this.index);
             if (this.parameter.typeId === 0)
             {
               this.numberIndex++;
@@ -335,6 +341,28 @@ export class ReservationComponent implements OnInit {
               }
             }
           }
+          else
+          {
+            if (this.index === 1)
+            {
+            }
+            else if (this.index === 2)
+            {
+
+            }
+            else if (this.index === 3)
+            {
+
+            }
+            else if (this.index === 4)
+            {
+
+            }
+            else
+            {
+
+            }
+          }
         }
 
 
@@ -404,8 +432,26 @@ export class ReservationComponent implements OnInit {
   submit()
   {
    // this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
+    this.submitted =  true;
+    this.data.number1 = this.numberOfBedsControl.value;
+    this.rooms$.subscribe(room => {
+     for (this.forRoomIndex; ; this.forRoomIndex++)
+     {
+       if (this.forRoomIndex === room.length) {
+         break;
+       }
 
-  //  this.router.navigate(['/choosing-pillow-type']);
+       if (room[this.forRoomIndex].number1 ===  this.data.number1)
+       {
+         this.data.number2 = room[this.forRoomIndex].number2;
+         this.data.number3 = room[this.forRoomIndex].number3;
+         this.data.number4 = room[this.forRoomIndex].number4;
+         this.data.number5 = room[this.forRoomIndex].number5;
+         break;
+       }
+     }
+    });
+
 
   }
 
@@ -413,5 +459,9 @@ export class ReservationComponent implements OnInit {
   {
     this.parent.sidenav.open();
     this.router.navigate(['']);
+  }
+
+  book() {
+
   }
 }
