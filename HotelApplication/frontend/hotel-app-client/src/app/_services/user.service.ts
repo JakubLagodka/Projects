@@ -20,7 +20,7 @@ export class UserService {
   private managers: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private workers$: Observable<User[]> = this.workers.asObservable();
   private clients$: Observable<User[]> = this.clients.asObservable();
-  private managers$: Observable<User[]> = this.managers.asObservable();
+ // private managers$: Observable<User[]> = this.managers.asObservable();
 
   private roles: BehaviorSubject<Role[]> = new BehaviorSubject([]);
   private roles$: Observable<Role[]> = this.roles.asObservable();
@@ -39,7 +39,7 @@ status = null;
       this.users.subscribe(x => {
         this.workers.next(x.filter(y => y.roleCode === 'WOR'));
         this.clients.next(x.filter(y => y.roleCode === 'CLI'));
-        this.managers.next(x.filter(y => y.roleCode === 'MAN'));
+      //  this.managers.next(x.filter(y => y.roleCode === 'MAN'));
 
       });
     }
@@ -50,11 +50,11 @@ status = null;
   private placeUserInArray(user: User) {
     let users;
     switch (user.roleCode) {
-      case 'MAN':
+     /* case 'MAN':
         users = this.managers.value;
         users.unshift(user);
         this.managers.next(users);
-        break;
+        break;*/
       case 'WOR':
         users = this.workers.value;
         users.unshift(user);
@@ -71,11 +71,11 @@ status = null;
   private deleteUserFromArray(user: User) {
     let users;
     switch(user.roleCode) {
-      case 'MAN':
+    /*  case 'MAN':
         users = this.managers.value;
         users.splice(users.findIndex(x => x.id === user.id), 1);
         this.managers.next(users);
-        break;
+        break;*/
       case 'WOR':
         users = this.workers.value;
         users.splice(users.findIndex(x => x.id === user.id), 1);
@@ -92,11 +92,11 @@ status = null;
   private replaceUserInArray(user: User) {
     let users;
     switch(user.roleCode) {
-      case 'MAN':
+    /*  case 'MAN':
         users = this.managers.value;
         users[users.findIndex(x => x.id === user.id)] = user;
         this.managers.next(users);
-        break;
+        break;*/
       case 'WOR':
         users = this.workers.value;
         users[users.findIndex(x => x.id === user.id)] = user;
@@ -153,13 +153,13 @@ status = null;
     return this.clients$;
   }
 
-  getManagers(): Observable<User[]> {
-    /*if(!this.managers)
+  /*getManagers(): Observable<User[]> {
+    if(!this.managers)
       this.managers = this.usersArray.filter(x => x.roleCode === 'MAN');
 
-    return this.managers;*/
+    return this.managers;
     return this.managers$;
-  }
+  }*/
 
   getUserById(userId: number): User {
     return this.clients.value.find(x => x.id === userId) ||

@@ -76,8 +76,8 @@ public class UserService implements StartUpFiller {
         if (roleCode == null)
             return User.class.getSimpleName();
         switch (roleCode) {
-            case "MAN":
-                return Manager.class.getSimpleName();
+           /* case "MAN":
+                return Manager.class.getSimpleName();*/
             case "CLI":
                 return Client.class.getSimpleName();
             case "ADM":
@@ -128,14 +128,14 @@ public class UserService implements StartUpFiller {
             worker.setRole(roleRepository.getOne("WOR"));
             userRepository.save(worker);
 
-            Manager manager = new Manager();
+           /* Manager manager = new Manager();
             manager.setEmail("menadzer@gmail.com");
             manager.setName("Władysław");
             manager.setSurname("Władczy");
             manager.setUsername("menadzer1");
             manager.setPassword(bCryptPasswordEncoder.encode("menadzer1"));
             manager.setRole(roleRepository.getOne("MAN"));
-            userRepository.save(manager);
+            userRepository.save(manager);*/
         }
     }
     public User map(UserView userView) {
