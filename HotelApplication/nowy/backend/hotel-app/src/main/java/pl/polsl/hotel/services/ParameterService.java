@@ -1,7 +1,6 @@
 package pl.polsl.hotel.services;
 
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.Type;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.ParameterRepository;
 import pl.polsl.hotel.repositories.RoomTypeRepository;

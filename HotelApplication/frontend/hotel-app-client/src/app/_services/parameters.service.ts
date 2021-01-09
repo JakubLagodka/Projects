@@ -34,7 +34,7 @@ export class ParametersService {
     return returnedParameter;
   }
 
-  /*deleteParameter(id: number): Observable<any> {
+  deleteParameter(id: number): Observable<any> {
     const returnedParameter = this.http.delete<any>(`${environment.apiUrl}/parameter/?id=` + id).pipe(shareReplay());
     returnedParameter.pipe(take(1)).subscribe(x => {
       },
@@ -43,27 +43,27 @@ export class ParametersService {
       });
 
     return returnedParameter;
-  }*/
-
-  deleteParameterAndColumn(id: number, type: number, typeId: number): Observable<any> {
-    const returnedParameter = this.http.delete<any>(`${environment.apiUrl}/parameter/?id=` + id + '&type=' + type + '&typeId=' + typeId).pipe(shareReplay());
-    returnedParameter.pipe(take(1)).subscribe(x => {
-      },
-      err => {
-        this.status = err.status;
-      });
-
-    return returnedParameter;
   }
-  updateParameter(id: number, parameter: Parameter): Observable< Parameter> {
-    const returnedParameter =  this.http.patch<Parameter>(`${environment.apiUrl}/parameter?id=` + id, parameter).pipe(shareReplay());
-    returnedParameter.pipe(take(1)).subscribe(x => {
-      },
-      err => {
-        this.status = err.status;
-      });
 
-    return returnedParameter;
-  }
+/* deleteParameterAndColumn(id: number, type: number, typeId: number): Observable<any> {
+   const returnedParameter = this.http.delete<any>(`${environment.apiUrl}/parameter/?id=` + id + '&type=' + type + '&typeId=' + typeId).pipe(shareReplay());
+   returnedParameter.pipe(take(1)).subscribe(x => {
+     },
+     err => {
+       this.status = err.status;
+     });
+
+   return returnedParameter;
+ }*/
+ updateParameter(id: number, parameter: Parameter): Observable< Parameter> {
+   const returnedParameter =  this.http.patch<Parameter>(`${environment.apiUrl}/parameter?id=` + id, parameter).pipe(shareReplay());
+   returnedParameter.pipe(take(1)).subscribe(x => {
+     },
+     err => {
+       this.status = err.status;
+     });
+
+   return returnedParameter;
+ }
 }
 

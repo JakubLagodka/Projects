@@ -80,14 +80,23 @@ export class EditParametersComponent implements OnInit {
 
   delete(parameter: Parameter)
   {
-    if (parameter.type === 'number')
+   /* if (parameter.type === 'number')
     this.parametersService.deleteParameterAndColumn(parameter.id,0, parameter.typeNumber);
     else  if (parameter.type === 'double')
       this.parametersService.deleteParameterAndColumn(parameter.id,1, parameter.typeNumber);
     else  if (parameter.type === 'string')
       this.parametersService.deleteParameterAndColumn(parameter.id,2, parameter.typeNumber);
     else
-      this.parametersService.deleteParameterAndColumn(parameter.id,3, parameter.typeNumber);
+      this.parametersService.deleteParameterAndColumn(parameter.id,3, parameter.typeNumber);*/
+
+    if (parameter.type === 'number')
+ this.parametersService.deleteParameter(parameter.id);
+ else  if (parameter.type === 'double')
+   this.parametersService.deleteParameter(parameter.id);
+ else  if (parameter.type === 'string')
+   this.parametersService.deleteParameter(parameter.id);
+ else
+   this.parametersService.deleteParameter(parameter.id);
 
     this.parameters$ = this.parametersService.getParameters();
     setTimeout(() => {

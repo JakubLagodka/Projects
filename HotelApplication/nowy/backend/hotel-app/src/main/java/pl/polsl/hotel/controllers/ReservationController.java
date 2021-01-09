@@ -25,11 +25,11 @@ public class ReservationController {
     private final ReservationService reservationService;
     private final UserRepository userRepository;
 
-    private final MailService mailService;
+  //  private final MailService mailService;
 
-    public ReservationController(ReservationService reservationService, MailService mailService, UserRepository userRepository) {
+    public ReservationController(ReservationService reservationService, /*MailService mailService,*/ UserRepository userRepository) {
         this.reservationService = reservationService;
-        this.mailService = mailService;
+       // this.mailService = mailService;
         this.userRepository = userRepository;
     }
 

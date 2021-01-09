@@ -8,9 +8,10 @@ import org.springframework.stereotype.Component;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+
 @Component
 public class MailService {
-    private JavaMailSender javaMailSender;
+ /*   private JavaMailSender javaMailSender;
 
     @Autowired
     public MailService(JavaMailSender javaMailSender)
@@ -28,5 +29,5 @@ public class MailService {
         mimeMessageHelper.setSubject(subject);
         mimeMessageHelper.setText(text,isMailComponent);
         javaMailSender.send(mimeMessage);
-    }
+    }*/
 }

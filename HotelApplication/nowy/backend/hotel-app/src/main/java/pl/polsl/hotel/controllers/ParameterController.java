@@ -39,17 +39,18 @@ public class ParameterController {
         return parameterService.updateParameter(id, parameter);
     }
 
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    /*@ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping
     public void deleteParameterAndColumn( @RequestParam Long id, @RequestParam Long type, @RequestParam Long typeId){
         parameterService.deleteParamAndColumnById(id, type, typeId);
 
-    }
+    }*/
 
-   /* @ResponseStatus(value = HttpStatus.NO_CONTENT)
+
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping
     public void deleteParameter( @RequestParam Long id){
         parameterService.deleteById(id);
 
-    }*/
+    }
 }
