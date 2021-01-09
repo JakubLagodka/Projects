@@ -35,6 +35,11 @@ public class RoomTypeController {
         return roomService.bookRoom(roomId, from,numberOfDays);
     }*/
 
+    @GetMapping("/is_available")
+    public boolean isRoomAvailable(@RequestParam Long index){
+        return roomTypeService.isAvailable(index);
+    }
+
     @GetMapping
     public Optional<RoomType> getByRoomId(@RequestParam Long index){
         return roomTypeService.findById(index);

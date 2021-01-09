@@ -8,6 +8,7 @@ import pl.polsl.hotel.repositories.ReservationRepository;
 import pl.polsl.hotel.repositories.RoomTypeRepository;
 
 
+import java.io.Console;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
@@ -55,6 +56,7 @@ public class RoomTypeService implements StartUpFiller {
 
         for (RoomType roomType : roomTypeRepository.findAll()) {
             isAvailable = true;
+            numberOfRoomsAvailable = roomType.getNumber1();
            /* index = 0;
             for (LocalDate date: room.getAvailableDates()) {
 
@@ -75,12 +77,13 @@ public class RoomTypeService implements StartUpFiller {
 
                             for (Reservation reservation : reservationRepository.findAll())
                             {
-                                numberOfRoomsAvailable = roomType.getNumber1();
+
+                              //  System.out.print(numberOfRoomsAvailable);
 
                                 if(reservation.getRoom().getId() == roomType.getId() && ((startDate.after(reservation.getStartDate()) && startDate.before(reservation.getEndDate())) || (endDate.before(reservation.getEndDate()) && endDate.after(reservation.getStartDate()))))
                                 {
                                    numberOfRoomsAvailable--;
-
+                                   // System.out.print(numberOfRoomsAvailable);
                                    if(numberOfRoomsAvailable <= 0)
                                    {
                                        isAvailable = false;
@@ -151,6 +154,10 @@ public class RoomTypeService implements StartUpFiller {
     }
     public Date convertToDate (LocalDate dateToConvert) {
         return java.sql.Date.valueOf(dateToConvert);
+    }
+
+    public boolean isAvailable(Long index) {
+        return false;
     }
 
    /* public Room bookRoom(Long roomId, String from, int numberOfDays) {
