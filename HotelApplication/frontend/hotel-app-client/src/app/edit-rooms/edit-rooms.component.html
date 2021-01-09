@@ -104,25 +104,25 @@
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===11" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
 
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===1" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===0" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number13" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===2" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===1" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number14" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===3" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===2" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number15" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===4" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===3" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number16" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;" required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===5" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===4" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number17" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===6" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===5" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number18" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===7" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===6" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number19" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===8" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===7" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number20" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===9" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===8" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number21" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
-      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===10" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+      <input *ngIf="confirmed && parameter.typeId===1 && parameter.typeNumber===9" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.number22" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
 
       <input *ngIf="confirmed && parameter.typeId===2 && parameter.typeNumber===0" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
@@ -185,5 +185,5 @@
 </div>
 <br>
 <div class="form-group">
-  <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj parametry</button>
+  <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj pokoje</button>
 </div>

@@ -11,23 +11,23 @@ import java.util.Optional;
 public class ParameterService implements StartUpFiller{
     private final ParameterRepository parameterRepository;
     private final RoomTypeRepository roomTypeRepository;
-    private int columnIntIndex;
-    private int columnDoubleIndex;
-    private int columnStringIndex;
-    private int columnBooleanIndex;
+    private int numberIntIndex;
+    private int numberDoubleIndex;
+    private int numberStringIndex;
+    private int numberBooleanIndex;
     private Type type;
 
     public ParameterService(ParameterRepository parameterRepository, RoomTypeRepository roomTypeRepository) {
         this.parameterRepository = parameterRepository;
         this.roomTypeRepository = roomTypeRepository;
         //int
-        this.columnIntIndex = 0;
+        this.numberIntIndex = 0;
         //double
-        this.columnDoubleIndex = 0;
+        this.numberDoubleIndex = 0;
         //string
-        this.columnStringIndex = 0;
+        this.numberStringIndex = 0;
         //boolean
-        this.columnBooleanIndex = 0;
+        this.numberBooleanIndex = 0;
     }
 
     public Optional<Parameter> findById(Long id) {
@@ -41,7 +41,7 @@ public class ParameterService implements StartUpFiller{
         return parameterRepository.save(parameter);
     }
 
-    public void createColumn(Type type)
+    /*public void createColumn(Type type)
     {
         if (type == Type.INT)
         {
@@ -234,34 +234,38 @@ public class ParameterService implements StartUpFiller{
             }
             this.columnBooleanIndex++;
         }
-    }
+    }*/
     public Parameter save(Parameter parameter) {
 
         if(parameter.getTypeId() == 0)
         {
             type = Type.INT;
-            parameter.setTypeNumber((long) columnIntIndex);
+            parameter.setTypeNumber((long) numberIntIndex);
+            numberIntIndex++;
         }
 
         else if(parameter.getTypeId() == 1)
         {
             type = Type.DOUBLE;
-            parameter.setTypeNumber((long) columnDoubleIndex);
+            parameter.setTypeNumber((long) numberDoubleIndex);
+            numberDoubleIndex++;
         }
 
         else if(parameter.getTypeId() == 2)
         {
             type = Type.STRING;
-            parameter.setTypeNumber((long) columnStringIndex);
+            parameter.setTypeNumber((long) numberStringIndex);
+            numberStringIndex++;
         }
 
         else
         {
             type = Type.BOOLEAN;
-            parameter.setTypeNumber((long) columnBooleanIndex);
+            parameter.setTypeNumber((long) numberBooleanIndex);
+            numberBooleanIndex++;
         }
 
-        createColumn(type);
+        // createColumn(type);
 
         return parameterRepository.save(parameter);
     }
@@ -483,47 +487,52 @@ public class ParameterService implements StartUpFiller{
             numberOfRoomsAvailable.setType("number");
             numberOfRoomsAvailable.setTypeId((long) 0);
             numberOfRoomsAvailable.setModifiable(false);
-            numberOfRoomsAvailable.setTypeNumber((long) columnIntIndex);
-            parameterRepository.save(numberOfRoomsAvailable);
+            // numberOfRoomsAvailable.setTypeNumber((long) numberIntIndex);
+            // parameterRepository.save(numberOfRoomsAvailable);
             type = Type.INT;
-            createColumn(type);;
+            // createColumn(type);;
+            save(numberOfRoomsAvailable);
 
             Parameter numberOfBeds = new Parameter();
             numberOfBeds.setName("liczba łóżek");
             numberOfBeds.setType("number");
             numberOfBeds.setTypeId((long) 0);
             numberOfBeds.setModifiable(false);
-            numberOfBeds.setTypeNumber((long) columnIntIndex);
-            parameterRepository.save(numberOfBeds);
-            createColumn(type);
+            //   numberOfBeds.setTypeNumber((long) numberIntIndex);
+            //  parameterRepository.save(numberOfBeds);
+            // createColumn(type);
+            save(numberOfBeds);
 
             Parameter checkInTime = new Parameter();
             checkInTime.setName("godzina rozpoczęcia doby hotelowej");
             checkInTime.setType("number");
             checkInTime.setTypeId((long) 0);
             checkInTime.setModifiable(false);
-            checkInTime.setTypeNumber((long) columnIntIndex);
-            parameterRepository.save(checkInTime);
-            createColumn(type);
+            //  checkInTime.setTypeNumber((long) numberIntIndex);
+            //   parameterRepository.save(checkInTime);
+            // createColumn(type);
+            save(checkInTime);
 
             Parameter checkOutTime = new Parameter();
             checkOutTime.setName("godzina zakończenia doby hotelowej");
             checkOutTime.setType("number");
             checkOutTime.setTypeId((long) 0);
             checkOutTime.setModifiable(false);
-            checkOutTime.setTypeNumber((long) columnIntIndex);
-            parameterRepository.save(checkOutTime);
-            createColumn(type);
+            //   checkOutTime.setTypeNumber((long) numberIntIndex);
+            //  parameterRepository.save(checkOutTime);
+           //  createColumn(type);
+            save(checkOutTime);
 
             Parameter price = new Parameter();
             price.setName("cena");
             price.setTypeId((long) 1);
             price.setType("double");
             price.setModifiable(false);
-            price.setTypeNumber((long) columnDoubleIndex);
-            parameterRepository.save(price);
+            //  price.setTypeNumber((long) numberDoubleIndex);
+            //  parameterRepository.save(price);
             type = Type.DOUBLE;
-            createColumn(type);
+            // createColumn(type);
+            save(price);
         }
         else
         {
@@ -531,19 +540,19 @@ public class ParameterService implements StartUpFiller{
             {
                 if(parameter.getTypeId() == 0)
                 {
-                    columnIntIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
+                    numberIntIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
                 }
                 else if(parameter.getTypeId() == 1)
                 {
-                    columnDoubleIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                    numberDoubleIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
                 }
                 else if(parameter.getTypeId() == 2)
                 {
-                    columnStringIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                    numberStringIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
                 }
                 else
                 {
-                    columnBooleanIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                    numberBooleanIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
                 }
             }
         }

@@ -66,8 +66,8 @@ public class ReservationService {
 
         Reservation reservation = map(reservationView);
 
-       /* if(reservationView.getRoomNumber() != null)
-            reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomNumber()));*/
+        if(reservationView.getRoomTypeId() != null)
+            reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomTypeId()));
 
         if(reservationView.getUserId() != null)
             reservation.setUser(userRepository.getById(reservationView.getUserId()));
@@ -103,7 +103,7 @@ public class ReservationService {
         reservationView.setUserId(reservation.getUser().getId());
         reservationView.setPrice(reservation.getPrice());
         if(reservation.getRoom()!= null)
-            reservationView.setRoomNumber(reservation.getRoom().getId());
+            reservationView.setRoomTypeId(reservation.getRoom().getId());
         return reservationView;
     }
 }

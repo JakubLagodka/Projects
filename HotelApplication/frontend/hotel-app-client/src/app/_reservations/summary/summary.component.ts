@@ -16,6 +16,7 @@ import {AppComponent} from '../../app.component';
 export class SummaryComponent implements OnInit {
  reservation: Reservation = new Reservation();
  hotelNight;
+ parameters$;
   constructor(@Inject(AppComponent) private parent: AppComponent,
               public reservationService: ReservationService,
               private router: Router,
@@ -51,12 +52,12 @@ export class SummaryComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    if (this.calendarService.rooms$)
+   /* if (this.calendarService.rooms$)
     {
     this.reservation.startDate = this.calendarService.startDate;
     this.reservation.endDate = this.calendarService.endDate;
     this.reservation.numberOfDays = this.calendarService.differenceInDays;
-    this.reservation.roomNumber = this.calendarService.chosenRooms[0].id;
+    this.reservation.roomTypeId = this.calendarService.chosenRooms[0].id;
     this.reservation.userId = this.authenticationService.currentUserValue.id;
     this.reservation.price = this.calendarService.chosenRooms[0].priceForOneDay * this.reservation.numberOfDays;
 
@@ -68,12 +69,43 @@ export class SummaryComponent implements OnInit {
       }, 5000);
       this.parent.lostData = true;
       this.router.navigate(['']);
-    }
-
+    }*/
+    // console.log('summary');
+    this.reservation.startDate = this.calendarService.startDate;
+    this.reservation.endDate = this.calendarService.endDate;
+    this.reservation.numberOfDays = this.calendarService.differenceInDays;
+    this.reservation.roomTypeId = this.calendarService.room.id;
+    this.reservation.userId = this.authenticationService.currentUserValue.id;
+    this.reservation.price = this.calendarService.room.number13 * this.reservation.numberOfDays;
   }
+
 dismiss()
 {
   this.router.navigate(['/choosing-storey']);
 }
 
+  book() {
+
+    this.reservationService.addReservation(this.reservation).pipe(take(1)).subscribe(x => {
+    });
+    setTimeout(() => {
+      if (this.reservationService.status !== null)
+      {
+        setTimeout(() => {
+          this.parent.reservationNotCreated = false;
+        }, 5000);
+        this.parent.reservationNotCreated = true;
+        this.reservationService.status = null;
+      }
+      else
+      {
+        setTimeout(() => {
+          this.parent.createdNewReservation = false;
+        }, 5000);
+        this.parent.createdNewReservation = true;
+        this.parent.sidenav.open();
+        this.router.navigate(['']);
+      }
+    }, 50);
+  }
 }

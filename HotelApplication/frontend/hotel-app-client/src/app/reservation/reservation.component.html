@@ -353,7 +353,7 @@ Dobierz dla siebie odpowiedni pokój:
     <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{data.boolean1}}</td></tr>
     <tr *ngFor="let parameter of parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{data.boolean2}}</td></tr>
 
-    <tr><td>Cena rezerwacji</td><td>{{data.number13}}</td></tr>
+    <tr><td>Cena rezerwacji</td><td>{{ this.data.number13 * this.reservation.numberOfDays}}</td></tr>
     </tbody>
   </table>
   <div class="modal-footer col-md-7 col-12 mt-5 text-center">

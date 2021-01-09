@@ -1,11 +1,12 @@
 import {ChangeDetectionStrategy, Component, HostBinding, Inject, Input, OnInit, Output} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {TranslatorService} from '../_services/translator.service';
 import {Parameter} from '../_models/parameter';
 import {ParametersService} from '../_services/parameters.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {AppComponent} from '../app.component';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-parameters',
@@ -17,6 +18,8 @@ export class EditParametersComponent implements OnInit {
   parameter: Parameter = new Parameter();
   parameters$: Observable<Parameter[]>;
   confirmed = false;
+  parameterTypes = [0,1,2,3];
+  parameterTypeControl = new FormControl('', Validators.required);
   constructor(public parametersService: ParametersService,
               public translatorService: TranslatorService,
               public dialog: MatDialog,
@@ -25,27 +28,43 @@ export class EditParametersComponent implements OnInit {
 
   ngOnInit(): void {
     this.parameters$ = this.parametersService.getParameters();
-
   }
   add(parameter: Parameter)
   {
     parameter.modifiable = true;
 
-    if (parameter.type === 'number')
+    if (this.parameterTypeControl.value === 0)
+    {
       parameter.typeId = 0;
-    else  if (parameter.type === 'double')
+      parameter.type = 'number';
+    }
+
+    else  if (this.parameterTypeControl.value === 1)
+    {
+      parameter.type = 'double';
       parameter.typeId = 1;
-    else  if (parameter.type === 'string')
-      parameter.typeId = 2;
+    }
+
+    else  if (this.parameterTypeControl.value === 2)
+  {
+    parameter.type = 'string';
+    parameter.typeId = 2;
+  }
+
     else
+    {
+      parameter.type = 'boolean';
       parameter.typeId = 3;
+    }
+
+
     this.parametersService.addParameter(parameter);
 
     this.parameters$ = this.parametersService.getParameters();
     setTimeout(() => {
       this.parameters$ = this.parametersService.getParameters();
       this.router.navigate(['/edit-parameters']);
-    }, 5);
+    }, 50);
   }
 
   update(parameter: Parameter)
@@ -56,7 +75,7 @@ export class EditParametersComponent implements OnInit {
     setTimeout(() => {
       this.parameters$ = this.parametersService.getParameters();
       this.router.navigate(['/edit-parameters']);
-    }, 5);
+    }, 50);
   }
 
   delete(parameter: Parameter)

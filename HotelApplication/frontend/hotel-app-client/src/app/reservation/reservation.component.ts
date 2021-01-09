@@ -34,7 +34,7 @@ export class ReservationComponent implements OnInit {
               public parametersService: ParametersService,
               public translatorService: TranslatorService,
               private reservationService: ReservationService) {}
-              private roomNumber = 0;
+              private roomTypeId = 0;
   private index = 0;
   private forIndex = 0;
   private forRoomIndex = 0;
@@ -82,6 +82,7 @@ export class ReservationComponent implements OnInit {
       this.router.navigate(['/register']);
     }
     this.parameters$ = this.parametersService.getParameters();
+    this.calendarService.parameters$ = this.parametersService.getParameters();
     // this.rooms$ = this.roomService.getRooms();
    //  this.reservations$ = this.reservationService.getReservations();
     if (this.calendarService.rooms$)
@@ -443,46 +444,46 @@ export class ReservationComponent implements OnInit {
   {
    // this.calendarService.chosenNumberOfBeds = this.numberOfBedsControl.value;
     this.submitted =  true;
-    this.data.number1 = this.numberOfBedsControl.value;
+    this.calendarService.room.number1 = this.numberOfBedsControl.value;
     for (this.forRoomIndex2; this.forRoomIndex2 < this.roomParameterIndex.length; this.forRoomIndex2++)
    {
      if (this.roomParameterIndex[this.forRoomIndex2] === 0)
      {
        if ( this.numberIndex === 0) {
-         this.data.number5 = this.controlParameterInt.value;
+         this.calendarService.room.number5 = this.controlParameterInt.value;
        }
        else {
-         this.data.number6 = this.controlParameterInt2.value;
+         this.calendarService.room.number6 = this.controlParameterInt2.value;
        }
        this.numberIndex++;
      }
      else if (this.roomParameterIndex[this.forRoomIndex2] === 1)
      {
        if ( this.doubleIndex === 0) {
-         this.data.number5 = this.controlParameterDouble.value;
+         this.calendarService.room.number5 = this.controlParameterDouble.value;
        }
        else {
-         this.data.number6 = this.controlParameterDouble2.value;
+         this.calendarService.room.number6 = this.controlParameterDouble2.value;
        }
        this.doubleIndex++;
      }
      else if (this.roomParameterIndex[this.forRoomIndex2] === 2)
      {
        if ( this.stringIndex === 0) {
-         this.data.number5 = this.controlParameterString.value;
+         this.calendarService.room.number5 = this.controlParameterString.value;
        }
        else {
-         this.data.number6 = this.controlParameterString2.value;
+         this.calendarService.room.number6 = this.controlParameterString2.value;
        }
        this.stringIndex++;
      }
      else
      {
        if ( this.booleanIndex === 0) {
-         this.data.boolean1 = this.controlParameterBoolean.value;
+         this.calendarService.room.boolean1 = this.controlParameterBoolean.value;
        }
        else {
-         this.data.boolean2 = this.controlParameterBoolean2.value;
+         this.calendarService.room.boolean2 = this.controlParameterBoolean2.value;
        }
        this.booleanIndex++;
      }
@@ -494,19 +495,19 @@ export class ReservationComponent implements OnInit {
          break;
        }
 
-       if (room[this.forRoomIndex].number1 ===  this.data.number1)
+       if (room[this.forRoomIndex].number1 ===  this.calendarService.room.number1)
        {
-         this.data.number2 = room[this.forRoomIndex].number2;
-         this.data.number3 = room[this.forRoomIndex].number3;
-         this.data.number4 = room[this.forRoomIndex].number4;
-         this.data.number13 = room[this.forRoomIndex].number13;
-         this.roomNumber = room[this.forRoomIndex].id;
+         this.calendarService.room.number2 = room[this.forRoomIndex].number2;
+         this.calendarService.room.number3 = room[this.forRoomIndex].number3;
+         this.calendarService.room.number4 = room[this.forRoomIndex].number4;
+         this.calendarService.room.number13 = room[this.forRoomIndex].number13;
+         this.calendarService.room.id = room[this.forRoomIndex].id;
          break;
        }
      }
     });
 
-
+    this.router.navigate(['/summary']);
   }
 
   dismiss()
@@ -516,12 +517,12 @@ export class ReservationComponent implements OnInit {
   }
 
   book() {
-    this.reservation.startDate = this.calendarService.startDate;
+    /*this.reservation.startDate = this.calendarService.startDate;
     this.reservation.endDate = this.calendarService.endDate;
     this.reservation.numberOfDays = this.calendarService.differenceInDays;
-    this.reservation.roomNumber = this.roomNumber;
+    this.reservation.roomTypeId = this.roomTypeId;
     this.reservation.userId = this.authenticationService.currentUserValue.id;
-    this.reservation.price = this.data.number5 * this.reservation.numberOfDays;
+    this.reservation.price = this.calendarService.room.number13 * this.reservation.numberOfDays;
     this.reservationService.addReservation(this.reservation).pipe(take(1)).subscribe(x => {
     });
     setTimeout(() => {
@@ -542,6 +543,8 @@ export class ReservationComponent implements OnInit {
         this.parent.sidenav.open();
         this.router.navigate(['']);
       }
-    }, 50);
+    }, 50);*/
+
   }
+
 }

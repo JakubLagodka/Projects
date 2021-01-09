@@ -2,13 +2,14 @@ import {Injectable, Output, EventEmitter, OnInit} from '@angular/core';
 import {RoomService} from './room.service';
 import {Observable} from 'rxjs';
 import {Data} from '../_models/data';
+import {ParametersService} from './parameters.service';
 
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class CalendarService {
+export class CalendarService implements OnInit{
   private returned: string;
    differenceInDays;
   rooms$: Observable<Data[]>;
@@ -20,11 +21,17 @@ export class CalendarService {
   public chosenStorey;
   public chosenRooms;
   public hotelNight = null;
+  public room = new Data();
   differenceInTime;
   startDate;
   endDate;
-  constructor(  public roomService: RoomService) {}
+  parameters$;
+  constructor(  public roomService: RoomService,
+                public parametersService: ParametersService) {}
 
+ngOnInit() {
+  this.parameters$ = this.parametersService.getParameters();
+}
 
   takeDates(startDate, endDate)
   {
