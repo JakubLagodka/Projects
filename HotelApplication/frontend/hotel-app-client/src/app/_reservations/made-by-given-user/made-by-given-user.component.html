@@ -13,7 +13,7 @@
           {{reservation.endDate.substr(0,4)}}
         do godziny {{ translatorService.fixUnproperHour(reservation.endDate.substr(11,2))}}</td><td>
           <button class="btn btn-sm btn-success" (click)="pay(reservation)">Opłać rezerwację </button></td>
-        <tr style="background-color: burlywood"><td>Cena rezerwacji</td><td>{{this.reservation.price}} złotych</td><td>
+        <tr style="background-color: burlywood"><td>Cena rezerwacji</td><td>{{this.reservation.price.toFixed(2)}} złotych</td><td>
           <button class="btn btn-sm btn-danger" (click)="delete(reservation)"> Usuń rezerwację  </button> </td></tr>
         </tbody>
         </table>

@@ -36,13 +36,13 @@ public class RoomTypeController {
     }*/
 
     @GetMapping("/is_available")
-    public boolean isRoomAvailable(@RequestParam Long index){
-        return roomTypeService.isAvailable(index);
+    public boolean isRoomAvailable(@RequestParam Long id){
+        return roomTypeService.isAvailable(id);
     }
 
     @GetMapping
-    public Optional<RoomType> getByRoomId(@RequestParam Long index){
-        return roomTypeService.findById(index);
+    public Optional<RoomType> getByRoomId(@RequestParam Long id){
+        return roomTypeService.findById(id);
     }
 
     @ResponseStatus(value = HttpStatus.CREATED)

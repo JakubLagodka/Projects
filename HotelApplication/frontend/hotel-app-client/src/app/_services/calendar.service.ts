@@ -37,11 +37,11 @@ ngOnInit() {
   {
 
     this.rooms$ = null;
-    // startDate.setHours(this.hotelNight[0].checkInTime);
+    startDate.setHours(14);
     if (startDate.getDate() === endDate.getDate()) {
     endDate.setDate(endDate.getDate() + 1 );
     }
-    // endDate.setHours(this.hotelNight[0].checkOutTime);
+    endDate.setHours(12);
     this.differenceInTime = endDate.getTime() - startDate.getTime();
     this.differenceInDays = Math.ceil(this.differenceInTime / (1000 * 24 * 60 * 60));
     this.rooms$ = this.roomService.getAvailableRooms(this.convertToString(startDate), this.convertToString(endDate));

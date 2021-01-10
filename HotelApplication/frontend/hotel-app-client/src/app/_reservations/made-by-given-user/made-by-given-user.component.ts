@@ -19,7 +19,6 @@ export class MadeByGivenUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.reservations$ = this.reservationService.getReservationsByUserId(this.parent.authenticationService.currentUserValue.id);
-
   }
   pay(reservation: Reservation)
   {

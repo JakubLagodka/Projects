@@ -10,7 +10,7 @@
 
         <th style="width: 8%;border: 1px solid black;">Modyfikowalny</th>
 
-        <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Edytuj parametr</th>
+        <!-- <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Edytuj parametr</th>!-->
 
         <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Usuń parametr</th>
 
@@ -19,23 +19,23 @@
 
         <td style="width: 8%;border: 1px solid black;">{{ parameter.name}}</td>
 
-        <td style="width: 8%;border: 1px solid black;"> {{parameter.type}}</td>
+        <td style="width: 8%;border: 1px solid black;"> {{this.translatorService.translateTypeToPolish(parameter.type)}}</td>
 
-        <td style="width: 8%;border: 1px solid #000000;"> {{parameter.modifiable}}</td>
+        <td style="width: 8%;border: 1px solid #000000;"> {{this.translatorService.translateBoolToPolish(parameter.modifiable)}}</td>
 
-        <td *ngIf="confirmed"  style="width: 8%;border: 1px solid black;">
-          <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" (click)="delete(parameter)">Edytuj </button></td>
+        <!--<td *ngIf="confirmed"  style="width: 8%;border: 1px solid black;">
+          <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" (click)="delete(parameter)">Edytuj parametr </button></td>!-->
         <td *ngIf="confirmed" style="width: 8%;border: 1px solid black;">
-          <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-info" (click)="delete(parameter)">Usuń</button></td>
+          <button *ngIf="confirmed && parameter.modifiable" class="btn btn-sm btn-danger" (click)="delete(parameter)">Usuń parametr </button></td>
       </tr>
     </table>
 
-  <input *ngIf="confirmed" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="name"
+  <input *ngIf="confirmed" type="text" class="form-control col-md-20 col-4 offset-md-4 mt-5 text-center" id="name"
          [(ngModel)]="parameter.name" placeholder="nazwa parametru" name="name" style="float: left" required>
   <!--<input *ngIf="confirmed" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="type"
          [(ngModel)]="parameter.type" placeholder="typ parametru" name="type" style="float: left" required>!-->
 
-  <mat-form-field  *ngIf="confirmed" class="example col-md-7 col-12 mt-5 text-center"  >
+  <mat-form-field  *ngIf="confirmed" class="example col-md-20 col-4 offset-md-4 mt-5  text-center"  >
     <mat-label>Wybierz typ parametru</mat-label>
     <mat-select [formControl]="parameterTypeControl" required>
       <mat-option>--</mat-option>
@@ -47,7 +47,8 @@
     <mat-hint>{{parameterTypeControl.value}}</mat-hint>
   </mat-form-field>
 </div>
-  <button style="margin: 0pt  60pt;" *ngIf="confirmed" class="btn btn-sm btn-info" (click)="add(parameter)">Dodaj parametr</button>
+<br>
+  <button style="margin: 0pt  60pt;" *ngIf="confirmed" class="btn btn-sm btn-success" (click)="add(parameter)">Dodaj parametr</button>
 
 
 <div class="form-group">

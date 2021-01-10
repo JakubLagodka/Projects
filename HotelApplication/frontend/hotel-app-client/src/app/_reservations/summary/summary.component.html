@@ -55,7 +55,7 @@
     <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{calendarService.room.boolean1}}</td></tr>
     <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{calendarService.room.boolean2}}</td></tr>
 
-    <tr><td>Cena rezerwacji</td><td>{{this.reservation.price }}</td></tr>
+    <tr><td>Cena rezerwacji</td><td>{{this.reservation.price.toFixed(2) }} złotych</td></tr>
     </tbody>
   </table>
   <div class="modal-footer col-md-7 col-12 mt-5 text-center">

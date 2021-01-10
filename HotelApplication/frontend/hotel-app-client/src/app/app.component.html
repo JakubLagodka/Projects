@@ -45,7 +45,7 @@
 
       <div class="col-md-4 col-12 offset-md-4 mt-1 text-center">
         <div class="navbar-brand"  *ngIf="!authenticationService.isUserLoggedIn">Witaj na stronie hotelowej! Nie jesteś zalogowany - zaloguj się!</div>
-        <div class="navbar-brand"  *ngIf="authenticationService.isUserLoggedIn">Zalogowano jako {{loggedUser.name}} {{loggedUser.surname}},  {{loggedUser.roleCode}}</div>
+        <div class="navbar-brand"  *ngIf="authenticationService.isUserLoggedIn">Zalogowano jako {{loggedUser.name}} {{loggedUser.surname}} <!--strator!--> </div>
 
         <ul class="navbar-nav ml-auto">
           <div class="navbar-brand"></div>
@@ -123,8 +123,6 @@
 
     <div class="container " class="my-5 text-center text-green py-3"style="background-color: #ffe4c4">
       <router-outlet></router-outlet>
-<br>
-      <app-greeting></app-greeting>
 
       <br><br><br><br><br><br><br><br><br><br><br><br>
       </div>

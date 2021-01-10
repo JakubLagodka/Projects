@@ -41,8 +41,8 @@ export class RoomService  {
   bookRoom(roomId: number, from: string, numberOfDays: number): Observable<Room> {
     return this.http.get<Room>(`${environment.apiUrl}/room/booking?roomId=` + roomId + `&from=` + from + `&numberOfDays=` + numberOfDays).pipe(shareReplay());
   }
-  getRoomsById(objectId: number): Observable< Room[]> {
-    return this.http.get< Room[]>(`${environment.apiUrl}/room?id=` + objectId);
+  getRoomById(objectId: number): Observable< Data[]> {
+    return this.http.get< Data[]>(`${environment.apiUrl}/room?id=` + objectId);
   }
 
   /*addRoom(room: Data): Observable< Data> {
