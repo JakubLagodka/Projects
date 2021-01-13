@@ -4,8 +4,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.models.User;
-import pl.polsl.hotel.repositories.UserRepository;
+import pl.polsl.hotel.model.User;
+import pl.polsl.hotel.repository.UserRepository;
 
 import java.util.ArrayList;
 

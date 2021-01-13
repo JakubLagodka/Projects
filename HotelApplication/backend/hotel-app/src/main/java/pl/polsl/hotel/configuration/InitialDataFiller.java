@@ -3,7 +3,7 @@ package pl.polsl.hotel.configuration;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Configuration;
-import pl.polsl.hotel.services.*;
+import pl.polsl.hotel.service.*;
 
 import java.util.Arrays;
 import java.util.LinkedList;

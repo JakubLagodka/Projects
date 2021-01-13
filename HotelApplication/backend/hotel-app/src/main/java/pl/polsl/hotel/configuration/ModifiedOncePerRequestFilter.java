@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import pl.polsl.hotel.services.AuthenticationTokenService;
+import pl.polsl.hotel.service.AuthenticationTokenService;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
