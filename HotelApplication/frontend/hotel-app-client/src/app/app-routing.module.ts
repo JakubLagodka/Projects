@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './_authentication/auth.guard';
-import { AdminGuard } from './_authentication/admin.guard';
-import { ReceptionGuard } from './_authentication/reception.guard';
-import { ClientGuard } from './_authentication/client.guard';
-import { MainGuard } from './_authentication/main.guard';
+import { AuthGuard } from './_guards/auth.guard';
+import { AdminGuard } from './_guards/admin.guard';
+import { ReceptionGuard } from './_guards/reception.guard';
+import { ClientGuard } from './_guards/client.guard';
+import { MainGuard } from './_guards/main.guard';
 import {ReservationComponent} from './reservation/reservation.component';
 import {ChoosingCloseToElevatorComponent} from './_reservations/choosing-close-to-elevator/choosing-close-to-elevator.component';
 import {RegisterComponent} from './register/register.component';

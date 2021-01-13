@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import pl.polsl.hotel.configuration.ModifiedUserDetailsService;
 import pl.polsl.hotel.exceptions.NotAuthorizedException;
 import pl.polsl.hotel.models.Token;
 import pl.polsl.hotel.models.User;

@@ -3,12 +3,12 @@ package pl.polsl.hotel.services;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
+import pl.polsl.hotel.configuration.StartUpFiller;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.ReservationRepository;
 import pl.polsl.hotel.repositories.RoomTypeRepository;
 
 
-import java.io.Console;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;

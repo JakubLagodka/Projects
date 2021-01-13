@@ -3,6 +3,7 @@ package pl.polsl.hotel.services;
 import org.springframework.lang.Nullable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import pl.polsl.hotel.configuration.StartUpFiller;
 import pl.polsl.hotel.exceptions.ForbiddenAccessException;
 import pl.polsl.hotel.exceptions.NotImplementedException;
 import pl.polsl.hotel.exceptions.UsernameAlreadyUsedException;

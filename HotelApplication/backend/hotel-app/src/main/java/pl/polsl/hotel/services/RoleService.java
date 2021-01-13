@@ -1,6 +1,7 @@
 package pl.polsl.hotel.services;
 
 import org.springframework.stereotype.Component;
+import pl.polsl.hotel.configuration.StartUpFiller;
 import pl.polsl.hotel.models.*;
 import pl.polsl.hotel.repositories.RoleRepository;
 

@@ -9,7 +9,6 @@ import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.models.User;
 import pl.polsl.hotel.models.UserView;
 import pl.polsl.hotel.repositories.UserRepository;
-import pl.polsl.hotel.services.MailService;
 import pl.polsl.hotel.services.ReservationService;
 import pl.polsl.hotel.services.UserService;
 import springfox.documentation.annotations.ApiIgnore;

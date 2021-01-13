@@ -16,9 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import pl.polsl.hotel.services.ModifiedAuthenticationEntryPoint;
-import pl.polsl.hotel.services.ModifiedOncePerRequestFilter;
-import pl.polsl.hotel.services.ModifiedUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
