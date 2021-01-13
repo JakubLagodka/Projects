@@ -1,20 +1,20 @@
 import {Component, Input, OnInit, Output, EventEmitter, Inject} from '@angular/core';
-import {Reservation} from '../_models/reservation';
+import {Reservation} from '../../_models/reservation';
 import {from, observable, Observable, of} from 'rxjs';
 
-import {Room} from '../_models/room';
+import {Room} from '../../_models/room';
 
 import {FormControl, Validators} from '@angular/forms';
 import {distinct, filter, mergeMap, take, toArray} from 'rxjs/operators';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../_services/authentication.service';
-import {CalendarService} from '../_services/calendar.service';
-import {AppComponent} from '../app.component';
-import {ParametersService} from '../_services/parameters.service';
-import {Parameter} from '../_models/parameter';
-import {Data} from '../_models/data';
-import {TranslatorService} from '../_services/translator.service';
-import {ReservationService} from '../_services/reservation.service';
+import {AuthenticationService} from '../../_services/authentication.service';
+import {CalendarService} from '../../_services/calendar.service';
+import {AppComponent} from '../../app.component';
+import {ParametersService} from '../../_services/parameters.service';
+import {Parameter} from '../../_models/parameter';
+import {Data} from '../../_models/data';
+import {TranslatorService} from '../../_services/translator.service';
+import {ReservationService} from '../../_services/reservation.service';
 
 @Component({
   selector: 'app-reservation',

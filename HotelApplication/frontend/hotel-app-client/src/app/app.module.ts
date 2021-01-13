@@ -15,19 +15,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { GreetingComponent } from './greeting/greeting.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationComponent } from './_reservations/reservation/reservation.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RegisterComponent } from './register/register.component';
 import {MatSelectModule} from '@angular/material/select';
-import { ChoosingCloseToElevatorComponent } from './_reservations/choosing-close-to-elevator/choosing-close-to-elevator.component';
-import { ChosingBalconyComponent } from './_reservations/chosing-balcony/chosing-balcony.component';
-import { ChosingBeatifulViewFromWindowsComponent } from './_reservations/chosing-beatiful-view-from-windows/chosing-beatiful-view-from-windows.component';
-import { ChoosingPillowTypeComponent } from './_reservations/choosing-pillow-type/choosing-pillow-type.component';
-import { ChoosingStoreyComponent } from './_reservations/choosing-storey/choosing-storey.component';
 import { SummaryComponent } from './_reservations/summary/summary.component';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { MadeByGivenUserComponent } from './_reservations/made-by-given-user/made-by-given-user.component';
 import { EditParametersComponent } from './edit-parameters/edit-parameters.component';
 import { AdministrationPanelComponent } from './administration-panel/administration-panel.component';
@@ -45,13 +39,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
     CalendarComponent,
     ReservationComponent,
     RegisterComponent,
-    ChoosingCloseToElevatorComponent,
-    ChosingBalconyComponent,
-    ChosingBeatifulViewFromWindowsComponent,
-    ChoosingPillowTypeComponent,
-    ChoosingStoreyComponent,
     SummaryComponent,
-    UnauthorizedComponent,
     MadeByGivenUserComponent,
     EditParametersComponent,
     AdministrationPanelComponent,
