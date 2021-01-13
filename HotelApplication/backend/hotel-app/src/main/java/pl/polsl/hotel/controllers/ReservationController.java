@@ -7,9 +7,12 @@ import pl.polsl.hotel.models.Reservation;
 
 import pl.polsl.hotel.models.ReservationView;
 import pl.polsl.hotel.models.User;
+import pl.polsl.hotel.models.UserView;
 import pl.polsl.hotel.repositories.UserRepository;
 import pl.polsl.hotel.services.MailService;
 import pl.polsl.hotel.services.ReservationService;
+import pl.polsl.hotel.services.UserService;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.mail.MessagingException;
 import java.util.List;
@@ -22,11 +25,11 @@ public class ReservationController {
     private final ReservationService reservationService;
     private final UserRepository userRepository;
 
-    private final MailService mailService;
+  //  private final MailService mailService;
 
-    public ReservationController(ReservationService reservationService, MailService mailService, UserRepository userRepository) {
+    public ReservationController(ReservationService reservationService, /*MailService mailService,*/ UserRepository userRepository) {
         this.reservationService = reservationService;
-        this.mailService = mailService;
+       // this.mailService = mailService;
         this.userRepository = userRepository;
     }
 

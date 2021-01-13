@@ -27,7 +27,7 @@ public class ModifiedOncePerRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
-        /*try {
+        try {
             response.setHeader("Access-Control-Allow-Origin", "*");
             response.setHeader("Access-Control-Allow-Headers", "*");
             response.setHeader("Access-Control-Allow-Methods", "*");
@@ -44,6 +44,6 @@ public class ModifiedOncePerRequestFilter extends OncePerRequestFilter {
         } catch (Exception e) {
             System.out.println("Token filter exception = " + e.getClass().getName() + " - " + e.getMessage());
         }
-        chain.doFilter(request, response);*/
+        chain.doFilter(request, response);
     }
 }

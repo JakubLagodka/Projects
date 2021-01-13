@@ -7,7 +7,7 @@ import pl.polsl.hotel.repositories.RoleRepository;
 import java.util.Arrays;
 
 @Component
-public class RoleService extends MySession implements StartUpFiller {
+public class RoleService implements StartUpFiller {
 
     private final RoleRepository roleRepository;
 
@@ -34,15 +34,15 @@ public class RoleService extends MySession implements StartUpFiller {
             clientRole.setCode("CLI");
             clientRole.setName(Client.class.getSimpleName());
 
-            Role managerRole = new Role();
+           /* Role managerRole = new Role();
             managerRole.setCode("MAN");
-            managerRole.setName(Manager.class.getSimpleName());
+            managerRole.setName(Manager.class.getSimpleName());*/
 
             Role workerRole = new Role();
             workerRole.setCode("WOR");
             workerRole.setName(Worker.class.getSimpleName());
 
-            roleRepository.saveAll(Arrays.asList(adminRole, clientRole, managerRole, workerRole));
+            roleRepository.saveAll(Arrays.asList(adminRole, clientRole, /*managerRole,*/ workerRole));
         }
 
     }

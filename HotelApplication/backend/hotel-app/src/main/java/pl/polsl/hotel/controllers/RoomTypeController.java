@@ -1,5 +1,6 @@
 package pl.polsl.hotel.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import pl.polsl.hotel.models.RoomType;
-import pl.polsl.hotel.models.RoomTypeView;
+
 import pl.polsl.hotel.services.RoomTypeService;
 
 @RestController
@@ -19,8 +20,8 @@ public class RoomTypeController {
         this.roomTypeService = roomTypeService;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<RoomType> getRooms(){
+    @GetMapping("/all")
+    public Iterable<RoomType> getRooms(){
         return roomTypeService.findAll();
     }
 
@@ -29,19 +30,30 @@ public class RoomTypeController {
         return roomTypeService.getRoomsAvailable(startDate, endDate);
     }
 
-    @GetMapping
-    public Optional<RoomType> getByRoomId(@RequestParam Long index){
-        return roomTypeService.findById(index);
+   /* @GetMapping("/booking")
+    public Room bookRoom(@RequestParam Long roomId, @RequestParam String from, @RequestParam int numberOfDays) {
+        return roomService.bookRoom(roomId, from,numberOfDays);
+    }*/
+
+    @GetMapping("/is_available")
+    public boolean isRoomAvailable(@RequestParam Long id){
+        return roomTypeService.isAvailable(id);
     }
 
-    @PostMapping
-    public RoomType addRoom(@RequestParam RoomType room){
-        return roomTypeService.save(room);
+    @GetMapping
+    public Optional<RoomType> getByRoomId(@RequestParam Long id){
+        return roomTypeService.findById(id);
+    }
+
+    @ResponseStatus(value = HttpStatus.CREATED)
+    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RoomType addRoom(@RequestBody RoomType roomType){
+        return roomTypeService.save(roomType);
     }
 
     @PutMapping
-    public RoomType updateRoom(@RequestParam RoomType room){
-        return roomTypeService.save(room);
+    public RoomType updateRoom(@RequestParam RoomType roomType){
+        return roomTypeService.save(roomType);
     }
 
     @DeleteMapping

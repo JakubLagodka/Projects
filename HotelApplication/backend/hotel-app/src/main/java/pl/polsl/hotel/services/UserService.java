@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserService extends MySession implements StartUpFiller {
+public class UserService implements StartUpFiller {
 
     private final UserRepository userRepository;
     private final AuthenticationTokenService authenticationService;
@@ -41,8 +41,8 @@ public class UserService extends MySession implements StartUpFiller {
         if (userPost.getRoleCode() != null)
             user.setRole(roleRepository.getById(userPost.getRoleCode()));
         UserView userView = map(userRepository.save(user));
-       // if (userView.getRoleCode() != null)
-           // userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
+        if (userView.getRoleCode() != null)
+            userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
         return userView;
     }
 
@@ -67,7 +67,7 @@ public class UserService extends MySession implements StartUpFiller {
                 user.setRole(roleRepository.getById(user.getRole().getCode()));
             else
                 user.setRole(null);
-         //   userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
+            userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
 
             return map(userRepository.save(user));
     }
@@ -76,8 +76,8 @@ public class UserService extends MySession implements StartUpFiller {
         if (roleCode == null)
             return User.class.getSimpleName();
         switch (roleCode) {
-            case "MAN":
-                return Manager.class.getSimpleName();
+           /* case "MAN":
+                return Manager.class.getSimpleName();*/
             case "CLI":
                 return Client.class.getSimpleName();
             case "ADM":
@@ -128,14 +128,14 @@ public class UserService extends MySession implements StartUpFiller {
             worker.setRole(roleRepository.getOne("WOR"));
             userRepository.save(worker);
 
-            Manager manager = new Manager();
+           /* Manager manager = new Manager();
             manager.setEmail("menadzer@gmail.com");
             manager.setName("Władysław");
             manager.setSurname("Władczy");
             manager.setUsername("menadzer1");
             manager.setPassword(bCryptPasswordEncoder.encode("menadzer1"));
             manager.setRole(roleRepository.getOne("MAN"));
-            userRepository.save(manager);
+            userRepository.save(manager);*/
         }
     }
     public User map(UserView userView) {

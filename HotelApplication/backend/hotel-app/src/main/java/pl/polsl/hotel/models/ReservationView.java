@@ -13,7 +13,7 @@ public class ReservationView {
     @Nullable
     private Long userId;
     @Nullable
-    private Long roomNumber;
+    private Long roomTypeId;
     @NonNull
     private Date startDate;
     @NonNull
@@ -48,12 +48,12 @@ public class ReservationView {
     }
 
     @Nullable
-    public Long getRoomNumber() {
-        return roomNumber;
+    public Long getRoomTypeId() {
+        return roomTypeId;
     }
 
-    public void setRoomNumber(@Nullable Long roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setRoomTypeId(@Nullable Long roomTypeId) {
+        this.roomTypeId = roomTypeId;
     }
 
     @NonNull
