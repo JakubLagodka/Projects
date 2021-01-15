@@ -32,7 +32,7 @@ public class UserController {
         return userService.getUser(token);
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/all")
     public List<UserView> getUsers() {
         return userService.getUsers();
     }

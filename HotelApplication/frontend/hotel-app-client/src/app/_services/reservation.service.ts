@@ -9,24 +9,26 @@ import {shareReplay, take} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ReservationService {
+  constructor(private http: HttpClient) {
+  }
+
   status = null;
-  constructor( private http: HttpClient) { }
 
-  getReservations(): Observable< Reservation[]> {
-    return this.http.get< Reservation[]>(`${environment.apiUrl}/reservation`);
+  getReservations(): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${environment.apiUrl}/reservation/all`);
   }
 
-  getReservationsById(objectId: number): Observable< Reservation[]> {
-    return this.http.get< Reservation[]>(`${environment.apiUrl}/reservation?id=` + objectId);
+  getReservationsById(objectId: number): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${environment.apiUrl}/reservation?id=` + objectId);
   }
 
-  getReservationsByUserId(userId: number): Observable< Reservation[]> {
-    return this.http.get< Reservation[]>(`${environment.apiUrl}/reservation/given_user?userId=` + userId);
+  getReservationsByUserId(userId: number): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${environment.apiUrl}/reservation/given_user?userId=` + userId);
   }
 
 
-  addReservation(reservation: Reservation): Observable< Reservation> {
-    const returnedReservation = this.http.post< Reservation>(`${environment.apiUrl}/reservation/add`, reservation).pipe(shareReplay());
+  addReservation(reservation: Reservation): Observable<Reservation> {
+    const returnedReservation = this.http.post<Reservation>(`${environment.apiUrl}/reservation/add`, reservation).pipe(shareReplay());
 
     returnedReservation.pipe(take(1)).subscribe(x => {
       },
@@ -41,11 +43,17 @@ export class ReservationService {
 
   deleteReservation(id: number): Observable<Reservation> {
     const returnedReservation = this.http.delete<Reservation>(`${environment.apiUrl}/reservation?id=` + id).pipe(shareReplay());
+    returnedReservation.pipe(take(1)).subscribe(x => {
+      },
+      err => {
+        this.status = err.status;
+      });
     return returnedReservation;
   }
 
-  updateReservation(id: number, reservationPatch: Reservation): Observable< Reservation> {
+
+updateReservation(id: number, reservationPatch: Reservation) : Observable < Reservation > {
     const returnedReservation = this.http.patch<Reservation>(`${environment.apiUrl}/reservation?id=` + id, reservationPatch).pipe(shareReplay());
     return returnedReservation;
-  }
+  };
 }

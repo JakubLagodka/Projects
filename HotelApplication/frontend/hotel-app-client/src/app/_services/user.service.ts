@@ -6,6 +6,7 @@ import {shareReplay, take} from 'rxjs/operators';
 import {User} from '../_models/user';
 
 import {Role} from '../_models/role';
+import {Reservation} from '../_models/reservation';
 
 
 
@@ -29,22 +30,22 @@ status = null;
     private http: HttpClient
   ) {}
 
-  fetchUsers(): Observable<User[]> {
-    if(!this.users && this.workers.value.length === 0 && this.clients.value.length === 0 && this.managers.value.length === 0) {
+  getUsers(): Observable<User[]> {
+    // if(!this.users && this.workers.value.length === 0 && this.clients.value.length === 0 && this.managers.value.length === 0) {
       /*this.users = this.http.get<User[]>(`${environment.apiUrl}/user`).pipe(
         shareReplay()
       );*/
-      this.users = this.http.get<User[]>('${environment.apiUrl}/user');
+      return this.http.get<User[]>( `${environment.apiUrl}/user/all`);
 
-      this.users.subscribe(x => {
+     /* this.users.subscribe(x => {
         this.workers.next(x.filter(y => y.roleCode === 'WOR'));
         this.clients.next(x.filter(y => y.roleCode === 'CLI'));
       //  this.managers.next(x.filter(y => y.roleCode === 'MAN'));
 
-      });
-    }
+      });*/
+  //  }
 
-    return this.users;
+   //  return this.users;
   }
 
   private placeUserInArray(user: User) {
@@ -152,6 +153,7 @@ status = null;
     return this.clients;*/
     return this.clients$;
   }
+
 
   /*getManagers(): Observable<User[]> {
     if(!this.managers)

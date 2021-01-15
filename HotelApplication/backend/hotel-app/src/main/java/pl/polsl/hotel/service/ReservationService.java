@@ -14,6 +14,7 @@ import pl.polsl.hotel.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class ReservationService {
@@ -47,9 +48,9 @@ public class ReservationService {
         return reservationsFromCurrentUser;
     }
 
-    public Iterable<Reservation> findAll() {
-        return reservationRepository.findAll();
-
+    public List<ReservationView> findAll() {
+        List<Reservation> reservations =  reservationRepository.findAll();
+        return reservations.stream().map(this::map).collect(Collectors.toList());
     }
 
     public ReservationView updateReservation(Long reservationId, ReservationView reservationView) {

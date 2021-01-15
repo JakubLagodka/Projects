@@ -8,6 +8,7 @@ import {take} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../_services/authentication.service';
 import {AppComponent} from '../app.component';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,9 @@ export class RegisterComponent implements OnInit {
    roles$: Observable<Role[]>;
   userPost: User = new User();
   returnUrl: string;
-
+  admin = false;
+  userTypeControl = new FormControl('', Validators.required);
+  userTypes = [ 'recepcjonista', 'klient'];
   constructor(@Inject(AppComponent) private parent: AppComponent,
     // public modal: NgbActiveModal,
     private userService: UserService,
@@ -67,6 +70,9 @@ export class RegisterComponent implements OnInit {
 dismiss(){}
   ngOnInit(): void {
     // this.roles$ = this.userService.getRoles();
+    if(this.authenticationService.currentUserValue.roleCode === 'ADM')
+      this.admin = true;
+
     this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '';
   }
 

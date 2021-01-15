@@ -30,6 +30,7 @@ import { ClientPanelComponent } from './client-panel/client-panel.component';
 import { EditParametersDialogComponent } from './edit-parameters/edit-parameters.component';
 import {EditRoomsComponent, EditRoomsDialogComponent} from './edit-rooms/edit-rooms.component';
 import { UserManagementComponent } from './user-management/user-management.component';
+import { OccupacyPreviewComponent } from './_reservations/occupacy-preview/occupacy-preview.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UserManagementComponent } from './user-management/user-management.compo
     EditParametersDialogComponent,
     EditRoomsDialogComponent,
     EditRoomsComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    OccupacyPreviewComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,8 @@ public class RoomTypeService implements StartUpFiller {
     private Date startDate;
     private LocalDate endLocalDate;
     private Date endDate;
+    int numberOfRoomsAvailable;
+    boolean isAvailable;
     @Autowired
     public RoomTypeService(RoomTypeRepository roomTypeRepository, ReservationRepository reservationRepository) {
         this.roomTypeRepository = roomTypeRepository;
@@ -39,12 +41,10 @@ public class RoomTypeService implements StartUpFiller {
         return roomTypeRepository.findAll();
 
     }
-
-    public List<RoomType> getRoomsAvailable(String start, String end) {
+    private void convertDates(String start, String end)
+    {
         roomsAvailable.clear();
-        int index = 0;
-        int numberOfRoomsAvailable;
-        boolean isAvailable = true;
+
         startLocalDate = LocalDate.parse(start);
         startDate = convertToDate(startLocalDate);
         Calendar startCal = Calendar.getInstance();
@@ -53,55 +53,38 @@ public class RoomTypeService implements StartUpFiller {
         startDate = startCal.getTime();
         endLocalDate = LocalDate.parse(end);
         endDate = convertToDate(endLocalDate);
+    }
+
+    public List<RoomType> getRoomsAvailable(String start, String end) {
+
+        convertDates(start, end);
 
         for (RoomType roomType : roomTypeRepository.findAll()) {
             isAvailable = true;
             numberOfRoomsAvailable = roomType.getNumber1();
-           /* index = 0;
-            for (LocalDate date: room.getAvailableDates()) {
 
-                if((date.getYear() == fromLocalDate.getYear())&&(date.getMonth() == fromLocalDate.getMonth())&& (date.getDayOfMonth() == fromLocalDate.getDayOfMonth()))
+            for (Reservation reservation : reservationRepository.findAll())
+            {
+                if(reservation.getRoom().getId() == roomType.getId() &&
+                        ((startDate.after(reservation.getStartDate()) && startDate.before(reservation.getEndDate())) ||
+                                (endDate.before(reservation.getEndDate()) && endDate.after(reservation.getStartDate()))))
                 {
-                    if(room.getIsAvailable().get(index))
+                    numberOfRoomsAvailable--;
+
+                    if(numberOfRoomsAvailable <= 0)
                     {
-                        for(int i = index + 1; i < index + numberOfDays;i++)
-                        {
-                            if(!room.getIsAvailable().get(i))
-                            {
-                                isAvailable = false;
-                                break;
-                            }
-                        }
-                        if(isAvailable)
-                        {*/
-
-                            for (Reservation reservation : reservationRepository.findAll())
-                            {
-
-                              //  System.out.print(numberOfRoomsAvailable);
-
-                                if(reservation.getRoom().getId() == roomType.getId() && ((startDate.after(reservation.getStartDate()) && startDate.before(reservation.getEndDate())) || (endDate.before(reservation.getEndDate()) && endDate.after(reservation.getStartDate()))))
-                                {
-                                   numberOfRoomsAvailable--;
-                                   // System.out.print(numberOfRoomsAvailable);
-                                   if(numberOfRoomsAvailable <= 0)
-                                   {
-                                       isAvailable = false;
-                                       break;
-                                   }
-                                }
-                            }
-                            if(isAvailable)
-                                roomsAvailable.add(roomType);/*
-                        }
+                        isAvailable = false;
+                        break;
                     }
-                    break;
                 }
-                index++;
-            }*/
+            }
+
+            if(isAvailable)
+                roomsAvailable.add(roomType);
 
         }
         return roomsAvailable;
+
     }
 
 

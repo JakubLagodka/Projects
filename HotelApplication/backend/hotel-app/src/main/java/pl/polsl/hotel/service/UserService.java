@@ -100,7 +100,7 @@ public class UserService implements StartUpFiller {
 
 
         //if(this.session.get(Admin.class.getSimpleName(),1) == null)
-        if("tak" != null)
+        if(userRepository.findAll().isEmpty())
          {
             Admin admin = new Admin();
             admin.setEmail("glownyAdmin@gmail.com");

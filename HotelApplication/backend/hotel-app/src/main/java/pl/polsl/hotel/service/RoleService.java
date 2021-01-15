@@ -25,7 +25,7 @@ public class RoleService implements StartUpFiller {
     public void createInitialData() throws RuntimeException {
 
         //if(this.session.get(Admin.class.getSimpleName(),1) == null)
-        if("tak" != null)
+        if(roleRepository.findAll().isEmpty())
         {
             Role adminRole = new Role();
             adminRole.setCode("ADM");

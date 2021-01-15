@@ -1,9 +1,6 @@
-<div class="form-group">
-  <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="registerUser()">Dodaj użytkownika</button>
-</div>
-<!--<div class="row">
+<div class="row">
   <div class="col-12">
-    <div class="card p-2 mt-3" *ngFor="let user of users$ | async" style="background-color: bisque">
+    <div class="card p-2 mt-3" *ngFor="let reservation of reservations$ | async" style="background-color: bisque">
       <table class="table-striped table-bordered" style="float: left">
         <tbody>
         <tr style="background-color: burlywood"><td>Czas rezerwacji</td><td> od {{ reservation.startDate.substr(8,2)}}
@@ -17,10 +14,10 @@
           <button class="btn btn-sm btn-success" (click)="pay(reservation)">Opłać rezerwację </button></td>
         <tr style="background-color: burlywood"><td>Cena rezerwacji</td><td>{{this.reservation.price.toFixed(2)}} złotych</td><td>
           <button class="btn btn-sm btn-danger" (click)="delete(reservation)"> Usuń rezerwację  </button> </td></tr>
-
+        <tr style="background-color: burlywood"><td>Dokonujący rezerwacji </td></tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>!-->
+</div>
 

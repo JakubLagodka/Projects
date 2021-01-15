@@ -14,7 +14,7 @@ export class ReceptionPanelComponent implements OnInit {
   }
 
   goToOccupancyPreview() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/occupancy-preview']);
   }
 
   goToReservationPreview() {

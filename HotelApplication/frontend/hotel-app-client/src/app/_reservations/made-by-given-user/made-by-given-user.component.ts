@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {ReservationService} from '../../_services/reservation.service';
 import {AppComponent} from '../../app.component';
 import {TranslatorService} from '../../_services/translator.service';
+import {UserService} from '../../_services/user.service';
+import {User} from '../../_models/user';
 
 @Component({
   selector: 'app-made-by-given-user',

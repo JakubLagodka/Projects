@@ -18,7 +18,7 @@ export class EditParametersComponent implements OnInit {
   parameter: Parameter = new Parameter();
   parameters$: Observable<Parameter[]>;
   confirmed = false;
-  parameterTypes = [0,1,2,3];
+  parameterTypes = ['liczba', 'cena', 'tekst', 'tak/nie'];
   parameterTypeControl = new FormControl('', Validators.required);
   constructor(public parametersService: ParametersService,
               public translatorService: TranslatorService,
@@ -33,19 +33,19 @@ export class EditParametersComponent implements OnInit {
   {
     parameter.modifiable = true;
 
-    if (this.parameterTypeControl.value === 0)
+    if (this.parameterTypeControl.value === 'liczba')
     {
       parameter.typeId = 0;
       parameter.type = 'number';
     }
 
-    else  if (this.parameterTypeControl.value === 1)
+    else  if (this.parameterTypeControl.value === 'cena')
     {
       parameter.type = 'double';
       parameter.typeId = 1;
     }
 
-    else  if (this.parameterTypeControl.value === 2)
+    else  if (this.parameterTypeControl.value === 'tekst')
   {
     parameter.type = 'string';
     parameter.typeId = 2;
