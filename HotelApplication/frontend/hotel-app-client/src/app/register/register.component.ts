@@ -31,8 +31,10 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   submit() {
-    // if(this.userPost.roleCode === '')
-    this.userPost.roleCode = 'CLI';
+     if(this.userTypeControl.value === 'recepcjonista')
+    this.userPost.roleCode = 'WOR';
+     else
+       this.userPost.roleCode = 'CLI';
 
     this.userService.registerUser(this.userPost).pipe(take(1)).subscribe(x => {
      // this.modal.close(x);
