@@ -28,4 +28,8 @@ this.router.navigate(['/register']);
   deleteUser() {
     this.confirmed = true;
   }
+
+  delete(user: User) {
+
+  }
 }

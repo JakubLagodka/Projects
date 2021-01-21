@@ -61,10 +61,17 @@ export class RoomService  {
     });*/
     return returnedData;
   }
-  deleteRoom(roomId: number): Observable<any> {
-    return this.http.delete<any>(`${environment.apiUrl}/room/` + roomId);
-  }
 
+  deleteRoom(id: number): Observable<any> {
+    const returnedRoom = this.http.delete<any>(`${environment.apiUrl}/room/?id=` + id).pipe(shareReplay());
+    returnedRoom.pipe(take(1)).subscribe(x => {
+      },
+      err => {
+        this.status = err.status;
+      });
+
+    return returnedRoom;
+  }
   /*updateRoom(roomId: number, roomPatch: Room): Observable< Room> {
     return this.http.patch<Room>(`${environment.apiUrl}/room/` + roomId, Room);
   }*/

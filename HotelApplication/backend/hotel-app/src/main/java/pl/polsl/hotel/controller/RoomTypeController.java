@@ -56,9 +56,10 @@ public class RoomTypeController {
         return roomTypeService.save(roomType);
     }
 
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping
-    public void deleteRoom(@RequestParam Long index){
-        roomTypeService.deleteById(index);
+    public void deleteRoom(@RequestParam Long id){
+        roomTypeService.deleteById(id);
 
     }
 }

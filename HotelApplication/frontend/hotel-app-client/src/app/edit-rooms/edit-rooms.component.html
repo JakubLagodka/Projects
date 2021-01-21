@@ -1,82 +1,91 @@
 <div class="navbar-brand" >Aktualne rodzaje pokoi w Hotelu:</div>
 <br>
 <br>
-<div class="row" >
+<div class="card-body">
 
-  <table style="margin: 1pt auto 1pt auto;line-height: 20px; " *ngIf="!noRooms" >
+  <table class="table table-bordered table-striped"  *ngIf="!noRooms" >
+    <!--< <thead class="thead-dark">
+   <tr style=" margin: 0pt auto 0pt auto;line-height: 20px; width: 100%">
+<span *ngFor="let parameter of parameters$ | async" style="margin: 0pt auto 0pt auto;line-height: 20px; width: 100%; " >
+     <th  scope="col" > {{ parameter.name }}</th>
+  </span>
+   </tr>
+   </thead>!-->
+   <span *ngFor="let parameter of parameters$ | async" style="margin: 0pt auto 0pt auto;line-height: 30px;  " >
+     <tr  *ngFor="let room of rooms$ | async" style="background-color: lightblue" >
+        <td *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===0"><button class="btn btn-sm btn-danger" (click)="delete(room)">Usuń</button></td>
 
-    <tr *ngFor="let parameter of parameters$ | async" style=" border: 1px solid black; float: left">
+       <td *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===0"><button class="btn btn-sm btn-info" (click)="edit(room)">Edytuj</button></td>
 
-      <th style="width: 8%; border: 10px solid lightblue; background-color: lightblue "> {{ parameter.name }}</th>
-    </tr>
 
-    <tr *ngFor="let room of rooms$ | async " style=" margin: 0pt auto 0pt auto;line-height: 20px; width: 100%;float: left">
-       <div *ngFor="let parameter of parameters$ | async">
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===0"  style="width: 14%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number1}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number2}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===2"  style="width: 20%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number3}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===3"  style="width: 20%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number4}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===4"  style="width: 5%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number5}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===5"  style="width: 18%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number6}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===6"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number7}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===7"  style="width: 5%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number8}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number9}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number10}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number11}}</td>
-      <td *ngIf="parameter.typeId===0 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number12}}</td>
+       <td *ngIf="parameter.typeId===0 && parameter.typeNumber===0"  style=" border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number1}}</td>
 
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===0"  style="width: 5%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number13}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number14}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number15}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number16}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number17}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number18}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number19}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number20}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number21}}</td>
-      <td *ngIf="parameter.typeId===1 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.number22}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===1"  style="border: 1px solid black;float: left;background-color: lightblue">{{ parameter.name}}: {{ room.number2}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===2"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number3}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===3"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number4}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===4"  style="border: 1px solid black;float: left;background-color: lightblue">{{ parameter.name}}: {{ room.number5}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===5"  style="border: 1px solid black;float: left;background-color: lightblue">{{ parameter.name}}: {{ room.number6}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===6"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number7}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===7"  style="width: 5%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number8}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number9}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number10}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number11}}</td>
+     <td *ngIf="parameter.typeId===0 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number12}}</td>
 
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===0"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string1}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string2}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string3}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string4}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string5}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string6}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string7}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string8}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string9}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string10}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string11}}</td>
-      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.string12}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===0"  style=";border: 1px solid black;float: left;background-color: lightblue">{{ parameter.name}}: {{ room.number13}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number14}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number15}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number16}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number17}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number18}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number19}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number20}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number21}}</td>
+     <td *ngIf="parameter.typeId===1 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.number22}}</td>
 
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===0"  style="width: 16%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean1}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===1"  style="width: 10%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean2}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===2"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean3}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===3"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean4}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean5}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean6}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean7}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean8}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean9}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean10}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean11}}</td>
-      <td *ngIf="parameter.typeId===3 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ room.boolean12}}</td>
- </div>
- </tr>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===0"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string1}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===1"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string2}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===2"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string3}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===3"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string4}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string5}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string6}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string7}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string8}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===8"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string9}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string10}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string11}}</td>
+     <td *ngIf="parameter.typeId===2 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string12}}</td>
 
-  </table>
-  <div  *ngFor="let parameter of parameters$ | async" style="width: 100%; ">
-  <form  class="form-group" #form="ngForm">
-  <!--<input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfRoomsAvailable"
-         [(ngModel)]="data.numberOfRoomsAvailable" placeholder="liczba dostępnych pokoi" name="numberOfRoomsAvailable" style="float: left" required>
-  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfBeds"
-         [(ngModel)]="data.numberOfBeds" placeholder="liczba łóżek" name="numberOfBeds" style="float: left" required>
-  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="checkInTime"
-         [(ngModel)]="data.checkInTime" placeholder="godzina rozpoczęcia doby hotelowej" name="checkInTime" style="float: left" required>
-  <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="checkOutTime"
-         [(ngModel)]="data.checkOutTime" placeholder="godzina zakończenia doby hotelowej" name="checkOutTime" style="float: left" required>
-  <input *ngIf="confirmed" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="price"
-         [(ngModel)]="data.price" placeholder="Cena jednej doby" name="price" style="float: left" required>!-->
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===0"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean1}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===1"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean2}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===2"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean3}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===3"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean4}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean5}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean6}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean7}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean8}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean9}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean10}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean11}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean12}}</td>
+
+
+</tr>
+</span>
+ </table>
+
+ <form  class="form-group" #form="ngForm">
+   <div  *ngFor="let parameter of parameters$ | async" style="width: 100%; ">
+ <!--<input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfRoomsAvailable"
+        [(ngModel)]="data.numberOfRoomsAvailable" placeholder="liczba dostępnych pokoi" name="numberOfRoomsAvailable" style="float: left" required>
+ <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="numberOfBeds"
+        [(ngModel)]="data.numberOfBeds" placeholder="liczba łóżek" name="numberOfBeds" style="float: left" required>
+ <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="checkInTime"
+        [(ngModel)]="data.checkInTime" placeholder="godzina rozpoczęcia doby hotelowej" name="checkInTime" style="float: left" required>
+ <input *ngIf="confirmed" type="number" class="form-control col-md-2 col-1 mt-1 text-center" id="checkOutTime"
+        [(ngModel)]="data.checkOutTime" placeholder="godzina zakończenia doby hotelowej" name="checkOutTime" style="float: left" required>
+ <input *ngIf="confirmed" type="number" step="0.01" class="form-control col-md-2 col-1 mt-1 text-center" id="price"
+        [(ngModel)]="data.price" placeholder="Cena jednej doby" name="price" style="float: left" required>!-->
 
 
       <input *ngIf="confirmed && parameter.typeId===0 && parameter.typeNumber===0" type="number"  class="form-control col-md-2 col-1 mt-1 text-center" id="number1"
@@ -150,7 +159,140 @@
       <input *ngIf="confirmed && parameter.typeId===2 && parameter.typeNumber===11" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.string12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
 
-      <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===0" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl2" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl2.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl2.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl3" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl3.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl3.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl4" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl4.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl4.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl5" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl5.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl5.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===5" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl6" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl6.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl6.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===6" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl7" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl7.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl7.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===7" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl8" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl8.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl8.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===8" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl9" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl9.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl9.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===9" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl10" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl10.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl10.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===10" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl11" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl11.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl11.value}}</mat-hint>
+     </mat-form-field>
+     <mat-form-field  *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===11" class="example col-md-2 col-4 offset-md-0 mt-3  text-center"  >
+       <mat-label>{{parameter.name}}</mat-label>
+       <mat-select [formControl]="booleanTypeControl12" required>
+         <mat-option>--</mat-option>
+         <mat-option *ngFor="let parameterType of booleanTypes" [value]="parameterType">
+           {{parameterType}}
+         </mat-option>
+       </mat-select>
+       <mat-error *ngIf="booleanTypeControl12.hasError('required')">{{parameter.name}}</mat-error>
+       <mat-hint>{{booleanTypeControl12.value}}</mat-hint>
+     </mat-form-field>
+
+      <!--<input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===0" type=""  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.boolean1" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===1" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.boolean2" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="margin: 1pt auto 1pt auto;"  required>
@@ -173,12 +315,14 @@
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===10" type="text" class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
              [(ngModel)]="data.boolean11" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
       <input *ngIf="confirmed && parameter.typeId===3 && parameter.typeNumber===11" type="text"  class="form-control col-md-2 col-1 mt-1 text-center" id="{{parameter.name}}"
-             [(ngModel)]="data.boolean12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>
+             [(ngModel)]="data.boolean12" placeholder="{{parameter.name}}" name="{{parameter.name}}" style="float: left" required>!-->
 
 
-  </form>
-  <button style="margin: 1pt auto 1pt auto;" *ngIf="confirmed && parameter.id===8" [disabled]="form.invalid" class="btn btn-sm btn-info" (click)="add(data)">Dodaj typ pokoju</button>
-</div>
+
+ </div>
+   <button style="margin: 1pt auto 1pt auto;" *ngIf="confirmed " [disabled]="form.invalid" class="btn btn-sm btn-success" (click)="add(data)">Dodaj typ pokoju</button>
+
+ </form>
 </div>
   <div>
   <div *ngIf="noRooms && !confirmed" style="margin: 1pt auto 1pt auto;"class="navbar-brand" ><b> Brak pokoi istniejących w systemie, w celu dodania pokoi, kliknij poniższy przycisk!</b></div>
@@ -186,4 +330,7 @@
 <br>
 <div class="form-group">
   <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="openDialog()">Edytuj pokoje</button>
+</div>
+<div class="form-group">
+  <button  class="btn btn-sm btn-danger" (click)="return()">Wróć</button>
 </div>

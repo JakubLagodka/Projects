@@ -4,22 +4,28 @@
 <div class="form-group">
   <button *ngIf="!confirmed" class="btn btn-sm btn-info" (click)="deleteUser()">Usuń użytkownika</button>
 </div>
-<div *ngIf="confirmed" class="card my-5">
+<div *ngIf="confirmed" >
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" style="background-color: lightblue">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
+        <th scope="col">Login</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Kategoria</th>
         <th scope="col">Email</th>
+        <th scope="col">Usuń użytkownika</th>
         <!-- {{getUsers()}}-->
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let user of users$| async">
-        <td>{{ user.id}}</td>
         <td>{{ user.username }}</td>
-        <td><a href="mailto:{{ user.mail }}">{{ user.mail }}</a></td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.roleCode }}</td>
+        <td>{{ user.email }}</td>
+        <td><button class="btn btn-sm btn-danger" (click)="delete(user)">Usuń</button></td>
       </tr>
       </tbody>
     </table>

@@ -1,20 +1,21 @@
 <div class="navbar-brand" >Aktualne parametry pokoi w Hotelu:</div>
-<div class="row">
-    <table style="border: 1px solid black; margin: 10pt auto 10pt auto;line-height: 30px;background-color: lightblue">
-
+<div class="card-body">
+    <table class="table table-bordered table-striped" style="background-color: lightblue">
+      <thead class="thead-dark">
       <tr>
 
-        <th style="width: 8%;border: 1px solid black;"> Nazwa parametru</th>
+        <th scope="col" > Nazwa parametru</th>
 
-        <th style="width: 8%;border: 1px solid black;">Typ parametru</th>
+        <th scope="col">Typ parametru</th>
 
-        <th style="width: 8%;border: 1px solid black;">Modyfikowalny</th>
+        <th scope="col"  >Modyfikowalny</th>
 
         <!-- <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Edytuj parametr</th>!-->
 
-        <th *ngIf="confirmed" style="width: 8%;border: 1px solid black;">Usuń parametr</th>
+        <th *ngIf="confirmed" scope="col" style="width: 8%;border: 1px solid black;">Usuń parametr</th>
 
       </tr>
+      </thead>
       <tr class="p-3 mt-3" style="border: 1px solid black; margin: 100pt auto 100pt auto;line-height: 30px; background-color: lightblue" *ngFor="let parameter of parameters$ | async">
 
         <td style="width: 8%;border: 1px solid black;">{{ parameter.name}}</td>
