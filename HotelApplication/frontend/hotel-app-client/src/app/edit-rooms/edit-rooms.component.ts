@@ -9,6 +9,7 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EditParametersDialogComponent} from '../edit-parameters/edit-parameters.component';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {TranslatorService} from '../_services/translator.service';
 
 @Component({
   selector: 'app-edit-rooms',
@@ -39,7 +40,8 @@ export class EditRoomsComponent implements OnInit {
               private router: Router,
               public parametersService: ParametersService,
               public roomService: RoomService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              public translatorService: TranslatorService) { }
 
   ngOnInit(): void {
     this.parameters$ = this.parametersService.getParameters();

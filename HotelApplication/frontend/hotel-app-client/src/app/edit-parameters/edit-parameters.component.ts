@@ -118,6 +118,9 @@ export class EditParametersComponent implements OnInit {
   //  });
   }
 
+  return() {
+    this.router.navigate(['/administrator-panel']);
+  }
 }
 
 @Component({

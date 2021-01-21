@@ -144,4 +144,27 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
   }
+
+  home() {
+
+    if (this.authenticationService.isUserLoggedIn){
+      if (this.authenticationService.currentUserValue.roleCode === 'ADM') {
+        this.router.navigate(['/administrator-panel']);
+      }
+      else if (this.authenticationService.currentUserValue.roleCode === 'WOR')
+      {
+        this.router.navigate(['/reception-panel']);
+      }
+      else if (this.authenticationService.currentUserValue.roleCode === 'CLI')
+      {
+        this.sidenav.open();
+        this.router.navigate(['/client-panel']);
+      }
+    }
+    else
+    {
+      this.sidenav.open();
+      this.router.navigate(['/']);
+    }
+  }
 }

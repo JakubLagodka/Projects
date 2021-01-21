@@ -56,18 +56,18 @@
      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string11}}</td>
      <td *ngIf="parameter.typeId===2 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.string12}}</td>
 
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===0"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean1}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===1"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean2}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===2"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean3}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===3"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean4}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean5}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean6}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean7}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean8}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean9}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean10}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean11}}</td>
-     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ room.boolean12}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===0"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean1)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===1"  style="border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean2)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===2"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean3)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===3"  style="width: 12%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean4)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===4"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean5)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===5"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean6)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===6"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{translatorService.translateBoolToPolish( room.boolean7)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===7"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean8)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===8"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean9)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===9"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean10)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===10"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean11)}}</td>
+     <td *ngIf="parameter.typeId===3 && parameter.typeNumber===11"  style="width: 8%;border: 1px solid black;float: left; background-color: lightblue">{{ parameter.name}}: {{ translatorService.translateBoolToPolish(room.boolean12)}}</td>
 
 
 </tr>

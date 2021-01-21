@@ -16,6 +16,7 @@ import {Reservation} from '../_models/reservation';
 export class UserService {
 
   private users: Observable<User[]>;
+  public currentUser;
   private workers: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private clients: BehaviorSubject<User[]> = new BehaviorSubject([]);
   private managers: BehaviorSubject<User[]> = new BehaviorSubject([]);
@@ -174,8 +175,16 @@ status = null;
         this.roles.next(x);
       });
     }
-
     return this.roles$;
   }
+  deleteUser(id: number): Observable<any> {
+    const returnedUser = this.http.delete<any>(`${environment.apiUrl}/user/?id=` + id).pipe(shareReplay());
+    returnedUser.pipe(take(1)).subscribe(x => {
+      },
+      err => {
+        this.status = err.status;
+      });
 
+    return returnedUser;
+  }
 }

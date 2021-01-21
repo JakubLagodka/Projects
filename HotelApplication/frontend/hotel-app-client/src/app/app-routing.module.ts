@@ -18,6 +18,7 @@ import {ReceptionPanelComponent} from './reception-panel/reception-panel.compone
 import {EditRoomsComponent} from './edit-rooms/edit-rooms.component';
 import {UserManagementComponent} from './user-management/user-management.component';
 import {OccupacyPreviewComponent} from './_reservations/occupacy-preview/occupacy-preview.component';
+import {BookingDetailsComponent} from './booking-details/booking-details.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'occupancy-preview', component: OccupacyPreviewComponent, canActivate: [ReceptionGuard] },
   { path: 'edit-rooms', component: EditRoomsComponent, canActivate: [AdminGuard] },
   { path: 'user-management', component: UserManagementComponent, canActivate: [AdminGuard] },
+  { path: 'booking-details', component: BookingDetailsComponent, canActivate: [AdminGuard] },
   { path: '**', redirectTo: '' }
 ];
 

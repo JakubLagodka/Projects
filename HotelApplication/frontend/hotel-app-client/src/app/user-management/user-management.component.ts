@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../_services/user.service';
 import {Observable} from 'rxjs';
 import {User} from '../_models/user';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-management',
@@ -27,9 +28,14 @@ this.router.navigate(['/register']);
 
   deleteUser() {
     this.confirmed = true;
+
+  }
+  return() {
+    this.router.navigate(['/administrator-panel']);
   }
 
   delete(user: User) {
-
+    this.userService.deleteUser(user.id).pipe(take(1)).subscribe(x => {
+    });
   }
 }

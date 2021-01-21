@@ -160,4 +160,8 @@ public class UserService implements StartUpFiller {
         userView.setUsername(user.getUsername());
         return userView;
     }
+
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
+    }
 }

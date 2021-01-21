@@ -109,7 +109,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
       <div class="container"  >
         <ul class="navbar-nav ">
-          <a id="home" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/" (click)=" this.sidenav.open()">Wróć do strony głównej</a>
+          <a id="home" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" (click)=" home()">Wróć do strony głównej</a>
         </ul>
         <div *ngIf="lostData" class="alert alert-danger" role="alert"  >Dane z Twojej rezerwacji zostały utracone, podaj je jeszcze raz by zarezerwować pokój!</div>
         <div *ngIf="createdNewUser" class="alert alert-success" role="alert"  >Stworzono nowego użytkownika!</div>

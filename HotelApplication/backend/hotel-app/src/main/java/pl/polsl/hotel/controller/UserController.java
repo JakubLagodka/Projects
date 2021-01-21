@@ -43,4 +43,11 @@ public class UserController {
                                @RequestBody User user) {
         return userService.getPatchedUser(token, userId, user);
     }
+
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    @DeleteMapping
+    public void deleteUser(@RequestParam Long id){
+        userService.deleteById(id);
+
+    }
 }

@@ -69,7 +69,9 @@ export class RegisterComponent implements OnInit {
 
 
   }
-dismiss(){}
+dismiss(){
+  this.router.navigate(['/greeting']);
+}
   ngOnInit(): void {
     // this.roles$ = this.userService.getRoles();
     if(this.authenticationService.currentUserValue.roleCode === 'ADM')

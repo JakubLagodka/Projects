@@ -15,7 +15,7 @@ export class ReceptionGuard implements CanActivate {
 
     const currentUser = this.authenticationService.currentUserValue;
 
-    if (this.authenticationService.isUserLoggedIn && currentUser.roleCode === 'WOR') {
+    if (this.authenticationService.isUserLoggedIn && (currentUser.roleCode === 'WOR' || currentUser.roleCode === 'ADM')) {
 
       return true;
     }
