@@ -52,8 +52,23 @@
     <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.id === 4 " >{{parameter.name}}</td><td *ngIf="parameter.id === 4 " >{{calendarService.room.number4}}</td></tr>
 
     <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===4" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===4" >{{calendarService.room.number5}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===5" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===5" >{{calendarService.room.number6}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===6" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===6" >{{calendarService.room.number7}}</td></tr>
+
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===1" >{{calendarService.room.number14}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===2" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===2" >{{calendarService.room.number15}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===3" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===3" >{{calendarService.room.number16}}</td></tr>
+
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===0" >{{calendarService.room.string1}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===1" >{{calendarService.room.string2}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===2" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===2" >{{calendarService.room.string3}}</td></tr>
+
     <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{calendarService.room.boolean1}}</td></tr>
     <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{calendarService.room.boolean2}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===2" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===2" >{{calendarService.room.boolean3}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===3" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===3" >{{calendarService.room.boolean4}}</td></tr>
+
+
 
     <tr><td>Cena rezerwacji</td><td>{{this.reservation.price.toFixed(2) }} złotych</td></tr>
     </tbody>

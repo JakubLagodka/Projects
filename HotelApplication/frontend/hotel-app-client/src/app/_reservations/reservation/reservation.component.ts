@@ -27,6 +27,7 @@ export class ReservationComponent implements OnInit {
   rooms$: Observable<Data[]>;
   parameters$: Observable<Parameter[]>;
   data: Data = new Data();
+  noAvailableRooms = false;
   constructor(@Inject(AppComponent) private parent: AppComponent,
               private router: Router,
               public authenticationService: AuthenticationService,
@@ -61,20 +62,29 @@ export class ReservationComponent implements OnInit {
   controlParameterInt = new FormControl('', Validators.required);
   controlParameterInt2 = new FormControl('', Validators.required);
   controlParameterInt3 = new FormControl('', Validators.required);
+  controlParameterInt4 = new FormControl('', Validators.required);
+  controlParameterInt5 = new FormControl('', Validators.required);
 
   controlParameterDouble = new FormControl('', Validators.required);
   controlParameterDouble2 = new FormControl('', Validators.required);
   controlParameterDouble3 = new FormControl('', Validators.required);
+  controlParameterDouble4 = new FormControl('', Validators.required);
+  controlParameterDouble5 = new FormControl('', Validators.required);
 
   controlParameterString = new FormControl('', Validators.required);
   controlParameterString2 = new FormControl('', Validators.required);
   controlParameterString3 = new FormControl('', Validators.required);
+  controlParameterString4 = new FormControl('', Validators.required);
+  controlParameterString5 = new FormControl('', Validators.required);
 
   controlParameterBoolean = new FormControl('', Validators.required);
   controlParameterBoolean2 = new FormControl('', Validators.required);
   controlParameterBoolean3 = new FormControl('', Validators.required);
+  controlParameterBoolean4 = new FormControl('', Validators.required);
+  controlParameterBoolean5 = new FormControl('', Validators.required);
 
   submitted = false;
+
 
   ngOnInit(): void {
 
@@ -93,7 +103,16 @@ export class ReservationComponent implements OnInit {
         mergeMap(x => rooms),
         distinct(v => v.number1),
         toArray(),
-      ).subscribe(x => this.roomNumbersOfBeds = x);
+      ).subscribe(x => {
+        this.roomNumbersOfBeds = x;
+        if(x.length === 0) {
+          setTimeout(() => {
+            this.noAvailableRooms = false;
+            this.router.navigate(['/greeting']);
+          }, 5000);
+          this.noAvailableRooms = true;
+        }
+      });
     });
 
     this.parametersService.getParameters().subscribe(parameters => {
@@ -452,28 +471,55 @@ export class ReservationComponent implements OnInit {
        if ( this.numberIndex === 0) {
          this.calendarService.room.number5 = this.controlParameterInt.value;
        }
-       else {
+       else if ( this.numberIndex === 1){
          this.calendarService.room.number6 = this.controlParameterInt2.value;
+       }
+       else if ( this.numberIndex === 2){
+         this.calendarService.room.number7 = this.controlParameterInt3.value;
+       }
+       else if ( this.numberIndex === 3){
+         this.calendarService.room.number8 = this.controlParameterInt4.value;
+       }
+       else {
+         this.calendarService.room.number9 = this.controlParameterInt5.value;
        }
        this.numberIndex++;
      }
      else if (this.roomParameterIndex[this.forRoomIndex2] === 1)
      {
        if ( this.doubleIndex === 0) {
-         this.calendarService.room.number5 = this.controlParameterDouble.value;
+         this.calendarService.room.number13 = this.controlParameterDouble.value;
+       }
+       else if ( this.doubleIndex === 1) {
+         this.calendarService.room.number14 = this.controlParameterDouble2.value;
+       }
+       else if ( this.doubleIndex === 1) {
+         this.calendarService.room.number15 = this.controlParameterDouble3.value;
+       }
+       else if ( this.doubleIndex === 1) {
+         this.calendarService.room.number16 = this.controlParameterDouble4.value;
        }
        else {
-         this.calendarService.room.number6 = this.controlParameterDouble2.value;
+         this.calendarService.room.number17 = this.controlParameterDouble5.value;
        }
        this.doubleIndex++;
      }
      else if (this.roomParameterIndex[this.forRoomIndex2] === 2)
      {
        if ( this.stringIndex === 0) {
-         this.calendarService.room.number5 = this.controlParameterString.value;
+         this.calendarService.room.string1 = this.controlParameterString.value;
+       }
+       else   if ( this.stringIndex === 1){
+         this.calendarService.room.string2 = this.controlParameterString2.value;
+       }
+       else   if ( this.stringIndex === 2){
+         this.calendarService.room.string3 = this.controlParameterString3.value;
+       }
+       else   if ( this.stringIndex === 3){
+         this.calendarService.room.string4 = this.controlParameterString4.value;
        }
        else {
-         this.calendarService.room.number6 = this.controlParameterString2.value;
+         this.calendarService.room.string5 = this.controlParameterString5.value;
        }
        this.stringIndex++;
      }
@@ -482,8 +528,17 @@ export class ReservationComponent implements OnInit {
        if ( this.booleanIndex === 0) {
          this.calendarService.room.boolean1 = this.controlParameterBoolean.value;
        }
-       else {
+       else  if ( this.booleanIndex === 1) {
          this.calendarService.room.boolean2 = this.controlParameterBoolean2.value;
+       }
+       else  if ( this.booleanIndex === 2) {
+         this.calendarService.room.boolean3 = this.controlParameterBoolean3.value;
+       }
+       else  if ( this.booleanIndex === 3) {
+         this.calendarService.room.boolean4 = this.controlParameterBoolean4.value;
+       }
+       else {
+         this.calendarService.room.boolean5 = this.controlParameterBoolean5.value;
        }
        this.booleanIndex++;
      }

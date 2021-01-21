@@ -55,6 +55,10 @@ this.details = true;
 
     });
   }
+
+  return() {
+    this.details = false;
+  }
 }
 
 @Component({

@@ -11,8 +11,10 @@
           {{ reservation.endDate.substr(8,2)}}
           {{this.translatorService.translateMonthStringToPolish(reservation.endDate.substr(5,2))}}
           {{reservation.endDate.substr(0,4)}}
-          do godziny {{ translatorService.fixUnproperHour(reservation.endDate.substr(11,2))}}</td><td>
+          do godziny {{ translatorService.fixUnproperHour(reservation.endDate.substr(11,2))}}</td><td *ngIf="!details">
           <button class="btn btn-sm btn-info" (click)="check(reservation)">Zobacz szczegółowe dane rezerwującego </button></td>
+          <td *ngIf="details">
+          <button class="btn btn-sm btn-info" (click)="return()">Ukryj szczegółowe dane rezerwującego </button></td>
         <tr *ngIf="user.id===reservation.userId" style="background-color: burlywood"><td>Cena rezerwacji</td><td>{{this.reservation.price.toFixed(2)}} złotych</td><td>
           <button class="btn btn-sm btn-danger" (click)="delete(reservation)"> Usuń rezerwację  </button> </td></tr>
 
