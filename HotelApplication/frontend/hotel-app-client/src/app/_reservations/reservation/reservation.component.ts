@@ -28,6 +28,7 @@ export class ReservationComponent implements OnInit {
   parameters$: Observable<Parameter[]>;
   data: Data = new Data();
   noAvailableRooms = false;
+  availableRooms = true;
   constructor(@Inject(AppComponent) private parent: AppComponent,
               private router: Router,
               public authenticationService: AuthenticationService,
@@ -108,15 +109,19 @@ export class ReservationComponent implements OnInit {
         toArray(),
       ).subscribe(x => {
         this.roomNumbersOfBeds = x;
-        if(x.length === 0) {
+
+      });
+    });
+      setTimeout(() => {
+        if(this.roomNumbersOfBeds.length === 0) {
           setTimeout(() => {
             this.noAvailableRooms = false;
             this.router.navigate(['/greeting']);
           }, 5000);
           this.noAvailableRooms = true;
         }
-      });
-    });
+
+      }, 200);
 
     this.parametersService.getParameters().subscribe(parameters => {
         for (this.forIndex; ; this.forIndex++)
