@@ -81,7 +81,7 @@ export class SummaryComponent implements OnInit {
 
 dismiss()
 {
-  this.router.navigate(['/choosing-storey']);
+  this.router.navigate(['/greeting']);
 }
 
   book() {

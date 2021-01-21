@@ -82,6 +82,9 @@ export class ReservationComponent implements OnInit {
   controlParameterBoolean3 = new FormControl('', Validators.required);
   controlParameterBoolean4 = new FormControl('', Validators.required);
   controlParameterBoolean5 = new FormControl('', Validators.required);
+  controlParameterBoolean6 = new FormControl('', Validators.required);
+  controlParameterBoolean7 = new FormControl('', Validators.required);
+  controlParameterBoolean8 = new FormControl('', Validators.required);
 
   submitted = false;
 
@@ -188,6 +191,43 @@ export class ReservationComponent implements OnInit {
                 });
                 this.index++;
               }
+              else if (this.index === 10)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number9 - b.number9)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number9),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter7 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 11)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number9 - b.number9)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number9),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter8 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 12)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number9 - b.number9)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number9),
+                    toArray(),
+                  ).subscribe(x => {
+                    this.roomParameter9 = x;
+                    this.roomParameter10 = x;
+                    this.roomParameter11 = x;
+                  });
+                });
+                this.index++;
+              }
             }
 
             else if (this.parameter.typeId === 1)
@@ -246,6 +286,43 @@ export class ReservationComponent implements OnInit {
                     distinct(v => v.number17),
                     toArray(),
                   ).subscribe(x => this.roomParameter6 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 10)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number17 - b.number17)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number17),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter7 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 11)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number17 - b.number17)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number17),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter8 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 12)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms.sort((a, b) => a.number17 - b.number17)).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.number17),
+                    toArray(),
+                  ).subscribe(x => {
+                    this.roomParameter9 = x;
+                    this.roomParameter10 = x;
+                    this.roomParameter11 = x;
+                  });
                 });
                 this.index++;
               }
@@ -309,6 +386,44 @@ export class ReservationComponent implements OnInit {
                 });
                 this.index++;
               }
+              else if (this.index === 10)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter7 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 11)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter8 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 12)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.string5),
+                    toArray(),
+                  ).subscribe(x => {
+                    this.roomParameter9 = x;
+                    this.roomParameter10 = x;
+                    this.roomParameter11 = x;
+                  });
+                });
+                this.index++;
+              }
+
             }
             else
             {
@@ -366,6 +481,43 @@ export class ReservationComponent implements OnInit {
                     distinct(v => v.boolean5),
                     toArray(),
                   ).subscribe(x => this.roomParameter6 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 10)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter7 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 11)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean5),
+                    toArray(),
+                  ).subscribe(x => this.roomParameter8 = x);
+                });
+                this.index++;
+              }
+              else if (this.index === 12)
+              {
+                this.calendarService.rooms$.subscribe(rooms => {
+                  of(rooms).pipe(
+                    mergeMap(x => rooms),
+                    distinct(v => v.boolean5),
+                    toArray(),
+                  ).subscribe(x => {
+                    this.roomParameter9 = x;
+                    this.roomParameter10 = x;
+                    this.roomParameter11 = x;
+                  });
                 });
                 this.index++;
               }
@@ -537,8 +689,17 @@ export class ReservationComponent implements OnInit {
        else  if ( this.booleanIndex === 3) {
          this.calendarService.room.boolean4 = this.controlParameterBoolean4.value;
        }
-       else {
+       else if ( this.booleanIndex === 4) {
          this.calendarService.room.boolean5 = this.controlParameterBoolean5.value;
+       }
+       else if ( this.booleanIndex === 5) {
+         this.calendarService.room.boolean6 = this.controlParameterBoolean6.value;
+       }
+       else if ( this.booleanIndex === 6) {
+         this.calendarService.room.boolean7 = this.controlParameterBoolean7.value;
+       }
+       else{
+         this.calendarService.room.boolean8 = this.controlParameterBoolean8.value;
        }
        this.booleanIndex++;
      }
@@ -568,7 +729,7 @@ export class ReservationComponent implements OnInit {
   dismiss()
   {
     this.parent.sidenav.open();
-    this.router.navigate(['']);
+    this.router.navigate(['/greeting']);
   }
 
   book() {
