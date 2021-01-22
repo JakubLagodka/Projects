@@ -31,6 +31,40 @@ export class CalendarService implements OnInit{
 
 ngOnInit() {
   this.parameters$ = this.parametersService.getParameters();
+ /* this.room.number1 = -1;
+  this.room.number2 = -1;
+  this.room.number3 = -1;
+  this.room.number4 = -1;
+  this.room.number5 = -1;
+  this.room.number6 = -1;
+  this.room.number7 = -1;
+  this.room.number8 = -1;
+  this.room.number9 = -1;
+  this.room.number10 = -1;
+  this.room.number11 = -1;
+  this.room.number12 = -1;
+  this.room.number13 = -1;
+  this.room.number14 = -1;
+  this.room.number15 = -1;
+  this.room.number16 = -1;
+  this.room.number17 = -1;
+  this.room.number18 = -1;
+  this.room.number19 = -1;
+  this.room.number20 = -1;
+  this.room.number21 = -1;
+  this.room.number22 = -1;
+  this.room.boolean1 = null;
+  this.room.boolean2 = null;
+  this.room.boolean3 = null;
+  this.room.boolean4 = null;
+  this.room.boolean5 = null;
+  this.room.boolean6 = null;
+  this.room.boolean7 = null;
+  this.room.boolean8 = null;
+  this.room.boolean9 = null;
+  this.room.boolean10 = null;
+  this.room.boolean11 = null;
+  this.room.boolean12 = null;*/
 }
 
   takeDates(startDate, endDate)

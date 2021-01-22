@@ -121,7 +121,7 @@ Dobierz dla siebie odpowiedni pokój:
 </mat-form-field>
 </div>
   <div *ngFor="let parameter of parameters$ | async ">
-    <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===0 " class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 6 && parameter.typeId===0 " class="example col-md-7 col-12 mt-5 text-center"  >
     <mat-label>{{parameter.name}}</mat-label>
     <mat-select [formControl]="controlParameterInt" required>
       <mat-option>--</mat-option>
@@ -130,7 +130,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-option>
     </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 6 && parameter.typeId===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -139,7 +139,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===2 " class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 6 && parameter.typeId===2 " class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -149,7 +149,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field *ngIf="parameter.id === 6 && this.roomParameterIndex[parameter.id - 6]===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 6 && parameter.typeId===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -159,7 +159,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-      <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===0 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterInt2" required>
           <mat-option>--</mat-option>
@@ -168,7 +168,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -177,7 +177,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterInt3" required>
           <mat-option>--</mat-option>
@@ -186,7 +186,25 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter3 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter3 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+        <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterDouble" required>
             <mat-option>--</mat-option>
@@ -195,7 +213,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterDouble2" required>
             <mat-option>--</mat-option>
@@ -204,7 +222,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterDouble3" required>
             <mat-option>--</mat-option>
@@ -213,7 +231,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterString" required>
             <mat-option>--</mat-option>
@@ -222,7 +240,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterString2" required>
             <mat-option>--</mat-option>
@@ -231,7 +249,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterString3" required>
             <mat-option>--</mat-option>
@@ -240,7 +258,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===2 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===2 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterBoolean" required>
           <mat-option>--</mat-option>
@@ -249,7 +267,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterBoolean2" required>
           <mat-option>--</mat-option>
@@ -258,7 +276,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===3 &&  parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===3 &&  parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -267,7 +285,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 7 && this.roomParameterIndex[parameter.id - 6]===3 &&  parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 7 && parameter.typeId===3 &&  parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -277,7 +295,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-        <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterInt" required>
             <mat-option>--</mat-option>
@@ -286,7 +304,7 @@ Dobierz dla siebie odpowiedni pokój:
             </mat-option>
           </mat-select>
         </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -295,7 +313,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -304,7 +322,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter4 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter4 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterDouble" required>
           <mat-option>--</mat-option>
@@ -313,7 +349,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterDouble2" required>
           <mat-option>--</mat-option>
@@ -322,7 +358,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterDouble3" required>
           <mat-option>--</mat-option>
@@ -331,7 +367,25 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter4 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter4 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+      <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterString" required>
           <mat-option>--</mat-option>
@@ -340,7 +394,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterString2" required>
           <mat-option>--</mat-option>
@@ -349,7 +403,7 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="parameter.id === 8 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
         <mat-label>{{parameter.name}}</mat-label>
         <mat-select [formControl]="controlParameterString3" required>
           <mat-option>--</mat-option>
@@ -358,7 +412,25 @@ Dobierz dla siebie odpowiedni pokój:
           </mat-option>
         </mat-select>
       </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 8  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter4" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 8 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter4" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 8  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -367,7 +439,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 8  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 8  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -376,7 +448,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-        <mat-form-field *ngIf="parameter.id === 8  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+        <mat-form-field *ngIf="parameter.id === 8  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
           <mat-label>{{parameter.name}}</mat-label>
           <mat-select [formControl]="controlParameterBoolean3" required>
             <mat-option>--</mat-option>
@@ -387,16 +459,16 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-form-field>
 
 
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
-        <mat-option>--</mat-option>
+        <mat-option >--</mat-option>
         <mat-option *ngFor="let room of roomParameter5" [value]="room.number5">
           {{room.number5}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -405,7 +477,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -414,7 +486,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter5 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter5 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -423,7 +513,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -432,7 +522,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -441,7 +531,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter5 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter5 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -450,7 +558,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -459,7 +567,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -468,7 +576,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter5" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 9 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter5" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 9  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -477,7 +603,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -486,7 +612,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -495,7 +621,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -504,7 +630,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 9  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 9  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -514,7 +640,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -523,7 +649,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -532,7 +658,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -541,7 +667,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter6 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter6 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -550,7 +694,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -559,7 +703,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -568,7 +712,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter6 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter6 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -577,7 +739,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -586,7 +748,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -595,7 +757,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter6" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 10 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter6" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 10  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -604,7 +784,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -613,7 +793,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -622,7 +802,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -631,7 +811,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 10  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 10  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -642,7 +822,7 @@ Dobierz dla siebie odpowiedni pokój:
     </mat-form-field>
 
 
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -651,7 +831,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -660,7 +840,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -669,7 +849,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter7 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter7 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -678,7 +876,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -687,7 +885,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -696,7 +894,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter7 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter7 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -705,7 +921,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -714,7 +930,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -723,7 +939,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter7" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 11 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter7" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 11  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -732,7 +966,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -741,7 +975,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -750,7 +984,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -759,7 +993,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 11  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 11  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -769,7 +1003,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -778,7 +1012,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -787,7 +1021,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -796,7 +1030,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter8 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter8 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -805,7 +1057,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -814,7 +1066,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -823,7 +1075,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter8 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter8 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -832,7 +1102,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -841,7 +1111,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -850,7 +1120,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter8" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 12 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter8" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -859,7 +1147,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -868,7 +1156,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -877,7 +1165,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -886,7 +1174,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -895,7 +1183,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean6" required>
         <mat-option>--</mat-option>
@@ -904,7 +1192,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 12  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 12  && parameter.typeId===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean7" required>
         <mat-option>--</mat-option>
@@ -914,7 +1202,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -923,7 +1211,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -932,7 +1220,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -941,7 +1229,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter9 " [value]="room.number8">
+          {{room.number8}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterInt5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter9 " [value]="room.number9">
+          {{room.number9}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -950,7 +1256,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -959,7 +1265,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -968,7 +1274,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter9 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter9 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -977,7 +1301,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -986,7 +1310,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -995,7 +1319,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter9" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 13 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter9" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -1004,7 +1346,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -1013,7 +1355,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -1022,7 +1364,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -1031,7 +1373,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -1040,7 +1382,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean6" required>
         <mat-option>--</mat-option>
@@ -1049,7 +1391,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean7" required>
         <mat-option>--</mat-option>
@@ -1058,7 +1400,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 13  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 13  && parameter.typeId===3 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean8" required>
         <mat-option>--</mat-option>
@@ -1068,7 +1410,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -1077,7 +1419,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -1086,7 +1428,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -1095,7 +1437,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt4" required>
         <mat-option>--</mat-option>
@@ -1104,7 +1446,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt5" required>
         <mat-option>--</mat-option>
@@ -1113,7 +1455,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -1122,7 +1464,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -1131,7 +1473,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -1140,7 +1482,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter10 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter10 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -1149,7 +1509,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -1158,7 +1518,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -1167,7 +1527,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter10" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 14 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter10" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -1176,7 +1554,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -1185,7 +1563,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -1194,7 +1572,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -1203,7 +1581,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -1212,7 +1590,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean6" required>
         <mat-option>--</mat-option>
@@ -1221,7 +1599,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean7" required>
         <mat-option>--</mat-option>
@@ -1230,7 +1608,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 14  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 14  && parameter.typeId===3 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean8" required>
         <mat-option>--</mat-option>
@@ -1240,7 +1618,7 @@ Dobierz dla siebie odpowiedni pokój:
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===0 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt" required>
         <mat-option>--</mat-option>
@@ -1249,7 +1627,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===0&& parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt2" required>
         <mat-option>--</mat-option>
@@ -1258,7 +1636,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===0 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt3" required>
         <mat-option>--</mat-option>
@@ -1267,7 +1645,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===0 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt4" required>
         <mat-option>--</mat-option>
@@ -1276,7 +1654,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===0 && parameter.typeNumber===8" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterInt5" required>
         <mat-option>--</mat-option>
@@ -1285,7 +1663,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===1 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble" required>
         <mat-option>--</mat-option>
@@ -1294,7 +1672,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===1 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble2" required>
         <mat-option>--</mat-option>
@@ -1303,7 +1681,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===1 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterDouble3" required>
         <mat-option>--</mat-option>
@@ -1312,7 +1690,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===1 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter11 " [value]="room.number17">
+          {{room.number17}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===1 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterDouble5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter11 " [value]="room.number18">
+          {{room.number18}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===2&& parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString" required>
         <mat-option>--</mat-option>
@@ -1321,7 +1717,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===2&& parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString2" required>
         <mat-option>--</mat-option>
@@ -1330,7 +1726,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15 && this.roomParameterIndex[parameter.id - 6]===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===2&& parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterString3" required>
         <mat-option>--</mat-option>
@@ -1339,7 +1735,25 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===2&& parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString4" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter11" [value]="room.string4">
+          {{room.string4}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 15 && parameter.typeId===2&& parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+      <mat-label>{{parameter.name}}</mat-label>
+      <mat-select [formControl]="controlParameterString5" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let room of roomParameter11" [value]="room.string5">
+          {{room.string5}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===0" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean" required>
         <mat-option>--</mat-option>
@@ -1348,7 +1762,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===1" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean2" required>
         <mat-option>--</mat-option>
@@ -1357,7 +1771,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===2" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean3" required>
         <mat-option>--</mat-option>
@@ -1366,7 +1780,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===3" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean4" required>
         <mat-option>--</mat-option>
@@ -1375,7 +1789,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===4" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean5" required>
         <mat-option>--</mat-option>
@@ -1384,7 +1798,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===5" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean6" required>
         <mat-option>--</mat-option>
@@ -1393,7 +1807,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===6" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean7" required>
         <mat-option>--</mat-option>
@@ -1402,7 +1816,7 @@ Dobierz dla siebie odpowiedni pokój:
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field *ngIf="parameter.id === 15  && this.roomParameterIndex[parameter.id - 6]===3 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
+    <mat-form-field *ngIf="parameter.id === 15  && parameter.typeId===3 && parameter.typeNumber===7" class="example col-md-7 col-12 mt-5 text-center"  >
       <mat-label>{{parameter.name}}</mat-label>
       <mat-select [formControl]="controlParameterBoolean8" required>
         <mat-option>--</mat-option>
