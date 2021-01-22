@@ -13,7 +13,7 @@ import javax.validation.constraints.Email;
 
 @Service
 public class MailConfiguration  {
-
+/*
     private JavaMailSender javaMailSender;
 
     @Autowired
@@ -34,5 +34,6 @@ public class MailConfiguration  {
         mimeMessageHelper.setSubject(subject);
         mimeMessageHelper.setText(text,isMailComponent);
         javaMailSender.send(mimeMessage);
-    }
+    }*/
 }
+

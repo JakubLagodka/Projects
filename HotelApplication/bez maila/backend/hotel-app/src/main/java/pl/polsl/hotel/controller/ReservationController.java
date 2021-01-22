@@ -3,7 +3,7 @@ package pl.polsl.hotel.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import pl.polsl.hotel.configuration.MailConfiguration;
+//import pl.polsl.hotel.configuration.MailConfiguration;
 import pl.polsl.hotel.model.Reservation;
 
 import pl.polsl.hotel.model.ReservationView;
@@ -22,12 +22,12 @@ public class ReservationController {
     private final ReservationService reservationService;
     private final UserRepository userRepository;
 
-    private final MailConfiguration mailConfiguration;
+   // private final MailConfiguration mailConfiguration;
 
-    public ReservationController(ReservationService reservationService, UserRepository userRepository, MailConfiguration mailConfiguration) {
+    public ReservationController(ReservationService reservationService, UserRepository userRepository/*, MailConfiguration mailConfiguration*/) {
         this.reservationService = reservationService;
         this.userRepository = userRepository;
-        this.mailConfiguration = mailConfiguration;
+      //  this.mailConfiguration = mailConfiguration;
     }
 
     @GetMapping("/all")
@@ -50,7 +50,7 @@ public class ReservationController {
     public ReservationView addReservation(@RequestBody ReservationView reservation) throws MessagingException {
         User booking = userRepository.getById(reservation.getUserId());
 
-         mailConfiguration.sendMail(booking.getEmail(), "Reservation has been made","fag",true);
+        // mailConfiguration.sendMail(booking.getEmail(), "Reservation has been made","fag",true);
 
         return reservationService.save(reservation);
     }

@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Dane rezerwującego:</h1>
+  <div class="card-body">
+    <table class="table table-bordered table-striped" style="background-color: lightblue">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Login</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Kategoria</th>
+        <th scope="col">Email</th>
+        <th scope="col">Usuń użytkownika</th>
+        <!-- {{getUsers()}}-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ this.userService.currentUser.username }}</td>
+        <td>{{ this.userService.currentUser.name }}</td>
+        <td>{{ this.userService.currentUser.surname }}</td>
+        <td>{{ this.userService.currentUser.roleCode }}</td>
+        <td>{{ this.userService.currentUser.email }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+<div mat-dialog-actions>
+  <button button class="btn btn-sm btn-info" (click)="close()">Zamknij</button>
+</div>
