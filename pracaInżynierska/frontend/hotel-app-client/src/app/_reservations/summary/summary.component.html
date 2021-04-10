@@ -1,0 +1,90 @@
+<!--<form (ngSubmit)="submit()" #form="ngForm">
+<table class="table-striped table-bordered">
+  <thead>
+  <tr>
+  <th>Nazwa typu pokoju</th>
+  <th>Typ wybrany w rezerwacji</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td>Czas rezerwacji</td><td> od {{ this.calendarService.startDate.getDate()}}
+    {{this.translatorService.translateMonthToPolish(this.calendarService.startDate.getMonth())}} {{ this.calendarService.startDate.getFullYear()}}
+    od rozpoczęcia doby hotelowej (godzina {{ this.calendarService.startDate.getHours()}}) do  {{ this.calendarService.endDate.getDate()}}
+    {{this.translatorService.translateMonthToPolish(this.calendarService.endDate.getMonth())}} {{ this.calendarService.endDate.getFullYear()}}
+    do zakończenia doby hotelowej (godzina {{ this.calendarService.endDate.getHours()}})</td>
+  <tr><td>Liczba łózek w pokoju</td><td>{{this.calendarService.chosenRooms[0].numberOfBeds}}</td></tr>
+  <tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
+  <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>
+  <tr><td>Czy pokój ma mieć balkon</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].balcony)}}</td></tr>
+  <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].beautifulViewFromTheWindows)}}</td></tr>
+  <tr><td>Piętro, na którym znajduje się pokój</td><td>{{this.calendarService.chosenRooms[0].storey}}</td></tr>
+  <tr><td>Cena rezerwacji</td><td>{{this.reservation.price}} złotych</td></tr>
+  </tbody>
+</table>
+  <div class="modal-footer col-md-7 col-12 mt-5 text-center">
+    <button type="submit" class="btn btn-success">Zarezerwuj pokój</button>
+    <button class="btn btn-danger" (click)="dismiss()">Wróć</button>
+  </div>
+</form>>!-->
+
+<form (ngSubmit)="book()" #form="ngForm">
+  <table class="table-striped table-bordered">
+    <thead>
+    <tr>
+      <th>Nazwa typu pokoju</th>
+      <th>Typ wybrany w rezerwacji</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Czas rezerwacji</td><td> od {{ this.calendarService.startDate.getDate()}}
+      {{this.translatorService.translateMonthToPolish(this.calendarService.startDate.getMonth())}} {{ this.calendarService.startDate.getFullYear()}}
+      od rozpoczęcia doby hotelowej (godzina {{ calendarService.room.number3}}) do  {{ this.calendarService.endDate.getDate()}}
+      {{this.translatorService.translateMonthToPolish(this.calendarService.endDate.getMonth())}} {{ this.calendarService.endDate.getFullYear()}}
+      do zakończenia doby hotelowej (godzina {{ calendarService.room.number4}})</td>
+
+    <tr><td>Liczba łózek w pokoju</td><td>{{calendarService.room.number2}}</td></tr>
+    <!--<tr><td>Wybrany typ poduszki</td><td>{{this.translatorService.translatePillowToPolish(this.calendarService.chosenRooms[0].typeOfPillow)}}</td></tr>
+    <tr><td>Czy pokój ma być blisko windy</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].closeToElevator)}}</td></tr>
+    <tr><td>Czy pokój ma mieć balkon</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].balcony)}}</td></tr>
+    <tr><td>Czy pokój ma mieć piękny widok z okien</td><td>{{this.translatorService.translateBoolToPolish(this.calendarService.chosenRooms[0].beautifulViewFromTheWindows)}}</td></tr>
+    <tr><td>Piętro, na którym znajduje się pokój</td><td>{{this.calendarService.chosenRooms[0].storey}}</td></tr>!-->
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.id === 3 " >{{parameter.name}}</td><td *ngIf="parameter.id === 3  " >{{calendarService.room.number3}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.id === 4 " >{{parameter.name}}</td><td *ngIf="parameter.id === 4 " >{{calendarService.room.number4}}</td></tr>
+
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===4" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===4" >{{calendarService.room.number5}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===5" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===5" >{{calendarService.room.number6}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===6" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===6" >{{calendarService.room.number7}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===7" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===7" >{{calendarService.room.number8}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===0 && parameter.typeNumber===8" >{{parameter.name}}</td><td *ngIf="parameter.typeId===0 && parameter.typeNumber===8" >{{calendarService.room.number9}}</td></tr>
+
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===1" >{{calendarService.room.number14}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===2" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===2" >{{calendarService.room.number15}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===3" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===3" >{{calendarService.room.number16}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===4" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===4" >{{calendarService.room.number17}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===1 && parameter.typeNumber===5" >{{parameter.name}}</td><td *ngIf="parameter.typeId===1 && parameter.typeNumber===5" >{{calendarService.room.number18}}</td></tr>
+
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===2 && parameter.typeNumber===0" >{{calendarService.room.string1}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===2 && parameter.typeNumber===1" >{{calendarService.room.string2}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===2" >{{parameter.name}}</td><td *ngIf="parameter.typeId===2 && parameter.typeNumber===2" >{{calendarService.room.string3}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===3" >{{parameter.name}}</td><td *ngIf="parameter.typeId===2 && parameter.typeNumber===3" >{{calendarService.room.string4}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===2 && parameter.typeNumber===4" >{{parameter.name}}</td><td *ngIf="parameter.typeId===2 && parameter.typeNumber===4" >{{calendarService.room.string5}}</td></tr>
+
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===0" >{{calendarService.room.boolean1}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===1" >{{calendarService.room.boolean2}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===2" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===2" >{{calendarService.room.boolean3}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===3" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===3" >{{calendarService.room.boolean4}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===4" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===4" >{{calendarService.room.boolean5}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===5" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===5" >{{calendarService.room.boolean6}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===6" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===6" >{{calendarService.room.boolean7}}</td></tr>
+    <tr *ngFor="let parameter of this.calendarService.parameters$ | async "><td *ngIf="parameter.typeId===3 && parameter.typeNumber===7" >{{parameter.name}}</td><td *ngIf="parameter.typeId===3 && parameter.typeNumber===7" >{{calendarService.room.boolean8}}</td></tr>
+
+
+
+    <tr><td>Cena rezerwacji</td><td>{{this.reservation.price.toFixed(2) }} złotych</td></tr>
+    </tbody>
+  </table>
+  <div class="modal-footer col-md-7 col-12 mt-5 text-center">
+    <button type="submit" class="btn btn-success">Zarezerwuj pokój</button>
+    <button class="btn btn-danger" (click)="dismiss()">Anuluj</button>
+  </div>
+</form>

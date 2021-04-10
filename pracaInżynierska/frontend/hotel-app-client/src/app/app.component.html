@@ -1,0 +1,131 @@
+﻿
+<mat-sidenav-container  class="example-container" >
+  <mat-sidenav #sidenav mode="side" [opened]="true" (keydown.escape)="this.sidenav.close()" disableClose>
+
+    <ul class="navbar-nav ml-auto">
+      <a id="closePanel" class="nav-item nav-link  text-center " style="color: dimgray; cursor: pointer" (click)=" this.sidenav.close()"> X zamknij panel rezerwacji</a>
+      <mat-form-field appearance="fill">
+        <mat-label>Podaj termin rezerwacji</mat-label>
+        <mat-date-range-input [min]="minDate" [max]="maxDate" [formGroup]="range" [rangePicker]="picker" >
+
+          <input  matStartDate formControlName="start" placeholder="Data przyjazdu" >
+
+          <input  matEndDate formControlName="end"  placeholder="Data odjazdu" >
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')" >Invalid start date</mat-error>
+        <mat-error *ngIf="range.controls.start.hasError('required')" >Invalid start date</mat-error>
+
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('required')" >Invalid end date</mat-error>
+      </mat-form-field>
+
+      <div *ngIf="calendarSubmitted && this.range.invalid" class="alert alert-danger" role="alert"  >podaj datę przyjazdu i odjazdu!</div>
+
+      <div class="form-group">
+        <button  class="btn btn-info col-md-6 col-12 offset-md-3 mt-5 text-center" (click)="calendarSubmit()" >
+
+          Zarezerwuj pokój
+        </button>
+      </div>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+      <div class="container"  >
+        <ul class="navbar-nav ">
+          <a *ngIf="!this.sidenav.opened" id="openPanel" class="nav-item nav-link  text-center "style="cursor: pointer" (click)=" this.sidenav.open()">otwórz panel rezerwacji</a>
+        </ul>
+      </div>
+
+    </nav>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+
+      <div class="col-md-4 col-12 offset-md-4 mt-1 text-center">
+        <div class="navbar-brand"  *ngIf="!authenticationService.isUserLoggedIn">Witaj na stronie hotelowej! Nie jesteś zalogowany - zaloguj się!</div>
+        <div class="navbar-brand"  *ngIf="authenticationService.isUserLoggedIn">Zalogowano jako {{loggedUser.name}} {{loggedUser.surname}} <!--strator!--> </div>
+
+        <ul class="navbar-nav ml-auto">
+          <div class="navbar-brand"></div>
+
+
+
+          <li  class="col-md-20 col-20 offset-md-4 mt-5 text-center" *ngIf="authenticationService.isUserLoggedIn"><a class="btn btn-info btn-block" (click)="logout()">Wyloguj się</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+      <div class="container">
+
+        <ul class="navbar-nav  ml-auto">
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"   *ngIf="!authenticationService.isUserLoggedIn" >
+            <a class="form-group col-md-5 col-12  mt-50 text-center " style="position: relative; float: left">
+              <input type="login" id="username"  formControlName="username" class="form-control"  size="100" placeholder="nazwa użytkownika"   [ngClass]="{ 'is-invalid': submitted && this.loginForm.controls.username.errors }">
+              <div *ngIf="submitted && this.loginForm.controls.username.errors" class="invalid-feedback">
+                <div *ngIf="this.loginForm.controls.username.errors.required">nazwa użytkownika jest wymagana do zalogowania się</div>
+              </div>
+            </a>
+            <a class="form-group  col-md-5 col-12 mt-50 text-center" style="float: left">
+              <input  type="password" formControlName="password"  id="password" class="form-control " size="100"  placeholder="Hasło"  [ngClass]="{ 'is-invalid': submitted && this.loginForm.controls.password.errors }">
+              <div *ngIf="submitted && this.loginForm.controls.password.errors" class="invalid-feedback">
+                <div *ngIf="this.loginForm.controls.password.errors.required">hasło jest wymagane do zalogowania się</div>
+              </div>
+            </a>
+
+              <button [disabled]="loading" class="btn col-md-2 col-12 mt-50 text-center btn-info btn-block" >
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Zaloguj się
+              </button>
+
+            <div class="form-group col-md-40 col-12 mt-50 text-center " style="position: relative; color: white">
+              <input type="checkbox"value="remember-me"  style="position: relative;  "><span id="cb_span"> Pamiętaj mnie</span>
+            </div>
+
+          </form>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1" *ngIf="!authenticationService.isUserLoggedIn">
+
+      <div class="container" >
+
+        <ul class="navbar-nav ">
+
+          <a id="forgotPassword" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" routerLink="/register" >Nie masz konta? Zarejestruj się</a>
+
+
+          <a id="register" class="nav-item nav-link col-md-40 col-4 mt-1 text-right " routerLink="/" style="position: absolute; left: 60%;  " >Zapomniałem hasła</a>
+
+          <p></p>
+
+        </ul>
+      </div>
+      <div *ngIf="notLogged " class="alert alert-danger col-md-40 col-12 mt-1 text-center" role="alert"  >Musisz być zalogowany w systemie, aby dokonać rezerwacji, jeśli nie masz konta, zarejestruj się teraz!</div>
+    </nav>
+    <nav class="navbar navbar-expand navbar-dark bg-dark py-1">
+      <div class="container"  >
+        <ul class="navbar-nav ">
+          <a id="home" class="nav-item nav-link col-md-40 col-12 mt-1 text-lg-left" (click)=" home()">Wróć do strony głównej</a>
+        </ul>
+        <div *ngIf="lostData" class="alert alert-danger" role="alert"  >Dane z Twojej rezerwacji zostały utracone, podaj je jeszcze raz by zarezerwować pokój!</div>
+        <div *ngIf="createdNewUser" class="alert alert-success" role="alert"  >Stworzono nowego użytkownika!</div>
+        <div *ngIf="userAlreadyExists" class="alert alert-danger" role="alert"  >Użytkownik o podanej nazwie już istnieje w bazie!</div>
+        <div *ngIf="userNotCreated" class="alert alert-danger" role="alert"  >Nie udało się stworzyć nowego użytkownika, wystąpił nieoczekiwany błąd!</div>
+        <div *ngIf="reservationNotCreated" class="alert alert-danger" role="alert"  >Nie udało się dokonać rezerwacji, wystąpił nieoczekiwany błąd!</div>
+        <div *ngIf="createdNewReservation" class="alert alert-success" role="alert"  >Dokonano rezerwacji na podany termin!</div>
+      </div>
+
+    </nav>
+
+    <div class="container " class="my-5 text-center text-green py-3"style="background-color: bisque">
+      <router-outlet></router-outlet>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
