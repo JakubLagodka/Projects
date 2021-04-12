@@ -1,0 +1,27 @@
+﻿  Funkcje.c
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(8,1): warning C4029: zadeklarowana formalna lista parametrów różniąca się od definicji
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(10,24): warning C4013: niezdefiniowany "pow"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(10,32): warning C4013: niezdefiniowany "atoi"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(18,16): warning C4013: niezdefiniowany "malloc"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(18,80): warning C4047: "=": "char *" różni się w poziomach operatorów pośrednich od "int"
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(19,70): warning C4047: "=": "char *" różni się w poziomach operatorów pośrednich od "int"
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(87,37): warning C4013: niezdefiniowany "strlen"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(86,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(90,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(103,1): warning C4029: zadeklarowana formalna lista parametrów różniąca się od definicji
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(109,79): warning C4047: "=": "char *" różni się w poziomach operatorów pośrednich od "int"
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\Funkcje.c(113,10): warning C4101: "znak": lokalna zmienna, do której nie istnieje odwołanie
+  main.c
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(14,16): warning C4013: niezdefiniowany "strcmp"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(57,18): warning C4013: niezdefiniowany "malloc"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(57,50): warning C4047: "=": "char *" różni się w poziomach operatorów pośrednich od "int"
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(63,36): warning C4020: "Kompresja": zbyt wiele parametrów rzeczywistych
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(66,38): warning C4020: "Dekompresja": zbyt wiele parametrów rzeczywistych
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(71,8): warning C4013: niezdefiniowany "free"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(76,21): warning C4013: niezdefiniowany "_CrtDumpMemoryLeaks"; przy założeniu, że extern zwraca int
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(31,11): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(38,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(25,26): warning C4101: "rozmiar_bufora": lokalna zmienna, do której nie istnieje odwołanie
+F:\programowanie\PK - c\Nowy folder\LZ77\LZ77\main.c(25,8): warning C4101: "rozmiar_slownika": lokalna zmienna, do której nie istnieje odwołanie
+  Generowanie kodu...
+  LZ77.vcxproj -> F:\programowanie\PK - c\Nowy folder\LZ77\Debug\LZ77.exe
