@@ -9,30 +9,25 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 
-public class User  {
+public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @NonNull
     private Long id;
 
-    @Column(name = "name", nullable = false)
     @NonNull
     private String name;
 
-    @Column(name = "surname", nullable = false)
     @NonNull
     private String surname;
 
-    @Column(name = "email", nullable = false)
     @NonNull
     private String email;
 
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(unique = true)
     @NonNull
     private String username;
 
-    @Column(name = "password", nullable = false)
     @NonNull
     private String password;
 

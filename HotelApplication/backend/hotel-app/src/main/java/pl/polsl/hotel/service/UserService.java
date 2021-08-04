@@ -35,8 +35,7 @@ public class UserService implements StartUpFiller {
 
        /* if (!(user instanceof Admin))
             throw new ForbiddenAccessException(Admin.class);*/
-        if (userRepository.findByUsername(userPost.getUsername()).isPresent())
-            throw new UsernameAlreadyUsedException(userPost.getUsername());
+
         User user = map(userPost);
 
         if (userPost.getRoleCode() != null)
@@ -61,16 +60,16 @@ public class UserService implements StartUpFiller {
         if (userToUpdate instanceof Admin)
             throw new ForbiddenAccessException("Cannot change other administrator");
 
-        if(user.getPassword() != null)
+        if (user.getPassword() != null)
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-            if(user.getRole().getCode() != null)
-                user.setRole(roleRepository.getById(user.getRole().getCode()));
-            else
-                user.setRole(null);
-            userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
+        if (user.getRole().getCode() != null)
+            user.setRole(roleRepository.getById(user.getRole().getCode()));
+        else
+            user.setRole(null);
+        userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
 
-            return map(userRepository.save(user));
+        return map(userRepository.save(user));
     }
 
     private String getClassName(@Nullable String roleCode) {
@@ -100,8 +99,8 @@ public class UserService implements StartUpFiller {
 
 
         //if(this.session.get(Admin.class.getSimpleName(),1) == null)
-        if(userRepository.findAll().isEmpty())
-         {
+
+        if (userRepository.findAll().isEmpty()) {
             Admin admin = new Admin();
             admin.setEmail("glownyAdmin@gmail.com");
             admin.setName("Główny");
@@ -139,6 +138,7 @@ public class UserService implements StartUpFiller {
             userRepository.save(manager);*/
         }
     }
+
     public User map(UserView userView) {
         User user = new User();
         user.setUsername(userView.getUsername());
