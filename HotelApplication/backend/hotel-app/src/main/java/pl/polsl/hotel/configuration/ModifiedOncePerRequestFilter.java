@@ -14,12 +14,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class ModifiedOncePerRequestFilter extends OncePerRequestFilter {
 
     private final UserDetailsService userDetailsService;
     private final AuthenticationTokenService authenticationTokenService;
+    protected final Logger log = Logger.getLogger(getClass().getName());
 
     public ModifiedOncePerRequestFilter(ModifiedUserDetailsService userDetailsService, AuthenticationTokenService authenticationTokenService) {
         this.userDetailsService = userDetailsService;
@@ -43,7 +46,8 @@ public class ModifiedOncePerRequestFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Token filter exception = " + e.getClass().getName() + " - " + e.getMessage());
+            log.log(Level.INFO, "Token filter exception = " + e.getClass().getName() + " - " + e.getMessage());
+            // System.out.println("Token filter exception = " + e.getClass().getName() + " - " + e.getMessage());
         }
         chain.doFilter(request, response);
     }

@@ -4,9 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.hotel.model.User;
-import pl.polsl.hotel.service.UserService;
-
 import pl.polsl.hotel.model.UserView;
+import pl.polsl.hotel.service.UserService;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public class UserController {
 
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping
-    public void deleteUser(@RequestParam Long id){
+    public void deleteUser(@RequestParam Long id) {
         userService.deleteById(id);
 
     }

@@ -1,6 +1,7 @@
 package pl.polsl.hotel.model;
 
 import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
 
 @Table(name = "parameters")

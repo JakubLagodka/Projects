@@ -4,7 +4,6 @@ import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-
 import java.util.Date;
 
 @Table(name = "reservations")

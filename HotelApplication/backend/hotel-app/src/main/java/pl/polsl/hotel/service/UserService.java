@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import pl.polsl.hotel.configuration.StartUpFiller;
 import pl.polsl.hotel.exception.ForbiddenAccessException;
 import pl.polsl.hotel.exception.NotImplementedException;
-import pl.polsl.hotel.exception.UsernameAlreadyUsedException;
 import pl.polsl.hotel.model.*;
 import pl.polsl.hotel.repository.RoleRepository;
 import pl.polsl.hotel.repository.UserRepository;
@@ -73,20 +72,18 @@ public class UserService implements StartUpFiller {
     }
 
     private String getClassName(@Nullable String roleCode) {
+
         if (roleCode == null)
             return User.class.getSimpleName();
-        switch (roleCode) {
-           /* case "MAN":
-                return Manager.class.getSimpleName();*/
-            case "CLI":
-                return Client.class.getSimpleName();
-            case "ADM":
-                return Admin.class.getSimpleName();
-            case "WOR":
-                return Worker.class.getSimpleName();
-            default:
-                throw new NotImplementedException("Missing implementation for role with code " + roleCode);
-        }
+        if (roleCode == "CLI")
+            return Client.class.getSimpleName();
+        else if (roleCode == "ADM")
+            return Admin.class.getSimpleName();
+        else if (roleCode == "WOR")
+            return Worker.class.getSimpleName();
+        else
+            throw new NotImplementedException("Missing implementation for role with code " + roleCode);
+
     }
 
 

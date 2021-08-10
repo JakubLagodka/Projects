@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 
-public abstract class CodeName{
+public abstract class CodeName {
 
     @Id
     @NonNull

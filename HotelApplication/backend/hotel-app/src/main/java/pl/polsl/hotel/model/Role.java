@@ -2,7 +2,9 @@ package pl.polsl.hotel.model;
 
 import org.springframework.lang.NonNull;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,7 +12,6 @@ import java.util.List;
 @Entity
 
 public class Role extends CodeName {
-
 
 
     @OneToMany(mappedBy = "role")

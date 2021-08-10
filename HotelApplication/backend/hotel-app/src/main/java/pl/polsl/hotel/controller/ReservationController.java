@@ -5,7 +5,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.hotel.configuration.MailConfiguration;
 import pl.polsl.hotel.model.Reservation;
-
 import pl.polsl.hotel.model.ReservationView;
 import pl.polsl.hotel.model.User;
 import pl.polsl.hotel.repository.UserRepository;
@@ -31,17 +30,17 @@ public class ReservationController {
     }
 
     @GetMapping("/all")
-    public List<ReservationView> getAll(){
+    public List<ReservationView> getAll() {
         return reservationService.findAll();
     }
 
     @GetMapping("/given_user")
-    public List<ReservationView> getAllReservationsFromGivenUser(@RequestParam Long userId){
+    public List<ReservationView> getAllReservationsFromGivenUser(@RequestParam Long userId) {
         return reservationService.getAllReservationsFromGivenUser(userId);
     }
 
     @GetMapping
-    public Optional<Reservation> getByReservationId(@RequestParam Long index){
+    public Optional<Reservation> getByReservationId(@RequestParam Long index) {
         return reservationService.findById(index);
     }
 
@@ -50,7 +49,7 @@ public class ReservationController {
     public ReservationView addReservation(@RequestBody ReservationView reservation) throws MessagingException {
         User booking = userRepository.getById(reservation.getUserId());
 
-         mailConfiguration.sendMail(booking.getEmail(), "Dokonano rezerwacji pokoju","fag",true);
+        mailConfiguration.sendMail(booking.getEmail(), "Dokonano rezerwacji pokoju", "fag", true);
 
         return reservationService.save(reservation);
     }
@@ -61,11 +60,12 @@ public class ReservationController {
     }*/
     @PatchMapping(value = "/{id}/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReservationView updateReservation(@PathVariable Long id,
-                               @RequestBody ReservationView reservation) {
+                                             @RequestBody ReservationView reservation) {
         return reservationService.updateReservation(id, reservation);
     }
+
     @DeleteMapping
-    public void deleteReservation(@RequestParam Long id){
+    public void deleteReservation(@RequestParam Long id) {
         reservationService.deleteById(id);
 
     }

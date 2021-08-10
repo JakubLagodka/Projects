@@ -7,6 +7,6 @@ import pl.polsl.hotel.model.Parameter;
 public interface ParameterRepository extends JpaRepository<Parameter, Long> {
 
     default Parameter getById(Long id) {
-       return findById(id).orElseThrow(() -> new NotFoundException(id));
+        return findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 }

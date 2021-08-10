@@ -7,6 +7,7 @@ import pl.polsl.hotel.model.Parameter;
 import pl.polsl.hotel.service.ParameterService;
 
 import java.util.Optional;
+
 @RestController
 @RequestMapping(value = "/parameter")
 public class ParameterController {
@@ -17,18 +18,18 @@ public class ParameterController {
     }
 
     @GetMapping("/all")
-    public Iterable<Parameter> getAll(){
+    public Iterable<Parameter> getAll() {
         return parameterService.findAll();
     }
 
     @GetMapping
-    public Optional<Parameter> getByParameterId(@RequestParam Long index){
+    public Optional<Parameter> getByParameterId(@RequestParam Long index) {
         return parameterService.findById(index);
     }
 
     @ResponseStatus(value = HttpStatus.CREATED)
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Parameter addParameter(@RequestBody Parameter parameter)  {
+    public Parameter addParameter(@RequestBody Parameter parameter) {
 
         return parameterService.save(parameter);
     }
@@ -48,7 +49,7 @@ public class ParameterController {
 
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     @DeleteMapping
-    public void deleteParameter( @RequestParam Long id){
+    public void deleteParameter(@RequestParam Long id) {
         parameterService.deleteById(id);
 
     }
