@@ -1,4 +1,4 @@
-package pl.polsl.hotel.model;
+package pl.lagodka.hotel.model;
 
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;

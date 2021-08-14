@@ -1,20 +1,20 @@
-package pl.polsl.hotel.service;
+package pl.lagodka.hotel.service;
 
 import org.springframework.lang.Nullable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-import pl.polsl.hotel.configuration.StartUpFiller;
-import pl.polsl.hotel.exception.ForbiddenAccessException;
-import pl.polsl.hotel.exception.NotImplementedException;
-import pl.polsl.hotel.model.*;
-import pl.polsl.hotel.repository.RoleRepository;
-import pl.polsl.hotel.repository.UserRepository;
+
+import pl.lagodka.hotel.exception.ForbiddenAccessException;
+import pl.lagodka.hotel.exception.NotImplementedException;
+import pl.lagodka.hotel.model.*;
+import pl.lagodka.hotel.repository.RoleRepository;
+import pl.lagodka.hotel.repository.UserRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserService implements StartUpFiller {
+public class UserService  {
 
     private final UserRepository userRepository;
     private final AuthenticationTokenService authenticationService;

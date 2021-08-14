@@ -1,39 +1,32 @@
-package pl.polsl.hotel.model;
+package pl.lagodka.hotel.model;
 
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-public class Reservation {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+
+public class ReservationView {
+
+    @NonNull
     private Long id;
-
-    @ManyToOne
     @Nullable
-    private RoomType roomType;
-
-    @ManyToOne
+    private Long userId;
     @Nullable
-    private User user;
+    private Long roomTypeId;
     @NonNull
     private Date startDate;
     @NonNull
     private Date endDate;
-
     @NonNull
     private int numberOfDays;
-
     @NonNull
     private double price;
+
     @NonNull
     private boolean paid;
 
-    public Reservation() {
-        paid = false;
+    public ReservationView() {
     }
 
     @NonNull
@@ -46,21 +39,21 @@ public class Reservation {
     }
 
     @Nullable
-    public RoomType getRoom() {
-        return roomType;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setRoom(@Nullable RoomType roomType) {
-        this.roomType = roomType;
+    public void setUserId(@Nullable Long userId) {
+        this.userId = userId;
     }
 
     @Nullable
-    public User getUser() {
-        return user;
+    public Long getRoomTypeId() {
+        return roomTypeId;
     }
 
-    public void setUser(@Nullable User user) {
-        this.user = user;
+    public void setRoomTypeId(@Nullable Long roomTypeId) {
+        this.roomTypeId = roomTypeId;
     }
 
     @NonNull
