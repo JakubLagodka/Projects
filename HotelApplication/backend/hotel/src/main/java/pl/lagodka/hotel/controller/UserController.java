@@ -1,4 +1,4 @@
-package pl.polsl.hotel.controller;
+package pl.lagodka.hotel.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

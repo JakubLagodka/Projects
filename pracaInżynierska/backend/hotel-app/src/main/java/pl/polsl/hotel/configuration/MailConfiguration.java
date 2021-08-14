@@ -13,27 +13,6 @@ import javax.validation.constraints.Email;
 
 @Service
 public class MailConfiguration  {
-/*
-    private JavaMailSender javaMailSender;
 
-    @Autowired
-    public MailConfiguration(JavaMailSender javaMailSender)
-    {
-        this.javaMailSender = javaMailSender;
-    }
-
-    public void sendMail(String to,
-                         String subject,
-                         String text,
-                         boolean isMailComponent) throws MessagingException {
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-        MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
-        mimeMessageHelper.setTo(to);
-        mimeMessageHelper.setReplyTo("programistakuba@gmail.com");
-        mimeMessageHelper.setFrom("programistakuba@gmail.com");
-        mimeMessageHelper.setSubject(subject);
-        mimeMessageHelper.setText(text,isMailComponent);
-        javaMailSender.send(mimeMessage);
-    }*/
 }
 
