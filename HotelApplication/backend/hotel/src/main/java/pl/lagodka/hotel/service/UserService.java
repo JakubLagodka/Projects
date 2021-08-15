@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import pl.lagodka.hotel.exception.ForbiddenAccessException;
 import pl.lagodka.hotel.exception.NotImplementedException;
+import pl.lagodka.hotel.mapper.UserMapper;
 import pl.lagodka.hotel.model.*;
 import pl.lagodka.hotel.repository.RoleRepository;
 import pl.lagodka.hotel.repository.UserRepository;
@@ -20,13 +21,14 @@ public class UserService  {
     private final AuthenticationTokenService authenticationService;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final UserMapper userMapper;
 
-
-    public UserService(UserRepository userRepository, AuthenticationTokenService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository, AuthenticationTokenService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.authenticationService = authenticationService;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.userMapper = userMapper;
     }
 
 
@@ -35,11 +37,11 @@ public class UserService  {
        /* if (!(user instanceof Admin))
             throw new ForbiddenAccessException(Admin.class);*/
 
-        User user = map(userPost);
+        User user = userMapper.map(userPost);
 
         if (userPost.getRoleCode() != null)
             user.setRole(roleRepository.getById(userPost.getRoleCode()));
-        UserView userView = map(userRepository.save(user));
+        UserView userView = userMapper.map(userRepository.save(user));
         if (userView.getRoleCode() != null)
             userRepository.updateRole(userView.getId(), getClassName(userView.getRoleCode()));
         return userView;
@@ -47,7 +49,7 @@ public class UserService  {
 
 
     public UserView getUser(String token) {
-        return map(authenticationService.getUserFromToken(token));
+        return userMapper.map(authenticationService.getUserFromToken(token));
     }
 
 
@@ -68,7 +70,7 @@ public class UserService  {
             user.setRole(null);
         userRepository.updateRole(user.getId(), getClassName(user.getRole().getCode()));
 
-        return map(userRepository.save(user));
+        return userMapper.map(userRepository.save(user));
     }
 
     private String getClassName(@Nullable String roleCode) {
@@ -89,7 +91,13 @@ public class UserService  {
 
     public List<UserView> getUsers() {
         List<User> users = userRepository.findAll();
-        return users.stream().map(this::map).collect(Collectors.toList());
+        List<UserView> userViewList = null;
+        //return users.stream().map(this::userMapper.map).collect(Collectors.toList());
+             for (User user : users) {
+                 userViewList.add(userMapper.map(user));
+             }
+
+        return userViewList;
     }
 
     public void createInitialData() throws RuntimeException {
@@ -136,27 +144,7 @@ public class UserService  {
 
     }
 
-    public User map(UserView userView) {
-        User user = new User();
-        user.setUsername(userView.getUsername());
-        user.setSurname(userView.getSurname());
-        user.setEmail(userView.getEmail());
-        user.setName(userView.getName());
-        user.setPassword(bCryptPasswordEncoder.encode(userView.getPassword()));
-        return user;
-    }
 
-    public UserView map(User user) {
-        UserView userView = new UserView();
-        if (user.getRole() != null)
-            userView.setRoleCode(user.getRole().getCode());
-        userView.setId(user.getId());
-        userView.setEmail(user.getEmail());
-        userView.setName(user.getName());
-        userView.setSurname(user.getSurname());
-        userView.setUsername(user.getUsername());
-        return userView;
-    }
 
     public void deleteById(Long id) {
         userRepository.deleteById(id);
