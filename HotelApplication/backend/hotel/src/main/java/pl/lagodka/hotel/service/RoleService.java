@@ -8,7 +8,7 @@ import pl.lagodka.hotel.repository.RoleRepository;
 import java.util.Arrays;
 
 @Component
-public class RoleService  {
+public class RoleService {
 
     private final RoleRepository roleRepository;
 

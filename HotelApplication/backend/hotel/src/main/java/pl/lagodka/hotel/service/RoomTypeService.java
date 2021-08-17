@@ -14,7 +14,7 @@ import java.time.ZoneId;
 import java.util.*;
 
 @Component
-public class RoomTypeService  {
+public class RoomTypeService{
     private final RoomTypeRepository roomTypeRepository;
     private final ReservationRepository reservationRepository;
     private Random generator;

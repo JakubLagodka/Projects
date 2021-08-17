@@ -4,8 +4,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import pl.lagodka.hotel.configuration.AppConfig;
 import pl.lagodka.hotel.exception.ForbiddenAccessException;
 import pl.lagodka.hotel.exception.NotImplementedException;
+import pl.lagodka.hotel.exception.UsernameAlreadyUsedException;
 import pl.lagodka.hotel.mapper.UserMapper;
 import pl.lagodka.hotel.model.*;
 import pl.lagodka.hotel.repository.RoleRepository;
@@ -15,20 +17,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserService  {
+public class UserService {
 
     private final UserRepository userRepository;
     private final AuthenticationTokenService authenticationService;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserMapper userMapper;
+    private final AppConfig appConfig;
 
-    public UserService(UserRepository userRepository, AuthenticationTokenService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder, UserMapper userMapper) {
+    public UserService(UserRepository userRepository, AuthenticationTokenService authenticationService, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder, UserMapper userMapper, AppConfig appConfig) {
         this.userRepository = userRepository;
         this.authenticationService = authenticationService;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userMapper = userMapper;
+        this.appConfig = appConfig;
     }
 
 
@@ -36,6 +40,9 @@ public class UserService  {
 
        /* if (!(user instanceof Admin))
             throw new ForbiddenAccessException(Admin.class);*/
+
+        if (userRepository.findByUsername(userPost.getUsername()).isPresent())
+            throw new UsernameAlreadyUsedException(userPost.getUsername());
 
         User user = userMapper.map(userPost);
 
@@ -88,11 +95,10 @@ public class UserService  {
 
     }
 
-
     public List<UserView> getUsers() {
         List<User> users = userRepository.findAll();
         List<UserView> userViewList = null;
-        //return users.stream().map(this::userMapper.map).collect(Collectors.toList());
+        //return users.stream().map(this::map).collect(Collectors.toList());
              for (User user : users) {
                  userViewList.add(userMapper.map(user));
              }

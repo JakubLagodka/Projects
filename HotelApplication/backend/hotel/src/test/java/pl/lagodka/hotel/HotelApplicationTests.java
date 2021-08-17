@@ -1,13 +1,13 @@
 package pl.lagodka.hotel;
 
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class HotelApplicationTests {
 
-    @Test
+   /* @Test
     void contextLoads() {
-    }
+    }*/
 
 }

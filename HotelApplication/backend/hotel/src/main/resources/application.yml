@@ -10,7 +10,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     protocol: smtp
-    username: ${MAIL}
+    username: 'programistakuba@gmail.com'
     password: ${MAIL_PASSWORD}
     test-connection: true
     properties:
@@ -34,10 +34,9 @@ spring:
       on-profile: debug
   jpa:
     show-sql: true
-    hibernate:
-      properties:
-        hibernate:
-          format_sql: true
+    properties:
+      hibernate:
+        format_sql: true
   mail:
     properties:
       debug: true

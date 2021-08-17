@@ -97,7 +97,7 @@ public class UserService implements StartUpFiller {
 
         //if(this.session.get(Admin.class.getSimpleName(),1) == null)
 
-        /*if (userRepository.findAll().isEmpty()) {
+        if (userRepository.findAll().isEmpty()) {
             Admin admin = new Admin();
             admin.setEmail("glownyAdmin@gmail.com");
             admin.setName("Główny");
@@ -124,7 +124,7 @@ public class UserService implements StartUpFiller {
             worker.setPassword(bCryptPasswordEncoder.encode("recepcjonista1"));
             worker.setRole(roleRepository.getOne("WOR"));
             userRepository.save(worker);
-         }*/
+         }
            /* Manager manager = new Manager();
             manager.setEmail("menadzer@gmail.com");
             manager.setName("Władysław");
