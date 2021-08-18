@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Component;
+import pl.lagodka.hotel.mapper.ReservationMapper;
 import pl.lagodka.hotel.model.*;
 
 import pl.lagodka.hotel.repository.ReservationRepository;
@@ -23,12 +24,14 @@ public class ReservationService {
     private final UserRepository userRepository;
     private final RoomTypeRepository roomTypeRepository;
     private ArrayList<ReservationView> reservationsFromCurrentUser;
+    private final ReservationMapper reservationMapper;
 
     @Autowired
-    public ReservationService(ReservationRepository reservationRepository, UserRepository userRepository, RoomTypeRepository roomTypeRepository) {
+    public ReservationService(ReservationRepository reservationRepository, UserRepository userRepository, RoomTypeRepository roomTypeRepository, ReservationMapper reservationMapper) {
         this.reservationRepository = reservationRepository;
         this.roomTypeRepository = roomTypeRepository;
         this.userRepository = userRepository;
+        this.reservationMapper = reservationMapper;
         this.reservationsFromCurrentUser = new ArrayList<ReservationView>();
     }
 
@@ -42,7 +45,7 @@ public class ReservationService {
         for(Reservation reservation: reservationRepository.findAll())
         {
             if(reservation.getUser().getId() == id)
-                reservationsFromCurrentUser.add(map(reservation));
+                reservationsFromCurrentUser.add(reservationMapper.map(reservation));
         }
 
         return reservationsFromCurrentUser;
@@ -50,22 +53,29 @@ public class ReservationService {
 
     public List<ReservationView> findAll() {
         List<Reservation> reservations =  reservationRepository.findAll();
-        return reservations.stream().map(this::map).collect(Collectors.toList());
+        List<ReservationView> reservationViewList = null;
+
+        for (Reservation reservation : reservations) {
+            reservationViewList.add(reservationMapper.map(reservation));
+        }
+
+        return reservationViewList;
+       // return reservations.stream().map(this::map).collect(Collectors.toList());
     }
 
     public ReservationView updateReservation(Long reservationId, ReservationView reservationView) {
 
-        Reservation reservationToUpdate = map(reservationView);
+        Reservation reservationToUpdate = reservationMapper.map(reservationView);
 
         reservationRepository.deleteById(reservationId);
 
-        return map(reservationRepository.save(reservationToUpdate));
+        return reservationMapper.map(reservationRepository.save(reservationToUpdate));
     }
 
     public ReservationView save(ReservationView reservationView)
     {
 
-        Reservation reservation = map(reservationView);
+        Reservation reservation = reservationMapper.map(reservationView);
 
         if(reservationView.getRoomTypeId() != null)
             reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomTypeId()));
@@ -73,7 +83,7 @@ public class ReservationService {
         if(reservationView.getUserId() != null)
             reservation.setUser(userRepository.getById(reservationView.getUserId()));
 
-        ReservationView returnedReservationView = map(reservationRepository.save(reservation));
+        ReservationView returnedReservationView = reservationMapper.map(reservationRepository.save(reservation));
 
 
         return returnedReservationView;
@@ -83,28 +93,5 @@ public class ReservationService {
         reservationRepository.deleteById(id);
     }
 
-    public Reservation map(ReservationView reservationView) {
-        Reservation reservation = new Reservation();
-        reservation.setEndDate(reservationView.getEndDate());
-        reservation.setId(reservationView.getId());
-        reservation.setPrice(reservationView.getPrice());
-        reservation.setStartDate(reservationView.getStartDate());
-        reservation.setNumberOfDays(reservationView.getNumberOfDays());
-        return reservation;
-    }
 
-    public ReservationView map(Reservation reservation) {
-        ReservationView reservationView = new ReservationView();
-        if (reservation.getUser() != null)
-            reservationView.setUserId(reservation.getUser().getId());
-        reservationView.setId(reservation.getId());
-        reservationView.setEndDate(reservation.getEndDate());
-        reservationView.setStartDate(reservation.getStartDate());
-        reservationView.setNumberOfDays(reservation.getNumberOfDays());
-        reservationView.setUserId(reservation.getUser().getId());
-        reservationView.setPrice(reservation.getPrice());
-        if(reservation.getRoom()!= null)
-            reservationView.setRoomTypeId(reservation.getRoom().getId());
-        return reservationView;
-    }
 }
