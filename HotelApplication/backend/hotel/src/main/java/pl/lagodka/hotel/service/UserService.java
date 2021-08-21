@@ -4,6 +4,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.configuration.AppConfig;
 import pl.lagodka.hotel.exception.ForbiddenAccessException;
 import pl.lagodka.hotel.exception.NotImplementedException;
@@ -16,7 +17,7 @@ import pl.lagodka.hotel.repository.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
