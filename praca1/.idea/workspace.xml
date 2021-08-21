@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/praca1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/UserService.java" afterDir="false" />
-    </list>
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added lombok" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,11 +99,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629574763565</updated>
-      <workItem from="1629574765705" duration="1019000" />
+      <workItem from="1629574765705" duration="1782000" />
     </task>
+    <task id="LOCAL-00001" summary="added lombok">
+      <created>1629576554391</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629576554391</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added lombok" />
+    <option name="LAST_COMMIT_MESSAGE" value="added lombok" />
   </component>
 </project>
