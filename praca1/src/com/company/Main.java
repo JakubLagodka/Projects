@@ -2,6 +2,18 @@ package com.company;
 
 public class Main {
 
+    public static void method(int a, int... b) {
+        System.out.println("int a, int... b");
+    }
+
+    public static void method(int... a) {
+        System.out.println("int... a");
+    }
+
+    public static void method(int a, int b) {
+        System.out.println("int a, int b");
+    }
+
     public static void main(String[] args) {
         Integer i1 = 128;
         Integer i2 = 128;
@@ -34,5 +46,12 @@ public class Main {
         d.method();
         D d1 = new C();
         d1.method();
+
+        method(1,2);
+        int tab[] = {3};
+        method(tab);
+        int tab2[] = {4,5};
+        method(1,tab2);
+
     }
 }
