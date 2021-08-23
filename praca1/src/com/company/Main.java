@@ -23,25 +23,16 @@ public class Main {
 
         System.out.println(s1.equals(s2) + " " + s2.equals(s3));
 
-
+        Test t = new Test();
+        Test t1 = new Test();
+        A a = new A();
+        B b = new B();
+        B c = new A();
+        C c1 = new C();
+        c1.method();
+        D d = new D();
+        d.method();
+        D d1 = new C();
+        d1.method();
     }
-    public class Test {
-
-        static {
-            System.out.println("static block Test");
-        }
-
-        {
-            System.out.println("block Test");
-        }
-
-        public Test() {
-            System.out.println("Test");
-        }
-
-    }
-
-    Test t = new Test();
-    Test t1 = new Test();
-
 }
