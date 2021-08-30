@@ -53,7 +53,29 @@ public class Main {
         int tab2[] = {4,5};
         method(1,tab2);
 
+        A2 a2 = new A2();
+        a2.method();
+        a2.iTest();
+        B2 b2 = new B2();
+        b2.method();
+        b2.iTest();
+        B2 c2 = new A2();
+        c2.method();
+        c2.iTest();
+        I i = new A2();
+        //i.method();//jest źle nie wiem czy to moja wina!
+        i.iTest();
+        I j = new B2();
+        //j.method();//jest źle nie wiem czy to moja wina!
+        j.iTest();
 
-
+        Figure trapeze = new Trapeze(1,2,3,4,5);
+        Figure triangle = new Triangle(1,2,3,4);
+        Figure square = new Square(1,2);
+        Figure circle = new Circle(1,2);
+        System.out.println(trapeze.getArea() + ",, " + trapeze.getCircuit());
+        System.out.println(triangle.getArea() + ",, " + triangle.getCircuit());
+        System.out.println(square.getArea() + ",, " + square.getCircuit());
+        System.out.println(circle.getArea() + ",, " + circle.getCircuit());
     }
 }
