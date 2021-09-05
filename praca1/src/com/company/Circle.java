@@ -1,18 +1,18 @@
 package com.company;
 
-public class Circle extends Figure{
+public class Circle extends Figure {
 
     public Circle(double a, double b) {
         super(a, b);
     }
 
     @Override
-    double getArea() {
-        return getA()*getA()*Math.PI;
+     public double getArea() {
+        return a * a * Math.PI;
     }
 
     @Override
-    double getCircuit() {
-        return 2*Math.PI*getA();
+     public double getCircuit() {
+        return 2 * Math.PI * a;
     }
 }

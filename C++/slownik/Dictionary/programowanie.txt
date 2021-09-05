@@ -1,0 +1,1164 @@
+C++:
+#pragma once
+#include <math.h>
+ 
+class Wektor
+{
+    float x;
+    float y;
+public:
+ 
+    float getX()
+    {
+        return x;
+    }
+    float getY()
+    {
+        return y;
+    }
+    void setX(float _x)
+    {
+        x = _x;
+    }
+    void setY(float _y)
+    {
+        y = _y;
+    }
+    Wektor()                        // konstruktor bezparametrowy
+    {
+        x = 0;
+        y = 0;
+    }
+    Wektor(float _x, float _y)      // konstruktor tworzący dowolny wektor
+    {
+        x = _x;
+        y = _y;
+    }
+ 
+    Wektor& operator=(const Wektor&w)   // operator =
+    {
+        this->x = w.x;
+        this->y = w.y;
+        return *this;
+    }
+    bool operator==(const Wektor&w)     // operator ==
+    {
+        if (this->x == w.x && this->y == w.y)
+            return true;
+       
+        return false;
+    }
+    float vecLength()                   // metoda zwracająca długość wektora
+    {
+        return (sqrt(x*x + y*y));
+    }
+ 
+};
+
+#pragma once
+#include "Wektor.h"
+#include <string>
+ 
+ 
+class TablicaWektorow
+{
+protected:
+    Wektor *tw = NULL;
+    int n;
+public:
+ 
+    Wektor* getTw()
+    {
+        return tw;
+    }
+    int size()
+    {
+        return n;
+    }
+    TablicaWektorow()                                   // kontruktor bezargumentowy, tworzy pusty wektor
+    {
+        tw = new Wektor[0];
+    }
+    TablicaWektorow(const TablicaWektorow&w)            // konstruktor kopiujący
+    {
+        this->tw = new Wektor[w.n];
+        this->n = w.n;
+        for (int i = 0; i < n; i++)
+            this->tw[i] = w.tw[i];
+    }
+    TablicaWektorow(TablicaWektorow &&w)                // konstruktor przenoszący (tego nie wiem jak zrobić)
+    {
+        this->tw = w.tw;//////////////////////////////////////////
+    }
+    ~TablicaWektorow()                                  // destruktor
+    {
+            delete tw;
+    }
+    TablicaWektorow& operator=(const TablicaWektorow& w)    // opearator przypisania
+    {
+        delete this->tw;
+        this->tw = new Wektor[w.n];
+        this->n = w.n;
+ 
+        for (int i = 0; i < n; i++)
+        {
+            this->tw[i].setX(w.tw[i].getX());
+            this->tw[i].setY(w.tw[i].getY());
+        }
+        return *this;
+    }
+    TablicaWektorow& operator=(TablicaWektorow&&w)          // operator przenisienia (tego też nie wiem jak zrobić)
+    {
+        delete this->tw;
+        this->tw = new Wektor[w.n];
+        this->n = w.n;
+        for (int i = 0; i < n; i++)
+        {
+            this->tw[i].setX(w.tw[i].getX());
+            this->tw[i].setY(w.tw[i].getY());
+        }
+        return *this;
+    }
+    Wektor& operator[](int index)                           // operator[]
+    {
+        if (index < 0 || index >= n)
+            throw std::string("Index jest spoza zakresu tablicy!\n");       // wyjąteczek
+ 
+        return this->tw[index];
+    }
+ 
+    friend std::ostream& operator<<(std::ostream&o, const TablicaWektorow&w)        // opeartor strumienia <<
+    {
+        for (int i = 0; i < w.n; i++)
+            o << w.tw[i].getX() << " " << w.tw[i].getY() << std::endl;
+ 
+        return o;
+    }
+ 
+    virtual void wstaw(Wektor&w)                        // wirtualna metoda wstaw
+    {
+        int size = this->n + 1;
+        Wektor* tmp = new Wektor[this->n];
+        tmp = this->tw;
+        //delete this->tw; ???
+        this->tw = new Wektor[size];
+        n = size;
+        this->tw = tmp;
+        this->tw[size - 1].setX(w.getX());
+        this->tw[size - 1].setY(w.getY());
+    }
+};
+
+#pragma once
+#include "TablicaWektorow.h"
+ 
+ 
+class TabWektorowSort : public TablicaWektorow
+{
+public:
+    TabWektorowSort(TablicaWektorow&w)                  // konstruktor, tworzący posortowaną tablicę wektorów
+    {
+        n = w.size();
+        this->tw = new Wektor[n];
+ 
+        for (int i = 0; i < n; i++)
+        {
+            this->tw[i].setX(w.getTw()[i].getX());
+            this->tw[i].setY(w.getTw()[i].getY());
+        }
+ 
+        sort();
+    }
+ 
+    void sort()                     // bąble rulez
+    {
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (this->tw[i].vecLength() > this->tw[i + 1].vecLength())
+                {
+                    Wektor tmp(this->tw[i]);
+                    this->tw[i] = this->tw[i + 1];
+                    this->tw[i + 1] = tmp;
+                }
+            }
+        }
+    }
+ 
+    void wstaw(Wektor&w)            // przeciążona metoda wstaw
+    {
+        int size = this->n + 1;
+        Wektor* tmp = new Wektor[this->n];
+        tmp = this->tw;
+        //delete this->tw; ???
+        this->tw = new Wektor[size];
+        n = size;
+        this->tw = tmp;
+        this->tw[size - 1].setX(w.getX());
+        this->tw[size - 1].setY(w.getY());
+ 
+        sort();
+ 
+    }
+};
+
+#include <iostream>
+#include "Wektor.h"
+#include "TablicaWektorow.h"
+#include "TabWektorowSort.h"
+ 
+using namespace std;
+ 
+int main()
+{
+    Wektor x;                                       // konstruktor bezparametrowy działa
+    cout << x.getX() << " " << x.getY() << endl;
+    Wektor y(1, 2);                                 // konstruktor normalny dziala
+    cout << y.getX() << " " << y.getY() << endl;
+ 
+    x = y;                                          // operator = dziala
+    cout << x.getX() << " " << x.getY() << endl;
+ 
+    if (x == y)                                     // operator == dziala
+        cout << "dududu" << endl;
+ 
+    cout << x.vecLength() << endl;                  // metoda vecLenght dziala
+ 
+    system("pause");
+    // ******************************************************* //
+    system("cls");
+ 
+    TablicaWektorow tab1;
+    if (tab1.getTw() != NULL)                   // konstruktor bezargumentowy działa
+        cout << "dududu" << endl;
+ 
+    tab1.wstaw(Wektor(1, 1));                   // metoda wstaw działa
+    tab1.wstaw(Wektor(2, 2));
+ 
+    TablicaWektorow tab2;
+ 
+    tab2 = tab1;                                // operator przypisania działa
+ 
+    cout << tab2 << endl;                       // operator strumieniowy << działa
+ 
+    TablicaWektorow tab3(tab2);                 // konstruktor kopiujacy dziala
+ 
+    cout << tab3 << endl;
+ 
+    try
+    {
+        Wektor test = tab2[1];                  // operator[] działa
+        cout << test.getX() << " " << test.getY() << endl;
+        Wektor test2 = tab2[2];
+        cout << test2.getX() << " " << test2.getY() << endl;        // wyjatek jest wyrzucany przy przekroczeniu zakresu
+    }
+    catch (std::string ex)
+    {
+        cout << ex << endl;
+    }
+ 
+    system("pause");
+    // ******************************************************* //
+    system("cls");
+ 
+    TablicaWektorow bezSortu;
+    bezSortu.wstaw(Wektor(3, 3));
+    bezSortu.wstaw(Wektor(4, 4));
+    bezSortu.wstaw(Wektor(2, 2));
+    bezSortu.wstaw(Wektor(1, 1));
+    bezSortu.wstaw(Wektor(6, 6));
+    bezSortu.wstaw(Wektor(0, 1));
+ 
+    cout << bezSortu << endl;
+ 
+    TabWektorowSort zSortem(bezSortu);  // działa, tworzy się posortowana tablica
+ 
+    cout << bezSortu << endl;
+    cout << "=======" << endl;
+    cout << zSortem << endl;
+    cout << "=======" << endl;
+ 
+    zSortem.wstaw(Wektor(3, 2));        // metoda wstaw też działa, tablica wciąż jest posortowana
+    cout << zSortem << endl;
+ 
+    system("pause");
+    return 0;
+}
+
+1. Wymień nazwy kontenerów asocjacyjnych w C++11.
+2. Podaj 3 przykłady łańcuchów znakowych dopasowujących się do wyrażenia regularnego:
+regex("(a+)(b+)(c+)a\\2");
+3. Zapisz w C++ kod, który za pomocą wyrażeń regularnych zamieni w tekście:
+"Ola ma kota, który lubi Olę, ale nie lubi Olafa";
+Imię "Ola" na "Ala" oraz "Olę" na "Alę". Imię "Olafa" powinno być bez zmian.
+Zamiana powinna być wykonana z użyciem pojedynczego obiektu wyrażenia regularnego.
+4. Kod w C++11, który znajdzie maximum w wektorze liczb całkowitych: vector<int>vec;
+Wyszukiwanie powinno być zrealizowane za pomocą 4 wątków wykorzystując mechanizmy
+standardu języka.
+Wyznaczenie max z 4 maximów dla każdego fragmentu wektora można już zrealizować szeregowo.
+Zwykła metoda wirtualna w C++ zachowuje się jak metoda wirtualna z C#. 
+Natomiast metoda czysto wirtualna z C++ zachowuje się jak metoda abstrakcyjna z C#.
+
+Warto zapamiętać: w C++ nie występują klasy wirtualne, ponieważ nie występuje konstrukcja pozwalająca poprzeć słowa class słowem abstract. Nie występują także interfejsy.
+
+Tablice inicjalizuje sie za pomoca nawiasów {}
+Klasy konstruuje sie za pomoca ( )
+Zmienne typów wbudowanych inicjalizuje sie za pomoca = lub ( )
+
+Kontenery sekwencyjne:
+vector — tablica
+array — tablica o ustalonym rozmiarze (C++11)
+list — lista dwukierunkowa
+forward list — lista jednokierunkowa (C++11)
+deque — kolejka o dwóch koncach
+
+Kontenery asocjacyjne:
+set — zbiór
+multiset — wielozbiór
+map — tablica asocjacyjna
+multimap — tablica asocjacyjna (wiele elementów o tym samym kluczu)
+
+Adaptatory kontenerów sekwencyjnych:
+stack — stos
+queue — kolejka
+priority queue — kolejka priorytetowa
+Kontenery asocjacyjne, haszujace (C++11):
+unordered set — zbiór
+unordered multiset — wielozbiór
+unordered map — tablica asocjacyjna
+unordered multimap — tablica asocjacyjna
+
+Szablon moze miec zmienna liczbe parametrów
+Dostep do parametrów jest czesto metoda rekurencyjna
+Symbol ... sygnalizuje wystapienie zmiennej liczby parametrów:
+... na lewo od typu — operator „pakujacy” (sygnalizuje, ze parametrów moze byc
+wiele, takze 0, i nadaje im wspólna nazwe)
+... na prawo od typu — operator „rozpakowujacy” (reprezentuje wiele parametrów
+np. w wywołaniu funkcji)
+
+Koncepcje opisuja abstrakcyjny interfejs szablonów
+Pozwalaja definiowac ograniczenia na typy, dla których szablony moga byc
+konkretyzowane
+Czym jest koncepcja?
+Definiuje sie podobnie jak klase
+„Metody” koncepcji definiuja jakie cechy musi posiadac typ, dla którego szablon
+bedzie konstruowany
+Istnieja koncepcje automatyczne (auto concept) — podanie auto powoduje,
+ze kompilator automatycznie bedzie generował mapy koncepcji przy próbie
+konkretyzacji szablonu
+Aksjomat — załozenie, które kompilator moze przyjac za spełnione
+alignof — operator zwracajacy informacje (typu size t) o sposobie wyrównywania
+typu
+align — atrybut wymuszajacy sposób wyrównywania
+Funkcje, klasy, struktury moga miec liste atrybutów okreslajacych ich zachowanie
+Składnia: [[lista-atrybutów]]
+Atrybut alignOkresla sposób wyrównywania zmiennych
+Przykład
+unsigned char [[ align ( double )]] tab [ sizeof ( double )];
+W przykładzie powyzej mozna rzutowac wskaznik tab na typ double
+Jesli metoda była wirtualna i w danej pochodnej klasie została zadeklarowana z tym
+atrybutem, to przestaje byc wirtualna i w ew. pochodnych klasach nie moze byc
+przedefiniowana
+Przykład
+struct B : A {
+virtual void f [[ final ]] ();
+};
+
+Aneta Pietroń C++
+1. Odczytac regexa: (a+)(b+)(c+)a\\3\\1 (chyba tak to bylo)
+2. W wektorze sa liczby. Wyliczyc sume liczb nieparzystych z tego wektora uzywajac 4 watkow.
+3. Cos z map, pary czegos, wsadzic do wektora chyba
+Stos - bufor LIFO, wskaznik next i top
+kolejka - lista jednokierunkowa, bufor FIFO
+
+czyli operatory trzeba w klasie potomnej przekazać przez using operator, natomiast konstruktory nie trzeba
+medoda wirtualna = virtual
+metoda czysto wirtualna = virtual = 0
+Metodę wirtualną można zadeklarować jako czysto wirtualną (ang. pure virtual), czyli taką, która powinna być przesłonięta w klasie pochodnej. Jeżeli w klasie jest przynajmniej jedna metoda czysto wirtualna, to jest to klasa abstrakcyjna. Jeżeli klasa pochodna nie przesłoni wszystkich metod czysto wirtualnych, również jest klasą abstrakcyjną. Nie można utworzyć obiektów klasy abstrakcyjnej.
+
+override - sprawdza czy udało się nadpisać metodę czysto wirtualną
+metoda wirtualna - metoda, której wywołanie jest polimorficzne, nie może być static, 
+zaleca się wirtualny destruktor
+
+klasa polimorficzna - to taka w której występuje przynajmniej jedna metoda wirtualna
+Klasa abstrakcyjna - to klasa, która nie zawiera żadnych obiektów. W C++ klasa abstrakcyjna to taka, która zawiera przynajmniej jedną metodę czysto wirtualną – tj. taką która jest wirtualna, i nie ma zdefiniowanego ciała. 
+
+dziedziczenie wielobazowe - dana klasa może mieć kilka bezpośrednich klas bazowych:
+
+akcesory – metody, które udostępniają prywatne pola klasy
+
+inline - Wstawianie kodu funkcji w miejscu wywołania.
+
+Interfejs -  to klasa abstrakcyjna która ma tylko i wyłącznie metody czysto wirtualne i nie ma żadnych pól.
+Lista inicjacyjna - point():x(0.0), y(0.0) {};
+explicit - zakazuje konwersji niejawnej
+w egzaminie mogę przecież konwertować zwracane wartości
+
+int na string
+[C++] ostringstream
+
+Nagłówek: sstream
+
+Klasa string
+
+int i = 42;
+ostringstream ss;
+ss << i;
+string str = ss.str();
+
+int na char*
+
+int i = 42;
+char *str;
+itoa(i, str, 10);
+
+Do konwersji liczby na string'a można by też użyć std::to_string z C++11.
+Uwaga: Jeżeli kompilator nie zna tej funkcji należy go zaktualizować!
+
+zmienna klasowa o atrybucie static jest wspólna dla wszystkich obiektów danej klasy
+
+Oto kilka przykładów z użyciem funkcji std::to_string.
+int do string
+
+#include <iostream>
+#include <string>
+int main() 
+{
+    // konwersja int do string'a
+    int value = 23;
+    std::string _str = std::to_string(value);
+ 
+    std::cout << _str << "\n";
+}
+
+double do string
+
+#include <iostream>
+#include <string>
+int main() 
+{
+    // konwersja double do string'a
+    double value = 23.43;
+    std::string _str = std::to_string(value);
+ 
+    std::cout << _str << "\n";
+}
+
+float do string
+
+#include <iostream>
+#include <string>
+int main() 
+{
+    // konwersja float do string'a
+    float value = 23.4;
+    std::string _str = std::to_string(value);
+ 
+    std::cout << _str << "\n";
+}
+
+long do string
+
+#include <iostream>
+#include <string>
+int main() 
+{
+    // konwersja long do string'a
+    long value = 23;
+    std::string _str = std::to_string(value);
+ 
+    std::cout << _str << "\n";
+}
+
+string str = "123";
+int i;
+istringstream iss(str);
+iss >> i;
+
+char *str = "123";
+int i = atoi(str);
+
+metody uprzywilejowane definiujemy podając po nawiasie zamykającym listę argumentów słowa
+kluczowe const i/lub volatile.
+
+Kolejka
+jest sekwencyjną strukturą danych o takiej własności, iż element 
+zapisany jako pierwszy jest również odczytywany jako pierwszy.
+
+Polimorfizm i metody wirtualne
+Ostatania modyfikacja: 28 września 2017, kategoria: C++
+
+Polimorfizm jest filarem programowania obiektowego, nie tylko jeżeli chodzi o język C++. Daje on programiście dużą elastyczność podczas pisania programu. Polimorfizm jest ściśle związany z metodami wirtualnymi. Złe operowanie mechanizmem polimorfizmu może znacznie spowolnić działanie aplikacji i doprowadzić do poważnych błędów.
+
+Spis treści
+
+    Czym jest polimorfizm?
+    Metody wirtualne
+    Przykład zastosowania polimorfizmu
+    Nie należy przesadzać
+
+Czym jest polimorfizm?
+
+Polimorfizm (wielopostaciowość) jest to cecha programowania obiektowego, umożliwiająca różne zachowanie tych samych metod wirtualnych (funkcji wirtualnych) w czasie wykonywania programu.
+
+Polimorfizm jest słowem zaczerpniętym do informatyki stosunkowo niedawno, podczas rozwoju języków programowania. W języku C++ możemy korzystać z tego mechanizmu za pomocą metod wirtualnych. Dzięki niemu mamy pełną kontrolę nad wykonywanym programem, nie tylko w momencie kompilacji (wiązanie statyczne) ale także podczas działania programu (wiązanie dynamiczne) – niezależnie od różnych wyborów użytkownika.
+
+Ponieważ C++ jest językiem hybrydowym, nie mamy konieczności korzystania z polimorfizmu. Zostanie on automatycznie włączony podczas zadeklarowania przynajmniej jednej metody wirtualnej w danej klasie.
+Metody wirtualne
+
+W internecie często używana jest nazwa funkcji wirtualnej, jednak jest ona dość mylna i nie do końca zgodna z konwencją programowania obiektowego. Funkcja wirtualna musi być funkcją składową danej klasy, a więc generalnie jest metodą. Zwykłej funkcji nie da się zadeklarować jako wirtualna.
+Krótkie przypomnienie
+
+    Podczas dziedziczenia obiekt klasy pochodnej może być wskazywany przez wskaźnik typu klasy bazowej.
+
+    Typem statycznym obiektu wskazywanego przez wskaźnik jest typ tego wskaźnika. Typem dynamicznym obiektu wskazywanego przez wskaźnik jest typ na jaki dany wskaźnik wskazuje.
+
+Dwa powyższe fakty dobrze zobrazuje ten kod:
+class Bazowa {
+public:
+    int a;
+};
+ 
+class Pochodna : public Bazowa {
+public:
+    int b;
+};
+ 
+int main()
+{
+    // typ statyczny: Bazowa
+    // typ dynamiczny: Pochodna
+    Bazowa *bazowa = new Pochodna();
+ 
+    // typ statyczny: Pochodna
+    // typ dynamiczny: Pochodna
+    Pochodna *pochodna = new Pochodna();
+ 
+    system("pause");
+    return 0;
+}
+
+Dzięki tym informacjom możemy napisać zwięzłą definicję metody wirtualnej:
+
+Metoda wirtualna jest to funkcja składowa klasy poprzedzona słowem kluczowym virtual, której sposób wywołania zależy od typu dynamicznego wskaźnika, a nie od typu statycznego.
+
+Definicja wydaje się trudna do zrozumienia, ale schemat jest bardzo prosty. Zobaczymy jak wygląda mechanizm przesłaniania funkcji podczas dziedziczenia, bez użycia metod wirtualnych i polimorfizmu. Aby funkcje zostały przesłonięte muszą mieć taką samą nazwę, argumenty oraz typ zwracany:
+class Bazowa {
+public:
+    void fun() { cout << "Bazowa \n"; }
+};
+ 
+class Pochodna : public Bazowa {
+public:
+    void fun() { cout << "Pochodna \n"; }
+};
+ 
+int main()
+{
+ 
+    Bazowa *bazowa = new Pochodna();
+    Pochodna *pochodna = new Pochodna();
+ 
+    bazowa->fun();  //wyswietli: bazowa
+    pochodna->fun();//wyswietli: pochodna
+ 
+    bazowa = new Bazowa();
+ 
+    bazowa->fun();  //wyswietli: bazowa
+ 
+    system("pause");
+    return 0;
+}
+
+Sytuacja nas nie zaskakuje. To, która metoda zostanie wywołana zależy od typu wskaźnika na obiekt. Jest to wspomniane wcześniej wiązanie statyczne. Kompilator już podczas kompilacji programu wie, jakiego typu statycznego są obiekty i jakie metody mają zostać wywołane.
+
+Dzięki dodaniu do naszego kodu metod wirtualnych, uruchomimy mechanizm polimorfizmu. Wczesne wiązanie statyczne nie będzie miało wtedy żadnego znaczenia, ponieważ to która funkcja zostanie wywołana będzie zależało od późnego wiązania dynamicznego.
+class Bazowa {
+public:
+    virtual void fun() { cout << "Bazowa \n"; }
+};
+ 
+class Pochodna : public Bazowa {
+public:
+    void fun() { cout << "Pochodna \n"; }
+};
+ 
+int main()
+{
+ 
+    Bazowa *bazowa = new Pochodna();
+    Pochodna *pochodna = new Pochodna();
+ 
+    bazowa->fun();  //wyswietli: pochodna
+    pochodna->fun();//wyswietli: pochodna
+ 
+    system("pause");
+    return 0;
+}
+
+Słowo kluczowe virtual dobrze spełniło swoje zadanie. Widzimy jak wywołania metod są zależne od typu dynamicznego. Słowo virtual wystarczy dodać jedynie w klasie bazowej, nie ma konieczności powtarzania go w klasach pochodnych.
+
+Zastanawiasz się pewnie, do czego potrzebny jest polimorfizm oraz metody wirtualne? Bez używania polimorfizmu, programista musiał już na etapie pisania programu, wiedzieć jak będzie się on zachowywał. To za sprawą wczesnego wiązania, które musi być dostarczone kompilatorowi w momencie kompilacji i linkowania.
+
+W przypadku użycia polimorfizmu dostajemy nieograniczone możliwości projektowania aplikacji, gdzie zachowanie programu może się ciągle zmieniać.
+Przykład zastosowania polimorfizmu
+
+Oto prosty przykład zastosowania polimorfizmu: Posiadamy klasę bazową Pojazd oraz trzy klasy pochodne: Samochod, Rower i Rolki. Wszystkie klasy mają zdefiniowaną prostą metodę zatrzymaj() odpowiedzialną za zatrzymanie pojazdu danego typu.
+
+Deklarujemy tablicę wskaźników na obiekty klasy Pojazd (możemy ponieważ jest to klasa bazowa dla wszystkich innych klas). Dla przejrzystości kodu utworzyłem tylko 3 obiekty klas pochodnych i zapisałem wskaźniki na obiekty do poszczególnych indeksów tablicy. Dzięki użyciu polimorfizmu możemy zatrzymać wszystkie pojazdy w jednej pętli.
+#include <iostream>
+#include <cstdlib>
+ 
+using namespace std;
+ 
+class Pojazd {
+public:
+    virtual void zatrzymaj() {
+        cout << "zatrzymuje pojazd..?\n";
+    }
+};
+ 
+class Samochod : public Pojazd {
+public:
+    void zatrzymaj() {
+        cout << "zatrzymuje samochod, puszczam gaz\n";
+    }
+};
+ 
+class Rower : public Pojazd {
+public:
+    void zatrzymaj() {
+        cout << "zatrzymuje rower, przestaje pedalowac\n";
+    }
+};
+ 
+class Rolki : public Pojazd {
+public:
+    void zatrzymaj() {
+        cout << "zatrzymuje rolki, przestaje ruszac nogami\n\n";
+    }
+};
+ 
+int main()
+{
+    Pojazd **tablica = new Pojazd*[3];
+ 
+    tablica[0] = new Samochod();
+    tablica[1] = new Rower();
+    tablica[2] = new Rolki();
+ 
+    for (int i = 0; i<3; i++) {
+        tablica[i]->zatrzymaj();
+    }
+ 
+    system("pause");
+    return 0;
+}
+
+Tak jak pisałem wcześniej, o wywołaniu odpowiedniej przesłoniętej metody zadecydowało późne wiązanie. Uzyskaliśmy ten efekt dzięki zadeklarowaniu funkcji wirtualnej w klasie bazowej. A więc zadziałał polimorfizm. Gdybyśmy usunęli słowo virtual, trzy razy zostałaby wywołana funkcja klasy bazowej – zostałby trzy razy wyświetlony napis: zatrzymuje pojazd..?.
+
+Przykład jest dość trywialny ale w chwili obecnej wydawał mi się najprostszy do ukazania zalet polimorfizmu a przede wszystkim jego praktycznej implementacji. Oczywiście wyobraź sobie sytuację, że w programie istnieje kilkaset obiektów a nie tylko trzy. Wtedy wygoda jaką zyskaliśmy jest nieoceniona.
+Nie należy przesadzać
+
+Polimorfizm kosztuje. Działa to w ten sam sposób jak deklaracja zmiennych statycznych i dynamicznych (stos jest szybszy od sterty). Gdy używamy polimorfizmu program aż do czasu uruchomienia nie wie jak będzie działał, ponieważ obiekt na jaki wskazuje wskaźnik może zmienić się 10 razy w ciągu minuty, zależnie od działania użytkownika.
+#include <iostream>
+#include <cstdlib>
+ 
+using namespace std;
+ 
+class Klasa1 {
+    int a,b,c;
+ 
+    virtual void fun() {
+        cout << "test";
+    }
+};
+ 
+class Klasa2 {
+    int a,b,c;
+ 
+    void fun() {
+        cout << "test";
+    }
+};
+ 
+int main()
+{
+    Klasa1 *klasa1 = new Klasa1;
+    Klasa2 *klasa2 = new Klasa2;
+ 
+    cout << sizeof(*klasa1) << "\n";  //wyswietli 16
+    cout << sizeof(*klasa2) << "\n";  //wyswietli 12
+ 
+    system("pause");
+    return 0;
+}
+
+Klasy polimorficzne zajmują więcej miejsca w pamięci, ponieważ kompilator automatycznie dodaje do nich wskaźnik vptr wskazujący na tablicę vtab. Dla każdej klasy musi istnieć osobny wskaźnik i osobna tablica. Tablica jest generowana automatycznie i zawiera wskaźniki do funkcji, wygenerowane przez kompilator. Nie wiem na jakiej zasadzie odbywa się generowanie zawartości tablicy i nie umiem nic więcej na ten temat napisać.
+
+Sama tablica w budowie nie przypomina niczego nadzwyczajnego. Jej podgląd umożliwia m.in. środowisko Visual Studio po dopisaniu do kompilatora odpowiednich parametrów (zostanie wtedy wygenerowana automatycznie w formie pliku tekstowego).
+
+Traktuj ten artykuł jako wstęp, opisałem w nim związek pomiędzy metodami wirtualnymi a polimorfizmem. Jeżeli temat dalej Cię interesuje, zapraszam do bardziej szczegółowego wpisu przedstawiającego Polimorfizm w C#.
+Klasa, która nie ma publicznych konstruktorów, nazywana jest klasą prywatną.
+Obiekt klasy K mający cechę constexpr(konstruowany poprzez konstruktor z przydomkiem constexpr), jest stałą dosłowną klasy K(albo literał klasy K).
+Klasa która jest w stanie produkować obiekty typu constexpr, nazywana jest klasą literalną.
+
+C#:
+C# 1. Różnice miedzy typem referencyjnym a wartościowym. 
+-typy wartościowe mają niezmienną wielkość zajmowania pamięci w przeciwieństwie do typów referencyjnych, których wielkość zmienia się w trakcie działania programu
+-obiekty typu wartościowego trafiają na stos, natomiast obekty typu referencyjnego trafiają na stertę, jedynie referencja obiektu na stos
+-zmienna typu wartościowego przestaje istnieć kiedy wyjdzie poza klamry zasięgu, natomiast referencje są usuwane z pamięci za pomocą Garbage Collectora
+-typami referencyjnymi w C# są: klasy, delegacje, interfejsy, tablice, stringi
+-typami wartościowymi są: int, bool, long, byte, float, double, char, enum i struktury
+-typow referencyjnych nie da się kopiować korzystając z domyślnego operatora przypisania
+
+
+  2. Czy w C# istnieje dziedziczenie wielobazowe
+
+Język C# nie pozwala na dziedziczenie z wielu klas bazowych 
+
+3. napisanie getera do pola 
+
+4. Byly dwie metody wirtualne klasy bazowej, a pod spodem metoda klasy dziedziczącej w której była luka w miejscu, gdzie należało wpisac override. 
+
+5. cos z blokiem using
+
+Metodę abstrakcyjną można zadeklarować tylko w klasie abstrakcyjnej (także poprzedzonej słowem abstract). Dlaczego tak jest? Klasa abstrakcyjna jest klasą, której instancji nie da się stworzyć. 
+Zarówno metody abstrakcyjne jak i metody wirtualne są polimorficzne 
+
+delegaty to obiekty, które wskazują na dowolne metody znajdujące się w programie. Są definiowane za pomocą słowa kluczowego delegate. Przypominają działanie wskaźników z języka C++, jednak zapewniają kontrolę typów. Mogą wskazywać metody instancyjne oraz statyczne.
+
+  metody, która nie jest wirtualna, nie można przesłonić poprzez użycie override
+    metody statyczne ani prywatne nie mogą być wirtualne
+    metoda wirtualna może być przesłonięta w klasie pochodnej – ale nie musi. W przypadku braku przesłonięcia zostanie wywołana metoda klasy bazowej
+
+Metoda abstrakcyjna w C# jest metodą polimorficzną. Musi być zadeklarowana jako funkcja składowa abstrakcyjnej klasy, poprzedzona przedrostkiem abstract.
+
+Metoda abstrakcyjna zachowuje się dokładnie tak samo jak metoda wirtualna, jedyna różnica leży w braku definicji ciała funkcji. Tworząc metodę abstrakcyjną deklarujesz funkcję (deklaracja to typ zwracany, nazwa i argumenty) ale nie definiujesz ciała funkcji
+1. [0,2pkt] Do czego służy operator sealed?
+Odp: When applied to a class, the sealed modifier prevents other classes from inheriting
+from it.
+2. [0,2pkt] Uzupełnić:
+class x
+{
+protected virtual void F() {Console.Writeline (“X.F”);}
+protected virtual void F() {Console.Writeline (“X.F”);}
+}
+class Y : X
+{
+protected ……… void F() {Console.Writeline (“Y.F”);}
+}
+3. [0,2pkt] Jaki operator należy zastosować w poniższym przypadku, aby wskazać, że klasa ma
+niekompletną implementację?
+class ShapesClass
+{
+public int Area();
+}
+4. [0,2pkt] Podaj fragment kodu, który wypisuje (unsubscribe) metodę z listy subskrybentów
+zdarzenia. Metoda dodawana jest w poniższym kodzie:
+void HandleCustomEvent(object sender, CustomEventArgs a)
+{
+//do something
+}
+publisher.RaiseCustomEvent += HandleCustomEvent
+5. [0,2pkt] Jakie zagrożenie niesie ze sobą poniższy kod?
+Font font2 = new Font(„Arial”, 10.0f);
+using(font2) //not recommended
+{
+//wykorzystanie font2
+}
+część z c#: 1 zadanie - zadanie 1 jest ok, 
+zadanie 2 - chyba powinno być OVERRIDE, z
+zadanie 3 - operator abstract
+zadanie 4 nie mam pojęcia, 
+zadanie 5 też za bardzo nie (generalnie pewnie chodzi o to, że chyba jak się stosuje using to zmienna staje się read only czy coś takiego)
+języki takie jak C# czy Java nie pozwalają, w przeciwieństwie do C++, na dziedziczenie z więcej niż 1 klasy bazowej, ale pozwalają na dziedziczenie z wielu interfejsów.
+
+Praca inżynierska:
+Dobra poszukam w internecie na youtube tutoriali a propos tworzenia aplikacji, żeby łatwiej mi było to zrobić, to i tak nie zajmie więcej niż parę dni a będzie mi o wiele łatwiej tworzyć aplikację potem!
+Jestem studentem po 3-cim roku informatyki na Politechnice Śląskiej. Potrzebuję korepetycji z informatyki w zakresie napisania pracy inżynierskiej. W ramach tej pracy mam zaprojektować i zaimplementować aplikację internetową do obsługi małego hotelu.  Backend aplikacji ma być napisany w Javie. 
+Potrzebuję również pomocy w przygotowaniu do rozmowy kwalifikacyjnej z przyszłym pracodawcą.
+Jeśli chodzi o postęp mojej pracy, to zacznę od tego, że ja wybrałem dość ambitny temat, gdyż podczas wyboru tematu mojej pracy inżynierskiej nie miałem w ogóle doświadczenia w budowaniu tego typu aplikacji ani właściwie nie miałem styczności z technologiami frontendowymi, więc uczyłem się praktycznie od zera, jeśli chodzi przynajmniej o frontend – Angulara. Musiałem nauczyć się też HTMLa, CSSa, JavaScriptu i oczywiście sposobu działania aplikacji Angulara, na to poświęciłem zdecydowanie najwięcej czasu. Także nie używałem wcześniej w aplikacjach Springa. Natomiast nie ulega wątpliwości, że przy okazji pisania tej aplikacji nauczyłem się bardzo dużo, więc absolutnie nie jest to żaden zmarnowany czas. W tym momencie back-end jest już właściwie gotowy, czeka tylko na skończenie części front-endowej. Tak jak tutaj wymieniłem, wykorzystuję Spring Security do zalogowania się. Mam też działające połączenie z bazą danych.  Natomiast teraz skupiam się na front-endzie aplikacji, jest już połączenie z API i formularz logowania, teraz ostatnio uczyłem się jak działa w Angularze routing aplikacji umożliwiający przechodzenie do różnych adresów URL mojej aplikacji wraz ze strażnikiem (tzw. Guardem), który umożliwi weście na niektóre zasoby tylko upoważnionym użytkownikom. Także ciekawym zagadnieniem, z którym mam styczność podczas pisania frontendu, konkretnie podczas pobierania danych z API, jest tak zwany paradygmat programowania reaktywnego, ponieważ korzystam z biblioteki RxJS, która wspomaga pisanie reaktywne. Ja właśnie subskrybuję dane z API, dzięki czemu podczas każdej zmiany automatycznie zostanie ona przesłana do frontendu poprzez strumień obserwowalny. To jest taki właściwie element pochodzący z tego paradygmatu reaktywnego. Wydaje mi się, że już opanowałem najważniejsze zagadnienia i że już w niedługim czasie uda mi się uruchomić działającą aplikację. 
+
+Witam serdecznie, ja nazywam się Jakub Łagódka. Tematem mojej pracy inżynierskiej jest projekt i implementacja aplikacji internetowej do obsługi małego hotelu. Stworzone przeze mnie oprogramowanie nadaje się do użytku dla małego zakładu hotelarskiego. Moim promotorem jest pan profesor Paweł Kasprowski. Przechodząc do wymagań funkcjonalnych aplikacji -  podstawową funkcjonalność programu stanowi możliwość dokonania rezerwacji pokoju przez klientów po przez stronę internetową. Osoba zainteresowana ma możliwość wyboru terminu pobytu oraz rodzaju pokoju wraz ze wszystkimi dodatkowymi opcjami oferowanymi przez hotel, a także usunięcia swojej rezerwacji. Z kolei recepcjonista posiada możliwość podglądu obłożenia oraz modyfikacji rezerwacji dokonanych przez klientów. Największą funkcjonalnością dysponuje administrator systemu, dysponuje on możliwością edycji opcji pokoi dostępnych w hotelu, modyfikacją rodzaju i liczby pokoi dostępnych dla klientów, a także opcją dodania nowych użytkowników do systemu, w tym recepcjonistów.
+Jeżeli chodzi o wymagania niefunkcjonalne aplikacji, to hasła przechowywane są w bazie danych w postaci zaszyfrowanej, a  w przypadku usunięcia konta użytkownika usunięte zostaną również dane użytkownika. Program jest przystosowany do pracy pod kontrolą wszystkich wiodących przeglądarek internetowych. Również widok aplikacji automatycznie dopasowuje się do różnych rodzajów ekranu.
+Natomiast schemat bazy danych prezentuje się jak na slajdzie. Encja rezerwacji zawiera klucz obcy będący kluczem głównym encji użytkowników, a także zawiera klucz obcy będący kluczem głównym encji typu pokoi, to znaczy rezerwacji dokonuje jeden konkretny użytkownik na jeden konkretny typ pokoju. Użytkownik także należy do jednej z trzech kategorii: klient, recepcjonista, administrator, dlatego zawiera również klucz obcy – kod kategorii. Osobną encją jest encja parametrów, gdzie znajdują się wszystkie opcje pokoi, które mogą być modyfikowane przez administratora systemu. 
+Przechodząc do budowy systemu - składa się on z dwóch całkowicie niezależnych od siebie części powiązanych tylko poprzez API udostępniane przez serwer zwany backendendem aplikacji, który został napisany w języku Java z wykorzystaniem platformy Spring. W tym miejscu następuje połączenie się z bazą danych służącą do przechowywania informacji. W mojej aplikacji wykorzystałem system zarządzania bazą danych PostgreSQL. Jeżeli zaś chodzi o klienta zwanego z angielska frontendem aplikacji, to został on napisany we frameworku Angular z wykorzystaniem języka TypeScript. 
+Opiszę teraz krótko technologię wykorzystaną w serwerze aplikacji - tak więc Spring jest platformą złożoną z wielu projektów, która dedykowana jest do tworzenia aplikacji w języku Java. Jego kluczowym elementem jest kontener wstrzykiwania zależności, jednak przez lata Spring zyskał wsparcie dla wielu technologii i stanowi dziś jeden z kluczowych elementów całego ekosystemu Javy. Dziś istnieje swego rodzaju rywalizacja pomiędzy Springiem a Javą Enterprise Edition i we współczesnych ich wersjach widać bardzo podobne podejście, przenikanie się obu rozwiązań i wzajemne inspiracje. Spring składa się obecnie z wielu osobnych modułów, z których parę wybrałem w swoim projekcie. Krótko je teraz opiszę: Spring framework jest kluczowym elementem całego Springa, który udostępnia kontener wstrzykiwania zależności, o którym już wspomniałem. Spring Boot stanowi tak naprawdę alternatywę dla tego co istnieje od lat w Javie Enterprise Edition i ukrywa całą skomplikowaną konfigurację. Na podstawie skanowania pakietów oraz informacji zawartych w pliku application.properties Spring Boot utworzy dla nas niezbędne obiekty. Spring Data REST Repositories znacznie ułatwia budowanie usług internetowych opartych na architekturze REST API. REST Repositories opiera się na repozytoriach Spring Data, analizuje model domeny aplikacji i udostępnia dla danych zawartych w modelu zasoby zgodnie z protokołem HTTP poprzez punkty końcowe (tzw. Endpointy) do których można się odwołać. Spring Data JPA jest projektem upraszczającym dostęp do baz danych. Główną jego zaletą jest zminimalizowanie ilości powtarzalnego kodu, ja używam java persistence API i dzięki temu modułowi mogę skorzystać z interfejsu CrudRepository do obsługi podstawowych metod CRUD (od ang. create, read, update and delete). Spring MVC jest projektem będącym najpopularniejszym frameworkiem model, widok, kontroler -  wykorzystywanym do tworzenia aplikacji webowych w Javie. Spring MVC bazuje na technologii serwletów, czyli kluczowej specyfikacji Javy EE i do działania wymaga kontenera serwletów typu Tomcat. Spring Security jest projektem, który pozwala na zabezpieczenie swojej aplikacji i stworzenie systemu uwierzytelnienia i autoryzacji. 
+Przechodzę teraz do technologii użytych we frontendzie (kliencie) mojej aplikacji. Angular jest to otwarty framework i platforma do tworzenia SPA, napisany w języku TypeScript i wspierany oraz rozwijany przez Google. Początkowo był on po prostu biblioteką JavaScriptu, znaną pod nazwą AngularJS, jednak potem od wersji drugiej wyewoluował on jako całkowicie odrębna platforma programistyczna i zaczął wykorzystywać język TypeScript, będący tak naprawdę semantycznie nadzbiorem JavaScriptu, więc składnia jest niemal identyczna, tylko TypeScript dodaje trochę dodatkowej funkcjonalnośc. Aktualnie od listopada zeszłego roku w użyciu już jest 11-ta wersja Angulara. Do uruchomiania aplikacji wykorzystuje CLI Angulara oraz Node Js. Angular CLI to narzędzie wiersza poleceń, stworzone po to aby ułatwić konfigurację nowych projektów tworzonych w najnowszych wersjach Angulara. Natomiast Node.js, to wieloplatformowe środowisko uruchomieniowe o otwartym kodzie do tworzenia aplikacji typu server-side napisanych w języku JavaScript. W aplkacji wykorzystuję też bibliotekę CSS o nazwie Bootstrap – jest  to gotowy szkielet (czyli framework) do budowania wizualnej części stron internetowych. Z kolei Angular Material jest to jak gdyby zestaw komponentów implementujących specyfikacje Google Material Design, po prostu wykorzystuje go, by ułatwić sobie tworzenie widoku mojej aplikacji. O TypeScripcie już mówiłem, natomiast oczywiście w aplikacji wykorzystuję też technologię HTML oraz CSS to utworzenia widoków komponentów mojej aplikacji.
+To  już wszystko z mojej strony, dziękuję bardzo za poświęconą mi uwagę i jeśli są jakieś pytania, to chętnie na nie odpowiem. 
+
+HTTP - Hypertext Transfer Protocol
+JPA - Java persistence API
+CRUD - od ang. create, read, update and delete
+SPA – single page application
+
+Autoryzacja jest zrobiona poprzez JWT
+Tematem pracy jest projekt oraz implementacja aplikacji internetowej, umożliwiającej dokonanie rezerwacji pokoju w ośrodku hotelowym, a także podglądu oraz ewentualnego usunięcia pokoju przez potencjalnego klienta. Administrator ma możliwość dostosowania widocznych przez klienta parametrów pokoi oraz ich ilości.  Aplikacja składa się z dwóch części - serwera zaimplementowanego w języku Java z wykorzystaniem szkieletu tworzenia aplikacji Spring oraz z klienta działającego na platformie Angular.
+The subject of the work is the design and implementation of a web application that allows to book a room in a hotel resort, as well as preview and possible removal of the room by a potential client. The administrator can adjust the parameters of the rooms visible by the customer and their number. The application consists of two parts - the server implemented in Java using the Spring application development framework and the client running on the Angular platform.
+rezerwacja, pokój, aplikacja internetowa, klient, recepcjonista, administrator, klient, serwer.
+booking, room, web application, client, receptionist, administrator, client, server
+
+Typescript:
+TypeScript jest nakładką od Windowsa na JavaScript
+W cmd:
+Mkdir – tworzę katalog
+Ctrl+c – terminate
+Tuple(krotka) jest po to, by funkcja mogła zwrócić dwie wartości!
+Any – może przechowywać dowolny typ, gdy nie wiemy co będzie.,
+Interpolacja (Grafika komputerowa)– proces mający na celu utworzenie nowego, wcześniej nieistniejącego piksela na podstawie sąsiadujących pikseli w taki sposób, aby był on jak najlepiej dopasowany optycznie do transformowanego obrazu. Czyli potocznie przesyłanie odpowiednie danych!
+DOM – Document Object Model	
+Każda dyrektywa strukturalna w Typescript/JavaScript (z gwiazdką) usuwa całkowicie elementy z drzewa strukturalnego i z pamięci lub je dodają, po naciśnięciu przycisku dodaj/usuń! Więc jeśli mamy jakieś dodatkowe komponenty, w których dokonują się obliczenia, to za każdym takim razem one się znów wykonują! Natomiast hidden tylko chowa te elementy, one cały czas są! Angular modyfikuje w trakcie działania naszą stronę! Główne założenie takich Frameworków jak Angular jest właśnie takie, żeby wszystko działało bardzo dynamicznie i było od razu gotowe gdy użytkownik kliknie w jakiś przycisk
+Data binding(wiązanie danych) – powiązanie informacji wyświetlanych w naszych komponentach z informacjami wyświetlanymi w widoku HTML.
+3 najważniejsze data bindingi:
+•	Property Binding – przesyłamy informacje z komponentu do naszego widoku HTML
+•	Two-way-finfing – komunikujemy się w dwie strony między HTML a komponentem 
+•	Event Binding – przesyłamy informacje z widoku do komponentu
+
+Java:	
+Pytanie: czy używam ORMlite, Hibernete czy JPA?
+Hibernate – framework do realizacji warstwy dostępu do danych. Zapewnia on przede wszystkim translację danych pomiędzy relacyjną bazą danych a światem obiektowym.
+Java Persistence API – oficjalny standard mapowania obiektowo-relacyjnego firmy Sun Microsystems dla języka programowania Java.
+Zapytam się, czy jako framework do realizacji warstwy dostępu do danych mogę użyć ORMlite, czy też mam użyć bardziej zaawansowanych standardów, jak JPA Hibernate?
+Jednak chyba wybiorę Hibernete, ponieważ chcę się nauczyć na profesjonalnym standardzie programować!
+Dao menadżer służy do wykonywania operacji na używanej bazie danych. Służy też do utworzenia tabeli.
+Dodawanie elementów – post
+Pobieranie elementów – get
+Bean – obiekt zarządzany przez Springa – jeśli jest nad klasą adnotacja odpowiednia, wtedy Spring nią zarządza
+Adnotacje Springa:
+@Configuration – klasa odpowiada za konfigurację
+@Service – klasa jest usługodawcą – coś nam dostarcza
+@Conponent – jeśli nie mamy jasno sprecyzowanego celu klasy, ale ma Spring ją obsługiwać
+@RestController – dana klasa ma stanowić interfejs RESTowy
+@Controller – dana klasa ma być kontrolerem, czyli przesyłać jakieś dane
+@Repository – klasa ma zarządzać danymi – ona pozwala na zapisywanie naszych encji do bazy danych i odczytywanie z niej
+UserDetailsService – to usługa która pośredniczy pomiędzy warstwami SecurityConfig a UserRepo
+Optional dba o to, abyśmy nie dostali nulla
+Adnotacja @Bean po to, żeby móc wstrzykiwać jego instancję
+@Controller mapuje bezpośrednio do plików, a @RestController mapuje bezpośrednio do typu zwracanego
+/w defaultSuccessUrl dajemy endpoint, na który przejdziemy po zalogowaniu się.
+Tak jak dobrą praktyką Javy jest SOLID KISS, tak bazy danych mają dobre praktyki, które nazywają się postacie normalne, no i zgodnie z trzecią postacią normalną powinno stosować się rozróżnienie encji
+Poprzez optionale można zabezpieczyć przed wysłaniem wymyślonych tokenów z palca!
+Znak podkreślenia przed nazwą jest powszechną konwencją powiadamiającą programistów o tym, że dana właściwość jest uważana za prywatną!
+Emulacja – programowe symulowanie działania określonego oprogramowania lub platformy sprzętowej przez inny system lub na sprzęcie innego typu. Proces ten dokonywany jest za pomocą specjalnego programu nazywanego emulatorem.
+Normalizacja – zamiana zakresu zmiennej numerycznej na zakres unormowany – najczęściej od 0 do 1
+i słyszałem, że ten JQuery jest niepotrzebny dzisiaj, żeby go się nie uczyć!
+.findFirst() - zwraca optional int
+public synchronised void f()
+{
+	p(S)
+	V(S)
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" 
+content="text/html; charset=iso-8859-2"/>
+<a href = "link">napis</a>
+<form action = "link" method = "Post"> GET
+<input type="text"
+name="imie"/>
+<input type="submit" value(lub name)="Wyślij"/>
+</form
+serwery:
+-Glassfish
+-Tomcat
+menu tools -servers
+MIME
+text/html
+image/gif
+Hashtable jest przestarzały, lepiej użyć Hashmap
+jeśli mamy duże dane, to możemy je tylko metodą post wysłać
+zaleta get: można zrobić odnośnik, który się wysyła get
+stworzyć stronę, która umożliwi logowanie:
+-3 podstrony
+-dostęp do nich 
+-3 strona jest wyświetlana, gdy nie jest zalogowany
+metoda post: generuj link: link?user=
+get: <input type="hidden"
+name="user"=maciej
+value="maciej"/>
+pole typu password:
+składowe klasy:
+DatagramSocekt - wyjście albo wejście(z punktu widzenia serwera) na świat
+
+DatagramPacket - paczka informacji
+
+Konstruktor
+tworzymy nasz socket, który będzie nasłuchiwał na tym porcie. Następnie wywołujemy metodę receive, która jest metodą blokującą. 
+Jak program do niej wejdzie, to będzie czekał aż do momenty, gdy ta metoda nie zostanie przerwana przez przyjście jakiegoś
+pakietu, ewentualnie przez zgłoszenie wyjątku
+Jeśli się skończy bez wyjątku, to przyszły jakieś dane które zostaną umieszczone w datagramie.
+Z tego datagramu możemy sobie pobrać nie tylko dane, które są wysyłane przez klienta, ale też dodatkowe informacje,
+w tym ten nasz port, na który będziemy sobie zaraz odpowiadali.
+Później tworzymy jakiś bufor, który odeślemy klientowi, tworzymy datagram będący odpowiedzią, a następnie za pomocą metody send,
+przesyłamy z powrotem do klienta
+
+Kolekcje danych można przetwarzać jak strumienie.
+
+konstrukcja try with resources, automatyczna close - jeśli główna klasa programu implementuje closeable
+
+tcp - czytamy sobie strumienia(wejściowego, wyjściowego)
+
+jeżeli ponownie się polaczymy klientem z tym samym serwerem, wówczas zobaczymy dotychczasowy stan naszej pracy
+
+własny protokół komunikacyjny - ma składać się z krótkich słów, które będą przesyłane pomiędzy klientem, a serwerem
+(wówczas będzie można komunikować się za pomocą putty)
+
+klient będzie wykonywał komunikację, ale ma być do zastąpienia za pomocą putty(żeby komendę protokołu można było wysyłać za pomocą putty)
+
+serwer powinien rozpoznawać nieprawidłową kolejność poleceń protokołu! - żeby serwer nie liczył na danych, które nie zostały jeszcze przerwane
+help będzie wyświetlał, w jaki sposób korzystać z protokołu
+jeśli się serwer włączy i wyłączy to dane nie muszą być zapamiętywane!
+1 model - 1 klient
+mapowanie 2 razy w projekcie naszym
+setMaxAge - liczba sekund 
+mapowanie - każdy servlet składa się przynajmniej z 1 klasy
+w println wywołana metoda getContextPath(), która zwraca ścieżkę do katalogu znajdującego się na serverze!
+
+po co stosować, żeby servlet generował nie html, tylko jakiś plik?
+
+zamiast wczytywać obrazek z dysku servera, po prostu go renderować.
+
+renderowanie – przedstawienie informacji zawartych w dokumencie elektronicznym w formie najbardziej właściwej dla danego środowiska. 
+Część programu komputerowego odpowiedzialna za renderowanie nazywana jest mechanizmem renderującym, silnikiem renderującym lub rendererem.
+
+Jeżeli jest jakaś konfiguracja, od której zależy działanie strony, to powinna być w pliku web.xml, a nie w kodzie!
+Jak użytkownik poda błędne dane, to powinno być to w czytelniejszej formie, niż w przykładzie!
+Hashtable jest przestarzały, bo jest jak vector synchronizowany. Używać Hashmap albo ConcurrentHashmap!
+
+Najpierw w przykładzie przekazywaliśmy dane do servera metodą get. ta metoda polega na tym, że do adresu dodawany jest znak zapytania, a następnie liczba wartości(par klucz wartość), podanych przez użytkownika w formularzu!
+Wobec tego dane przekazywane przez użytkownika, są tak naprawdę wysyłane do servera jako fragment adresu!
+
+Metoda post działa inaczej. Tym razem dane zostaną dołączone do nagłówka http. Użytkownik nie zobaczy ich w pasku adresu, tylko zostaną przesłane jako nagłówek http, który i tak może zostać odczytany metodą dopost
+
+zalety:
+jeśli mamy duże dane albo dane binarne, to tylko metodą post możemy przesłać!
+Jeśli przesyłamy jakieś hasło, to zdecydowanie nie użyjemy get tylko post(choć przydałoby się mieć szyfrowanie)
+zaleta get - można zrobić odnośnik, który przesyła jednocześnie dane użytkownika
+
+Można przekazać sterowanie servletu na 3 sposoby:
+1.Podanie w polu PageAdress jakiś tam adress i klikniemy forward
+To jest istotne - ta metoda nie powoduje, że servlet sam od siebie przekaże sterowanie do onetu lub do google'a, tyle tylko, że wysyła do użytkownika nagłówek http, który nakazuje przeglądarce przejście do podanej strony.
+Jeśli nie podamy adresu, jest wywoływana metoda forward - kieruje do servletu error(tu sterowanie jest przekazywane do innego servletu)
+2.include - powoduje że server, do którego przekazujemy sterowanie, nie może modyfikować nagłówka http, ale może generować kod 
+(np html'owy) - to jest dobrze jeśli np: mamy sobie osobny kod odpowiedzialny za generowanie fragmentu strony, wówczas możemy się przekierować za pomocą include i wrócić. Natomiast forward przekazuje sterowanie i nie da się już wrócić sterowania
+Zrobić stronę do której się loguje, powinny się pojawić jakieś 3 podstrony. Dostęp do 2 z nich powinien być możliwy tylko jeśli użytkownik poda właściwe poświadczenie (nazwa użytkownika i hasło). 3 strona logowania, która będzie wyświetlana zawsze wtedy, gdy użytkownik nie jest zalogowany. Stosuje się tu ciasteczka albo obecnie identyfikator krótki, ale bardzo prosta metoda polega na tym aby poświadczenie użytkownika zawsze przekazywać metodą get albo post. I zawsze przy generowaniu strony sprawdzać czy te dane zostały wygenerowane. Użytkownik się loguje i od tego czasu jak on przechodzi na dowolną podstronę, dane będą przekazywane do servleta metodą get albo post.
+metoda get: generuj link: link?user=
+post: <input type="hidden"
+name="user"=maciej
+value="maciej"/>
+pole typu password: - to się nam przyda - pole tekstowe
+
+W pliku xml ma się pojawic mapowanie nazwy na klasę oraz mapowanie nazwy na ścieżkę!
+
+Listenery - klasy które udostępniają metody, wywoływane w momencie wystąpienia jakiegoś zdarzenia
+
+3 parametry ciasteczka:
+1. nazwa
+2. wartość
+3.czas życia - możemy sobie ustawić przy pomocy getmaxage() - parametr - liczba sekund po których ciasteczko ma wygasnąć
+jeśli da się zero - ciasteczko zostanie od razu usunięte
+jeśli da się -1 - ma się utrzymać tak długo, jak to jest możliwe ciasteczka - To niewielkie informacje, nazywane ciasteczkami (z ang. cookie – ciastko), wysyłane przez serwis internetowy,  który odwiedzamy i zapisywane na urządzeniu końcowym (komputerze, laptopie, smartfonie),  z którego korzystamy podczas przeglądania stron internetowych.
+
+jeśli chcemy wysłać jakieś nowe ciasteczka do użytkownika, wówczas tworzymy obiekt, i za pomocą addcookie jest przekazywany.
+
+nie ma w przykładzie -mechanizm sesji, dane potrzebne do działania strony mogą być przechowywane po stronie użytkownika na 3 sposoby:
+1.ciasteczka
+2.paramery typu get
+3.pola typu hidden
+
+mechanizm sesji - serwer
+po stronie użytkownika tworzy się plik sesja, parametr sesid server może umieścić dowolne dane
+Jeśli chcemy skorzystać z sesji mamy stworzyć obiekt i wywołać getsession()
+
+na zajęciach mieliśmy zmodyfikować logowanie tak, żeby stworzyć mechanizm sesji
+
+jeśli użytkownik jest niezalogowany, to wyświetlany jest mu formularz logowania, jeśli dane się zgadzają, tworzę obiekt sesji, gdzie jest informacja o tym, że użytkownik jest zalogowany,
+dopóki się nie wyloguje, użytkownik ma dostęp do danych 
+znacznik <% %> - wstawki kodu javowego
+wypisanie - out.println
+pliki jsp są jak html, tyle tylko że servlet wyszukuje w nich specjalnych wstawek javovych o nazwie typdef?
+Tworzy się je za pomocą następującego znacznika: znacznik <% %>
+
+widok w postaci formatki html - czyli zamiast widoku w konsoli, cała obsługa będzie wykonywana przy pomocy html'a
+
+cco najmniej 2 servlety
+
+Pan się nie trzyma specjalnie założeń, co ma w nich być, tylko zęby były te 2 servlety i w 1 z nich była kolekcja :)
+
+nie trzeba jednocześnie get i post, wystarczy jak będzie jedna zrobiona :)
+
+obsługa braku i błędnych danych
+
+podtrzymanie stanu sesji nie koniecznie musi być mechanizm sesji, może być mechanizm ciasteczek -informacje o sesji można przechowywać
+w ciasteczku po stronie użytkownika, pan proponuje, żebyśmy zrobili sobie mechanizm logowania za pomocą ciastek:
+logowanie, wylogowanie, tworzenie użytkowników w sposób single method, zrobić tak:
+interfejs
+1 implementacja - przechowywanie danych w pliku
+2, implementacja - w bazie danych(lab5)
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Replacement impedance</title>
+    </head>
+    <body>
+        
+        <h1>Enter circuit data</h1>
+
+        <form action="data" method="POST">
+            <p>Circuit type:
+            <p><input type=radio name=option value=all checked>parallel</p>
+            <p><input type=radio name=option value=specified>serial
+            <p>Number of elements:<input type=text size=20 name=numOfElem></p>
+            <p>Frequency:<input type=text size=20 name=lastname></p>
+$liczba1=30
+            <script type="text/javascript">
+var n = numOfElem;
+                for (i = 0; i < n; i++) {
+
+                    document.write("<p>Element type:");
+                    document.write("<p><input type=radio name=option value=all checked>resistor</p>");
+                    document.write("<p><input type=radio name=option value=specified>capacitor");
+                    document.write("<p><input type=radio name=option value=specified>coil");
+                    document.write("<p>Element value:<input type=text size=20 name=elvalue></p>");
+
+                }
+
+            </script>
+            <input type="submit" value="Enter" />         
+        </form>
+               <?
+for($i=1; $i<=50; $i++) { print("$i ");
+}
+?>     
+        <h1></h1>
+        <form action="unlog" method="POST">
+            <input type="submit" value="Logout" />
+
+        </form>
+    </body>
+</html>
+bd -sterownik jdbc - jdbc
+
+%-3s - uzupełni spacjami po prawej stronie(po lewej nie będzie)
+
+PreparedStatement ps = con.prepareStatement
+("SELECT * FROM TABLE KSIAZKI WHERE ID=?);
+
+ps.SetInt(1,10);
+ps.executeQuery();
+Liderzy grupy są w roli menedżerów i tyle. Nie ma przydziału do grup. To będzie poprzez bazę danych, ale przypadki użycia też będą tutaj. Takie rzeczy robi się wielopoziomowo, a co najmniej dwupoziomowo. Jest ten	 Request – zgłoszenie, np.: zgłoszenie klienta. To jest albo zgłoszenie modelu albo zgłoszenie rozszerzenia czyli zmiany, z tym że to jest kłamstwo, bo to klient zgłasza, on zgłasza więcej rzeczy, czasem kilka rzeczy, a oprócz tego czasami się coś nie zgadza, on zgłasza coś jako błąd, a to nie znaczy że system  nie działa, jak ma działać, ale to jest błąd który możemy zapisać jako rozszerzenie. Tylko o tym mówię, ze request jest po stronie kilenta i tu można wprowadzać elementy struktury typu rodzaj tego requestu i zaraz o tym powiem, a to jest metoda dostępu. Uwaga! Są typy obiektów i to są systemy informatyczne, np.: hospital information system czyli system szpitalny. I teraz taki system szpitalny składa się z modułów, to są obiekty: SPA(Single Page Applications), …trwałe i tak dalej – moduły, kawałki funkcjonalne i to są rzeczy, które zleci kilent i taki klient po prostu ma taki obiekt, np.: gospodarka ? która należy do tego systemu i generalnie zgłasza do tego żądanie. Jak zgłosi to żądanie, to tu je opisuje(?) i tyle i to żądanie zaczyna żyć. Teraz problemem może być bardzo skomplikowany diagram stanów, bo to są dwa obiekty, które będą żyły. Jeden z nich, to jest zgłoszenie żądane , a drugi to jest ten task, czyli czynność która powoduje, że to zdarzenie, to żądanie zostanie obsłużone. Wszystkie są jakoś tam w czasie, muszą się odbywać, w związku z tym muszą być atrybuty, które opisują ich stany. I to jest te słowo status (ang.), tutaj i tutaj. Te statusy no mają  jakieś tam, to jest style diagram request. Tej strony nie musi być, nie mówię że to jest kwestia najprostrza, że nawet bez tego progres, taki request is open i wtedy tak zostanie wprowadzony i tu jest w ogóle pytanie: jak te requesty przechodzą, czy też, bo ten system był nawet taki, że klient to zgłasza mailowo, albo w jakiś inny sposób, a te requesty  wprowadza do nich w managerze i kieruje nimi. Oczywiście najprostrzym rozwiązaniem jest tak, że klient jest poza, a menadżer dostaje też te zgłoszenia i je wprowadza, a potem workerzy, programiści, testerzy i inni biedni ludzie je realizują w postaci czynności. Możemy to zaraz zrobić inaczej, że to będzie tak, system jest internetowy i to klient to zgłasza, a menadżer wynika w ogóle z samego systemu i w tym momencie jest menadżer, nie wiem czy rozumiecie mnie. Tutaj personel jest w jednej encji, tu są zarówno menadżerzy jak i workerzy, to będzie personel, oddzielny menadżer i na przykład worker i na przykład menadżer jest przypisany do typu objectu, czyli jest to case, menadżer ten opiekuje się wszystkimi wpisami, albo jest jeszcze w tym menadżerze opiekują się  poszczególnymi zgłoszeniami, rozumiemy się, ale jak klient to zgłasza, to menadżer się wylicza sam, ale na razie, powtarzam, żeby nie musieliście robić to tak prymitywnie, wracamy do wersji prymitywnej, menadżer to wpisał, czyli przeczytał z maila czy też dowiedział się z faksu i wpisał tutaj description. Czyli co jest źle, to zgłoszenie zaczęło żyć, stąd dodałem to ‘open’.  Wszystkie zmiany statusu odnotowujemy w datach, to jest date/time, to znaczy że to jest data/czas rejestracji tego zgłoszenia, czyli wtedy ten stan stał się open. I na razie tyle. Najpierw jeszcze słowo o tym, to jest oczywiście diagram ERD, który widzicie, są tylko klucze pierwotne, nie ma kluczy obcych. I wszyscy rozumiemy, że taki request, w takim razie ma milion obiektów, tutaj kluczy i ma identyfikator personelu jako menadżera. Być może tu ma zejście jako klucz, tutaj jako menadżer i ponieważ tu jest kreska, request zawsze ma objecta, zawsze ma menadżera, który się opiekuje, a przez tą kreskę zawsze ma klienta. Wszystko jest na razie jasne. To był pierwszy etap, rejestracja zgłoszenia. On rejestruje te zgłoszenie, ale oczywiście tu są extended, znaczy gdyby tu nie było tego obiektu, to trzeba zarejestrować ten obiekt, a jak nie ma klienta, to klienta też trzeba zarejestrować. Ale najczęściej jest tak, że jest klient i jest software zainstalowany, a on tylko generuje zgłoszenie. Doszliśmy dotąd w przypadkach użycia, idźmy dalej, co robi dalej menadżer. Menadżer jak to zobaczy, rozpisuje to na czynności. I tutaj tak, część gdzie jest ID, to są klucze pierwotne generowane automatycznie, gdzie one się same inkrementują. Natomiast tu, gdzie nie jest ID, to są klucze, które my wprowadzamy, to są po prostu stałe, np.: tutaj ten code_type, to jest FKK, idp. Czyli mamy kod finansowy, księgowy, lokalny i własny, a one już mają ileś tych odnośników, które już używają konkretne Create’sy, napiszemy to z wykresu, dobra? I tak samo tutaj, jest, np.: activity_type. I ten activity type, to są analizatory i optymalizatory: programowanie, procesowanie, bulidowanie tak? Więc tu jest PROJ, PROG, TEST,np., a tu jest testowanie oprogramowania, np, czyli tu jest zbiór czynności. I teraz tak, jak jest ten request i ten menadżer rozpisuje ten request na część zadań, czyli np.: co jest językiem klienta, klient działa tu na analizowanie czegośtam, nie? A ten tutaj rozpisuje to na zadania pierwszej analizy, wybiera se ze słownika i być może na tym poprzestaje jakby. Ale jak wiecie, może od razu więcej, bo po analizie może się okazać, że w ogóle klient kłamie i to wcale nie zakodzi. Ale najczęściej tego typu analizy są pod względem projektowania, programowania i testowania. I w description jest napisane: dla projektowania trzeba podejść do tej kolumny, programowalnie dwie klasy zmienić i zdecydowanie tu jest napisane, nie wiem: dla takiego scenariusza trzeba przeprowadzić taką a taką zmianę. No dobra i tu są te wszystkie zadania, one mają swoje description i na początku mają status OPEN. Proszę zwrócić uwagę, że tu jest kreska, czyli request musi mieć personel, a klient musi mieć na początku personel. Czyli menadżer możemy wpisać, wpisać to na czynności, ale jeszcze nie wie kto to zrobi. W dobie współczesnej, gdzie wszystkie idą do domu, to rzeczywiście można znowu wrócić do tej formatki i dopiero wtedy przypisać wykonawcę, czyli workera, tak? No więc on to zrobił, zarejestrował, a status jest open, a tu jest data/czas rejestracji, no i tu jeszcze, jak gdyby wyjaśnienia wymaga to sequence_number. Kolejność kroków, które mają się wykonać – tak jest. Oczywiście mamy swoją stronę, funkcję szustle, ja tam nie chcę tego robić, raczej powinno być zrobione 1,2,3,4, ale można sobie wyobrazić coś takiego: jeden, dwa, dwa, trzy, cztery, to znaczy że te czynności nr. 2 można wykonywać równolegle, rozumiemy się? Czyli krótko mówiąc tak się powinno tego używać, ale ja tu nie narzucam tutaj żadnych walidacji, menadżer ma na bank tą wstawkę NULL , w ogóle bez generowania tych rzeczy. No i on to zrobił i teraz to jest z tego wszystkiego, co ja tu zrobiłem, to to jest dekompozycja zgłoszenia na czynności, no i jako extend czyli niekoniecznie od razu trzeba przydzielić tych ludzi do tych czynności i po to on się będzie tylko patrzył, co się z tymi czynnościami dzieje, czyli wędruje jedną w górę tam. A dalej to będzie pracował pan worker. Worker ma prostą robotę, bo on ma już przypisaną do siebie czynność, otwiera tam formatki i widzi czynności, które są zarejestrowane na dzisiaj, np.: one są dla niego tej encji, więc wybiera pierwszą z nich i wpisuje tylko jej znacznik do bazy i zmienia stan na FINAL albo CANCEL – FINAL jak się udało, a CANCEL jak porzucił, tak? No CANCEL jak nie da się zrobić na przykład, bo przecież inne osoby mogły zacząć programowanie, a CANCEL bo powiedzmy nie potrafimy tego właśnie wykonać. W każdym razie po prostu można przejść do tego stanu tu tego i wtedy wypełni się to pole RESULT’a. No bo albo się napisze, że dodamy dwie tabele i skrypt tu jest ten albo się napisze, że nie da się zrobić tej wersji postgresa do pięć cztery pięć, bo wtedy byłoby partycjonowanie, a tego nie ma w wersji bezpłatnej, wtedy trzeba zrobić CANCEL. No i chodzi o to, że w ogóle ten poziom ACTIVITY, to jest poziom taki techniczny, to znaczy no taki jest na razie, no i wszystkie one kończą się na przykład na początku gdy są ACTIVITY’ies z tym workerem, są OPEN, ja zrobiłem wszystkie na tak, wszyscy zrobili na FINAL, FINAL, FINAL, to ten menadżer na poziomie requestu zobaczy, że wszystkie są FINAL, to zmieni na tak, tak? Ale może być tego typu przypadek, że ktoś coś zrobił, zrobil FINAL, a potem zrobił CANCEL, no to ten menadżer porzuci ten CANCEL i zmieni request open na CANCELED. To są dość oczywiste rzeczy, nie? I na tym polega ten przypadek użycia, to znaczy on może też zamykać lub anulować czynności, to są te czynności, które nie trzeba robić, bo ktoś wcześniej już je spierniczył i coś się nie udało, tak? No on po prostu zamyka zgłoszenie. Więc to jest robota tego workera. No a co robi administrator? Administrator, to jest w zasadzie administrator IT,  w moim systemie on tworzy konta, czyli je otwiera, ma te konta, a te konta, encje z wersjami on ma, wszystko jest tutaj w tej encji PERSONEL i tam jest FIRSTNAME, LASTNAME i jest USERNAME, który jest unikalny użytkownik i jest PASSWORD. Oczywiście nie ma passwordu, tylko jest jakiś zapis kluczem: MD5 czy SHA tak? Oprócz tego nie mam tutaj wpisanego, ale jest flaga, a więc flaga aktywności i umówmy się, że nie ma, w ogóle ta baza jest niemalejąca, czyli nic się nie usuwa, w szczególności nie usuwa się użytkownika, to jest deaktywacja użytkowników. W związku z tym jak się tworzy użytkownika, to się podaje jego tam imię, nazwisko, login, hasło, że aktywny, role, to jest w ogóle jakiś łańcuch tekstowy, który przyjmuje tam te trzy wartości: MAN, WORK, ADM, czyli jedną z tych trzech możliwych, a oprócz tego jeszcze, już nic się nie robi. I to jest w zasadzie wszystko. Autentykacja polega na tym, że się po prostu podaje nazwę użytkownika i hasło, wyprowadza się funkcję skrótu, sprawdzacie czy to się zgadza, czy hasz się zgadza, czy baza jest aktywna i jak jest aktywna to jest autentykowany do autoryzacji. Autoryzacja polega na wyborze, kim się jest. Oczywiście mógłbym zrobić tak, że tutaj jest encja i tu jest ROLE, że ktoś jest i menadżerem i workerem i wtedy albo to się sumuje albo przy ładowaniu podaje się kontekst, którym chce się zalogować, ponieważ system jest prosty, jest się jednym, konkretnym. A edycja później już polega tylko na nie edytowaniu loginu, znaczy pozwalamy zmienić hasło, nie edytujemy LOGIN, pozwalamy zmienić hasło i zmienić flagę aktywności  i zmienić ewentualnie imię i nazwisko, bo ktoś se zmienił. To a propos autentykacji i autoryzacji. Można zrobić trochę bardziej skomplikowanie i to jest tutaj też jakoś opisane w tym, a teraz, ja takie coś zaproponowałem i możecie sobie ten model wykorzystać. I wasz system powinien być nie gorszy. Zwykły system tyle powinien robić, oprócz tego, w ACTIVITY mogą być SUBACTIVITY, czyli podzadania, że menadżerowie mogą być przypisani do produktów, a na przykład trzeba wiedzieć, że menadżerowie to jest grupa, a nie rola, a menadżerowie mogą na przykład dysponować tylko na członków swej grupy, a nie wszystkich.  Bo to jest tak, każdy menadżer może robić request dla każdego klienta i każdy worker może zrobić każde ACTIVITY, niezależnie który menadżer. Możecie ten model po prostu wziąć i skomplikować. W dodatku oczywiście to jest model software’owy, bo na przykład jest po dacie te requesty i na przykład klient jak zgłaszał tam błąd  jest niedysponowany na przykład, że rodzaj tego requesta czy błąd, zmiana, rozszerzenie. To też kwalifikujemy. Tak naprawdę to jest więcej, kategorii błędu jest co najmniej błąd i błąd krytyczny, znaczy straszny błąd, a w kategorii zmian jest zmiana, którą uważamy za nieistotną, ktoś próbuje tam zmienić kolumnę albo dodać jakieś tam feaute’ry(funkcja, cecha) albo przesunąć przycisk albo ktoś proponuje coś zupełnie nowego nie? I też my to robimy w kategorii, w requescie i mamy coś takiego jak zgłoszony i stwierdzony. Po realizacji okazuje się, że to na przykład wcale nie był błąd, tylko to jest po prostu rozszerzenie, jakby bo klient zgłasza to jako błąd krytyczny, prawda jest taka, a my mówimy tak, to jest błąd, ale nadal da się używać, niestety trzeba wejść, tutaj nacisnąć, tu wczytać plik, tam zrobić inserta i system dalej działa. Błąd krytyczny jest taki, który uniemożliwia działanie, więc rozumiemy się, jest rodzaj tego requestu, rodzaj zgłoszenia i teraz możemy wzbogacać ten system o rzeczy, o które chcecie tam do niego dodać.                  
+#Database
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+
+spring.mail.protocol=smtp
+spring.mail.username=programistakuba@gmail.com
+spring.mail.password=${MAIL_PASSWORD}
+spring.mail.test-connection=true
+spring.mail.properties.mail.smtp.socketFactory.port=587
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.properties.mail.smtp.ssl.trust=smtp.gmail.com
+spring.mail.properties.mail.debug=true
+spring.mail.properties.mail.smtp.connectiontimeout=5000
+spring.mail.properties.mail.smtp.timeout=5000
+spring.mail.properties.mail.smtp.writetimeout=5000
+#Turn Statistics on and log SQL stmts
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true    
+Interfejs może zawierać jedynie deklaracje metod, a klasa abstrakcyjna może zawierać również metody zdefiniowane. Wynika to bezpośrednio z tego, że interfejs skupia się na zapewnieniu określonej funkcjonalności, natomiast klasa abstrakcyjna może również opierać się na podobieństwie w implementacji klas pochodnych. I klasa abstrakcyjna ma konstruktor, a interfejs nie.
+języki takie jak C# czy Java nie pozwalają, w przeciwieństwie do C++, na dziedziczenie z więcej niż 1 klasy bazowej, ale pozwalają na dziedziczenie z wielu interfejsów.
+Interfejs funkcyjny jest interfejsem, który posiada tylko jedną metodę abstrakcyjną. Pozwala on w Javie (od wersji 8) na wykorzystanie wyrażeń lambda w miejsce, gdzie normalnie kompilator oczekuje takiego typu danych. Interfejsy funkcyjne opcjonalnie oznaczane są adnotacją @FunctionalInterface. Dlatego w strumieniach rozróżniamy parę rodzajów metod, które posiadają różne charakterystyki:
+•	pośrednie (ang. intermediate) – nie kończą strumienia, pozwalają na dalsze operowanie na danych (np. map)
+•	kończące/terminalne (ang. terminal) – kończą strumień i zwracają wynik (np. forEach)
+•	bezstanowe – są wykonane niezależnie od innych danych, co ma znaczenie przy użyciu strumieni równoległych (np. filter)
+•	stanowe – ich stan zależy od pozostałych danych i dlatego nie są przetwarzane równolegle (np. sort)
+•	redukcyjne – dokonują redukcji danych (np. max)
+Warto wiedzieć że:
+•	strumienie są wywołane w sposób leniwy, tzn. dane są przetwarzane w monecie wywołania metody kończącej
+•	transformacje strumienia nie modyfikują wejściowych danych z których strumień został utworzony
+W języku Java każda instrukcja kończy się średnikiem, który pełni rolę symbolu terminalnego.
+Integer i3 = 127; to tak naprawdę Integer i3 = Integer.valueOf(127); a ta funkcja cachuje wartości z przedziału od -128 do 127 i dlatego == na tym przedziale daje 	nam true. W sensie tworzy referencje tylko do tego samego miejsca w pamięci.
+Stringi zapisuje się w obszarze pamięci string pool i jeśli jest już string o tej samej wartości, to nie tworzy się nowy, ale zapisuje się referencję do tego obszaru pamięci!
+Natomiast poprzez słowo kluczowe new wymuszamy stworzenie nowego miejsca w pamięci.
+Modyfikator dostępu private zmiennej – tylko w danej klasie jest dostępna!
+Modyfikator dostępu protected w Javie znaczy, że jest zmienna dostępna w danej klasie, klasach potomnych oraz w tym samym pakiecie.	
+Czyli wg. Wielkości dostępu: public > protected > package > private
+Poprzedni, wspomniany wyżej artykuł zacząłem od stwierdzenia, że każda klasa ma konstruktor. Podkreślam to jeszcze raz – każda, w tym także abstrakcyjna! Konstruktory mają także typy wyliczeniowe, ale interfejsy nie. Po co konstruktor w klasie abstrakcyjnej, której instancji przecież nie można skonstruować? Wszystko wyjaśni się już za chwilę.
+Konstruktory uruchamiane są, gdy tworzymy nowe instancje/obiekty a więc najczęściej w wyniku użycia operatora ‘new’ (wyjątkiem są stałe wyliczeniowe). Jednak, aby utworzyć instancję danej klasy nie wystarczy wywołać konstruktora z tej klasy, trzeba wywołać także konstruktory z wszystkich nadklas, do klasy Object włącznie. Poniższy przykład pomoże nam zrozumieć, dlaczego.
+W celu zapewnienia poprawnej inicjalizacji obiektów obowiązuje prosta zasada – pierwszą instrukcją każdego konstruktora musi być wywołanie super(…) albo this(…) (z dowolną liczbą parametrów), przy czym jeśli nie umieściliśmy jednego z tych wywołań kompilator automatycznie doda wywołanie super() (bez parametrów). Instrukcja super(…) to wywołanie konstruktora z nadklasy a this(…) to wywołanie innego, przeciążonego konstruktora z klasy bieżącej, aczkolwiek któryś z kolei konstruktor będzie musiał w końcu wywołać konstruktor z nadklasy.
+Chciałbym Cię uczulić na przypadek interfejsów. Brak modyfikatora dostępu w definicji interfejsu oznacza, że dana metoda ma modyfikator public. 
+Ogólna reguła brzmi – nie używaj mechanizmu refleksji w produkcyjnym kodzie. Chyba, że wiesz co robisz i rzeczywiście jest to potrzebne ;).
+public class BoxOnSteroids<T> to nic innego jak pierwsza linijka definicji klasy. Nowa tutaj jest konstrukcja z nawiasami. Oznacza ona właśnie typ generyczny, który możemy parametryzować innym typem. Typ ten dostaje tymczasową nazwę, w tym przypadku T, której używamy dalej w ciele klasy.
+W trakcie tworzenia instancji obiektu BoxOnSteroids podajemy informację o typie, który chcielibyśmy wstawić w miejsce T. W naszym przykładzie są to klasy Apple lub Orange. Dzięki takiej konstrukcji kompilator dokładnie wie jakiego typu obiekt zostanie zwrócony przez metodę getFruit w związku z tym rzutowanie nie jest konieczne.
+Słowo kluczowe extends
+To słowo kluczowe ma zastosowanie także w przypadku typów generycznych. Dzięki niemu możemy ograniczyć zestaw klas którymi możemy parametryzować nasz typ generyczny.
+Plain Old Java Object (POJO) – termin używany przez zwolenników idei mówiącej, że im prostszy design tym lepiej. Używa się go dla określenia obiektów, będących zwyczajnymi obiektami Java, nie zaś obiektami specjalnymi, w szczególności Enterprise JavaBeans (zwłaszcza w implementacji wcześniejszej niż EJB3)
+AssertJ to biblioteka dostarczająca tzw. "płynny interfejs" (fluent interface) do pisania asercji. Jego głównym celem jest poprawienie czytelności oraz ułatwienie utrzymywania testów w języku Java.
+
+Nie używać soutów – to jest skrót na system out! 
+gradle - automatyczne pobieranie
+inne - Maven, Ant
+okno logcat
+intent służy do przesyłania danych między aktywnościamy
+listenery są klasami, więc można dodać własne pola!
+git – ścieżka!
+l – formatowanie kodu,
+o – optymalizacja importów
+biblioteka flyway
+Wprowadzić DAO w kontrolerze i DTO i walidację na DTO. DAO są do komunikacji z bazą danych, a DTO z klientem, DTO powinny być wykorzystywane na poziomie kontrolera, a DAO na poziomie każdej klasy i powinno się używać mappery! UserDTO. Mapper ma przyjmować listę i zwracać listę, nie robić samego strumienia! Initial data filler to nie jest filter! Nie używać soapów, ale loggerów!
+Usunąć wszelkie komentarze z projektu na koniec!
+Że chciałbym dodać menadżera z powrotem, bo najpierw on był, a potem promotor radził mi go usunąć, a jest tylko zakomentowany! No i mogę powiedzieć, że w sumie skopiowałem to z projektu na zaliczenie przedmiotu, a tak naprawdę nawet Javy jakoś super dobrze nie ogarniam, bo uczyłem się w C++ programować!
+I podobno nawet w pracy tworzy się drugie CV z zapisywanym doświadczeniem!
+Pytania na korepetycje:
+I że w przypadku tworzenia recepcjonisty wyskakuje błąd a on się dobrze tworzy!
+jak przywrócić z githuba poprzednią wersję programu?
+przydałoby się dodać zmianę maila dla użytkownika!
+po zmianie wersji na 2.1.9 wszystko działa! – Bo podobno chodzi o CORS’y, że starsze wersje springa nie mają takiego bezpieczeństwa jak nowe!
+zapytać czy może mi wytłumaczyć zasadę single responsility czy jest zachowana w moim projekcie?
+zapytać o interfejs i implementację czy tak jest profesjonalniej?
+zapytać o menadżera że domyślnie Jeszce on był!
+zapytać o pracę inżynierską jako docs i o posiadanie jej w innym linku!
+zapytać się o debugowanie w InteliJ, bo mam z tym problem!
+zmienić tą bazę danych!
+Dodać te obiekty DAO i DTO
+Mam ochotę rozbudować tą aplikację!
+I że teraz przestało mi działać blokowanie ilości zarezerwowanych pokoi, żeby nie że można zarezerwować wolne pokoje!
+Nie potrafię zdebugować programu i funkcji getAvailableRooms(), a no i pokazać jak do dupy zrobiłem we frontendzie że na sztywno uznałem, że będzie nie więcej niż 10 parametrów i je wpisałem na sztywno! To naprawdę jest słabe i nie będzie się podobać na rekrutacji! 
+Nawet w backendzie parameters działa na podobnej podstawie, teraz jest mi wstyd, że w CV odsyłam do takiego kodu! Mam prawie 2000 linijek kodu w reservations we frontendzie bo nie wiedziałem jak inaczej napisać zwięźle warunkowe wyświetlanie formatek!
+2 razy robię tą samą rzecz w security, bo w controlerach potem podaję token
+Zapytać o stanowisko stażu w banku ING! Czytałem że nie przyjemnie tam jest!
+Zapytać o to, co mogę dać w CV, że umiem w stopniu średniozaawansowanym!
+Zapytać o to, bo pytał mnie o operator terminalny czy miał na myśli symbol terminalny w Javie – średnik!
+Wydaje mi się, że wywoła się w takiej kolejności: static block Test, block Test, Test, block Test, Test -  program wywołał się zgodnie z oczekiwaniem – bo blok statyczny wywołuje się tylko raz przy utworzeniu jakiegokolwiek obiektu danej klasy, potem blok inicjalizacyjny, a potem konstruktor.
+Następnie wydaje mi się, że wywoła się: 
+A: static B, static A,  block B,  block A,  B, A;// źle było block B, B, block A, A
+B: block B, B;
+C: block B,  block A,  B, A; //źle było block B, B, block A, A
+
+C1: c;
+D: c; //źle było d
+D1: c;
+  method(1,2);
+        int tab[] = {3};
+        method(tab);
+        int tab2[] = {4,5};
+        method(1,tab2);
+Powiedzieć, że cały czas mam reklamy ofert pracy w banku!
+Zapytam tylko co mogę jeszcze zrobić, żeby przyspieszyć naukę jak najbardziej i jaki mniej więcej jest harmonogram konsultacji teraz, nad czym będziemy dalej pracować i ile lekcji! Zapytam się za ile czasu mnie widzi, że mogę zacząć wysyłać CV!
+Defaultowa metoda w Javie 8 i 9-tej. Słowo kluczowe abstract – różnica, można dodawać w interfejsie zmienne statyczne finalne!
+I zastanawia mnie to, dlaczego aż czterej koledzy pracują w C# i .Necie, a nikt w Javie! Na studiach był jeden taki co w tym pracował, ale zdecydowana większość w C# nie wiem dlaczego, z tym że oni pracę pierwszą znaleźli min. 3 lata temu już! Zapytać o to korepetytora!
+

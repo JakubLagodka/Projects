@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
 
     public static void method(int a, int... b) {
@@ -23,7 +26,7 @@ public class Main {
         Integer i6 = new Integer(128);
         Integer i7 = -128;
         Integer i8 = -128;
-        System.out.println((i1 == i2) + " " + (i3 == i4) + " " + (i5 == i1) + " " + (i6 	== i4) + " " + (i5 == i6) + " " + (i7 == i8));
+        System.out.println((i1 == i2) + " " + (i3 == i4) + " " + (i5 == i1) + " " + (i6 == i4) + " " + (i5 == i6) + " " + (i7 == i8));
         //false false false false false false
 
         System.out.println(i1.equals(i2) + " " + i3.equals(i4) + " " + i5.equals(i1) + " 	" + i6.equals(i4));
@@ -47,11 +50,11 @@ public class Main {
         D d1 = new C();
         d1.method();
 
-        method(1,2);
+        method(1, 2);
         int tab[] = {3};
         method(tab);
-        int tab2[] = {4,5};
-        method(1,tab2);
+        int tab2[] = {4, 5};
+        method(1, tab2);
 
         A2 a2 = new A2();
         a2.method();
@@ -69,13 +72,14 @@ public class Main {
         //j.method();//jest źle nie wiem czy to moja wina!
         j.iTest();
 
-        Figure trapeze = new Trapeze(1,2,3,4,5);
-        Figure triangle = new Triangle(1,2,3,4);
-        Figure square = new Square(1,2);
-        Figure circle = new Circle(1,2);
-        System.out.println(trapeze.getArea() + ",, " + trapeze.getCircuit());
-        System.out.println(triangle.getArea() + ",, " + triangle.getCircuit());
-        System.out.println(square.getArea() + ",, " + square.getCircuit());
-        System.out.println(circle.getArea() + ",, " + circle.getCircuit());
+        Figure trapeze = new Trapeze(1, 2, 3, 4, 5);
+        Figure triangle = new Triangle(1, 2, 3, 4);
+        Figure square = new Square(1, 2);
+        Figure circle = new Circle(1, 2);
+        System.out.println(trapeze.getArea() + ", " + trapeze.getCircuit());
+        System.out.println(triangle.getArea() + ", " + triangle.getCircuit());
+        System.out.println(square.getArea() + ", " + square.getCircuit());
+        System.out.println(circle.getArea() + ", " + circle.getCircuit());
+
     }
 }

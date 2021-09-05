@@ -23,6 +23,26 @@ public class CollectionMain {
         List<Integer> evenStringLength = evenStringLength(strings);
 
         System.out.println(evenStringLength);
+
+        List<User> users = new LinkedList<>();
+
+        users.add(new User(1L, "Jan", "Kowalski", 25, 5000.0, Job.JAVA_DEVELOPER, "kowalski@gmail.com"));
+        users.add(new User(1L, "Jan", "Kowalski", 25, 50000.0, Job.SCALA_DEVELOPER, "kowalski111@gmail.com"));
+        users.add(new User(1L, "Jan", "Kowalski", 25, 5000.0, Job.KOTLIN_DEVELOPER, "kowalski123@gmail.com"));
+        users.add(new User(1L, "Jakub", "Kowalski", 25, 5000.0, Job.JAVA_DEVELOPER, "kowalski@gmail.com"));
+        users.add(new User(1L, "Jakub", "Kowalski", 25, 5000.0, Job.SCALA_DEVELOPER, "kowalski111@gmail.com"));
+        users.add(new User(1L, "Jakub", "Kowalski", 25, 5000.0, Job.KOTLIN_DEVELOPER, "kowalski123@gmail.com"));
+        users.add(new User(1L, "Janusz", "Kowalski", 25, 5000.0, Job.JAVA_DEVELOPER, "kowalski@gmail.com"));
+        users.add(new User(1L, "Janusz", "Kowalski", 25, 5000.0, Job.SCALA_DEVELOPER, "kowalski111@gmail.com"));
+        users.add(new User(1L, "Janusz", "Kowalski", 25, 5000.0, Job.SCALA_DEVELOPER, "kowalski123@gmail.com"));
+
+        List<String> strings1 = userEmails(users);
+        System.out.println(strings1);
+
+        List<User> users1 = findUsers(users);
+        System.out.println(users1);
+        //znalesc userów gdzie job=scala_dev i salary>5000
+
     }
 
     static Integer minNumber(List<Integer> list) {
@@ -55,4 +75,26 @@ public class CollectionMain {
         }
         return result;
     }
+
+    static List<String> userEmails(List<User> users) {
+        List<String> emails = new LinkedList<>();
+
+        for (User user : users) {
+            emails.add(user.getEmail());
+        }
+        return emails;
+
+    }
+
+    static List<User> findUsers(List<User> users) {
+        List<User> foundUsers = new LinkedList<>();
+        for (User user : users) {
+            if (user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 5000) {
+                foundUsers.add(user);
+            }
+        }
+        return foundUsers;
+    }
+
 }
+

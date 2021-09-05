@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added collection">
-      <change afterPath="$PROJECT_DIR$/src/com/company/A2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/B2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Figure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/I.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Trapeze.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Triangle.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added figures">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Job.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/Container.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/Container.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/Dictionary.vcxproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/Dictionary.vcxproj.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/raport.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/raport.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Container.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Container.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.log" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/Dictionary.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/vc142.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/vc142.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/vc142.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/Dictionary/x64/Debug/vc142.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/x64/Debug/Dictionary.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/x64/Debug/Dictionary.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../C++/slownik/x64/Debug/Dictionary.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../C++/slownik/x64/Debug/Dictionary.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Figure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Trapeze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Trapeze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Triangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +40,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -141,7 +158,11 @@
       <workItem from="1629876581476" duration="1188000" />
       <workItem from="1630133689324" duration="5294000" />
       <workItem from="1630262241534" duration="595000" />
-      <workItem from="1630307641888" duration="1961000" />
+      <workItem from="1630307641888" duration="3532000" />
+      <workItem from="1630393548955" duration="608000" />
+      <workItem from="1630585446809" duration="632000" />
+      <workItem from="1630676158357" duration="5833000" />
+      <workItem from="1630829385254" duration="1133000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -171,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630142766048</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added figures">
+      <created>1630309959659</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1630309959659</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +222,7 @@
     <MESSAGE value="added test classes" />
     <MESSAGE value="added test overrloaded methods" />
     <MESSAGE value="added collection" />
-    <option name="LAST_COMMIT_MESSAGE" value="added collection" />
+    <MESSAGE value="added figures" />
+    <option name="LAST_COMMIT_MESSAGE" value="added figures" />
   </component>
 </project>

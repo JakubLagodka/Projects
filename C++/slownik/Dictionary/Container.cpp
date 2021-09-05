@@ -60,6 +60,8 @@ auto Cointainer::write_all_words_sorted_by_number_of_occurences() const -> strin
 {
 	string returned_str;
 	string word, number_of_occurences;
+	int counter = 0;
+	double percentage;
 
 	if (!words_sorted_by_number_of_occurences.empty())
 	{
@@ -67,6 +69,7 @@ auto Cointainer::write_all_words_sorted_by_number_of_occurences() const -> strin
 
 		do
 		{
+			counter++;
 			returned_str += '|';
 			word = iter->second;
 			returned_str += word;
@@ -75,6 +78,13 @@ auto Cointainer::write_all_words_sorted_by_number_of_occurences() const -> strin
 			number_of_occurences = to_string(iter->first);
 			returned_str += number_of_occurences;
 			returned_str.insert(returned_str.size(), 39 - number_of_occurences.size(), '_');
+			returned_str += '|';
+			returned_str += to_string(counter);
+			returned_str.insert(returned_str.size(), 16 - number_of_occurences.size(), '_');
+			returned_str += '|';
+			percentage = double(counter / 813943);
+			returned_str += to_string(percentage);
+			returned_str.insert(returned_str.size(), 25 - number_of_occurences.size(), '_');
 			returned_str += "|\n";
 		} while ((iter--) != words_sorted_by_number_of_occurences.begin());
 	}
@@ -154,10 +164,16 @@ auto Cointainer::get_structure_info(const string& file) const -> string
 		returned_str.insert(returned_str.size(), 86, '_');
 		returned_str += " \n|";
 		returned_str += "slowa, ktore znajduja sie we wczytanym tekscie|";
-		returned_str += "liczba wystapien danego slowa w tekscie|\n|";
+		returned_str += "liczba wystapien danego slowa w tekscie|";
+		returned_str += "pozycja w rankingu|";
+		returned_str += "odsetek uzycia danego slowa|\n|";
 		returned_str.insert(returned_str.size(), 46, '_');
 		returned_str += "|";
 		returned_str.insert(returned_str.size(), 39, '_');
+		returned_str += "|";
+		returned_str.insert(returned_str.size(), 16, '_');
+		returned_str += "|";
+		returned_str.insert(returned_str.size(), 20, '_');
 		returned_str += "|\n";
 		returned_str += write_all_words_sorted_by_number_of_occurences();	
 	}
