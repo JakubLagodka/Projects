@@ -1,6 +1,9 @@
 package com.company;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class CollectionMain {
     public static void main(String[] args) {
@@ -60,10 +63,11 @@ public class CollectionMain {
         System.out.println(specifiedUsers);
 
 
-        Map<Integer, String> integerStringMap = findStrings(strings, integerList);
-        for(int i = 0; i < strings.size(); i++)
-        {
-            System.out.println(integerStringMap.get(i));
+        Map<Integer, String> integerStringMap = findStrings(integerList, strings);
+        for (Integer integer1 : integerList) {
+            if (integerStringMap.containsKey(integer1)) {
+                System.out.println(integerStringMap.get(integer1));
+            }
         }
 
     }
@@ -166,83 +170,15 @@ public class CollectionMain {
         }
         return foundUsers;
     }
-    static Map<Integer, String> findStrings(List<String> strings, List<Integer> integers){
-        Map<Integer,String> foundPairs = new Map() {
-            @Override
-            public int size() {
-                return 0;
-            }
 
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean containsKey(Object key) {
-                return false;
-            }
-
-            @Override
-            public boolean containsValue(Object value) {
-                return false;
-            }
-
-            @Override
-            public Object get(Object key) {
-                return null;
-            }
-
-            @Override
-            public Object put(Object key, Object value) {
-                return null;
-            }
-
-            @Override
-            public Object remove(Object key) {
-                return null;
-            }
-
-            @Override
-            public void putAll(Map m) {
-
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public Set keySet() {
-                return null;
-            }
-
-            @Override
-            public Collection values() {
-                return null;
-            }
-
-            @Override
-            public Set<Entry> entrySet() {
-                return null;
-            }
-
-            @Override
-            public boolean equals(Object o) {
-                return false;
-            }
-
-            @Override
-            public int hashCode() {
-                return 0;
-            }
-        };
-        int counter = 0;
+    static Map<Integer, String> findStrings(List<Integer> integers, List<String> strings) {
+        Map<Integer, String> foundPairs = new HashMap<>();
+        int index = 0;
         for (String string : strings) {
-            if(string.length() == integers.get(counter)){
-                foundPairs.put(integers.get(counter),string);
+            if (string.length() == integers.get(index)) {
+                foundPairs.put(integers.get(index), string);
             }
+            index++;
         }
         return foundPairs;
     }

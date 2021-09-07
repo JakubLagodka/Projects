@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Map">
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,8 @@
       <workItem from="1630585446809" duration="632000" />
       <workItem from="1630676158357" duration="5833000" />
       <workItem from="1630829385254" duration="4531000" />
-      <workItem from="1630917748230" duration="8548000" />
+      <workItem from="1630917748230" duration="9518000" />
+      <workItem from="1631000687203" duration="1242000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -188,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630935945091</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added Map">
+      <created>1630936480560</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1630936480560</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
