@@ -64,10 +64,15 @@ public class CollectionMain {
 
 
         Map<Integer, String> integerStringMap = findStrings(integerList, strings);
-        for (Integer integer1 : integerList) {
+        /*for (Integer integer1 : integerList) {
             if (integerStringMap.containsKey(integer1)) {
                 System.out.println(integerStringMap.get(integer1));
             }
+        }*/
+        
+        //lub takie rozwiązanie:
+        for (Map.Entry<Integer,String> entry : integerStringMap.entrySet()) {
+            System.out.println("pair: " + entry.getKey() + ", value: " + entry.getValue());
         }
 
     }

@@ -15,7 +15,7 @@ public class Trapeze extends Figure {
 
     @Override
     public double getArea() {
-        return (a + b) * h;
+        return (a + b)/2 * h;
     }
 
     @Override

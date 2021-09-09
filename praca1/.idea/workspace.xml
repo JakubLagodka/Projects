@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Map">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Trapeze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/Trapeze.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Trapeze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Trapeze.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +142,9 @@
       <workItem from="1630676158357" duration="5833000" />
       <workItem from="1630829385254" duration="4531000" />
       <workItem from="1630917748230" duration="9518000" />
-      <workItem from="1631000687203" duration="1242000" />
+      <workItem from="1631000687203" duration="2738000" />
+      <workItem from="1631124688325" duration="2272000" />
+      <workItem from="1631184650273" duration="828000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -197,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630936480560</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixed Map">
+      <created>1631010130050</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1631010130050</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +235,7 @@
     <MESSAGE value="added figures" />
     <MESSAGE value="added User" />
     <MESSAGE value="added Map" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Map" />
+    <MESSAGE value="fixed Map" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed Map" />
   </component>
 </project>
