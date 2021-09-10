@@ -69,9 +69,9 @@ public class CollectionMain {
                 System.out.println(integerStringMap.get(integer1));
             }
         }*/
-        
+
         //lub takie rozwiązanie:
-        for (Map.Entry<Integer,String> entry : integerStringMap.entrySet()) {
+        for (Map.Entry<Integer, String> entry : integerStringMap.entrySet()) {
             System.out.println("pair: " + entry.getKey() + ", value: " + entry.getValue());
         }
 
@@ -128,7 +128,12 @@ public class CollectionMain {
         }
         return foundUsers;
     }
-
+//zawsze zwiększa się tablica o 1 w arrayList. przy usuwaniu rozmiar tablicy się nie zmniejsza, ale indeks zmniejsza się o 1.
+//poczytać o treeSet i linkedHashSet
+//linkedHashMap, TreeMap i EnumMap - pytali na każdej rozmowie o funkcję put(). Na kluczu wywoływana jest metoda HashCode, która zwraca indeks
+   // tablicy i sprawdzany jest czy nie ma obiektu, jeśli nie, to klucz jest wstawiany i kończy się działanie, a jeśli jest obiekt
+    //sprawdzana jest equals, jeśli tak, to wartość jest nadpisywana, a jeśli nie, to tworzy się linkedlista, do której wstawiany jest
+    //poprzedny element i obecny ( w get wtedy jest iteracja po każdym elemencie dopóki nie znajdzie true).
     static List<Integer> findOddOrEvenAge(List<User> users) {
         List<Integer> evenAge = new LinkedList<>();
         List<Integer> oddAge = new LinkedList<>();
@@ -175,7 +180,7 @@ public class CollectionMain {
         }
         return foundUsers;
     }
-
+//dodać żeby nie było poza rozmiar integerów, przerobić na obiekty.
     static Map<Integer, String> findStrings(List<Integer> integers, List<String> strings) {
         Map<Integer, String> foundPairs = new HashMap<>();
         int index = 0;

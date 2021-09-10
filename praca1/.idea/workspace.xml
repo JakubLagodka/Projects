@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Map">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Map entry">
+      <change afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Trapeze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/Trapeze.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Trapeze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Trapeze.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,7 +88,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Application.CollectionMain">
+  <component name="RunManager" selected="Application.MapMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -113,8 +112,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MapMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.MapMain" />
+      <module name="praca1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MapMain" />
         <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.Main" />
       </list>
@@ -144,7 +157,9 @@
       <workItem from="1630917748230" duration="9518000" />
       <workItem from="1631000687203" duration="2738000" />
       <workItem from="1631124688325" duration="2272000" />
-      <workItem from="1631184650273" duration="828000" />
+      <workItem from="1631184650273" duration="2354000" />
+      <workItem from="1631222508196" duration="14000" />
+      <workItem from="1631285912582" duration="3818000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -209,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631010130050</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added Map entry">
+      <created>1631188508741</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1631188508741</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +258,7 @@
     <MESSAGE value="added User" />
     <MESSAGE value="added Map" />
     <MESSAGE value="fixed Map" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed Map" />
+    <MESSAGE value="added Map entry" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Map entry" />
   </component>
 </project>
