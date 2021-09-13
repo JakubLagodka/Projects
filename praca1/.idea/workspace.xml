@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added grouping users">
-      <change afterPath="$PROJECT_DIR$/src/com/company/UserProxyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added userMap and UserList">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Pair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="Application.MapMain">
+  <component name="RunManager" selected="Application.CollectionMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -135,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MapMain" />
         <item itemvalue="Application.CollectionMain" />
+        <item itemvalue="Application.MapMain" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -169,7 +169,7 @@
       <workItem from="1631222508196" duration="14000" />
       <workItem from="1631285912582" duration="4674000" />
       <workItem from="1631361674266" duration="2006000" />
-      <workItem from="1631538564863" duration="7806000" />
+      <workItem from="1631538564863" duration="11983000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -248,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631293284415</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added userMap and UserList">
+      <created>1631550127209</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1631550127209</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +284,7 @@
     <MESSAGE value="fixed Map" />
     <MESSAGE value="added Map entry" />
     <MESSAGE value="added grouping users" />
-    <option name="LAST_COMMIT_MESSAGE" value="added grouping users" />
+    <MESSAGE value="added userMap and UserList" />
+    <option name="LAST_COMMIT_MESSAGE" value="added userMap and UserList" />
   </component>
 </project>
