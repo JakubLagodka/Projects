@@ -1,10 +1,16 @@
 package com.company;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class UserProxyService implements UserService {
     private UserServiceImpl userService;
     private Map<Long, User> map;
+
+    public UserProxyService() {
+        this.userService = new UserServiceImpl();
+        this.map = new HashMap<>();
+    }
 
     @Override
     public User save(User user) {
@@ -14,6 +20,7 @@ public class UserProxyService implements UserService {
     @Override
     public User update(User user) {
         return map.put(user.getId(), userService.update(user));
+
     }
 
     @Override

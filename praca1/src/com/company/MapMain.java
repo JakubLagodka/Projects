@@ -35,6 +35,16 @@ public class MapMain {
 
         Map<Job, List<User>> jobListMap = groupUsersByJob(users);
         System.out.println(jobListMap);
+
+        UserProxyService userProxyService = new UserProxyService();
+        userProxyService.save(users.get(0));
+        System.out.println(userProxyService.getById(1));
+
+        users.get(0).setAge(55);
+        userProxyService.update(users.get(0));
+        System.out.println(userProxyService.getById(1));
+
+        userProxyService.deleteById(1);
     }
 
     static Map<Long, User> groupUsersById(List<User> users) {

@@ -1,20 +1,20 @@
 package com.company;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
     private final List<User> userList;
 
-    public UserServiceImpl(List<User> userList) {
-        this.userList = userList;
+    public UserServiceImpl() {
+
+        this.userList = new LinkedList<>();
     }
 
     @Override
     public User save(User user) {
-        if (userList.add(user))
-            return user;
-        else
-            return null;
+        userList.add(user);
+        return user;
 
     }
 
@@ -25,19 +25,15 @@ public class UserServiceImpl implements UserService {
                 userList.remove(currentUser);
             }
         }
-        if (userList.add(user))
-            return user;
-        else
-            return null;
+
+        userList.add(user);
+        return user;
     }
 
     @Override
     public void deleteById(long id) {
-        for (User user : userList) {
-            if (user.getId() == id) {
-                userList.remove(user);
-            }
-        }
+      userList.remove(id);
+
     }
 
     @Override
