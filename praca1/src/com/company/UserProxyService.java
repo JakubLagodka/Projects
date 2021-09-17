@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserProxyService implements UserService {
-    private UserServiceImpl userService;
+    private UserService userService;
     private Map<Long, User> map;
 
     public UserProxyService() {
@@ -24,13 +24,13 @@ public class UserProxyService implements UserService {
     }
 
     @Override
-    public void deleteById(long id) {
+    public void deleteById(Long id) {
         userService.deleteById(id);
         map.remove(id);
     }
 
     @Override
-    public User getById(long id) {
+    public User getById(Long id) {
         if (map.containsKey(id)) {
             return map.get(id);
         } else {

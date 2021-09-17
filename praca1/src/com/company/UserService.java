@@ -5,7 +5,7 @@ public interface UserService {
 
     User update(User user);
 
-    void deleteById(long id);
+    void deleteById(Long id);
 
-    User getById(long id);
+    User getById(Long id);
 }

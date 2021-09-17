@@ -38,13 +38,16 @@ public class MapMain {
 
         UserProxyService userProxyService = new UserProxyService();
         userProxyService.save(users.get(0));
-        System.out.println(userProxyService.getById(1));
+        System.out.println(userProxyService.getById(1L));
 
         users.get(0).setAge(55);
         userProxyService.update(users.get(0));
-        System.out.println(userProxyService.getById(1));
+        System.out.println(userProxyService.getById(1L));
 
-        userProxyService.deleteById(1);
+        userProxyService.deleteById(1L);
+
+        Map<Job, Integer> jobIntegerMap = countUsersByJob(users);
+        System.out.println(jobIntegerMap);
     }
 
     static Map<Long, User> groupUsersById(List<User> users) {
@@ -66,5 +69,18 @@ public class MapMain {
             groupedUsers.put(user.getJob(), userList);
         }
         return groupedUsers;
+    }
+
+    static Map<Job, Integer> countUsersByJob(List<User> users){
+        Map<Job,Integer> usersCount = new HashMap<>();
+        for (User user : users) {
+            Integer count = usersCount.get(user.getJob());
+            if(count == null){
+                count = 0;
+            }
+            count++;
+            usersCount.put(user.getJob(), count);
+        }
+        return usersCount;
     }
 }

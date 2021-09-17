@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="modified findStrings">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed UserServiceImpl">
+      <change afterPath="$PROJECT_DIR$/src/com/company/EntityNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/MapMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/MapMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/UserProxyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/UserProxyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MapMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/UserProxyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserProxyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +177,7 @@
       <workItem from="1631538564863" duration="13318000" />
       <workItem from="1631621537993" duration="484000" />
       <workItem from="1631703179627" duration="2624000" />
-      <workItem from="1631883735282" duration="3996000" />
+      <workItem from="1631883735282" duration="9614000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -265,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631558922431</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixed UserServiceImpl">
+      <created>1631890094707</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1631890094707</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +308,7 @@
     <MESSAGE value="added grouping users" />
     <MESSAGE value="added userMap and UserList" />
     <MESSAGE value="modified findStrings" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified findStrings" />
+    <MESSAGE value="fixed UserServiceImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed UserServiceImpl" />
   </component>
 </project>
