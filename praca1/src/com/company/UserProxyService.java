@@ -14,6 +14,13 @@ public class UserProxyService implements UserService {
 
     @Override
     public User save(User user) {
+        if(map.containsKey(user.getId())){
+            Long number = 0L;
+            while(map.containsKey(number)){
+                number++;
+            }
+            user.setId(number);
+        }
         return map.put(user.getId(), userService.save(user));
     }
 
