@@ -48,6 +48,19 @@ public class MapMain {
 
         Map<Job, Double> jobDoubleMap = countSumSalaryByJob(users);
         System.out.println(jobDoubleMap);
+
+        Set<Integer> integersSet = new TreeSet<>();
+        integersSet.add(10);
+        integersSet.add(1);
+        integersSet.add(-1);
+        System.out.println(integersSet);
+
+       /* Set<User> userSet = new TreeSet<>();
+        userSet.add(users.get(5));
+        userSet.add(users.get(0));
+        userSet.add(users.get(1));
+
+        System.out.println(userSet);*/
     }
 
     static Map<Long, User> groupUsersById(List<User> users) {

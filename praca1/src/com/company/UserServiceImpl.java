@@ -13,6 +13,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
+        for (User user1 : userList) {
+            if (user1.getId() == user.getId()) {
+                user.setId((long) userList.size());
+            }
+        }
 
         userList.add(user);
         return user;
@@ -38,13 +43,12 @@ public class UserServiceImpl implements UserService {
 //wrócić po interfejsach funkcyjnych
     }
 
-    //interfejs comparable, metoda compareTo(), nie można wstawiać nulli
-    //EnumMap jest najszybszą implementacją Mapy
+
     @Override
     public User getById(Long id) {
         for (User user : userList) {
             if (user.getId().equals(id)) {
-            return user;
+                return user;
             }
         }
         throw new EntityNotFoundException("User not find with id: " + id);

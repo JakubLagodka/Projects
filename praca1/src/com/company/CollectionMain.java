@@ -21,12 +21,12 @@ public class CollectionMain {
         List<String> strings = new LinkedList<>();
         strings.add("sa");
         strings.add("kuba");
-        strings.add("ahgdihgal");
+        //strings.add("ahgdihgal");
 
         List<Integer> integerList = new LinkedList<>();
         integerList.add(2);
         integerList.add(4);
-        //integerList.add(9);
+        integerList.add(9);
 
         List<Integer> evenStringLength = evenStringLength(strings);
 
@@ -201,12 +201,20 @@ public class CollectionMain {
     static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
         List<Pair> foundPairs = new LinkedList<>();
         int index = 0;
-        for (String string : strings) {
-            if (index == integers.size())
-                break;
-            if (integers.get(index) == string.length())
-                foundPairs.add(new Pair(integers.get(index), string));
-            index++;
+        if (integers.size() < strings.size()) {
+            for (Integer integer : integers) {
+                if (integer == strings.get(index).length()) {
+                    foundPairs.add(new Pair(integer, strings.get(index)));
+                    index++;
+                }
+            }
+        } else {
+            for (String string : strings) {
+                if (integers.get(index) == string.length()) {
+                    foundPairs.add(new Pair(integers.get(index), string));
+                    index++;
+                }
+            }
         }
         return foundPairs;
     }
