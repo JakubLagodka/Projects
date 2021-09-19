@@ -15,7 +15,6 @@ import pl.lagodka.hotel.repository.RoleRepository;
 import pl.lagodka.hotel.repository.UserRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {

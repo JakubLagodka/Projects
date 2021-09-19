@@ -3,12 +3,13 @@ package pl.lagodka.hotel.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import pl.lagodka.hotel.exception.NotFoundException;
 import pl.lagodka.hotel.model.RoomType;
 
-
+@Repository
 public interface RoomTypeRepository extends JpaRepository<RoomType, Long> {
 
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.model.*;
 import pl.lagodka.hotel.repository.ReservationRepository;
 import pl.lagodka.hotel.repository.RoomTypeRepository;
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 
-@Component
+@Service
 public class RoomTypeService{
     private final RoomTypeRepository roomTypeRepository;
     private final ReservationRepository reservationRepository;

@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.configuration.ModifiedUserDetailsService;
 import pl.lagodka.hotel.exception.NotAuthorizedException;
 import pl.lagodka.hotel.model.Token;
@@ -18,7 +19,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.function.Function;
 
-@Component
+@Service
 public class AuthenticationTokenService {
 
     private static final long JWT_TOKEN_VALIDITY = 2 * 3600; // 2 godziny

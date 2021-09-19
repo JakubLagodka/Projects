@@ -1,13 +1,15 @@
 package pl.lagodka.hotel.service;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.Type;
 import pl.lagodka.hotel.model.*;
 import pl.lagodka.hotel.repository.ParameterRepository;
 import pl.lagodka.hotel.repository.RoomTypeRepository;
 
 import java.util.Optional;
-@Component
+
+@Service
 public class ParameterService {
     private final ParameterRepository parameterRepository;
     private final RoomTypeRepository roomTypeRepository;
@@ -237,29 +239,19 @@ public class ParameterService {
     }*/
     public Parameter save(Parameter parameter) {
 
-        if(parameter.getTypeId() == 0)
-        {
+        if (parameter.getTypeId() == 0) {
             type = Type.INT;
             parameter.setTypeNumber((long) numberIntIndex);
             numberIntIndex++;
-        }
-
-        else if(parameter.getTypeId() == 1)
-        {
+        } else if (parameter.getTypeId() == 1) {
             type = Type.DOUBLE;
             parameter.setTypeNumber((long) numberDoubleIndex);
             numberDoubleIndex++;
-        }
-
-        else if(parameter.getTypeId() == 2)
-        {
+        } else if (parameter.getTypeId() == 2) {
             type = Type.STRING;
             parameter.setTypeNumber((long) numberStringIndex);
             numberStringIndex++;
-        }
-
-        else
-        {
+        } else {
             type = Type.BOOLEAN;
             parameter.setTypeNumber((long) numberBooleanIndex);
             numberBooleanIndex++;
@@ -272,205 +264,120 @@ public class ParameterService {
 
     public void deleteParamAndColumnById(Long id, Long type, Long typeId) {
 
-        if(type == 0)
-        {
-            if( typeId == 0)
+        if (type == 0) {
+            if (typeId == 0)
                 roomTypeRepository.deleteColumnInt();
-            else if( typeId == 1)
-            {
+            else if (typeId == 1) {
                 roomTypeRepository.deleteColumnInt2();
-            }
-            else if( typeId == 2)
-            {
+            } else if (typeId == 2) {
                 roomTypeRepository.deleteColumnInt3();
-            }
-            else if( typeId == 3)
-            {
+            } else if (typeId == 3) {
                 roomTypeRepository.deleteColumnInt4();
-            }
-            else if( typeId == 4)
-            {
+            } else if (typeId == 4) {
                 roomTypeRepository.deleteColumnInt5();
-            }
-            else if( typeId == 5)
-            {
+            } else if (typeId == 5) {
                 roomTypeRepository.deleteColumnInt6();
-            }   else if( typeId == 6)
-            {
+            } else if (typeId == 6) {
                 roomTypeRepository.deleteColumnInt7();
-            }   else if( typeId == 7)
-            {
+            } else if (typeId == 7) {
                 roomTypeRepository.deleteColumnInt8();
-            }   else if( typeId == 8)
-            {
+            } else if (typeId == 8) {
                 roomTypeRepository.deleteColumnInt9();
-            }   else if( typeId == 9)
-            {
+            } else if (typeId == 9) {
                 roomTypeRepository.deleteColumnInt10();
-            }   else if( typeId == 10)
-            {
+            } else if (typeId == 10) {
                 roomTypeRepository.deleteColumnInt11();
-            }
-            else
-            {
+            } else {
                 roomTypeRepository.deleteColumnInt12();
             }
-           // this.columnIntIndex--;
-        }
-
-        else if(type == 1)
-        {
-            if( typeId == 0)
+            // this.columnIntIndex--;
+        } else if (type == 1) {
+            if (typeId == 0)
                 roomTypeRepository.deleteColumnDouble();
-            else if( typeId == 1)
-            {
+            else if (typeId == 1) {
                 roomTypeRepository.deleteColumnDouble2();
-            }
-            else if( typeId == 2)
-            {
+            } else if (typeId == 2) {
                 roomTypeRepository.deleteColumnDouble3();
-            }
-            else if( typeId == 3)
-            {
+            } else if (typeId == 3) {
                 roomTypeRepository.deleteColumnDouble4();
-            } else if( typeId== 4)
-            {
+            } else if (typeId == 4) {
                 roomTypeRepository.deleteColumnDouble5();
-            }
-            else if( typeId == 5)
-            {
+            } else if (typeId == 5) {
                 roomTypeRepository.deleteColumnDouble6();
-            }
-            else if( typeId == 6)
-            {
+            } else if (typeId == 6) {
                 roomTypeRepository.deleteColumnDouble7();
-            }
-            else if( typeId== 7)
-            {
+            } else if (typeId == 7) {
                 roomTypeRepository.deleteColumnDouble8();
-            }
-            else if( typeId== 8)
-            {
+            } else if (typeId == 8) {
                 roomTypeRepository.deleteColumnDouble9();
-            }
-            else if( typeId == 9)
-            {
+            } else if (typeId == 9) {
                 roomTypeRepository.deleteColumnDouble10();
-            }
-            else if( typeId == 10)
-            {
+            } else if (typeId == 10) {
                 roomTypeRepository.deleteColumnDouble11();
-            }
-            else
-            {
+            } else {
                 roomTypeRepository.deleteColumnDouble12();
             }
-         //   this.columnDoubleIndex--;
-        }
-
-        else if(type == 2)
-        {
-            if( typeId == 0)
+            //   this.columnDoubleIndex--;
+        } else if (type == 2) {
+            if (typeId == 0)
                 roomTypeRepository.deleteColumnString();
-            else if( typeId == 1)
-            {
+            else if (typeId == 1) {
                 roomTypeRepository.deleteColumnString2();
-            }
-            else if( typeId == 2)
-            {
+            } else if (typeId == 2) {
                 roomTypeRepository.deleteColumnString3();
-            }
-            else if( typeId == 3)
-            {
+            } else if (typeId == 3) {
                 roomTypeRepository.deleteColumnString4();
-            } else if( typeId== 4)
-            {
+            } else if (typeId == 4) {
                 roomTypeRepository.deleteColumnString5();
-            } else if( typeId == 5)
-            {
+            } else if (typeId == 5) {
                 roomTypeRepository.deleteColumnString6();
-            } else if( typeId == 6)
-            {
+            } else if (typeId == 6) {
                 roomTypeRepository.deleteColumnString7();
-            }
-            else if( typeId == 7)
-            {
+            } else if (typeId == 7) {
                 roomTypeRepository.deleteColumnString8();
-            }
-            else if( typeId == 8)
-            {
+            } else if (typeId == 8) {
                 roomTypeRepository.deleteColumnString9();
-            }
-            else if( typeId == 9)
-            {
+            } else if (typeId == 9) {
                 roomTypeRepository.deleteColumnString10();
-            }
-            else if( typeId == 10)
-            {
+            } else if (typeId == 10) {
                 roomTypeRepository.deleteColumnString11();
-            }
-            else
-            {
+            } else {
                 roomTypeRepository.deleteColumnString12();
             }
-         //   this.columnStringIndex--;
-        }
-
-        else
-        {
-            if( typeId == 0)
+            //   this.columnStringIndex--;
+        } else {
+            if (typeId == 0)
                 roomTypeRepository.deleteColumnBoolean();
-            else if( typeId == 1)
-            {
+            else if (typeId == 1) {
                 roomTypeRepository.deleteColumnBoolean2();
-            }
-            else if( typeId == 2)
-            {
+            } else if (typeId == 2) {
                 roomTypeRepository.deleteColumnBoolean3();
-            }
-            else if( typeId == 3)
-            {
+            } else if (typeId == 3) {
                 roomTypeRepository.deleteColumnBoolean4();
-            }
-            else if( typeId == 4)
-            {
+            } else if (typeId == 4) {
                 roomTypeRepository.deleteColumnBoolean5();
-            }
-            else if( typeId == 5)
-            {
+            } else if (typeId == 5) {
                 roomTypeRepository.deleteColumnBoolean6();
-            }
-            else if( typeId == 6)
-            {
+            } else if (typeId == 6) {
                 roomTypeRepository.deleteColumnBoolean7();
-            }
-            else if( typeId == 7)
-            {
+            } else if (typeId == 7) {
                 roomTypeRepository.deleteColumnBoolean8();
-            }
-            else if( typeId == 8)
-            {
+            } else if (typeId == 8) {
                 roomTypeRepository.deleteColumnBoolean9();
-            }
-            else if( typeId == 9)
-            {
+            } else if (typeId == 9) {
                 roomTypeRepository.deleteColumnBoolean10();
-            }
-            else if( typeId == 10)
-            {
+            } else if (typeId == 10) {
                 roomTypeRepository.deleteColumnBoolean11();
-            }
-            else
-            {
+            } else {
                 roomTypeRepository.deleteColumnBoolean12();
             }
-         //   this.columnBooleanIndex--;
+            //   this.columnBooleanIndex--;
         }
 
         parameterRepository.delete(parameterRepository.getById(id));
     }
-    public void deleteById(Long id)
-    {
+
+    public void deleteById(Long id) {
         parameterRepository.delete(parameterRepository.getById(id));
     }
 
@@ -478,10 +385,8 @@ public class ParameterService {
         return parameterRepository.findAll();
     }
 
-    public void createInitialData() throws RuntimeException
-    {
-        if(parameterRepository.findAll().isEmpty())
-        {
+    public void createInitialData() throws RuntimeException {
+        if (parameterRepository.findAll().isEmpty()) {
             Parameter numberOfRoomsAvailable = new Parameter();
             numberOfRoomsAvailable.setName("liczba pokoi danego typu");
             numberOfRoomsAvailable.setType("number");
@@ -520,7 +425,7 @@ public class ParameterService {
             checkOutTime.setModifiable(false);
             //   checkOutTime.setTypeNumber((long) numberIntIndex);
             //  parameterRepository.save(checkOutTime);
-           //  createColumn(type);
+            //  createColumn(type);
             save(checkOutTime);
 
             Parameter price = new Parameter();
@@ -533,26 +438,16 @@ public class ParameterService {
             type = Type.DOUBLE;
             // createColumn(type);
             save(price);
-        }
-        else
-        {
-            for (Parameter parameter: parameterRepository.findAll())
-            {
-                if(parameter.getTypeId() == 0)
-                {
+        } else {
+            for (Parameter parameter : parameterRepository.findAll()) {
+                if (parameter.getTypeId() == 0) {
                     numberIntIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
-                }
-                else if(parameter.getTypeId() == 1)
-                {
-                    numberDoubleIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
-                }
-                else if(parameter.getTypeId() == 2)
-                {
-                    numberStringIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
-                }
-                else
-                {
-                    numberBooleanIndex = Math.toIntExact(parameter.getTypeNumber())  + 1;
+                } else if (parameter.getTypeId() == 1) {
+                    numberDoubleIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
+                } else if (parameter.getTypeId() == 2) {
+                    numberStringIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
+                } else {
+                    numberBooleanIndex = Math.toIntExact(parameter.getTypeNumber()) + 1;
                 }
             }
         }

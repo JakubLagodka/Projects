@@ -59,7 +59,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d825d11f-d7a9-4fe8-bb81-d19af12a9be5" name="Default Changelist" comment="" />
+    <list default="true" id="d825d11f-d7a9-4fe8-bb81-d19af12a9be5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../praca1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../praca1/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +85,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -97,6 +100,7 @@
       <workItem from="1628321669393" duration="595000" />
       <workItem from="1628333186542" duration="16000" />
       <workItem from="1628865903110" duration="625000" />
+      <workItem from="1632060047130" duration="4000" />
     </task>
     <servers />
   </component>

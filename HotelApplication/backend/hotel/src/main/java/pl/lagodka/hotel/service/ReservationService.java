@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.mapper.ReservationMapper;
 import pl.lagodka.hotel.model.*;
 
@@ -17,13 +18,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 public class ReservationService {
 
     private ReservationRepository reservationRepository;
     private final UserRepository userRepository;
     private final RoomTypeRepository roomTypeRepository;
-    private ArrayList<ReservationView> reservationsFromCurrentUser;
+    private List<ReservationView> reservationsFromCurrentUser;
     private final ReservationMapper reservationMapper;
 
     @Autowired
@@ -32,7 +33,7 @@ public class ReservationService {
         this.roomTypeRepository = roomTypeRepository;
         this.userRepository = userRepository;
         this.reservationMapper = reservationMapper;
-        this.reservationsFromCurrentUser = new ArrayList<ReservationView>();
+        this.reservationsFromCurrentUser = new ArrayList<>();
     }
 
     public Optional<Reservation> findById(Long id) {
@@ -42,9 +43,8 @@ public class ReservationService {
     public List<ReservationView> getAllReservationsFromGivenUser(Long id) {
         this.reservationsFromCurrentUser.clear();
 
-        for(Reservation reservation: reservationRepository.findAll())
-        {
-            if(reservation.getUser().getId() == id)
+        for (Reservation reservation : reservationRepository.findAll()) {
+            if (reservation.getUser().getId() == id)
                 reservationsFromCurrentUser.add(reservationMapper.map(reservation));
         }
 
@@ -52,7 +52,7 @@ public class ReservationService {
     }
 
     public List<ReservationView> findAll() {
-        List<Reservation> reservations =  reservationRepository.findAll();
+        List<Reservation> reservations = reservationRepository.findAll();
         List<ReservationView> reservationViewList = null;
 
         for (Reservation reservation : reservations) {
@@ -60,7 +60,7 @@ public class ReservationService {
         }
 
         return reservationViewList;
-       // return reservations.stream().map(this::map).collect(Collectors.toList());
+        // return reservations.stream().map(this::map).collect(Collectors.toList());
     }
 
     public ReservationView updateReservation(Long reservationId, ReservationView reservationView) {
@@ -72,15 +72,14 @@ public class ReservationService {
         return reservationMapper.map(reservationRepository.save(reservationToUpdate));
     }
 
-    public ReservationView save(ReservationView reservationView)
-    {
+    public ReservationView save(ReservationView reservationView) {
 
         Reservation reservation = reservationMapper.map(reservationView);
 
-        if(reservationView.getRoomTypeId() != null)
+        if (reservationView.getRoomTypeId() != null)
             reservation.setRoom(roomTypeRepository.getById(reservationView.getRoomTypeId()));
 
-        if(reservationView.getUserId() != null)
+        if (reservationView.getUserId() != null)
             reservation.setUser(userRepository.getById(reservationView.getUserId()));
 
         ReservationView returnedReservationView = reservationMapper.map(reservationRepository.save(reservation));

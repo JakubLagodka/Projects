@@ -2,12 +2,13 @@ package pl.lagodka.hotel.service;
 
 import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.model.*;
 import pl.lagodka.hotel.repository.RoleRepository;
 
 import java.util.Arrays;
 
-@Component
+@Service
 public class RoleService {
 
     private final RoleRepository roleRepository;
