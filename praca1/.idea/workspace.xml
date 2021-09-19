@@ -1,97 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed findStrings">
-      <change afterPath="$PROJECT_DIR$/../posts/backend/.idea/runConfigurations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/ParameterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/ParameterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/ReservationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/ReservationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/RoomTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/RoomTypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/AuthenticationTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/AuthenticationTokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/ParameterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/ParameterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/RoomTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/RoomTypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/java/tacos/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/java/tacos/Ingredient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/java/tacos/Taco.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/java/tacos/TacoCloudApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/java/tacos/web/DesignTacoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/resources/static/images/TacoCloud.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/main/resources/templates/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/backend/taco/src/test/java/tacos/TacoCloudApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/out/artifacts/hotel_jar/hotel.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/out/artifacts/hotel_jar2/hotel.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/HotelApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/Type.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/InitialDataFiller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/MailConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/ModifiedAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/ModifiedOncePerRequestFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/ModifiedUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/StartUpFiller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/SwaggerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/configuration/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/controller/ParameterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/controller/ReservationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/controller/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/controller/RoomTypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/controller/TokenController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/CodeAlreadyUsedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/ForbiddenAccessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/NotAuthorizedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/NotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/NotImplementedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/exception/UsernameAlreadyUsedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/CodeName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Parameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Reservation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/ReservationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/RoomType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/UserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/model/Worker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/repository/ParameterRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/repository/ReservationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/repository/RoomTypeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/service/AuthenticationTokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/service/ParameterService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/service/ReservationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/service/RoomTypeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/java/pl/polsl/hotel/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/main/resources/db.migration/V1__insert-data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Taco/hotel-app/src/test/java/pl/polsl/hotel/HotelApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../posts/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../posts/backend/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="removed Taco" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -265,7 +175,7 @@
       <workItem from="1632050376637" duration="672000" />
       <workItem from="1632059275995" duration="977000" />
       <workItem from="1632060711895" duration="56000" />
-      <workItem from="1632060796312" duration="469000" />
+      <workItem from="1632060796312" duration="1142000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -400,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632043638674</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="removed Taco">
+      <created>1632061293060</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1632061293060</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,6 +354,7 @@
     <MESSAGE value="added countSumSalaryByJob" />
     <MESSAGE value="added class files" />
     <MESSAGE value="fixed findStrings" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed findStrings" />
+    <MESSAGE value="removed Taco" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed Taco" />
   </component>
 </project>

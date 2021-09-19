@@ -8,11 +8,9 @@ import pl.lagodka.hotel.model.UserView;
 @Component
 public class UserMapper {
     private final AppConfig appConfig;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserMapper(AppConfig appConfig, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserMapper(AppConfig appConfig) {
         this.appConfig = appConfig;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public User map(UserView userView) {
