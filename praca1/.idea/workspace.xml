@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="removed Taco" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="removed Taco">
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/Task.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task/src/pl/lagodka/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Ułamek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +188,8 @@
       <workItem from="1632050376637" duration="672000" />
       <workItem from="1632059275995" duration="977000" />
       <workItem from="1632060711895" duration="56000" />
-      <workItem from="1632060796312" duration="1142000" />
+      <workItem from="1632060796312" duration="2987000" />
+      <workItem from="1632301266420" duration="684000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
