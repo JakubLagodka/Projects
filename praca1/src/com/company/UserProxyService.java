@@ -43,5 +43,7 @@ public class UserProxyService implements UserService {
         } else {
             return map.put(id, userService.getById(id));
         }
+        //przypisać do zmiennej
+       // if(map.get(id) == null)
     }
 }

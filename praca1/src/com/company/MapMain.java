@@ -109,4 +109,5 @@ public class MapMain {
         }
         return salarySum;
     }
+    //zrobić statystykę
 }

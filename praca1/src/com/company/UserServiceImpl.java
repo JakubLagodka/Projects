@@ -13,12 +13,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        for (User user1 : userList) {
-            if (user1.getId() == user.getId()) {
+        /*for (User user1 : userList) {
+            if (user1.getId().equals(user.getId())) {
                 user.setId((long) userList.size());
             }
-        }
-
+        }*/
+//pobieram id ostatniego el i zwiększam o jeden
         userList.add(user);
         return user;
 

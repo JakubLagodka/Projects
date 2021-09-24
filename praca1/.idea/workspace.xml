@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Ulamek">
-      <change afterPath="$PROJECT_DIR$/src/com/company/NoZeroDivideException.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="updated Ulamek">
+      <change afterPath="$PROJECT_DIR$/src/com/company/LambdaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Ułamek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Ułamek.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MapMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserProxyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserProxyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,9 +104,22 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MapMain">
+  <component name="RunManager" selected="Application.LambdaMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
+      <module name="praca1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LambdaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.LambdaMain" />
       <module name="praca1" />
       <extension name="coverage">
         <pattern>
@@ -140,6 +156,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LambdaMain" />
         <item itemvalue="Application.MapMain" />
         <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.Main" />
@@ -186,7 +203,7 @@
       <workItem from="1632060711895" duration="56000" />
       <workItem from="1632060796312" duration="2987000" />
       <workItem from="1632301266420" duration="2388000" />
-      <workItem from="1632490130771" duration="1653000" />
+      <workItem from="1632490130771" duration="5810000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -335,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632302445258</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="updated Ulamek">
+      <created>1632498680942</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1632498680942</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,6 +398,7 @@
     <MESSAGE value="fixed findStrings" />
     <MESSAGE value="removed Taco" />
     <MESSAGE value="added Ulamek" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Ulamek" />
+    <MESSAGE value="updated Ulamek" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated Ulamek" />
   </component>
 </project>
