@@ -1,10 +1,12 @@
 package com.company;
 
-public class Ułamek {
+public class Ułamek implements Comparable {
     private double licznik;
     private double mianownik;
 
     public Ułamek(double licznik, double mianownik) {
+        if (mianownik == 0)
+            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         this.licznik = licznik;
         this.mianownik = mianownik;
     }
@@ -39,21 +41,43 @@ public class Ułamek {
         return różnica;
     }
 
-    public Ułamek wymnóż(Ułamek doMnożenia){
+    public Ułamek wymnóż(Ułamek doMnożenia) {
         Ułamek iloczyn = new Ułamek(this.licznik * doMnożenia.licznik, this.mianownik * doMnożenia.mianownik);
         this.licznik *= doMnożenia.licznik;
         this.mianownik *= doMnożenia.mianownik;
         return iloczyn;
     }
 
-    public Ułamek podziel(Ułamek doDzielenia){
+    public Ułamek podziel(Ułamek doDzielenia) {
         Ułamek iloraz = new Ułamek(this.licznik / doDzielenia.licznik, this.mianownik / doDzielenia.mianownik);
         this.licznik /= doDzielenia.licznik;
         this.mianownik /= doDzielenia.mianownik;
         return iloraz;
     }
 
-    /*public Ułamek skróć(){
-        Ułamek
-    }*/
+    public Ułamek skróć() {
+        Ułamek wynik = this;
+        // for (int i = this.licznik)
+        return wynik;
+    }
+
+    public double zapisDziesiętny() {
+        return 0.0;
+    }
+
+    public Ułamek potęguj() {
+        Ułamek wynik = this;
+        return wynik;
+    }
+
+    public Ułamek pierwiastkuj(){
+        Ułamek wynik = this;
+        return wynik;
+    }
+
+    @Override
+    public int compareTo(Object ułamek) {
+
+        return this.compareTo(ułamek);
+    }
 }

@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="removed Taco">
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/Task.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Task/src/pl/lagodka/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Ułamek.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Ulamek">
+      <change afterPath="$PROJECT_DIR$/src/com/company/NoZeroDivideException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Ułamek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Ułamek.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +96,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Taco/backend/taco" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.company" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.MapMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
@@ -189,7 +185,8 @@
       <workItem from="1632059275995" duration="977000" />
       <workItem from="1632060711895" duration="56000" />
       <workItem from="1632060796312" duration="2987000" />
-      <workItem from="1632301266420" duration="684000" />
+      <workItem from="1632301266420" duration="2388000" />
+      <workItem from="1632490130771" duration="1653000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -331,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632061293060</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added Ulamek">
+      <created>1632302445258</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1632302445258</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,6 +373,7 @@
     <MESSAGE value="added class files" />
     <MESSAGE value="fixed findStrings" />
     <MESSAGE value="removed Taco" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed Taco" />
+    <MESSAGE value="added Ulamek" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Ulamek" />
   </component>
 </project>
