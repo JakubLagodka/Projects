@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Statistic">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LambdaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LambdaMain.java" afterDir="false" />
-    </list>
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added functional interfaces" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +197,7 @@
       <workItem from="1632060796312" duration="2987000" />
       <workItem from="1632301266420" duration="2388000" />
       <workItem from="1632490130771" duration="6386000" />
-      <workItem from="1632903128815" duration="16279000" />
+      <workItem from="1632903128815" duration="16644000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -384,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632937346357</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added functional interfaces">
+      <created>1632940878774</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1632940878774</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,6 +431,7 @@
     <MESSAGE value="added lambdaMain" />
     <MESSAGE value="updated user service implementation" />
     <MESSAGE value="added Statistic" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Statistic" />
+    <MESSAGE value="added functional interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="added functional interfaces" />
   </component>
 </project>

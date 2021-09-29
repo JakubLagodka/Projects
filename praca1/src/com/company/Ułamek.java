@@ -24,6 +24,8 @@ public class Ułamek implements Comparable {
     }
 
     public void setMianownik(double mianownik) {
+        if (mianownik == 0)
+            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         this.mianownik = mianownik;
     }
 
@@ -31,6 +33,8 @@ public class Ułamek implements Comparable {
         Ułamek suma = new Ułamek(this.licznik + doDodania.licznik, this.mianownik + doDodania.mianownik);
         this.licznik += doDodania.licznik;
         this.mianownik += doDodania.mianownik;
+        if (this.mianownik == 0)
+            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         return suma;
     }
 
@@ -38,6 +42,8 @@ public class Ułamek implements Comparable {
         Ułamek różnica = new Ułamek(this.licznik - doOdjęcia.licznik, this.mianownik - doOdjęcia.mianownik);
         this.licznik -= doOdjęcia.licznik;
         this.mianownik -= doOdjęcia.mianownik;
+        if (this.mianownik == 0)
+            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         return różnica;
     }
 
@@ -45,6 +51,8 @@ public class Ułamek implements Comparable {
         Ułamek iloczyn = new Ułamek(this.licznik * doMnożenia.licznik, this.mianownik * doMnożenia.mianownik);
         this.licznik *= doMnożenia.licznik;
         this.mianownik *= doMnożenia.mianownik;
+        if (this.mianownik == 0)
+            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         return iloczyn;
     }
 
@@ -52,6 +60,8 @@ public class Ułamek implements Comparable {
         Ułamek iloraz = new Ułamek(this.licznik / doDzielenia.licznik, this.mianownik / doDzielenia.mianownik);
         this.licznik /= doDzielenia.licznik;
         this.mianownik /= doDzielenia.mianownik;
+        if (this.mianownik == 0)
+            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         return iloraz;
     }
 
@@ -70,7 +80,7 @@ public class Ułamek implements Comparable {
         return wynik;
     }
 
-    public Ułamek pierwiastkuj(){
+    public Ułamek pierwiastkuj() {
         Ułamek wynik = this;
         return wynik;
     }
