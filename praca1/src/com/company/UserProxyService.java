@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserProxyService implements UserService {
-    private UserService userService;
-    private Map<Long, User> map;
+    private final UserService userService;
+    private final Map<Long, User> map;
 
     public UserProxyService() {
         this.userService = new UserServiceImpl();
@@ -14,13 +14,7 @@ public class UserProxyService implements UserService {
 
     @Override
     public User save(User user) {
-        if(map.containsKey(user.getId())){
-            Long number = 0L;
-            while(map.containsKey(number)){
-                number++;
-            }
-            user.setId(number);
-        }
+
         return map.put(user.getId(), userService.save(user));
     }
 
@@ -38,12 +32,12 @@ public class UserProxyService implements UserService {
 
     @Override
     public User getById(Long id) {
-        if (map.containsKey(id)) {
-            return map.get(id);
-        } else {
+
+        User user = map.get(id);
+        if (user == null) {
             return map.put(id, userService.getById(id));
-        }
-        //przypisać do zmiennej
-       // if(map.get(id) == null)
+        } else return user;
+
     }
 }
+

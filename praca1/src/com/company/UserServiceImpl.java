@@ -13,12 +13,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        /*for (User user1 : userList) {
-            if (user1.getId().equals(user.getId())) {
-                user.setId((long) userList.size());
-            }
-        }*/
-//pobieram id ostatniego el i zwiększam o jeden
+
+        if (!userList.isEmpty()) {
+            user.setId(userList.get(userList.size() - 1).getId() + 1);
+        }
         userList.add(user);
         return user;
 
@@ -39,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteById(Long id) {
-        userList.remove(id);
+        userList.remove(getById(id));
 //wrócić po interfejsach funkcyjnych
     }
 

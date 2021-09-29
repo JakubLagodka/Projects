@@ -2,124 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added lambdaMain">
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/HotelApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/Type.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/configuration/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/configuration/ModifiedAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/configuration/ModifiedOncePerRequestFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/configuration/ModifiedUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/configuration/SwaggerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/configuration/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/controller/ParameterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/controller/ReservationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/controller/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/controller/RoomTypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/controller/TokenController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/CodeAlreadyUsedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/ForbiddenAccessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/NotAuthorizedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/NotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/NotImplementedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/exception/UsernameAlreadyUsedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/mapper/ReservationMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/CodeName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Manager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Parameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Reservation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/ReservationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/RoomType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/UserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/model/Worker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/ParameterRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/ReservationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/RoomTypeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/AuthenticationTokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/MailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/ParameterService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/ReservationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/RoomTypeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/java/pl/lagodka/hotel/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelApplication/backend/hotel/src/test/java/pl/lagodka/hotel/HotelApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/out/artifacts/hotel_jar/hotel.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/out/artifacts/hotel_jar2/hotel.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/HotelApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/Type.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/AppConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/InitialDataFiller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/MailConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/ModifiedAuthenticationEntryPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/ModifiedOncePerRequestFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/ModifiedUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/StartUpFiller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/SwaggerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/configuration/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/controller/ParameterController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/controller/ReservationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/controller/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/controller/RoomTypeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/controller/TokenController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/CodeAlreadyUsedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/ForbiddenAccessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/NotAuthorizedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/NotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/NotImplementedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/exception/UsernameAlreadyUsedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/CodeName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Parameter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Reservation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/ReservationView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/RoomType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Token.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/UserView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/model/Worker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/repository/ParameterRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/repository/ReservationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/repository/RoomTypeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/service/AuthenticationTokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/service/ParameterService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/service/ReservationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/service/RoomTypeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/java/pl/polsl/hotel/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/main/resources/db.migration/V1__insert-data.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../stary hotel z działającą komunikacją z Angularem/hotel-app/src/test/java/pl/polsl/hotel/HotelApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MapMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserProxyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserProxyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +102,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LambdaMain">
+  <component name="RunManager" selected="Application.MapMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -268,8 +154,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LambdaMain" />
         <item itemvalue="Application.MapMain" />
+        <item itemvalue="Application.LambdaMain" />
         <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.Main" />
       </list>
@@ -316,7 +202,7 @@
       <workItem from="1632060796312" duration="2987000" />
       <workItem from="1632301266420" duration="2388000" />
       <workItem from="1632490130771" duration="6386000" />
-      <workItem from="1632903128815" duration="7548000" />
+      <workItem from="1632903128815" duration="10903000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
