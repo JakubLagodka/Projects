@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added lambdaMain">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="updated user service implementation">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Statistic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/UserProxyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/UserProxyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MapMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserProxyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserProxyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +203,7 @@
       <workItem from="1632060796312" duration="2987000" />
       <workItem from="1632301266420" duration="2388000" />
       <workItem from="1632490130771" duration="6386000" />
-      <workItem from="1632903128815" duration="10903000" />
+      <workItem from="1632903128815" duration="13235000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -365,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632503012100</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="updated user service implementation">
+      <created>1632935134569</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1632935134569</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,6 +414,7 @@
     <MESSAGE value="added Ulamek" />
     <MESSAGE value="updated Ulamek" />
     <MESSAGE value="added lambdaMain" />
-    <option name="LAST_COMMIT_MESSAGE" value="added lambdaMain" />
+    <MESSAGE value="updated user service implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated user service implementation" />
   </component>
 </project>

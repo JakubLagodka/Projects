@@ -61,6 +61,16 @@ public class MapMain {
         userSet.add(users.get(1));
 
         System.out.println(userSet);*/
+
+        Map<Job, Statistic> jobStatisticMap = aggregateSalaryByJob(users);
+
+        for (Map.Entry<Job, Statistic> jobStatisticEntry : jobStatisticMap.entrySet()) {
+            System.out.println(jobStatisticEntry.getKey() + ", min = "
+                    + jobStatisticEntry.getValue().getMin() + ", max = " + jobStatisticEntry.getValue().getMax() + ", avg = "
+                    + jobStatisticEntry.getValue().getAvg() + ", count = " + jobStatisticEntry.getValue().getCount() + ", sum = "
+                    + jobStatisticEntry.getValue().getSum());
+        }
+
     }
 
     static Map<Long, User> groupUsersById(List<User> users) {
@@ -75,7 +85,7 @@ public class MapMain {
         Map<Job, List<User>> groupedUsers = new EnumMap<>(Job.class);
         for (User user : users) {
             List<User> userList = groupedUsers.get(user.getJob());
-            if(userList == null){
+            if (userList == null) {
                 userList = new LinkedList<>();
             }
             userList.add(user);
@@ -84,11 +94,11 @@ public class MapMain {
         return groupedUsers;
     }
 
-    static Map<Job, Integer> countUsersByJob(List<User> users){
-        Map<Job,Integer> usersCount = new EnumMap<>(Job.class);
+    static Map<Job, Integer> countUsersByJob(List<User> users) {
+        Map<Job, Integer> usersCount = new EnumMap<>(Job.class);
         for (User user : users) {
             Integer count = usersCount.get(user.getJob());
-            if(count == null){
+            if (count == null) {
                 count = 0;
             }
             count++;
@@ -97,17 +107,43 @@ public class MapMain {
         return usersCount;
     }
 
-    static Map<Job, Double> countSumSalaryByJob(List<User> users){
-        Map<Job,Double> salarySum = new EnumMap<>(Job.class);
+    static Map<Job, Double> countSumSalaryByJob(List<User> users) {
+        Map<Job, Double> salarySum = new EnumMap<>(Job.class);
         for (User user : users) {
             Double salary = salarySum.get(user.getJob());
-            if(salary == null){
+            if (salary == null) {
                 salary = 0.0;
             }
             salary += user.getSalary();
-            salarySum.put(user.getJob(),salary);
+            salarySum.put(user.getJob(), salary);
         }
         return salarySum;
     }
-    //zrobić statystykę
+
+    static Map<Job, Statistic> aggregateSalaryByJob(List<User> users) {
+        Map<Job, Statistic> aggregateSalary = new HashMap<>();
+        for (User user : users) {
+            Statistic statistic = aggregateSalary.get(user.getJob());
+            if (statistic == null) {
+                statistic = new Statistic();
+                statistic.setCount(1);
+                statistic.setMax(user.getSalary());
+                statistic.setMin(user.getSalary());
+                statistic.setAvg(user.getSalary());
+                statistic.setSum(user.getSalary());
+            } else {
+                statistic.setCount(statistic.getCount() + 1);
+                statistic.setSum(statistic.getSum() + user.getSalary());
+                statistic.setAvg(statistic.getSum() / statistic.getCount());
+                if (user.getSalary() < statistic.getMin()) {
+                    statistic.setMin(user.getSalary());
+                } else if (user.getSalary() > statistic.getMax()) {
+                    statistic.setMax(user.getSalary());
+                }
+
+            }
+            aggregateSalary.put(user.getJob(), statistic);
+        }
+        return aggregateSalary;
+    }
 }
