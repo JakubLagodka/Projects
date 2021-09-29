@@ -121,7 +121,7 @@ public class MapMain {
     }
 
     static Map<Job, Statistic> aggregateSalaryByJob(List<User> users) {
-        Map<Job, Statistic> aggregateSalary = new HashMap<>();
+        Map<Job, Statistic> aggregateSalary = new EnumMap<>(Job.class);
         for (User user : users) {
             Statistic statistic = aggregateSalary.get(user.getJob());
             if (statistic == null) {
