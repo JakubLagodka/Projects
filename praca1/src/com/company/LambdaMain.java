@@ -44,6 +44,25 @@ public class LambdaMain {
 
         BinaryOperator<Integer> binaryOperator = (integer, integer2) -> integer + integer2;
         System.out.println(binaryOperator.apply(2, 4));
+
+        Ułamek ułamek = new Ułamek(2,4);
+        ułamek.skróć();
+        System.out.println(ułamek);
+        ułamek.dodaj(new Ułamek(1,2));
+        System.out.println(ułamek);
+        ułamek.odejmij(new Ułamek(2,3));
+        System.out.println(ułamek);
+        ułamek.wymnóż(new Ułamek(3,4));
+        System.out.println(ułamek);
+        ułamek.podziel(new Ułamek(4,5));
+        System.out.println(ułamek);
+        ułamek.potęguj(2);
+        System.out.println(ułamek);
+        ułamek.pierwiastkuj();
+        ułamek.skróć();
+        System.out.println(ułamek);
+        System.out.println(ułamek.zapisDziesiętny());
+        System.out.println(ułamek.compareTo(new Ułamek(1, 2)));
     }
 
 }

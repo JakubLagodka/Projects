@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added no zero exception">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed all functional interfaces">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Ułamek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/Ułamek.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/LambdaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LambdaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Ułamek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Ułamek.java" afterDir="false" />
     </list>
@@ -202,7 +205,7 @@
       <workItem from="1632301266420" duration="2388000" />
       <workItem from="1632490130771" duration="6386000" />
       <workItem from="1632903128815" duration="16805000" />
-      <workItem from="1632982601822" duration="1673000" />
+      <workItem from="1632982601822" duration="3887000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -400,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632941055187</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fixed all functional interfaces">
+      <created>1632985017936</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1632985017936</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +429,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added test classes" />
     <MESSAGE value="added test overrloaded methods" />
     <MESSAGE value="added collection" />
     <MESSAGE value="added figures" />
@@ -444,6 +453,7 @@
     <MESSAGE value="added Statistic" />
     <MESSAGE value="added functional interfaces" />
     <MESSAGE value="added no zero exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="added no zero exception" />
+    <MESSAGE value="fixed all functional interfaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed all functional interfaces" />
   </component>
 </project>

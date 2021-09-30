@@ -30,56 +30,83 @@ public class Ułamek implements Comparable {
     }
 
     public Ułamek dodaj(Ułamek doDodania) {
-        Ułamek suma = new Ułamek(this.licznik + doDodania.licznik, this.mianownik + doDodania.mianownik);
-        this.licznik += doDodania.licznik;
-        this.mianownik += doDodania.mianownik;
-        if (this.mianownik == 0)
+        if (doDodania.mianownik == 0)
             throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
-        return suma;
+        if (this.mianownik != doDodania.mianownik) {
+            //NNW
+
+            for (int i = this.mianownik; ; i += this.mianownik) {
+                if (i % doDodania.mianownik == 0) {
+                    int ileRazyPierwotny = i / this.mianownik;
+                    this.mianownik = i;
+                    this.licznik *= ileRazyPierwotny;
+                    int ileRazyDoDodania = i / doDodania.mianownik;
+                    doDodania.licznik *= ileRazyDoDodania;
+                    doDodania.mianownik = i;
+                    break;
+                }
+            }
+        }
+
+        this.licznik += doDodania.licznik;
+
+        return this;
     }
 
     public Ułamek odejmij(Ułamek doOdjęcia) {
-        Ułamek różnica = new Ułamek(this.licznik - doOdjęcia.licznik, this.mianownik - doOdjęcia.mianownik);
-        this.licznik -= doOdjęcia.licznik;
-        this.mianownik -= doOdjęcia.mianownik;
-        if (this.mianownik == 0)
+        if (doOdjęcia.mianownik == 0)
             throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
-        return różnica;
+        if (this.mianownik != doOdjęcia.mianownik) {
+            //NNW
+
+            for (int i = this.mianownik; ; i += this.mianownik) {
+                if (i % doOdjęcia.mianownik == 0) {
+                    int ileRazyPierwotny = i / this.mianownik;
+                    this.mianownik = i;
+                    this.licznik *= ileRazyPierwotny;
+                    int ileRazyDoOdjecia = i / doOdjęcia.mianownik;
+                    doOdjęcia.licznik *= ileRazyDoOdjecia;
+                    doOdjęcia.mianownik = i;
+                    break;
+                }
+            }
+        }
+        this.licznik -= doOdjęcia.licznik;
+        return this;
     }
 
     public Ułamek wymnóż(Ułamek doMnożenia) {
-        Ułamek iloczyn = new Ułamek(this.licznik * doMnożenia.licznik, this.mianownik * doMnożenia.mianownik);
+
         this.licznik *= doMnożenia.licznik;
         this.mianownik *= doMnożenia.mianownik;
         if (this.mianownik == 0)
             throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
-        return iloczyn;
+        return this;
     }
 
     public Ułamek podziel(Ułamek doDzielenia) {
-        Ułamek iloraz = new Ułamek(this.licznik / doDzielenia.licznik, this.mianownik / doDzielenia.mianownik);
-        this.licznik /= doDzielenia.licznik;
-        this.mianownik /= doDzielenia.mianownik;
+
+        this.licznik *= doDzielenia.mianownik;
+        this.mianownik *= doDzielenia.licznik;
         if (this.mianownik == 0)
             throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
-        return iloraz;
+        return this;
     }
 
     public Ułamek skróć() {
-        Ułamek wynik = this;
-         for (int i = this.licznik; i < 1; i--)
-         {
-             if(this.licznik % i == 0 && this.mianownik % i == 0)
-             {
-                 wynik.licznik = this.licznik = this.licznik / i;
-                 wynik.mianownik = this.mianownik = this.mianownik / i;
-             }
-         }
-        return wynik;
+
+        for (int i = this.licznik; i > 1; i--) {
+            if (this.licznik % i == 0 && this.mianownik % i == 0) {
+                this.licznik /= i;
+                this.mianownik /= i;
+                break;
+            }
+        }
+        return this;
     }
 
     public double zapisDziesiętny() {
-        return 0.0;
+        return (double)this.licznik / (double)this.mianownik;
     }
 
     public Ułamek potęguj(int wykladnik) {
@@ -92,17 +119,25 @@ public class Ułamek implements Comparable {
     }
 
     public Ułamek pierwiastkuj() {
-        Ułamek wynik = this;
 
-        wynik.licznik = this.licznik = (int) Math.sqrt(this.licznik);
-        wynik.mianownik = this.mianownik = (int) Math.sqrt(this.mianownik);
+        this.licznik = (int) Math.sqrt(this.licznik);
+        this.mianownik = (int) Math.sqrt(this.mianownik);
 
-        return wynik;
+        return this;
     }
 
     @Override
     public int compareTo(Object ułamek) {
 
-        return this.compareTo(ułamek);
+       //TODO
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Ułamek{" +
+                "licznik=" + licznik +
+                ", mianownik=" + mianownik +
+                '}';
     }
 }
