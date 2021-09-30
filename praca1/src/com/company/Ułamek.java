@@ -1,29 +1,29 @@
 package com.company;
 
 public class Ułamek implements Comparable {
-    private double licznik;
-    private double mianownik;
+    private int licznik;
+    private int mianownik;
 
-    public Ułamek(double licznik, double mianownik) {
+    public Ułamek(int licznik, int mianownik) {
         if (mianownik == 0)
             throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         this.licznik = licznik;
         this.mianownik = mianownik;
     }
 
-    public double getLicznik() {
+    public int getLicznik() {
         return licznik;
     }
 
-    public void setLicznik(double licznik) {
+    public void setLicznik(int licznik) {
         this.licznik = licznik;
     }
 
-    public double getMianownik() {
+    public int getMianownik() {
         return mianownik;
     }
 
-    public void setMianownik(double mianownik) {
+    public void setMianownik(int mianownik) {
         if (mianownik == 0)
             throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
         this.mianownik = mianownik;
@@ -67,7 +67,14 @@ public class Ułamek implements Comparable {
 
     public Ułamek skróć() {
         Ułamek wynik = this;
-        // for (int i = this.licznik)
+         for (int i = this.licznik; i < 1; i--)
+         {
+             if(this.licznik % i == 0 && this.mianownik % i == 0)
+             {
+                 wynik.licznik = this.licznik = this.licznik / i;
+                 wynik.mianownik = this.mianownik = this.mianownik / i;
+             }
+         }
         return wynik;
     }
 
@@ -75,13 +82,21 @@ public class Ułamek implements Comparable {
         return 0.0;
     }
 
-    public Ułamek potęguj() {
+    public Ułamek potęguj(int wykladnik) {
         Ułamek wynik = this;
+
+        wynik.licznik = this.licznik = (int) Math.pow(this.licznik, wykladnik);
+        wynik.mianownik = this.mianownik = (int) Math.pow(this.mianownik, wykladnik);
+
         return wynik;
     }
 
     public Ułamek pierwiastkuj() {
         Ułamek wynik = this;
+
+        wynik.licznik = this.licznik = (int) Math.sqrt(this.licznik);
+        wynik.mianownik = this.mianownik = (int) Math.sqrt(this.mianownik);
+
         return wynik;
     }
 

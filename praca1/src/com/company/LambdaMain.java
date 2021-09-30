@@ -33,13 +33,17 @@ public class LambdaMain {
         Callable<Double> callable = () -> Math.random();
         System.out.println(callable.call());
 
-        BiConsumer<String,String> biConsumer;
+        BiConsumer<String,String> biConsumer = (str1, str2) -> System.out.println(str1 + ", " + str2);
+        biConsumer.accept("czesc", "wszystkim");
 
-        BiPredicate<String,String> biPredicate;
+        BiPredicate<String,String> biPredicate = (str1, str2) -> str1.isEmpty() && str2.isEmpty();
+        System.out.println(biPredicate.test("", ""));
 
-        UnaryOperator<String> unaryOperator;
+        UnaryOperator<Integer> unaryOperator = (integer) -> ++integer; //post inkrementacja nie dziala!
+        System.out.println(unaryOperator.apply(1));
 
-        BinaryOperator<String> binaryOperator;
+        BinaryOperator<Integer> binaryOperator = (integer, integer2) -> integer + integer2;
+        System.out.println(binaryOperator.apply(2, 4));
     }
 
 }
