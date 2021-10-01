@@ -1,6 +1,6 @@
 package com.company;
 
-public class Ułamek implements Comparable {
+public class Ułamek implements Comparable<Ułamek> {
     private int licznik;
     private int mianownik;
 
@@ -30,8 +30,7 @@ public class Ułamek implements Comparable {
     }
 
     public Ułamek dodaj(Ułamek doDodania) {
-        if (doDodania.mianownik == 0)
-            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
+
         if (this.mianownik != doDodania.mianownik) {
             //NNW
 
@@ -49,13 +48,12 @@ public class Ułamek implements Comparable {
         }
 
         this.licznik += doDodania.licznik;
-
+        skróć();
         return this;
     }
 
     public Ułamek odejmij(Ułamek doOdjęcia) {
-        if (doOdjęcia.mianownik == 0)
-            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
+
         if (this.mianownik != doOdjęcia.mianownik) {
             //NNW
 
@@ -72,6 +70,7 @@ public class Ułamek implements Comparable {
             }
         }
         this.licznik -= doOdjęcia.licznik;
+        skróć();
         return this;
     }
 
@@ -79,8 +78,7 @@ public class Ułamek implements Comparable {
 
         this.licznik *= doMnożenia.licznik;
         this.mianownik *= doMnożenia.mianownik;
-        if (this.mianownik == 0)
-            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
+
         return this;
     }
 
@@ -88,8 +86,7 @@ public class Ułamek implements Comparable {
 
         this.licznik *= doDzielenia.mianownik;
         this.mianownik *= doDzielenia.licznik;
-        if (this.mianownik == 0)
-            throw new NoZeroDivideException("Ułamek nie może mieć zera w mianowniku!");
+
         return this;
     }
 
@@ -106,16 +103,15 @@ public class Ułamek implements Comparable {
     }
 
     public double zapisDziesiętny() {
-        return (double)this.licznik / (double)this.mianownik;
+        return (double) this.licznik / (double) this.mianownik;
     }
 
     public Ułamek potęguj(int wykladnik) {
-        Ułamek wynik = this;
 
-        wynik.licznik = this.licznik = (int) Math.pow(this.licznik, wykladnik);
-        wynik.mianownik = this.mianownik = (int) Math.pow(this.mianownik, wykladnik);
+        this.licznik = (int) Math.pow(this.licznik, wykladnik);
+        this.mianownik = (int) Math.pow(this.mianownik, wykladnik);
 
-        return wynik;
+        return this;
     }
 
     public Ułamek pierwiastkuj() {
@@ -126,12 +122,7 @@ public class Ułamek implements Comparable {
         return this;
     }
 
-    @Override
-    public int compareTo(Object ułamek) {
 
-       //TODO
-        return 0;
-    }
 
     @Override
     public String toString() {
@@ -139,5 +130,10 @@ public class Ułamek implements Comparable {
                 "licznik=" + licznik +
                 ", mianownik=" + mianownik +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Ułamek o) {
+        return 0;
     }
 }

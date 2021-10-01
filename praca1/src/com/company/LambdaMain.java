@@ -15,14 +15,26 @@ public class LambdaMain {
         Consumer<String> consumer1 = str -> System.out.println(str);
         consumer1.accept("ja");
 
+        Consumer<String> consumer2 =  System.out::println;
+        consumer2.accept("ja");
+
         Supplier<Double> supplier = () -> Math.random();
         System.out.println(supplier.get());
+
+        Supplier<Double> supplier1 = Math::random;
+        System.out.println(supplier1.get());
 
         Predicate<String> stringPredicate = str -> str.isEmpty();
         System.out.println(stringPredicate.test(""));
 
+        Predicate<String> stringPredicate1 =  String::isEmpty;
+        System.out.println(stringPredicate1.test(""));
+
         Function<String,Integer> function = str -> str.length();
         System.out.println(function.apply("piooji"));
+
+        Function<String,Integer> function1 = String::length;
+        System.out.println(function1.apply("piooji"));
 
         BiFunction<String,String,Integer> biFunction = (str1, str2) -> str1.length() + str2.length();
         System.out.println(biFunction.apply("kuba", "ola"));
