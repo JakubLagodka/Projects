@@ -125,16 +125,12 @@ public class MapMain {
         for (User user : users) {
             Statistic statistic = aggregateSalary.get(user.getJob());
             if (statistic == null) {
-                statistic = new Statistic();
-                statistic.setCount(1);
-                statistic.setMax(user.getSalary());
-                statistic.setMin(user.getSalary());
-                statistic.setAvg(user.getSalary());
-                statistic.setSum(user.getSalary());
+                statistic = new Statistic(user.getSalary(), user.getSalary(), user.getSalary(), user.getSalary(), 1);
+
             } else {
                 statistic.setCount(statistic.getCount() + 1);
                 statistic.setSum(statistic.getSum() + user.getSalary());
-                statistic.setAvg(statistic.getSum() / statistic.getCount());
+
                 if (user.getSalary() < statistic.getMin()) {
                     statistic.setMin(user.getSalary());
                 } else if (user.getSalary() > statistic.getMax()) {
@@ -142,6 +138,7 @@ public class MapMain {
                 }
 
             }
+            statistic.setAvg(statistic.getSum() / statistic.getCount());
             aggregateSalary.put(user.getJob(), statistic);
         }
         return aggregateSalary;

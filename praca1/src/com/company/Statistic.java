@@ -7,7 +7,12 @@ public class Statistic {
     private double avg;
     private int count;
 
-    public Statistic() {
+    public Statistic(double max, double min, double sum, double avg, int count) {
+        this.max = max;
+        this.min = min;
+        this.sum = sum;
+        this.avg = avg;
+        this.count = count;
     }
 
     public double getMax() {
