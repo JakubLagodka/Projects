@@ -119,7 +119,7 @@ public class MapMain {
         }
         return salarySum;
     }
-
+//wzorzec builder można też zrobić
     static Map<Job, Statistic> aggregateSalaryByJob(List<User> users) {
         Map<Job, Statistic> aggregateSalary = new EnumMap<>(Job.class);
         for (User user : users) {

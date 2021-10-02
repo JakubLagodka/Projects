@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added StreamMain">
-      <change afterPath="$PROJECT_DIR$/src/com/company/Fraction.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Fraction">
+      <change afterPath="$PROJECT_DIR$/../Task/src/pl/lagodka/Fibbonacci.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/MapMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/MapMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Statistic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/Statistic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Ułamek.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LambdaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LambdaMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MapMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Statistic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Statistic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Ułamek.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +101,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LambdaMain">
+  <component name="RunManager" selected="Application.StreamMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -173,9 +166,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StreamMain" />
         <item itemvalue="Application.LambdaMain" />
         <item itemvalue="Application.MapMain" />
-        <item itemvalue="Application.StreamMain" />
         <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.Main" />
       </list>
@@ -225,7 +218,9 @@
       <workItem from="1632903128815" duration="16805000" />
       <workItem from="1632982601822" duration="4389000" />
       <workItem from="1633005584599" duration="636000" />
-      <workItem from="1633102454614" duration="7515000" />
+      <workItem from="1633102454614" duration="9066000" />
+      <workItem from="1633157225276" duration="1948000" />
+      <workItem from="1633179882873" duration="3428000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -451,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633108060526</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fixed Fraction">
+      <created>1633110615183</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1633110615183</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +472,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added figures" />
     <MESSAGE value="added User" />
     <MESSAGE value="added Map" />
     <MESSAGE value="fixed Map" />
@@ -495,6 +496,7 @@
     <MESSAGE value="fixed all functional interfaces" />
     <MESSAGE value="fixed all ulamek methods except compareTo" />
     <MESSAGE value="added StreamMain" />
-    <option name="LAST_COMMIT_MESSAGE" value="added StreamMain" />
+    <MESSAGE value="fixed Fraction" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed Fraction" />
   </component>
 </project>
