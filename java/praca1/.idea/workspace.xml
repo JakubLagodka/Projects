@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Fraction">
-      <change afterPath="$PROJECT_DIR$/../Task/src/pl/lagodka/Fibbonacci.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MapMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MapMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HotelApplication/backend/hotel-app" />
+    <property name="last_opened_file_path" value="D:/studia/pliki/Java i Programowanie w Sieci Internet/moje/java/b4798e4e-gr03-repo/lab2/ReplacementImpedance" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -221,6 +219,8 @@
       <workItem from="1633102454614" duration="9066000" />
       <workItem from="1633157225276" duration="1948000" />
       <workItem from="1633179882873" duration="3428000" />
+      <workItem from="1633354382687" duration="2983000" />
+      <workItem from="1633418273382" duration="1505000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
