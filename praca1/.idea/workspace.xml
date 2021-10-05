@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Fraction">
-      <change afterPath="$PROJECT_DIR$/../../praca1/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../praca1/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Java folder">
+      <change afterPath="$PROJECT_DIR$/../java/maven/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/maven/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/maven/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/maven/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/maven/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/maven/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +24,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -33,7 +35,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1x3DDU5XJPD5Ed9bzkl6INLLMQQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -94,11 +98,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java/praca1" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -226,8 +230,8 @@
       <workItem from="1633157225276" duration="1948000" />
       <workItem from="1633179882873" duration="3428000" />
       <workItem from="1633354382687" duration="2983000" />
-      <workItem from="1633418273382" duration="1505000" />
-      <workItem from="1633445904238" duration="668000" />
+      <workItem from="1633418273382" duration="1676000" />
+      <workItem from="1633445873447" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -460,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633110615183</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added Java folder">
+      <created>1633445393743</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1633445393743</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,10 +490,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/.." />
-    </ignored-roots>
-    <MESSAGE value="added User" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added Map" />
     <MESSAGE value="fixed Map" />
     <MESSAGE value="added Map entry" />
@@ -507,6 +515,7 @@
     <MESSAGE value="fixed all ulamek methods except compareTo" />
     <MESSAGE value="added StreamMain" />
     <MESSAGE value="fixed Fraction" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed Fraction" />
+    <MESSAGE value="added Java folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Java folder" />
   </component>
 </project>
