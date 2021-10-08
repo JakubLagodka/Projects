@@ -55,6 +55,8 @@ public class StreamMain {
 
         System.out.println(isJavaDeveloper(users));
 
+        System.out.println(hasUserGoodSalary(users));
+
         System.out.println(groupById(users));
 
         List<List<Integer>> listList = new ArrayList<>();
@@ -72,6 +74,25 @@ public class StreamMain {
         listList.add(integerList);
 
         System.out.println(flatIntegers(listList));
+
+        System.out.println(minNumber(integerList));
+
+        System.out.println(evenNumber(integerList));
+
+        System.out.println(evenStringLength(strings));
+
+        System.out.println(findUserEmailsWhoseIdIsOdd(users));
+
+        System.out.println(findUsers(users));
+
+        System.out.println(findOddOrEvenAge(users));
+
+        System.out.println(findJobsWithLowSalary(users));
+
+        System.out.println(findSpecifiedUsers(users));
+
+        System.out.println(findUsersScalaAndKotlin(users));
+
     }
 
     static List<Integer> evenStringsLength(List<String> strings) {
@@ -102,6 +123,11 @@ public class StreamMain {
     static boolean isAnyUser(List<User> users) {
         return users.stream()
                 .anyMatch(user -> user.getAge() < 30 && user.getSalary() > 20000);
+    }
+
+    static boolean hasUserGoodSalary (List<User> users){
+        return users.stream()
+                .noneMatch(user -> user.getSalary() < 2000);
     }
 
     static Map<Long, User> groupById(List<User> users) {
