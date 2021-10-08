@@ -81,7 +81,7 @@ public class Fraction implements Comparable<Fraction> {
         return (double) this.numerator / (double) this.denominator;
     }
 
-    public Fraction exponentiate(int exponent) {
+    public Fraction exponentiation(int exponent) {
 
         this.numerator = (int) Math.pow(this.numerator, exponent);
         this.denominator = (int) Math.pow(this.denominator, exponent);
@@ -110,8 +110,8 @@ public class Fraction implements Comparable<Fraction> {
     public int compareTo(Fraction o) {
         if (this.decimalNotation() > o.decimalNotation())
             return 1;
-        else if (this.decimalNotation() == o.decimalNotation())
+        if (this.decimalNotation() == o.decimalNotation())
             return 0;
-        else return -1;
+        return -1;
     }
 }

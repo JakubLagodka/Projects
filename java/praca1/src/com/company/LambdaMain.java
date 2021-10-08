@@ -72,7 +72,7 @@ public class LambdaMain {
         System.out.println(fraction.subtract(new Fraction(2, 3)));
         System.out.println(fraction.multiply(new Fraction(3, 4)));
         System.out.println(fraction.divide(new Fraction(4, 5)));
-        System.out.println(fraction.exponentiate(2));
+        System.out.println(fraction.exponentiation(2));
         System.out.println(fraction.root());
         System.out.println(fraction);
         System.out.println(fraction.decimalNotation());
@@ -81,6 +81,8 @@ public class LambdaMain {
         treeSet.add(fraction);
         treeSet.add(new Fraction(1,4));
         treeSet.add(new Fraction(1,3));
+        treeSet.add(new Fraction(3,4));
+        treeSet.add(new Fraction(2,3));
         System.out.println(treeSet);
     }
 

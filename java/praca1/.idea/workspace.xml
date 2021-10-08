@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Fraction">
-      <change afterPath="$PROJECT_DIR$/../../praca1/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../praca1/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Fraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/LambdaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LambdaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +228,8 @@
       <workItem from="1633354382687" duration="2983000" />
       <workItem from="1633418273382" duration="1505000" />
       <workItem from="1633445904238" duration="668000" />
+      <workItem from="1633452164285" duration="601000" />
+      <workItem from="1633700967009" duration="6770000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
