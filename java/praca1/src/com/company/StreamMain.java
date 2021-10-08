@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,13 +19,13 @@ public class StreamMain {
 //        Stream<Integer> stream = Stream.of(1,2,3);
 //        stream.forEach(System.out::println);
 //        stream.forEach(System.out::println);
-        System.out.println(Stream.of(1,2,3)
+        System.out.println(Stream.of(1, 2, 3)
                 .findFirst());
 
-        System.out.println(Stream.of(1,2,3)
+        System.out.println(Stream.of(1, 2, 3)
                 .findAny());
 
-        System.out.println(Stream.of(1,2,3)
+        System.out.println(Stream.of(1, 2, 3)
                 .parallel()
                 .findAny());
 
@@ -77,137 +74,120 @@ public class StreamMain {
         System.out.println(flatIntegers(listList));
     }
 
-    static List<Integer> evenStringsLength(List<String> strings){
+    static List<Integer> evenStringsLength(List<String> strings) {
         return strings.stream()
                 .map(String::length)
                 .filter(i -> i % 2 == 0)
                 .collect(Collectors.toList());
     }
 
-    static List<String> findEmails(List<User> userList){
+    static List<String> findEmails(List<User> userList) {
         return userList.stream()
                 .filter(user -> user.getJob() == Job.JAVA_DEVELOPER && user.getAge() > 30)
                 .map(User::getEmail)
                 .collect(Collectors.toList());
     }
 
-    static List<Integer> flatIntegers(List<List<Integer>> listList){
+    static List<Integer> flatIntegers(List<List<Integer>> listList) {
         return listList.stream()
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
 
-    static boolean isJavaDeveloper(List<User> users){
+    static boolean isJavaDeveloper(List<User> users) {
         return users.stream()
                 .allMatch(user -> user.getJob() == Job.JAVA_DEVELOPER);
     }
 
-    static boolean isAnyUser(List<User> users){
+    static boolean isAnyUser(List<User> users) {
         return users.stream()
                 .anyMatch(user -> user.getAge() < 30 && user.getSalary() > 20000);
     }
-    static Map<Long,User> groupById(List<User> users){
+
+    static Map<Long, User> groupById(List<User> users) {
         return users.stream()
                 //.collect(Collectors.toMap(User::getId,user -> user));
-             .collect(Collectors.toMap(User::getId, Function.identity()));
+                .collect(Collectors.toMap(User::getId, Function.identity()));
     }
-    static Integer minNumber(List<Integer> list) {
-        Integer min = list.get(0);
 
-        for (Integer integer : list) {
-            if (integer < min)
-                min = integer;
-        }
-        return min;
+    static Optional<Integer> minNumber(List<Integer> list) {
+
+        return list.stream()
+                .min(Comparator.naturalOrder());
     }
 
     static List<Integer> evenNumber(List<Integer> list) {
-        List<Integer> result = new LinkedList<>();
-        for (Integer integer : list) {
-            if (integer % 2 == 0) {
-                result.add(integer);
-            }
-        }
-        return result;
+
+        return list.stream()
+                .filter(i -> i % 2 == 0)
+                .collect(Collectors.toList());
     }
 
     static List<Integer> evenStringLength(List<String> strings) {
-        List<Integer> result = new LinkedList<>();
 
-        for (String string : strings) {
-            if (string.length() % 2 == 0) {
-                result.add(string.length());
-            }
-        }
-        return result;
+        return strings.stream()
+                .map(String::length)
+                .filter(i -> i % 2 == 0)
+                .collect(Collectors.toList());
     }
 
     static List<String> findUserEmailsWhoseIdIsOdd(List<User> users) {
-        List<String> emails = new LinkedList<>();
 
-        for (User user : users) {
-            if (user.getId() % 2 != 0)
-                emails.add(user.getEmail());
-        }
-        return emails;
+        return users.stream()
+                .filter(user -> user.getId() % 2 == 0)
+                .map(User::getEmail)
+                .collect(Collectors.toList());
 
     }
 
     static List<User> findUsers(List<User> users) {
-        List<User> foundUsers = new LinkedList<>();
-        for (User user : users) {
-            if (user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 5000) {
-                foundUsers.add(user);
-            }
-        }
-        return foundUsers;
+
+        return users.stream()
+                .filter(user -> user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 5000)
+                .collect(Collectors.toList());
     }
 
     static List<Integer> findOddOrEvenAge(List<User> users) {
-        List<Integer> evenAge = new LinkedList<>();
-        List<Integer> oddAge = new LinkedList<>();
-        for (User user : users) {
-            if (user.getAge() % 2 != 0) {
-                oddAge.add(user.getAge());
-            } else
-                evenAge.add(user.getAge());
 
-        }
-        if (evenAge.size() > oddAge.size()) {
-            return evenAge;
+        if (users.stream()
+                .filter(user -> user.getAge() % 2 == 0)
+                .count() >
+                users.stream()
+                        .filter(user -> user.getAge() % 2 != 0)
+                        .count()) {
+            return users.stream()
+                    .map(User::getAge)
+                    .filter(i -> i % 2 == 0)
+                    .collect(Collectors.toList());
         } else {
-            return oddAge;
+            return users.stream()
+                    .map(User::getAge)
+                    .filter(i -> i % 2 != 0)
+                    .collect(Collectors.toList());
         }
     }
 
     static List<User> findUsersScalaAndKotlin(List<User> users) {
-        List<User> returnedUsers = new LinkedList<>();
-        for (User user : users) {
-            if (user.getJob() == Job.SCALA_DEVELOPER || user.getJob() == Job.KOTLIN_DEVELOPER) {
-                returnedUsers.add(user);
-            }
-        }
-        return returnedUsers;
+
+        return users.stream()
+                .filter(user -> user.getJob() == Job.SCALA_DEVELOPER || user.getJob() == Job.KOTLIN_DEVELOPER)
+                .collect(Collectors.toList());
     }
 
     static List<Job> findJobsWithLowSalary(List<User> users) {
-        List<Job> jobs = new LinkedList<>();
-        for (User user : users) {
-            if (user.getSalary() < 2000 && !jobs.contains(user.getJob())) {
-                jobs.add(user.getJob());
-            }
-        }
-        return jobs;
+
+        return users.stream()
+                .filter(user -> user.getSalary() < 2000)
+                .map(User::getJob)
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     static List<User> findSpecifiedUsers(List<User> users) {
-        List<User> foundUsers = new LinkedList<>();
-        for (User user : users) {
-            if ((user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 2000) || (user.getJob() == Job.KOTLIN_DEVELOPER && user.getAge() < 30)) {
-                foundUsers.add(user);
-            }
-        }
-        return foundUsers;
+
+        return users.stream()
+                .filter((user -> (user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 2000) || (user.getJob() == Job.KOTLIN_DEVELOPER && user.getAge() < 30)))
+                .collect(Collectors.toList());
     }
 
     /*static Map<Integer, String> findStrings(List<Integer> integers, List<String> strings) {

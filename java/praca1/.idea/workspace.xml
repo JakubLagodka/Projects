@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Fraction">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added list streams">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Fraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Fraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LambdaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LambdaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/Fraction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/Fraction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/LambdaMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +230,7 @@
       <workItem from="1633418273382" duration="1505000" />
       <workItem from="1633445904238" duration="668000" />
       <workItem from="1633452164285" duration="601000" />
-      <workItem from="1633700967009" duration="6770000" />
+      <workItem from="1633700967009" duration="9611000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -462,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633110615183</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added list streams">
+      <created>1633714018494</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1633714018494</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +492,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added User" />
     <MESSAGE value="added Map" />
     <MESSAGE value="fixed Map" />
     <MESSAGE value="added Map entry" />
@@ -509,6 +516,7 @@
     <MESSAGE value="fixed all ulamek methods except compareTo" />
     <MESSAGE value="added StreamMain" />
     <MESSAGE value="fixed Fraction" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed Fraction" />
+    <MESSAGE value="added list streams" />
+    <option name="LAST_COMMIT_MESSAGE" value="added list streams" />
   </component>
 </project>
