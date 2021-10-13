@@ -216,17 +216,6 @@ public class StreamMain {
                 .collect(Collectors.toList());
     }
 
-    /*static Map<Integer, String> findStrings(List<Integer> integers, List<String> strings) {
-        Map<Integer, String> foundPairs = new HashMap<>();
-        int index = 0;
-        for (String string : strings) {
-            if (string.length() == integers.get(index)) {
-                foundPairs.put(integers.get(index), string);
-            }
-            index++;
-        }
-        return foundPairs;
-    }*/
 
     static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
         List<Pair> foundPairs = new LinkedList<>();
@@ -237,6 +226,8 @@ public class StreamMain {
                     foundPairs.add(new Pair(integer, strings.get(index)));
                     index++;
                 }
+               /* return integers.stream() zapytać na korepetycjach
+                        .filter(integerr -> integerr == strings.get(index).length())*/
             }
         } else {
             for (String string : strings) {

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added more list streams">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added list streams console">
+      <change afterPath="$PROJECT_DIR$/src/com/company/Recrutation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
@@ -228,7 +229,13 @@
       <workItem from="1633418273382" duration="1505000" />
       <workItem from="1633445904238" duration="668000" />
       <workItem from="1633452164285" duration="601000" />
-      <workItem from="1633700967009" duration="10920000" />
+      <workItem from="1633700967009" duration="11222000" />
+      <workItem from="1633806187629" duration="4000" />
+      <workItem from="1633889486610" duration="1186000" />
+      <workItem from="1633933410257" duration="14000" />
+      <workItem from="1633945355353" duration="2968000" />
+      <workItem from="1634044032169" duration="2571000" />
+      <workItem from="1634110552556" duration="2127000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -475,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633717585734</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="added list streams console">
+      <created>1633718893065</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1633718893065</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +511,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="fixed Map" />
     <MESSAGE value="added Map entry" />
     <MESSAGE value="added grouping users" />
     <MESSAGE value="added userMap and UserList" />
@@ -522,6 +535,7 @@
     <MESSAGE value="fixed Fraction" />
     <MESSAGE value="added list streams" />
     <MESSAGE value="added more list streams" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more list streams" />
+    <MESSAGE value="added list streams console" />
+    <option name="LAST_COMMIT_MESSAGE" value="added list streams console" />
   </component>
 </project>
