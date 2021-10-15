@@ -37,8 +37,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteById(Long id) {
-        userList.remove(getById(id));
-//wrócić po interfejsach funkcyjnych
+        userList.removeIf(user -> user.getId().equals(id));
+
     }
 
 

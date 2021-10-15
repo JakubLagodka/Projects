@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added list streams console">
-      <change afterPath="$PROJECT_DIR$/src/com/company/Recrutation.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Recrutation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +98,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -235,7 +238,9 @@
       <workItem from="1633933410257" duration="14000" />
       <workItem from="1633945355353" duration="2968000" />
       <workItem from="1634044032169" duration="2571000" />
-      <workItem from="1634110552556" duration="2127000" />
+      <workItem from="1634110552556" duration="3452000" />
+      <workItem from="1634217689152" duration="949000" />
+      <workItem from="1634304849892" duration="4567000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -489,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633718893065</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="added Recrutation">
+      <created>1634116473631</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1634116473631</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +523,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added Map entry" />
     <MESSAGE value="added grouping users" />
     <MESSAGE value="added userMap and UserList" />
     <MESSAGE value="modified findStrings" />
@@ -536,6 +547,7 @@
     <MESSAGE value="added list streams" />
     <MESSAGE value="added more list streams" />
     <MESSAGE value="added list streams console" />
-    <option name="LAST_COMMIT_MESSAGE" value="added list streams console" />
+    <MESSAGE value="added Recrutation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Recrutation" />
   </component>
 </project>

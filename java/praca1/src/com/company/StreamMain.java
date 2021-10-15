@@ -212,31 +212,38 @@ public class StreamMain {
     static List<User> findSpecifiedUsers(List<User> users) {
 
         return users.stream()
-                .filter((user -> (user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 2000) || (user.getJob() == Job.KOTLIN_DEVELOPER && user.getAge() < 30)))
+                .filter((user -> (user.getJob() == Job.SCALA_DEVELOPER && user.getSalary() > 2000) ||
+                        (user.getJob() == Job.KOTLIN_DEVELOPER && user.getAge() < 30)))
                 .collect(Collectors.toList());
     }
 
 
-    static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
-        List<Pair> foundPairs = new LinkedList<>();
-        int index = 0;
-        if (integers.size() < strings.size()) {
-            for (Integer integer : integers) {
-                if (integer == strings.get(index).length()) {
-                    foundPairs.add(new Pair(integer, strings.get(index)));
-                    index++;
-                }
-               /* return integers.stream() zapytać na korepetycjach
-                        .filter(integerr -> integerr == strings.get(index).length())*/
-            }
-        } else {
-            for (String string : strings) {
-                if (integers.get(index) == string.length()) {
-                    foundPairs.add(new Pair(integers.get(index), string));
-                    index++;
-                }
-            }
-        }
-        return foundPairs;
+    /*static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
+
+    }*/
+
+    static Map<Long, User> groupUsersById(List<User> users){
+        return users.stream()
+                .collect(Collectors.toMap(User::getId,Function.identity()));
+    }
+
+    static Map<Job, List<User>> groupUsersByJob(List<User> users){
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getJob));
+    }
+
+    static Map<Job, Long> countUsersByJob(List<User> users){
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getJob,Collectors.counting()));
+    }
+
+    static Map<Job,Double> sumSalariesByJob(List<User> users){
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getJob,Collectors.summingDouble(User::getSalary)));
+    }
+
+    static Map<Job, Set<String>> groupEmailsByJob(List<User> users){
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getJob,Collectors.mapping(User::getEmail,Collectors.toSet())));
     }
 }

@@ -197,7 +197,7 @@ public class CollectionMain {
         }
         return foundPairs;
     }*/
-
+//przerobić na Math.min()
     static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
         List<Pair> foundPairs = new LinkedList<>();
         int index = 0;
