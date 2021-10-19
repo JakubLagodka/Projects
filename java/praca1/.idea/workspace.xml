@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added map streams">
-      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/DistanceCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/IllegalStartPointException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Leg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Locations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Race.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -256,7 +244,7 @@
       <workItem from="1634456948584" duration="1000" />
       <workItem from="1634468808709" duration="4758000" />
       <workItem from="1634553025201" duration="4150000" />
-      <workItem from="1634626435850" duration="1540000" />
+      <workItem from="1634626435850" duration="2793000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
