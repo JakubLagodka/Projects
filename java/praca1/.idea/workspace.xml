@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added Recrutation">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added map streams">
+      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/DistanceCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/IllegalStartPointException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Leg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Locations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Race.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +250,13 @@
       <workItem from="1634044032169" duration="2571000" />
       <workItem from="1634110552556" duration="3452000" />
       <workItem from="1634217689152" duration="949000" />
-      <workItem from="1634304849892" duration="4567000" />
+      <workItem from="1634304849892" duration="5265000" />
+      <workItem from="1634371357021" duration="1291000" />
+      <workItem from="1634398448559" duration="595000" />
+      <workItem from="1634456948584" duration="1000" />
+      <workItem from="1634468808709" duration="4758000" />
+      <workItem from="1634553025201" duration="4150000" />
+      <workItem from="1634626435850" duration="1540000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -501,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634116473631</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added map streams">
+      <created>1634318569230</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1634318569230</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +546,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added grouping users" />
     <MESSAGE value="added userMap and UserList" />
     <MESSAGE value="modified findStrings" />
     <MESSAGE value="fixed UserServiceImpl" />
@@ -548,6 +570,7 @@
     <MESSAGE value="added more list streams" />
     <MESSAGE value="added list streams console" />
     <MESSAGE value="added Recrutation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Recrutation" />
+    <MESSAGE value="added map streams" />
+    <option name="LAST_COMMIT_MESSAGE" value="added map streams" />
   </component>
 </project>
