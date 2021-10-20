@@ -216,6 +216,7 @@ public class CollectionMain {
                 }
             }
         }
+        //Math.min(integers.size(),strings.size());
         return foundPairs;
     }
 }
