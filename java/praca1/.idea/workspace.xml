@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added GenericFunctionalInterface">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed GenericFunctionalInterface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
@@ -249,7 +249,7 @@
       <workItem from="1634468808709" duration="4758000" />
       <workItem from="1634553025201" duration="4150000" />
       <workItem from="1634626435850" duration="3406000" />
-      <workItem from="1634731555417" duration="4108000" />
+      <workItem from="1634731555417" duration="4470000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -524,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634660346607</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fixed GenericFunctionalInterface">
+      <created>1634736468486</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1634736468486</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +553,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="modified findStrings" />
     <MESSAGE value="fixed UserServiceImpl" />
     <MESSAGE value="added count users by job" />
     <MESSAGE value="fixed user save" />
@@ -571,6 +577,7 @@
     <MESSAGE value="added Recrutation" />
     <MESSAGE value="added map streams" />
     <MESSAGE value="added GenericFunctionalInterface" />
-    <option name="LAST_COMMIT_MESSAGE" value="added GenericFunctionalInterface" />
+    <MESSAGE value="fixed GenericFunctionalInterface" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed GenericFunctionalInterface" />
   </component>
 </project>
