@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed GenericFunctionalInterface">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment=" GenericFunctionalInterface.class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GenericFunctionalInterface">
+  <component name="RunManager" selected="Application.CollectionMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -175,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.GenericFunctionalInterface" />
         <item itemvalue="Application.StreamMain" />
         <item itemvalue="Application.LambdaMain" />
         <item itemvalue="Application.MapMain" />
-        <item itemvalue="Application.CollectionMain" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +248,7 @@
       <workItem from="1634468808709" duration="4758000" />
       <workItem from="1634553025201" duration="4150000" />
       <workItem from="1634626435850" duration="3406000" />
-      <workItem from="1634731555417" duration="4470000" />
+      <workItem from="1634731555417" duration="5595000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -531,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634736468486</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary=" GenericFunctionalInterface.class">
+      <created>1634736613662</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1634736613662</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +559,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="fixed UserServiceImpl" />
     <MESSAGE value="added count users by job" />
     <MESSAGE value="fixed user save" />
     <MESSAGE value="added countSumSalaryByJob" />
@@ -578,6 +583,7 @@
     <MESSAGE value="added map streams" />
     <MESSAGE value="added GenericFunctionalInterface" />
     <MESSAGE value="fixed GenericFunctionalInterface" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed GenericFunctionalInterface" />
+    <MESSAGE value=" GenericFunctionalInterface.class" />
+    <option name="LAST_COMMIT_MESSAGE" value=" GenericFunctionalInterface.class" />
   </component>
 </project>

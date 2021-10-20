@@ -21,11 +21,11 @@ public class CollectionMain {
         List<String> strings = new LinkedList<>();
         strings.add("sa");
         strings.add("kuba");
-        //strings.add("ahgdihgal");
+        strings.add("ahgdihgal");
 
         List<Integer> integerList = new LinkedList<>();
         integerList.add(2);
-        integerList.add(4);
+        //integerList.add(4);
         integerList.add(9);
 
         List<Integer> evenStringLength = evenStringLength(strings);
@@ -197,8 +197,8 @@ public class CollectionMain {
         }
         return foundPairs;
     }*/
-//przerobić na Math.min()
-    static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
+
+    /*static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
         List<Pair> foundPairs = new LinkedList<>();
         int index = 0;
         if (integers.size() < strings.size()) {
@@ -216,7 +216,15 @@ public class CollectionMain {
                 }
             }
         }
-        //Math.min(integers.size(),strings.size());
+        return foundPairs;
+    }*/
+    static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
+        List<Pair> foundPairs = new LinkedList<>();
+        for (int i = 0; i < Math.min(integers.size(), strings.size()); i++) {
+            if (integers.get(i) == strings.get(i).length()) {
+                foundPairs.add(new Pair(integers.get(i), strings.get(i)));
+            }
+        }
         return foundPairs;
     }
 }
