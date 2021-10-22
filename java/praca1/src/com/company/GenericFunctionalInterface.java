@@ -50,5 +50,7 @@ public class GenericFunctionalInterface {
         System.out.println(functionGeneric.apply(testListNumber));
         System.out.println(functionGeneric.apply(testListDouble));
         System.out.println(functionGeneric.apply(testList));
+
+        //dopisać własny interfejs funkcyjny
     }
 }

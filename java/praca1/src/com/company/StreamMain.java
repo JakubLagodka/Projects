@@ -93,6 +93,8 @@ public class StreamMain {
 
         System.out.println(findUsersScalaAndKotlin(users));
 
+        System.out.println(salaryStatisticByJob(users));
+//przetestować metody wszystkie
     }
 
     static List<Integer> evenStringsLength(List<String> strings) {
@@ -245,5 +247,21 @@ public class StreamMain {
     static Map<Job, Set<String>> groupEmailsByJob(List<User> users){
         return users.stream()
                 .collect(Collectors.groupingBy(User::getJob,Collectors.mapping(User::getEmail,Collectors.toSet())));
+    }
+
+    static Map<Job, Double> averageSalaryByJob(List<User> users){
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getJob,Collectors.averagingDouble(User::getSalary)));
+    }
+
+    static Map<Job, DoubleSummaryStatistics> salaryStatisticByJob(List<User> users){
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getJob,Collectors.summarizingDouble(User::getSalary)));
+    }
+
+    static String concatEmails(List<User> users){
+        return users.stream()
+                .map(User::getEmail)
+                .collect(Collectors.joining(","));
     }
 }
