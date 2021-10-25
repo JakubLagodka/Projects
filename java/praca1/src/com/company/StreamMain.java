@@ -94,7 +94,21 @@ public class StreamMain {
         System.out.println(findUsersScalaAndKotlin(users));
 
         System.out.println(salaryStatisticByJob(users));
-//przetestować metody wszystkie
+
+        System.out.println(groupUsersById(users));
+
+        System.out.println(groupUsersByJob(users));
+
+        System.out.println(countUsersByJob(users));
+
+        System.out.println(sumSalariesByJob(users));
+
+        System.out.println(groupEmailsByJob(users));
+
+        System.out.println(averageSalaryByJob(users));
+
+        System.out.println(concatEmails(users));
+
     }
 
     static List<Integer> evenStringsLength(List<String> strings) {
@@ -127,7 +141,7 @@ public class StreamMain {
                 .anyMatch(user -> user.getAge() < 30 && user.getSalary() > 20000);
     }
 
-    static boolean hasUserGoodSalary (List<User> users){
+    static boolean hasUserGoodSalary(List<User> users) {
         return users.stream()
                 .noneMatch(user -> user.getSalary() < 2000);
     }
@@ -224,42 +238,42 @@ public class StreamMain {
 
     }*/
 
-    static Map<Long, User> groupUsersById(List<User> users){
+    static Map<Long, User> groupUsersById(List<User> users) {
         return users.stream()
-                .collect(Collectors.toMap(User::getId,Function.identity()));
+                .collect(Collectors.toMap(User::getId, Function.identity()));
     }
 
-    static Map<Job, List<User>> groupUsersByJob(List<User> users){
+    static Map<Job, List<User>> groupUsersByJob(List<User> users) {
         return users.stream()
                 .collect(Collectors.groupingBy(User::getJob));
     }
 
-    static Map<Job, Long> countUsersByJob(List<User> users){
+    static Map<Job, Long> countUsersByJob(List<User> users) {
         return users.stream()
-                .collect(Collectors.groupingBy(User::getJob,Collectors.counting()));
+                .collect(Collectors.groupingBy(User::getJob, Collectors.counting()));
     }
 
-    static Map<Job,Double> sumSalariesByJob(List<User> users){
+    static Map<Job, Double> sumSalariesByJob(List<User> users) {
         return users.stream()
-                .collect(Collectors.groupingBy(User::getJob,Collectors.summingDouble(User::getSalary)));
+                .collect(Collectors.groupingBy(User::getJob, Collectors.summingDouble(User::getSalary)));
     }
 
-    static Map<Job, Set<String>> groupEmailsByJob(List<User> users){
+    static Map<Job, Set<String>> groupEmailsByJob(List<User> users) {
         return users.stream()
-                .collect(Collectors.groupingBy(User::getJob,Collectors.mapping(User::getEmail,Collectors.toSet())));
+                .collect(Collectors.groupingBy(User::getJob, Collectors.mapping(User::getEmail, Collectors.toSet())));
     }
 
-    static Map<Job, Double> averageSalaryByJob(List<User> users){
+    static Map<Job, Double> averageSalaryByJob(List<User> users) {
         return users.stream()
-                .collect(Collectors.groupingBy(User::getJob,Collectors.averagingDouble(User::getSalary)));
+                .collect(Collectors.groupingBy(User::getJob, Collectors.averagingDouble(User::getSalary)));
     }
 
-    static Map<Job, DoubleSummaryStatistics> salaryStatisticByJob(List<User> users){
+    static Map<Job, DoubleSummaryStatistics> salaryStatisticByJob(List<User> users) {
         return users.stream()
-                .collect(Collectors.groupingBy(User::getJob,Collectors.summarizingDouble(User::getSalary)));
+                .collect(Collectors.groupingBy(User::getJob, Collectors.summarizingDouble(User::getSalary)));
     }
 
-    static String concatEmails(List<User> users){
+    static String concatEmails(List<User> users) {
         return users.stream()
                 .map(User::getEmail)
                 .collect(Collectors.joining(","));

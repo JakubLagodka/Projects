@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed findStrings by Math.min()">
-      <change beforePath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Leg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Leg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/../accenture/race/src/main/java/race/Race.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added some streams">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +252,9 @@
       <workItem from="1634553025201" duration="4150000" />
       <workItem from="1634626435850" duration="3406000" />
       <workItem from="1634731555417" duration="8708000" />
-      <workItem from="1634902998323" duration="5559000" />
+      <workItem from="1634902998323" duration="5600000" />
+      <workItem from="1635001206277" duration="1237000" />
+      <workItem from="1635170081189" duration="3440000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -549,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634737786251</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added some streams">
+      <created>1634926339949</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1634926339949</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +579,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="fixed user save" />
     <MESSAGE value="added countSumSalaryByJob" />
     <MESSAGE value="added class files" />
     <MESSAGE value="fixed findStrings" />
@@ -596,6 +603,7 @@
     <MESSAGE value="fixed GenericFunctionalInterface" />
     <MESSAGE value=" GenericFunctionalInterface.class" />
     <MESSAGE value="fixed findStrings by Math.min()" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed findStrings by Math.min()" />
+    <MESSAGE value="added some streams" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some streams" />
   </component>
 </project>

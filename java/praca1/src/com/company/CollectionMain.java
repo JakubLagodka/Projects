@@ -221,9 +221,11 @@ public class CollectionMain {
     static List<Pair> findStrings(List<Integer> integers, List<String> strings) {
         List<Pair> foundPairs = new LinkedList<>();
         for (int i = 0; i < Math.min(integers.size(), strings.size()); i++) {
-            //dodać zmienne
-            if (integers.get(i) == strings.get(i).length()) {
-                foundPairs.add(new Pair(integers.get(i), strings.get(i)));
+
+            int integer = integers.get(i);
+            String string = strings.get(i);
+            if (integer == strings.get(i).length()) {
+                foundPairs.add(new Pair(integer, string));
             }
         }
         return foundPairs;
