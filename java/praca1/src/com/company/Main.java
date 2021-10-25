@@ -18,7 +18,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Integer i1 = 128;
+       /* Integer i1 = 128;
         Integer i2 = 128;
         Integer i3 = 127;
         Integer i4 = 127;
@@ -79,7 +79,14 @@ public class Main {
         System.out.println(trapeze.getArea() + ", " + trapeze.getCircuit());
         System.out.println(triangle.getArea() + ", " + triangle.getCircuit());
         System.out.println(square.getArea() + ", " + square.getCircuit());
-        System.out.println(circle.getArea() + ", " + circle.getCircuit());
+        System.out.println(circle.getArea() + ", " + circle.getCircuit());/*
 
+        */
+        AA a1 = new AA();
+        AA a2 = new AA();
+
+        System.out.println((a1 == a2));
+
+        System.out.println((a1.equals(a2)));
     }
 }
