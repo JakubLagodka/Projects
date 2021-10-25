@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added some streams">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/StreamMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/StreamMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/StreamMain.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added some souts">
+      <change afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterfaceMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StreamMain">
+  <component name="RunManager" selected="Application.GenericFunctionalInterfaceMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -136,8 +133,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LambdaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.LambdaMain" />
+    <configuration name="GenericFunctionalInterfaceMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.GenericFunctionalInterfaceMain" />
       <module name="praca1" />
       <extension name="coverage">
         <pattern>
@@ -149,8 +146,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.MapMain" />
+    <configuration name="LambdaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.LambdaMain" />
       <module name="praca1" />
       <extension name="coverage">
         <pattern>
@@ -177,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GenericFunctionalInterfaceMain" />
         <item itemvalue="Application.StreamMain" />
         <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.GenericFunctionalInterface" />
         <item itemvalue="Application.LambdaMain" />
-        <item itemvalue="Application.MapMain" />
       </list>
     </recent_temporary>
   </component>
@@ -254,7 +251,7 @@
       <workItem from="1634731555417" duration="8708000" />
       <workItem from="1634902998323" duration="5600000" />
       <workItem from="1635001206277" duration="1237000" />
-      <workItem from="1635170081189" duration="3440000" />
+      <workItem from="1635170081189" duration="4285000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -557,7 +554,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634926339949</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="added some souts">
+      <created>1635176542046</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1635176542046</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +583,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added countSumSalaryByJob" />
     <MESSAGE value="added class files" />
     <MESSAGE value="fixed findStrings" />
     <MESSAGE value="removed Taco" />
@@ -604,6 +607,7 @@
     <MESSAGE value=" GenericFunctionalInterface.class" />
     <MESSAGE value="fixed findStrings by Math.min()" />
     <MESSAGE value="added some streams" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some streams" />
+    <MESSAGE value="added some souts" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some souts" />
   </component>
 </project>
