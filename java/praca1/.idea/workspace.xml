@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added GenericFunctionalInterface">
-      <change afterPath="$PROJECT_DIR$/src/com/company/AA.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added AA">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +251,8 @@
       <workItem from="1634731555417" duration="8708000" />
       <workItem from="1634902998323" duration="5600000" />
       <workItem from="1635001206277" duration="1237000" />
-      <workItem from="1635170081189" duration="4588000" />
+      <workItem from="1635170081189" duration="7733000" />
+      <workItem from="1635235389957" duration="3108000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -567,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635177246420</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="added AA">
+      <created>1635177706543</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1635177706543</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +598,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added class files" />
     <MESSAGE value="fixed findStrings" />
     <MESSAGE value="removed Taco" />
     <MESSAGE value="added Ulamek" />
@@ -614,6 +622,7 @@
     <MESSAGE value="added some streams" />
     <MESSAGE value="added some souts" />
     <MESSAGE value="added GenericFunctionalInterface" />
-    <option name="LAST_COMMIT_MESSAGE" value="added GenericFunctionalInterface" />
+    <MESSAGE value="added AA" />
+    <option name="LAST_COMMIT_MESSAGE" value="added AA" />
   </component>
 </project>
