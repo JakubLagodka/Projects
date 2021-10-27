@@ -1,4 +1,4 @@
-package com.example.currency;
+package pl.lagodka.currency;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
