@@ -1,7 +1,9 @@
 package com.company;
 
+import java.util.List;
+
 @FunctionalInterface
-public interface GenericFunctionalInterface<T, R> {
-    R sumNumbers(T t);
+public interface GenericFunctionalInterface<N extends Number> {
+    N sumNumbers(List<N> list);
 
 }

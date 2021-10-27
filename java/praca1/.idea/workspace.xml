@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="white spaces" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added currency">
+      <change afterPath="$PROJECT_DIR$/src/com/company/FileMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/imput.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterfaceMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/GenericFunctionalInterfaceMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterfaceMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GenericFunctionalInterfaceMain.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -103,7 +112,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.FileMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -117,8 +126,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenericFunctionalInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.GenericFunctionalInterface" />
+    <configuration name="FileMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.FileMain" />
       <module name="praca1" />
       <extension name="coverage">
         <pattern>
@@ -171,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FileMain" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.GenericFunctionalInterfaceMain" />
         <item itemvalue="Application.StreamMain" />
         <item itemvalue="Application.CollectionMain" />
-        <item itemvalue="Application.GenericFunctionalInterface" />
       </list>
     </recent_temporary>
   </component>
@@ -250,6 +259,7 @@
       <workItem from="1635001206277" duration="1237000" />
       <workItem from="1635170081189" duration="7733000" />
       <workItem from="1635235389957" duration="3259000" />
+      <workItem from="1635361061261" duration="3743000" />
     </task>
     <task id="LOCAL-00001" summary="added lombok">
       <created>1629576554391</created>
@@ -580,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635269219170</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="added currency">
+      <created>1635361084762</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1635361084762</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -602,7 +619,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="removed Taco" />
     <MESSAGE value="added Ulamek" />
     <MESSAGE value="updated Ulamek" />
     <MESSAGE value="added lambdaMain" />
@@ -627,6 +643,7 @@
     <MESSAGE value="added GenericFunctionalInterface" />
     <MESSAGE value="added AA" />
     <MESSAGE value="white spaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="white spaces" />
+    <MESSAGE value="added currency" />
+    <option name="LAST_COMMIT_MESSAGE" value="added currency" />
   </component>
 </project>

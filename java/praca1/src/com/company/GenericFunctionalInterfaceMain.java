@@ -51,17 +51,17 @@ public class GenericFunctionalInterfaceMain {
         System.out.println(functionGeneric.apply(testListDouble));
         System.out.println(functionGeneric.apply(testList));
 
-        GenericFunctionalInterface<List<? extends Number>, ? extends Number> functionGenericImpl = list -> {
+        GenericFunctionalInterface<Double> functionGenericImpl = list -> {
             double sum = 0;
-            for (Number number : list) {
-                sum += number.doubleValue();
+            for (Double number : list) {
+                sum += number;
             }
             return sum;
         };
 
         System.out.println("----------");
-        System.out.println(functionGenericImpl.sumNumbers(testListNumber));
+        //System.out.println(functionGenericImpl.sumNumbers(testListNumber));
         System.out.println(functionGenericImpl.sumNumbers(testListDouble));
-        System.out.println(functionGenericImpl.sumNumbers(testList));
+        //System.out.println(functionGenericImpl.sumNumbers(testList));
     }
 }
