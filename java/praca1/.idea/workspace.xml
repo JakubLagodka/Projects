@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added FileMain">
-      <change afterPath="$PROJECT_DIR$/src/com/company/MyOptional.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added MyOptional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/FileMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/FileMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/FileMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FileMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,14 +254,7 @@
       <workItem from="1635235389957" duration="3259000" />
       <workItem from="1635361061261" duration="3885000" />
       <workItem from="1635408339322" duration="4043000" />
-      <workItem from="1635515379239" duration="6798000" />
-    </task>
-    <task id="LOCAL-00001" summary="added lombok">
-      <created>1629576554391</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1629576554391</updated>
+      <workItem from="1635515379239" duration="7554000" />
     </task>
     <task id="LOCAL-00002" summary="added test classes">
       <created>1629744567649</created>
@@ -603,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635364900078</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="added MyOptional">
+      <created>1635526827032</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1635526827032</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +621,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="updated Ulamek" />
     <MESSAGE value="added lambdaMain" />
     <MESSAGE value="updated user service implementation" />
     <MESSAGE value="added Statistic" />
@@ -650,6 +645,7 @@
     <MESSAGE value="white spaces" />
     <MESSAGE value="added currency" />
     <MESSAGE value="added FileMain" />
-    <option name="LAST_COMMIT_MESSAGE" value="added FileMain" />
+    <MESSAGE value="added MyOptional" />
+    <option name="LAST_COMMIT_MESSAGE" value="added MyOptional" />
   </component>
 </project>
