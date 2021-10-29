@@ -6,22 +6,22 @@ import java.util.Map;
 public enum Operation {
     ADD("+") {
         @Override
-        public double calculate(double a, double b) {
+        public Double calculate(double a, double b) {
             return a + b;
         }
     }, SUBTRACT("-") {
         @Override
-        public double calculate(double a, double b) {
+        public Double calculate(double a, double b) {
             return a - b;
         }
     }, MULTIPLY("*") {
         @Override
-        public double calculate(double a, double b) {
+        public Double calculate(double a, double b) {
             return a * b;
         }
     }, DIVISION("/") {
         @Override
-        public double calculate(double a, double b) {
+        public Double calculate(double a, double b) {
             return a / b;
         }
     };
@@ -43,9 +43,9 @@ public enum Operation {
         this.sign = sign;
     }
 
-    public abstract double calculate(double a, double b);
+    public abstract Double calculate(double a, double b);
 
-    public Operation findOperationBySign(String sign) {
+    public static Operation findOperationBySign(String sign) {
 
         /*for (Operation operation : VALUES) {
             if(operation.sign.equals(sign)){
