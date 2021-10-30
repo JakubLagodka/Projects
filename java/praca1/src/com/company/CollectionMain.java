@@ -83,6 +83,11 @@ public class CollectionMain {
 
         //findArray([4,3,3,7,8], [3,7]) >> 2, findArray([1,2,5], [1]) >> 0, findArray([7,8,9], [8,9,10]) >> -1,
         // findArray([0,3,7,4,3,3,7,8], [3,7]) >> 1
+       // Integer tab = [4,3,3,7,8]; // error!
+        System.out.println(findArray(new int[]{4, 3, 3, 7, 8}, new int[]{3, 7}));
+        System.out.println(findArray(new int[]{1,2,5}, new int[]{1}));
+        System.out.println(findArray(new int[]{7,8,9}, new int[]{8,9,10}));
+        System.out.println(findArray(new int[]{0,3,7,4,3,3,7,8}, new int[]{3, 7}));
     }
 
     static Integer minNumber(List<Integer> list) {
