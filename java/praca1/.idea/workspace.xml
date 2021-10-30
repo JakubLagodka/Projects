@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Optional" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="fixed Optional">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +107,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FileMain">
+  <component name="RunManager" selected="Application.CollectionMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -171,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.FileMain" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.GenericFunctionalInterfaceMain" />
         <item itemvalue="Application.StreamMain" />
-        <item itemvalue="Application.CollectionMain" />
       </list>
     </recent_temporary>
   </component>
@@ -253,14 +257,7 @@
       <workItem from="1635361061261" duration="3885000" />
       <workItem from="1635408339322" duration="4043000" />
       <workItem from="1635515379239" duration="8544000" />
-      <workItem from="1635582778068" duration="4080000" />
-    </task>
-    <task id="LOCAL-00004" summary="added collection">
-      <created>1630142766048</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1630142766048</updated>
+      <workItem from="1635582778068" duration="9480000" />
     </task>
     <task id="LOCAL-00005" summary="added figures">
       <created>1630309959659</created>
@@ -598,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635587106906</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="fixed Optional">
+      <created>1635587217939</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1635587217939</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

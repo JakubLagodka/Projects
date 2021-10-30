@@ -1,9 +1,6 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CollectionMain {
     public static void main(String[] args) {
@@ -22,6 +19,8 @@ public class CollectionMain {
         strings.add("sa");
         strings.add("kuba");
         strings.add("ahgdihgal");
+        strings.add("hel");
+        strings.add("cyc");
 
         List<Integer> integerList = new LinkedList<>();
         integerList.add(2);
@@ -79,6 +78,11 @@ public class CollectionMain {
         for (Pair pair : pairs) {
             System.out.println(pair.getKey() + ", " + pair.getValue());
         }
+
+        System.out.println(cointainsAorC(strings));
+
+        //findArray([4,3,3,7,8], [3,7]) >> 2, findArray([1,2,5], [1]) >> 0, findArray([7,8,9], [8,9,10]) >> -1,
+        // findArray([0,3,7,4,3,3,7,8], [3,7]) >> 1
     }
 
     static Integer minNumber(List<Integer> list) {
@@ -229,6 +233,35 @@ public class CollectionMain {
             }
         }
         return foundPairs;
+    }
+
+    static List<String> cointainsAorC(List<String> strings) {
+        List<String> foundStrings = new ArrayList<>();
+
+        for (String string : strings) {
+            if (string.contains("a") || string.contains("c"))
+                foundStrings.add(string);
+        }
+        return foundStrings;
+    }
+
+    static int findArray(int[] array, int[] subArray) {
+        if (subArray.length > array.length)
+            return -1;
+        for (int i = 0; i <= array.length - subArray.length; i++) {
+            if (array[i] == subArray[0]) {
+                int j = i;
+                do {
+                    if (array[j] != subArray[j - i])
+                        break;
+                    j++;
+                } while (j - i < subArray.length);
+                if (j - i == subArray.length) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 }
 
