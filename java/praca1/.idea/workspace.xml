@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added MyOptional">
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added OptionalMain">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MyOptional.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyOptional.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,14 +255,8 @@
       <workItem from="1635235389957" duration="3259000" />
       <workItem from="1635361061261" duration="3885000" />
       <workItem from="1635408339322" duration="4043000" />
-      <workItem from="1635515379239" duration="7554000" />
-    </task>
-    <task id="LOCAL-00002" summary="added test classes">
-      <created>1629744567649</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1629744567649</updated>
+      <workItem from="1635515379239" duration="8544000" />
+      <workItem from="1635582778068" duration="3867000" />
     </task>
     <task id="LOCAL-00003" summary="added test overrloaded methods">
       <created>1629746949245</created>
@@ -599,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635526827032</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="added OptionalMain">
+      <created>1635529455418</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1635529455418</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +623,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added lambdaMain" />
     <MESSAGE value="updated user service implementation" />
     <MESSAGE value="added Statistic" />
     <MESSAGE value="added functional interfaces" />
@@ -646,6 +647,7 @@
     <MESSAGE value="added currency" />
     <MESSAGE value="added FileMain" />
     <MESSAGE value="added MyOptional" />
-    <option name="LAST_COMMIT_MESSAGE" value="added MyOptional" />
+    <MESSAGE value="added OptionalMain" />
+    <option name="LAST_COMMIT_MESSAGE" value="added OptionalMain" />
   </component>
 </project>
