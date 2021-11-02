@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="tested findArray">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

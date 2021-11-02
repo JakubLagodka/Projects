@@ -1,8 +1,5 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,6 +29,8 @@ public class Main {
         System.out.println(Student.findSecondTheBestStudent(studentList));
 
         System.out.println(Arrays.toString(findPairs(Arrays.asList(2, 3, 4, 4, 6), 8)));
+
+        System.out.println(findDuplicates(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
     }
 
     static List<String> containsAorC(List<String> strings) {
@@ -92,7 +91,27 @@ public class Main {
         }
         return returnedPairs;
     }
-    //findDuplicates(List<Integer> integers, Integer numberOfDuplicates)
+
+    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
+        List<Integer> returnedList = new ArrayList<>();
+        Set<Integer> intNumbers = new HashSet<>();
+        if (integers == null)
+            return returnedList;
+
+        intNumbers.addAll(integers);
+        for (Integer intNumber : intNumbers) {
+            int numberOfOccurrences = 0;
+            for (Integer integer : integers) {
+                if (intNumber == integer){
+                    numberOfOccurrences++;
+                }
+            }
+            if(numberOfOccurrences == numberOfDuplicates){
+                returnedList.add(intNumber);
+            }
+        }
+        return returnedList;
+    }
     //moveFile()
     //VAT()
 }
