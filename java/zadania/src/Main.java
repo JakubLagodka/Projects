@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,6 +21,14 @@ public class Main {
         System.out.println(findArray(new int[]{1, 2, 5}, new int[]{1}));
         System.out.println(findArray(new int[]{7, 8, 9}, new int[]{8, 9, 10}));
         System.out.println(findArray(new int[]{0, 3, 7, 4, 3, 3, 7, 8}, new int[]{3, 7}));
+
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(new Student("Janusz", "Kowalski", LocalDate.of(1996,8,8), 4.5));
+        studentList.add(new Student("Jakub", "Lagodka", LocalDate.of(1996,8,7), 4.5));
+        studentList.add(new Student("Jan", "Kowalski", LocalDate.of(1997,8,7), 4.5));
+        studentList.add(new Student("Jakub", "Nowak", LocalDate.of(1996,8,6), 4.6));
+
+        System.out.println(Student.findSecondTheBestStudent(studentList));
     }
 
     static List<String> containsAorC(List<String> strings) {
