@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,12 +24,14 @@ public class Main {
         System.out.println(findArray(new int[]{0, 3, 7, 4, 3, 3, 7, 8}, new int[]{3, 7}));
 
         List<Student> studentList = new ArrayList<>();
-        studentList.add(new Student("Janusz", "Kowalski", LocalDate.of(1996,8,8), 4.5));
-        studentList.add(new Student("Jakub", "Lagodka", LocalDate.of(1996,8,7), 4.5));
-        studentList.add(new Student("Jan", "Kowalski", LocalDate.of(1997,8,7), 4.5));
-        studentList.add(new Student("Jakub", "Nowak", LocalDate.of(1996,8,6), 4.6));
+        studentList.add(new Student("Janusz", "Kowalski", LocalDate.of(1996, 8, 8), 4.5));
+        studentList.add(new Student("Jakub", "Lagodka", LocalDate.of(1996, 8, 7), 4.5));
+        studentList.add(new Student("Jan", "Kowalski", LocalDate.of(1997, 8, 7), 4.5));
+        studentList.add(new Student("Jakub", "Nowak", LocalDate.of(1996, 8, 6), 4.6));
 
         System.out.println(Student.findSecondTheBestStudent(studentList));
+
+        System.out.println(Arrays.toString(findPairs(Arrays.asList(2, 3, 4, 4, 6), 8)));
     }
 
     static List<String> containsAorC(List<String> strings) {
@@ -58,5 +61,35 @@ public class Main {
             }
         }
         return -1;
+    }
+
+    static List<Integer>[] findPairs(List<Integer> integers, Integer sum) {
+        //zapytać na konsultacjach o to!
+        //List<Integer>[] returnedPairs = new ArrayList<Integer>[]{(ArrayList<Integer>) Arrays.asList(2, 3, 4, 4, 6)};
+
+        List<Integer>[] pairs = new ArrayList[100];
+        List<Integer>[] returnedPairs;
+        int indexOfPairs = 0;
+        int indexOfIntegers = 0;
+        for (Integer integer : integers) {
+            for (int i = indexOfIntegers + 1; i < integers.size(); i++) {
+                if (integer + integers.get(i) == sum) {
+                    pairs[indexOfPairs] = new ArrayList<>();
+                    pairs[indexOfPairs].add(integer);
+                    pairs[indexOfPairs].add(integers.get(i));
+                    indexOfPairs++;
+
+                }
+            }
+            indexOfIntegers++;
+        }
+        returnedPairs = new ArrayList[indexOfPairs];
+
+        for (int i = 0; i < indexOfPairs; i++) {
+            returnedPairs[i] = new ArrayList<>();
+            returnedPairs[i].add(pairs[i].get(0));
+            returnedPairs[i].add(pairs[i].get(1));
+        }
+        return returnedPairs;
     }
 }

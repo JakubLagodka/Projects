@@ -67,7 +67,8 @@ public class Student {
         int secondHigherIndex = 0;
         double secondHigher = 0.0;
         for (Student student : studentList) {
-            if (student.gradesAverage > higher || (student.gradesAverage == higher && found.birthDate.isBefore(student.birthDate))) {
+            //przerobić na sprawdzanie drugiej średniej!
+            if (student.gradesAverage > higher || (found != null && student.gradesAverage == higher && found.birthDate.isBefore(student.birthDate))) {
                 secondHigher = higher;
                 secondHigherIndex = higherIndex;
                 higher = student.gradesAverage;
