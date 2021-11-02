@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added findArray">
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/CollectionMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/CollectionMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/CollectionMain.java" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="tested findArray">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,14 +255,8 @@
       <workItem from="1635361061261" duration="3885000" />
       <workItem from="1635408339322" duration="4043000" />
       <workItem from="1635515379239" duration="8544000" />
-      <workItem from="1635582778068" duration="9805000" />
-    </task>
-    <task id="LOCAL-00006" summary="added User">
-      <created>1630830662028</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1630830662028</updated>
+      <workItem from="1635582778068" duration="10637000" />
+      <workItem from="1635862865973" duration="929000" />
     </task>
     <task id="LOCAL-00007" summary="added Map">
       <created>1630935945091</created>
@@ -601,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635605352234</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="tested findArray">
+      <created>1635605788868</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1635605788868</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,7 +623,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="added functional interfaces" />
     <MESSAGE value="added no zero exception" />
     <MESSAGE value="fixed all functional interfaces" />
     <MESSAGE value="fixed all ulamek methods except compareTo" />
@@ -648,6 +647,7 @@
     <MESSAGE value="added OptionalMain" />
     <MESSAGE value="fixed Optional" />
     <MESSAGE value="added findArray" />
-    <option name="LAST_COMMIT_MESSAGE" value="added findArray" />
+    <MESSAGE value="tested findArray" />
+    <option name="LAST_COMMIT_MESSAGE" value="tested findArray" />
   </component>
 </project>
