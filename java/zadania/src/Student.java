@@ -77,7 +77,7 @@ public class Student {
                 higher = student.gradesAverage;
                 higherIndex = studentList.indexOf(student);
                 found = studentList.get(secondHigherIndex);
-            } else if (student.gradesAverage > secondHigher || (found != null && student.gradesAverage == secondHigher && found.birthDate.isBefore(student.birthDate))) {
+            } else if ((student.gradesAverage < higher && student.gradesAverage > secondHigher) || (found != null && student.gradesAverage == secondHigher && found.birthDate.isBefore(student.birthDate))) {
                 secondHigher = student.gradesAverage;
                 secondHigherIndex = studentList.indexOf(student);
                 found = studentList.get(studentList.indexOf(student));
