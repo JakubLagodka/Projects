@@ -67,13 +67,20 @@ public class Student {
         int secondHigherIndex = 0;
         double secondHigher = 0.0;
         for (Student student : studentList) {
+            boolean condition = (found != null && student.gradesAverage == higher && found.birthDate.isBefore(student.birthDate));
             //przerobić na sprawdzanie drugiej średniej!
-            if (student.gradesAverage > higher || (found != null && student.gradesAverage == higher && found.birthDate.isBefore(student.birthDate))) {
-                secondHigher = higher;
-                secondHigherIndex = higherIndex;
+            if (student.gradesAverage > higher || condition) {
+                if (!condition) {
+                    secondHigher = higher;
+                    secondHigherIndex = higherIndex;
+                }
                 higher = student.gradesAverage;
                 higherIndex = studentList.indexOf(student);
                 found = studentList.get(secondHigherIndex);
+            } else if (student.gradesAverage > secondHigher || (found != null && student.gradesAverage == secondHigher && found.birthDate.isBefore(student.birthDate))) {
+                secondHigher = student.gradesAverage;
+                secondHigherIndex = studentList.indexOf(student);
+                found = studentList.get(studentList.indexOf(student));
             }
         }
         return found;

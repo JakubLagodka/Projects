@@ -28,7 +28,7 @@ public class Main {
 
         List<Student> studentList = new ArrayList<>();
         studentList.add(new Student("Janusz", "Kowalski", LocalDate.of(1996, 8, 8), 4.5));
-        studentList.add(new Student("Jakub", "Lagodka", LocalDate.of(1996, 8, 7), 4.5));
+        studentList.add(new Student("Jakub", "Lagodka", LocalDate.of(1996, 8, 7), 4.6));
         studentList.add(new Student("Jan", "Kowalski", LocalDate.of(1997, 8, 7), 4.5));
         studentList.add(new Student("Jakub", "Nowak", LocalDate.of(1996, 8, 6), 4.6));
 

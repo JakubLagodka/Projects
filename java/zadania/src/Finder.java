@@ -1,5 +1,5 @@
 import java.util.List;
 
 public interface Finder {
-    List<Account> findCustomerAccounts();
+    List<Long> findCustomerAccounts(Long customerId);
 }
