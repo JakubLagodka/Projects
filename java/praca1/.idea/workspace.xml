@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="tested findArray">
+      <change afterPath="$PROJECT_DIR$/../zadania/src/MathematicalOperation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../zadania/src/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../zadania/src/input2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/MathematicalOperations.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/MathematicalOperations.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +263,8 @@
       <workItem from="1635408339322" duration="4043000" />
       <workItem from="1635515379239" duration="8544000" />
       <workItem from="1635582778068" duration="10637000" />
-      <workItem from="1635862865973" duration="2412000" />
+      <workItem from="1635862865973" duration="2427000" />
+      <workItem from="1635944331280" duration="1900000" />
     </task>
     <task id="LOCAL-00007" summary="added Map">
       <created>1630935945091</created>

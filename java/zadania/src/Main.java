@@ -1,8 +1,14 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         List<String> strings = new LinkedList<>();
         strings.add("sa");
         strings.add("kuba");
@@ -31,6 +37,57 @@ public class Main {
         System.out.println(Arrays.toString(findPairs(Arrays.asList(2, 3, 4, 4, 6), 8)));
 
         System.out.println(findDuplicates(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
+
+        List<String[]> apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
+                .map(line -> line.split(" "))
+                .filter(line -> line[0].equals("apply"))
+                .collect(Collectors.toList());
+
+        double result = Double.parseDouble(apply.get(0)[1]);
+        List<String[]> operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
+                .map(line -> line.split(" "))
+                .filter(line -> !line[0].equals("apply"))
+                .collect(Collectors.toList());
+
+        for (String[] operation : operations) {
+            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+        }
+
+        System.out.println(result);
+
+        apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input2.txt"))
+                .map(line -> line.split(" "))
+                .filter(line -> line[0].equals("apply"))
+                .collect(Collectors.toList());
+
+        result = Double.parseDouble(apply.get(0)[1]);
+        operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input2.txt"))
+                .map(line -> line.split(" "))
+                .filter(line -> !line[0].equals("apply"))
+                .collect(Collectors.toList());
+
+        for (String[] operation : operations) {
+            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+        }
+
+        System.out.println(result);
+
+        apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input3.txt"))
+                .map(line -> line.split(" "))
+                .filter(line -> line[0].equals("apply"))
+                .collect(Collectors.toList());
+
+        result = Double.parseDouble(apply.get(0)[1]);
+        operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input3.txt"))
+                .map(line -> line.split(" "))
+                .filter(line -> !line[0].equals("apply"))
+                .collect(Collectors.toList());
+
+        for (String[] operation : operations) {
+            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+        }
+
+        System.out.println(result);
     }
 
     static List<String> containsAorC(List<String> strings) {
@@ -102,7 +159,28 @@ public class Main {
         for (Integer intNumber : intNumbers) {
             int numberOfOccurrences = 0;
             for (Integer integer : integers) {
-                if (intNumber == integer){
+                if (intNumber.equals(integer)) {
+                    numberOfOccurrences++;
+                }
+            }
+            if (numberOfOccurrences == numberOfDuplicates) {
+                returnedList.add(intNumber);
+            }
+        }
+        return returnedList;
+    }
+
+   /* static List<Integer> findDuplicatesStream(List<Integer> integers, Integer numberOfDuplicates) {
+        List<Integer> returnedList = new ArrayList<>();
+        Set<Integer> intNumbers = new HashSet<>();
+        if (integers == null)
+            return returnedList;
+
+        intNumbers.addAll(integers);
+        for (Integer intNumber : intNumbers) {
+            int numberOfOccurrences = 0;
+            for (Integer integer : integers) {
+                if (intNumber.equals(integer)){
                     numberOfOccurrences++;
                 }
             }
@@ -111,7 +189,9 @@ public class Main {
             }
         }
         return returnedList;
-    }
+        return integers.stream()
+                .
+    }*/
     //moveFile()
     //VAT()
 }
