@@ -1,0 +1,4 @@
+mleko 4.99 8
+jogurt 1.99 23
+woda 9.99 0
+ksiazka 39.99 8

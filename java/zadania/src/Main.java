@@ -88,6 +88,48 @@ public class Main {
         }
 
         System.out.println(result);
+
+        List<String[]> products = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\vat.txt"))
+                .map(line -> line.split(" "))
+                .collect(Collectors.toList());
+
+        double netto8 = 0.0;
+        double brutto8 = 0.0;
+        double netto23 = 0.0;
+        double brutto23 = 0.0;
+        double brutto0 = 0.0;
+        double tax8 = 0.0;
+        double tax23 = 0.0;
+        for (String[] product : products) {
+            if (Integer.parseInt(product[2]) == 0) {
+                brutto0 += Double.parseDouble(product[1]);
+            } else if (Integer.parseInt(product[2]) == 8) {
+                double value = Double.parseDouble(product[1]);
+                brutto8 += value;
+                double netto = value / 1.08 * 100;
+                netto = Math.round(netto);
+                netto /= 100;
+                netto8 += netto;
+                tax8 += value - netto;
+            } else if (Integer.parseInt(product[2]) == 23) {
+                double value = Double.parseDouble(product[1]);
+                brutto23 += value;
+                double netto = value / 1.23 * 100;
+                netto = Math.round(netto);
+                netto /= 100;
+                netto23 += netto;
+                tax23 += value - netto;
+            } else throw new IOException();
+        }
+
+        List<Tax> taxes = new ArrayList<>();
+        taxes.add(new Tax("0 procent", brutto0, brutto0, 0.0));
+        taxes.add(new Tax("8 procent", brutto8, netto8, tax8));
+        taxes.add(new Tax("23 procent", brutto23, netto23, tax23));
+        taxes.add(new Tax("suma", brutto0 + brutto8 + brutto23, brutto0 + netto8 + netto23, tax8 + tax23));
+
+        System.out.println(taxes);
+
     }
 
     static List<String> containsAorC(List<String> strings) {
