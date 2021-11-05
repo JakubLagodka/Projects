@@ -38,6 +38,7 @@ public class Main {
 
         System.out.println(findDuplicates(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
 
+        //przerobić czy jest apply na końcu
         List<String[]> apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
                 .map(line -> line.split(" "))
                 .filter(line -> line[0].equals("apply"))
@@ -88,7 +89,7 @@ public class Main {
         }
 
         System.out.println(result);
-
+//obiekt nie plik
         List<String[]> products = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\vat.txt"))
                 .map(line -> line.split(" "))
                 .collect(Collectors.toList());
@@ -131,7 +132,7 @@ public class Main {
         System.out.println(taxes);
 
     }
-
+//zrobić w strumieniu!
     static List<String> containsAorC(List<String> strings) {
         List<String> foundStrings = new ArrayList<>();
 
@@ -162,7 +163,7 @@ public class Main {
     }
 
     static List<Integer>[] findPairs(List<Integer> integers, Integer sum) {
-        //zapytać na konsultacjach o to!
+        //poprawić na 2 elementy
         //List<Integer>[] returnedPairs = new ArrayList<Integer>[]{(ArrayList<Integer>) Arrays.asList(2, 3, 4, 4, 6)};
 
         List<Integer>[] pairs = new ArrayList[100];
@@ -181,16 +182,10 @@ public class Main {
             }
             indexOfIntegers++;
         }
-        returnedPairs = new ArrayList[indexOfPairs];
 
-        for (int i = 0; i < indexOfPairs; i++) {
-            returnedPairs[i] = new ArrayList<>();
-            returnedPairs[i].add(pairs[i].get(0));
-            returnedPairs[i].add(pairs[i].get(1));
-        }
-        return returnedPairs;
+        return pairs;
     }
-
+//napisać na podstawie userów po job
     static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
         List<Integer> returnedList = new ArrayList<>();
         Set<Integer> intNumbers = new HashSet<>();

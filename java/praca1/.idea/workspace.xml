@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="tested findArray">
-      <change afterPath="$PROJECT_DIR$/../zadania/src/AccountType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MyOptional.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyOptional.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/OptionalMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/OptionalMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/Credit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Credit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/CreditFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/CreditFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/Deposit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Deposit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/DepositFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/DepositFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/Finder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Finder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/RoRFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/RoRFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/Ror.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Ror.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/Saving.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Saving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/SavingFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/SavingFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/src/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +262,10 @@
       <workItem from="1635515379239" duration="8544000" />
       <workItem from="1635582778068" duration="10637000" />
       <workItem from="1635862865973" duration="2427000" />
-      <workItem from="1635944331280" duration="2513000" />
+      <workItem from="1635944331280" duration="2591000" />
+      <workItem from="1636020275305" duration="6000" />
+      <workItem from="1636027022887" duration="1997000" />
+      <workItem from="1636123882375" duration="4764000" />
     </task>
     <task id="LOCAL-00007" summary="added Map">
       <created>1630935945091</created>

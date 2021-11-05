@@ -59,7 +59,7 @@ public class Student {
                 ", gradesAverage=" + gradesAverage +
                 '}';
     }
-
+//w nowej klasie i bez nowych wartości żadnych
     static Student findSecondTheBestStudent(List<Student> studentList) {
         Student found = null;
         double higher = 0.0;

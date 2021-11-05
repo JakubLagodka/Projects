@@ -10,4 +10,6 @@ public abstract class Account {
         this.customerNumber = customerNumber;
         this.accountState = accountState;
     }
+    //wzorzec projektowy chain of responsility!
 }
+//klasa watchService
