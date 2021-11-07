@@ -4,7 +4,11 @@ package com.company;
 
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class MyOptional<T> {
     private T value;
@@ -43,5 +47,44 @@ public class MyOptional<T> {
 
     public boolean isEmpty() {
         return value == null;
+    }
+
+    public T orElse(T defaultValue) {
+//        if (value == null)
+//            return defaultValue;
+//        return value;
+        return value == null ? defaultValue : value;
+    }
+
+    public T orElseGet(Supplier<T> supplier) {
+        return value == null ? supplier.get() : value;
+
+    }
+
+    public <X extends Throwable> T orElseThrow(Supplier<X> supplier) throws X {
+        if (value != null)
+            return value;
+
+        throw supplier.get();
+    }
+
+    public void ifPresentOrElse(Consumer<T> consumer, Runnable runnable) {
+        if (value == null)
+            runnable.run();
+        else
+            consumer.accept(value);
+    }
+
+    public MyOptional<T> filter(Predicate<T> predicate) {
+        if (value == null)
+            return this;
+
+        return predicate.test(value) ? this : empty();
+    }
+
+    public <V> MyOptional<V> map(Function<T, V> function) {
+        if (value == null)
+            return empty();
+        return of(function.apply(value));
     }
 }

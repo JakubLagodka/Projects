@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: "link do bazy danych"
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+
