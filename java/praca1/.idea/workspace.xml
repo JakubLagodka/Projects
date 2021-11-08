@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added ifPresent in optional">
+      <change afterPath="$PROJECT_DIR$/../shop/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/MyOptional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/MyOptional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/OptionalMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/OptionalMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MyOptional.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyOptional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/OptionalMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/OptionalMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/shop/shop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shop" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -268,7 +269,7 @@
       <workItem from="1636123882375" duration="7384000" />
       <workItem from="1636226902803" duration="85000" />
       <workItem from="1636273362157" duration="1731000" />
-      <workItem from="1636287390747" duration="3936000" />
+      <workItem from="1636287390747" duration="4554000" />
     </task>
     <task id="LOCAL-00008" summary="added Map">
       <created>1630936480560</created>
