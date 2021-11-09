@@ -17,6 +17,7 @@ public class Main {
         strings.add("cyc");
 
         System.out.println(containsAorC(strings));
+        System.out.println(containsAorCStream(strings));
 
         //findArray([4,3,3,7,8], [3,7]) >> 2, findArray([1,2,5], [1]) >> 0, findArray([7,8,9], [8,9,10]) >> -1,
         // findArray([0,3,7,4,3,3,7,8], [3,7]) >> 1
@@ -89,6 +90,8 @@ public class Main {
         }
 
         System.out.println(result);
+
+
 //obiekt nie plik
         List<String[]> products = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\vat.txt"))
                 .map(line -> line.split(" "))
@@ -132,7 +135,8 @@ public class Main {
         System.out.println(taxes);
 
     }
-//zrobić w strumieniu!
+
+    //zrobić w strumieniu!
     static List<String> containsAorC(List<String> strings) {
         List<String> foundStrings = new ArrayList<>();
 
@@ -141,6 +145,12 @@ public class Main {
                 foundStrings.add(string);
         }
         return foundStrings;
+    }
+
+    static List<String> containsAorCStream(List<String> strings) {
+        return strings.stream()
+                .filter(str -> str.contains("a") || str.contains("c"))
+                .collect(Collectors.toList());
     }
 
     static int findArray(int[] array, int[] subArray) {
@@ -185,7 +195,8 @@ public class Main {
 
         return pairs;
     }
-//napisać na podstawie userów po job
+
+    //napisać na podstawie userów po job
     static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
         List<Integer> returnedList = new ArrayList<>();
         Set<Integer> intNumbers = new HashSet<>();

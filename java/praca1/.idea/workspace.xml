@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods in optional">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/MyOptional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/MyOptional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/OptionalMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/OptionalMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/OptionalMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/OptionalMain.java" afterDir="false" />
-    </list>
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods call in optional" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -268,14 +263,7 @@
       <workItem from="1636273362157" duration="1731000" />
       <workItem from="1636287390747" duration="4554000" />
       <workItem from="1636399270630" duration="259000" />
-      <workItem from="1636447141455" duration="1273000" />
-    </task>
-    <task id="LOCAL-00009" summary="fixed Map">
-      <created>1631010130050</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1631010130050</updated>
+      <workItem from="1636447141455" duration="1437000" />
     </task>
     <task id="LOCAL-00010" summary="added Map entry">
       <created>1631188508741</created>
@@ -613,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636399497300</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="added methods call in optional">
+      <created>1636448562399</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1636448562400</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +630,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="fixed all ulamek methods except compareTo" />
     <MESSAGE value="added StreamMain" />
     <MESSAGE value="fixed Fraction" />
     <MESSAGE value="added list streams" />
@@ -660,6 +654,7 @@
     <MESSAGE value="tested findArray" />
     <MESSAGE value="added ifPresent in optional" />
     <MESSAGE value="added methods in optional" />
-    <option name="LAST_COMMIT_MESSAGE" value="added methods in optional" />
+    <MESSAGE value="added methods call in optional" />
+    <option name="LAST_COMMIT_MESSAGE" value="added methods call in optional" />
   </component>
 </project>
