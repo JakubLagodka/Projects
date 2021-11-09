@@ -11,5 +11,6 @@ public abstract class Account {
         this.accountState = accountState;
     }
     //wzorzec projektowy chain of responsility!
+
 }
 //klasa watchService

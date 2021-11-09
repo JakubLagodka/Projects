@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.WatchService;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
@@ -40,61 +41,75 @@ public class Main {
 
         System.out.println(findPairsList(Arrays.asList(2, 3, 4, 4, 6), 8));
 
+        System.out.println(findPairsMap(Arrays.asList(2, 3, 4, 4, 6), 8));
+
         System.out.println(findDuplicates(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
 
         System.out.println(findDuplicatesStream(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
 
         //przerobić czy jest apply na końcu
-        List<String[]> apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
-                .map(line -> line.split(" "))
-                .filter(line -> line[0].equals("apply"))
-                .collect(Collectors.toList());
-
-        double result = Double.parseDouble(apply.get(0)[1]);
+//        List<String[]> apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
+//                .map(line -> line.split(" "))
+//                .filter(line -> line[0].equals("apply"))
+//                .collect(Collectors.toList());
+//
+//        double result = Double.parseDouble(apply.get(0)[1]);
+//        List<String[]> operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
+//                .map(line -> line.split(" "))
+//                .filter(line -> !line[0].equals("apply"))
+//                .collect(Collectors.toList());
+//
+//        for (String[] operation : operations) {
+//            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+//        }
+//
+//        System.out.println(result);
+//
+//        apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input2.txt"))
+//                .map(line -> line.split(" "))
+//                .filter(line -> line[0].equals("apply"))
+//                .collect(Collectors.toList());
+//
+//        result = Double.parseDouble(apply.get(0)[1]);
+//        operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input2.txt"))
+//                .map(line -> line.split(" "))
+//                .filter(line -> !line[0].equals("apply"))
+//                .collect(Collectors.toList());
+//
+//        for (String[] operation : operations) {
+//            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+//        }
+//
+//        System.out.println(result);
+//
+//        apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input3.txt"))
+//                .map(line -> line.split(" "))
+//                .filter(line -> line[0].equals("apply"))
+//                .collect(Collectors.toList());
+//
+//        result = Double.parseDouble(apply.get(0)[1]);
+//        operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input3.txt"))
+//                .map(line -> line.split(" "))
+//                .filter(line -> !line[0].equals("apply"))
+//                .collect(Collectors.toList());
+//
+//        for (String[] operation : operations) {
+//            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+//        }
+//
+//        System.out.println(result);
         List<String[]> operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
                 .map(line -> line.split(" "))
-                .filter(line -> !line[0].equals("apply"))
                 .collect(Collectors.toList());
 
-        for (String[] operation : operations) {
-            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
+        if (operations.get(operations.size() - 1)[0].equals("apply")) {
+            double result = Double.parseDouble(operations.get(operations.size() - 1)[1]);
+
+            for (int i = 0; i < operations.size() - 1; i++) {
+                result = MathematicalOperation.findOperationByName(operations.get(i)[0]).calculate(result, Double.parseDouble(operations.get(i)[1]));
+            }
+            System.out.println(result);
         }
-
-        System.out.println(result);
-
-        apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input2.txt"))
-                .map(line -> line.split(" "))
-                .filter(line -> line[0].equals("apply"))
-                .collect(Collectors.toList());
-
-        result = Double.parseDouble(apply.get(0)[1]);
-        operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input2.txt"))
-                .map(line -> line.split(" "))
-                .filter(line -> !line[0].equals("apply"))
-                .collect(Collectors.toList());
-
-        for (String[] operation : operations) {
-            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
-        }
-
-        System.out.println(result);
-
-        apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input3.txt"))
-                .map(line -> line.split(" "))
-                .filter(line -> line[0].equals("apply"))
-                .collect(Collectors.toList());
-
-        result = Double.parseDouble(apply.get(0)[1]);
-        operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input3.txt"))
-                .map(line -> line.split(" "))
-                .filter(line -> !line[0].equals("apply"))
-                .collect(Collectors.toList());
-
-        for (String[] operation : operations) {
-            result = MathematicalOperation.findOperationByName(operation[0]).calculate(result, Double.parseDouble(operation[1]));
-        }
-
-        System.out.println(result);
 
 
 //obiekt nie plik
@@ -138,16 +153,16 @@ public class Main {
         products.add(Arrays.asList("ksiazka", "39.99", "8"));
         List<Tax> taxes = new ArrayList<>();
 
-        Tax.calculateTax(products);
+        Tax.Calculate.calculateTax(products);
 //        taxes.add(new Tax("0 procent", brutto0, brutto0, 0.0));
 //        taxes.add(new Tax("8 procent", brutto8, netto8, tax8));
 //        taxes.add(new Tax("23 procent", brutto23, netto23, tax23));
 //        taxes.add(new Tax("suma", brutto0 + brutto8 + brutto23, brutto0 + netto8 + netto23, tax8 + tax23));
-        taxes.add(new Tax("0 procent", Tax.getSumBrutto0(), Tax.getSumBrutto0(), 0.0));
-        taxes.add(new Tax("8 procent", Tax.getSumBrutto8(), Tax.getSumNetto8(), Tax.getSumTaxes8()));
-        taxes.add(new Tax("23 procent", Tax.getSumBrutto23(), Tax.getSumNetto23(), Tax.getSumTaxes23()));
-        taxes.add(new Tax("suma", Tax.getSumBrutto0() +Tax.getSumBrutto8() + Tax.getSumBrutto23(),
-                Tax.getSumBrutto0() + Tax.getSumNetto8() + Tax.getSumNetto23(), Tax.getSumTaxes8() + Tax.getSumTaxes23()));
+        taxes.add(new Tax("0 procent", Tax.Calculate.getSumBrutto0(), Tax.Calculate.getSumBrutto0(), 0.0));
+        taxes.add(new Tax("8 procent", Tax.Calculate.getSumBrutto8(), Tax.Calculate.getSumNetto8(), Tax.Calculate.getSumTaxes8()));
+        taxes.add(new Tax("23 procent", Tax.Calculate.getSumBrutto23(), Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes23()));
+        taxes.add(new Tax("suma", Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumBrutto8() + Tax.Calculate.getSumBrutto23(),
+                Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumNetto8() + Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes8() + Tax.Calculate.getSumTaxes23()));
 
         System.out.println(taxes);
 
@@ -231,6 +246,24 @@ public class Main {
         return pairs;
     }
 
+    static List<Map<Integer, Integer>> findPairsMap(List<Integer> integers, Integer sum) {
+        List<Map<Integer, Integer>> pairs = new ArrayList<>();
+
+        int indexOfIntegers = 0;
+        for (Integer integer : integers) {
+            for (int i = indexOfIntegers + 1; i < integers.size(); i++) {
+                if (integer + integers.get(i) == sum) {
+                    Map<Integer, Integer> pair = new HashMap<>();
+                    pair.put(integer, integers.get(i));
+                    pairs.add(pair);
+                }
+            }
+            indexOfIntegers++;
+        }
+
+        return pairs;
+    }
+
     //napisać na podstawie userów po job
 //    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
 //        List<Integer> returnedList = new ArrayList<>();
@@ -284,7 +317,7 @@ public class Main {
         Map<Integer, Long> collect = integers.stream()
                 //.map( integer -> Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
+        //.filter(map -> map.getValue() == 2)
         for (Map.Entry<Integer, Long> mapEntry : collect.entrySet()) {
 
             if (mapEntry.getValue().equals(numberOfDuplicates.longValue())) {
@@ -294,6 +327,7 @@ public class Main {
         return returnedList;
     }
 
-    //moveFile()
-    //VAT()
+    static void moveFile() {
+    }
+
 }
