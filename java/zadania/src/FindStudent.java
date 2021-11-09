@@ -1,6 +1,4 @@
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -31,20 +29,40 @@ public class FindStudent {
 //        }
 //        return found;
         return studentList.stream()
-                 .sorted(Comparator.comparingDouble(Student::getGradesAverage))
-                 .collect(Collectors.groupingBy(Student::getGradesAverage))
-                 .entrySet().stream()
-                 .skip(1)
-                 .findFirst()
-                .stream()
-                .map(map -> map.getValue())
-                .map(map -> map.get(0))
-                .sorted(Comparator.comparingDouble(Student::getGradesAverage))
+//                .sorted(Comparator.comparingDouble(Student::getGradesAverage).reversed())
+//                .skip(1)
+////                .findFirst() .orElse(null);
+                .collect(Collectors.groupingBy(Student::getGradesAverage, () -> new TreeMap<>(Comparator.comparingDouble(Double::doubleValue).reversed()), Collectors.toList()))
+//                .collect(Collectors.groupingBy(Student::getGradesAverage, () -> new LinkedHashMap<>(), Collectors.toList()))
+                .entrySet().stream()
+//                .sorted(Comparator.comparingDouble(Student::getGradesAverage).reversed())
+//                .values()
+//                .stream()
+                .skip(1)
+                .map(Map.Entry::getValue)
+//                .map(map -> map.get(1))
+
+//                .map(list -> list.get(1))
+//                .sorted(Comparator.comparingDouble(Student::getGradesAverage))
                 .findFirst()
-                .get();
+                .orElse({null})
+//                .map(map -> map.get(1))
+                .stream()
+//                .collect(Collectors.toSet(TreeSet::new))
+                .sorted(Comparator.comparing(Student::getBirthDate).reversed())
 
-//                 .filter( map -> map.getKey().equals());
-//                .filter(student -> student.getGradesAverage() )
+//                .skip(1)
+                .findFirst()
+                .orElse(null);
 
+
+//        return studentList.stream()
+//                .collect(Collectors.toMap(Student::getGradesAverage, Function.identity(), (a, b) -> a,
+//                        () -> new TreeMap<>(Comparator.comparing(Double::doubleValue).reversed())))
+//                .values()
+//                .stream()
+//                .skip(1)
+//                .findFirst()
+//                .orElse(null);
     }
 }
