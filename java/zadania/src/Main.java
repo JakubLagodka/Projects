@@ -314,17 +314,25 @@ public class Main {
         if (integers == null)
             return returnedList;
 
-        Map<Integer, Long> collect = integers.stream()
+        return integers.stream()
                 //.map( integer -> Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .filter(map -> map.getValue() == 2)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
         //.filter(map -> map.getValue() == 2)
-        for (Map.Entry<Integer, Long> mapEntry : collect.entrySet()) {
 
-            if (mapEntry.getValue().equals(numberOfDuplicates.longValue())) {
-                returnedList.add(mapEntry.getKey());
-            }
-        }
-        return returnedList;
+//        for (Map.Entry<Integer, Long> mapEntry : collect.entrySet()) {
+//
+//            if (mapEntry.getValue().equals(numberOfDuplicates.longValue())) {
+//                returnedList.add(mapEntry.getKey());
+//            }
+//        }
+//          collect.entrySet().stream()
+//                .filter(map -> map.getValue() == 2)
+//                .map(Map.Entry::getKey)
+//                .collect(Collectors.toList());
     }
 
     static void moveFile() {

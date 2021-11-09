@@ -1,6 +1,7 @@
-//import java.util.List;
-//
-//public class FindStudent {
+import java.util.Comparator;
+import java.util.List;
+
+public class FindStudent {
 //    static Student findSecondTheBestStudent(List<Student> studentList) {
 //        Student found = null;
 //        double higher = 0.0;
@@ -25,8 +26,10 @@
 //            }
 //        }
 //        return found;
-//        return studentList.stream().max(student.getGradesAverage())
+//         studentList.stream()
+//                 .sorted()
+//                 .filter( i -> i.max(Comparator.naturalOrder());
 //                .filter(student -> student.getGradesAverage() )
 //
 //    }
-//}
+}
