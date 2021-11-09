@@ -9,7 +9,7 @@ public class Student {
 
     private LocalDate birthDate;
 
-    private double gradesAverage;
+    private Double gradesAverage;
 
     public Student(String name, String surname, LocalDate birthDate, double gradesAverage) {
         this.name = name;
@@ -42,7 +42,7 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public double getGradesAverage() {
+    public Double getGradesAverage() {
         return gradesAverage;
     }
 

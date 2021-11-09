@@ -1,8 +1,11 @@
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class FindStudent {
-//    static Student findSecondTheBestStudent(List<Student> studentList) {
+    static Student findSecondTheBestStudent(List<Student> studentList) {
 //        Student found = null;
 //        double higher = 0.0;
 //        int higherIndex = 0;
@@ -23,13 +26,25 @@ public class FindStudent {
 //                secondHigher = student.gradesAverage;
 //                secondHigherIndex = studentList.indexOf(student);
 //                found = studentList.get(studentList.indexOf(student));
+//
 //            }
 //        }
 //        return found;
-//         studentList.stream()
-//                 .sorted()
-//                 .filter( i -> i.max(Comparator.naturalOrder());
+        return studentList.stream()
+                 .sorted(Comparator.comparingDouble(Student::getGradesAverage))
+                 .collect(Collectors.groupingBy(Student::getGradesAverage))
+                 .entrySet().stream()
+                 .skip(1)
+                 .findFirst()
+                .stream()
+                .map(map -> map.getValue())
+                .map(map -> map.get(0))
+                .sorted(Comparator.comparingDouble(Student::getGradesAverage))
+                .findFirst()
+                .get();
+
+//                 .filter( map -> map.getKey().equals());
 //                .filter(student -> student.getGradesAverage() )
-//
-//    }
+
+    }
 }
