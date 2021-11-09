@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods call in optional" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods call in optional">
+      <change afterPath="$PROJECT_DIR$/../zadania/src/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/Tax.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Tax.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +109,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OptionalMain">
+  <component name="RunManager" selected="Application.StreamMain">
     <configuration name="CollectionMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.CollectionMain" />
       <module name="praca1" />
@@ -119,19 +125,6 @@
     </configuration>
     <configuration name="FileMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.FileMain" />
-      <module name="praca1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GenericFunctionalInterfaceMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.GenericFunctionalInterfaceMain" />
       <module name="praca1" />
       <extension name="coverage">
         <pattern>
@@ -169,13 +162,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StreamMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.StreamMain" />
+      <module name="praca1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StreamMain" />
         <item itemvalue="Application.OptionalMain" />
         <item itemvalue="Application.CollectionMain" />
         <item itemvalue="Application.FileMain" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.GenericFunctionalInterfaceMain" />
       </list>
     </recent_temporary>
   </component>
@@ -264,6 +270,7 @@
       <workItem from="1636287390747" duration="4554000" />
       <workItem from="1636399270630" duration="259000" />
       <workItem from="1636447141455" duration="1437000" />
+      <workItem from="1636461413196" duration="4818000" />
     </task>
     <task id="LOCAL-00010" summary="added Map entry">
       <created>1631188508741</created>

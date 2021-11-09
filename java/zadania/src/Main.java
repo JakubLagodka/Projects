@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -37,7 +38,11 @@ public class Main {
 
         System.out.println(Arrays.toString(findPairs(Arrays.asList(2, 3, 4, 4, 6), 8)));
 
+        System.out.println(findPairsList(Arrays.asList(2, 3, 4, 4, 6), 8));
+
         System.out.println(findDuplicates(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
+
+        System.out.println(findDuplicatesStream(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
 
         //przerobić czy jest apply na końcu
         List<String[]> apply = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
@@ -93,44 +98,56 @@ public class Main {
 
 
 //obiekt nie plik
-        List<String[]> products = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\vat.txt"))
-                .map(line -> line.split(" "))
-                .collect(Collectors.toList());
+//        List<String[]> products = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\vat.txt"))
+//                .map(line -> line.split(" "))
+//                .collect(Collectors.toList());
 
-        double netto8 = 0.0;
-        double brutto8 = 0.0;
-        double netto23 = 0.0;
-        double brutto23 = 0.0;
-        double brutto0 = 0.0;
-        double tax8 = 0.0;
-        double tax23 = 0.0;
-        for (String[] product : products) {
-            if (Integer.parseInt(product[2]) == 0) {
-                brutto0 += Double.parseDouble(product[1]);
-            } else if (Integer.parseInt(product[2]) == 8) {
-                double value = Double.parseDouble(product[1]);
-                brutto8 += value;
-                double netto = value / 1.08 * 100;
-                netto = Math.round(netto);
-                netto /= 100;
-                netto8 += netto;
-                tax8 += value - netto;
-            } else if (Integer.parseInt(product[2]) == 23) {
-                double value = Double.parseDouble(product[1]);
-                brutto23 += value;
-                double netto = value / 1.23 * 100;
-                netto = Math.round(netto);
-                netto /= 100;
-                netto23 += netto;
-                tax23 += value - netto;
-            } else throw new IOException();
-        }
+//        double netto8 = 0.0;
+//        double brutto8 = 0.0;
+//        double netto23 = 0.0;
+//        double brutto23 = 0.0;
+//        double brutto0 = 0.0;
+//        double tax8 = 0.0;
+//        double tax23 = 0.0;
+//        for (String[] product : products) {
+//            if (Integer.parseInt(product[2]) == 0) {
+//                brutto0 += Double.parseDouble(product[1]);
+//            } else if (Integer.parseInt(product[2]) == 8) {
+//                double value = Double.parseDouble(product[1]);
+//                brutto8 += value;
+//                double netto = value / 1.08 * 100;
+//                netto = Math.round(netto);
+//                netto /= 100;
+//                netto8 += netto;
+//                tax8 += value - netto;
+//            } else if (Integer.parseInt(product[2]) == 23) {
+//                double value = Double.parseDouble(product[1]);
+//                brutto23 += value;
+//                double netto = value / 1.23 * 100;
+//                netto = Math.round(netto);
+//                netto /= 100;
+//                netto23 += netto;
+//                tax23 += value - netto;
+//            } else throw new IOException();
+//        }
 
+        List<List<String>> products = new ArrayList<>();
+        products.add(Arrays.asList("mleko", "4.99", "8"));
+        products.add(Arrays.asList("jogurt", "1.99", "23"));
+        products.add(Arrays.asList("woda", "9.99", "0"));
+        products.add(Arrays.asList("ksiazka", "39.99", "8"));
         List<Tax> taxes = new ArrayList<>();
-        taxes.add(new Tax("0 procent", brutto0, brutto0, 0.0));
-        taxes.add(new Tax("8 procent", brutto8, netto8, tax8));
-        taxes.add(new Tax("23 procent", brutto23, netto23, tax23));
-        taxes.add(new Tax("suma", brutto0 + brutto8 + brutto23, brutto0 + netto8 + netto23, tax8 + tax23));
+
+        Tax.calculateTax(products);
+//        taxes.add(new Tax("0 procent", brutto0, brutto0, 0.0));
+//        taxes.add(new Tax("8 procent", brutto8, netto8, tax8));
+//        taxes.add(new Tax("23 procent", brutto23, netto23, tax23));
+//        taxes.add(new Tax("suma", brutto0 + brutto8 + brutto23, brutto0 + netto8 + netto23, tax8 + tax23));
+        taxes.add(new Tax("0 procent", Tax.getSumBrutto0(), Tax.getSumBrutto0(), 0.0));
+        taxes.add(new Tax("8 procent", Tax.getSumBrutto8(), Tax.getSumNetto8(), Tax.getSumTaxes8()));
+        taxes.add(new Tax("23 procent", Tax.getSumBrutto23(), Tax.getSumNetto23(), Tax.getSumTaxes23()));
+        taxes.add(new Tax("suma", Tax.getSumBrutto0() +Tax.getSumBrutto8() + Tax.getSumBrutto23(),
+                Tax.getSumBrutto0() + Tax.getSumNetto8() + Tax.getSumNetto23(), Tax.getSumTaxes8() + Tax.getSumTaxes23()));
 
         System.out.println(taxes);
 
@@ -173,11 +190,10 @@ public class Main {
     }
 
     static List<Integer>[] findPairs(List<Integer> integers, Integer sum) {
-        //poprawić na 2 elementy
+
         //List<Integer>[] returnedPairs = new ArrayList<Integer>[]{(ArrayList<Integer>) Arrays.asList(2, 3, 4, 4, 6)};
 
-        List<Integer>[] pairs = new ArrayList[100];
-        List<Integer>[] returnedPairs;
+        List<Integer>[] pairs = new ArrayList[2];
         int indexOfPairs = 0;
         int indexOfIntegers = 0;
         for (Integer integer : integers) {
@@ -196,50 +212,88 @@ public class Main {
         return pairs;
     }
 
-    //napisać na podstawie userów po job
-    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
-        List<Integer> returnedList = new ArrayList<>();
-        Set<Integer> intNumbers = new HashSet<>();
-        if (integers == null)
-            return returnedList;
+    static List<List<Integer>> findPairsList(List<Integer> integers, Integer sum) {
+        List<List<Integer>> pairs = new ArrayList<>();
 
-        intNumbers.addAll(integers);
-        for (Integer intNumber : intNumbers) {
-            int numberOfOccurrences = 0;
-            for (Integer integer : integers) {
-                if (intNumber.equals(integer)) {
-                    numberOfOccurrences++;
+        int indexOfIntegers = 0;
+        for (Integer integer : integers) {
+            for (int i = indexOfIntegers + 1; i < integers.size(); i++) {
+                if (integer + integers.get(i) == sum) {
+                    List<Integer> pair = new ArrayList<>();
+                    pair.add(integer);
+                    pair.add(integers.get(i));
+                    pairs.add(pair);
                 }
             }
-            if (numberOfOccurrences == numberOfDuplicates) {
-                returnedList.add(intNumber);
+            indexOfIntegers++;
+        }
+
+        return pairs;
+    }
+
+    //napisać na podstawie userów po job
+//    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
+//        List<Integer> returnedList = new ArrayList<>();
+//        Set<Integer> intNumbers = new HashSet<>();
+//        if (integers == null)
+//            return returnedList;
+//
+//        intNumbers.addAll(integers);
+//        for (Integer intNumber : intNumbers) {
+//            int numberOfOccurrences = 0;
+//            for (Integer integer : integers) {
+//                if (intNumber.equals(integer)) {
+//                    numberOfOccurrences++;
+//                }
+//            }
+//            if (numberOfOccurrences == numberOfDuplicates) {
+//                returnedList.add(intNumber);
+//            }
+//        }
+//        return returnedList;
+//    }
+    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
+        List<Integer> returnedList = new ArrayList<>();
+        if (integers == null)
+            return returnedList;
+        Map<Integer, Integer> number = new HashMap<>();
+
+        for (Integer integer : integers) {
+            if (number.containsKey(integer)) {
+                number.put(integer, number.get(integer) + 1);
+            } else {
+                number.put(integer, 1);
+            }
+        }
+
+        for (Map.Entry<Integer, Integer> mapEntry : number.entrySet()) {
+
+            if (mapEntry.getValue().equals(numberOfDuplicates)) {
+                returnedList.add(mapEntry.getKey());
             }
         }
         return returnedList;
     }
 
-   /* static List<Integer> findDuplicatesStream(List<Integer> integers, Integer numberOfDuplicates) {
+    //zapytać o te rozwiązanie!
+    static List<Integer> findDuplicatesStream(List<Integer> integers, Integer numberOfDuplicates) {
         List<Integer> returnedList = new ArrayList<>();
-        Set<Integer> intNumbers = new HashSet<>();
         if (integers == null)
             return returnedList;
 
-        intNumbers.addAll(integers);
-        for (Integer intNumber : intNumbers) {
-            int numberOfOccurrences = 0;
-            for (Integer integer : integers) {
-                if (intNumber.equals(integer)){
-                    numberOfOccurrences++;
-                }
-            }
-            if(numberOfOccurrences == numberOfDuplicates){
-                returnedList.add(intNumber);
+        Map<Integer, Long> collect = integers.stream()
+                //.map( integer -> Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        for (Map.Entry<Integer, Long> mapEntry : collect.entrySet()) {
+
+            if (mapEntry.getValue().equals(numberOfDuplicates.longValue())) {
+                returnedList.add(mapEntry.getKey());
             }
         }
         return returnedList;
-        return integers.stream()
-                .
-    }*/
+    }
+
     //moveFile()
     //VAT()
 }
