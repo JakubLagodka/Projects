@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added ifPresent in optional">
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods in optional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/MyOptional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/MyOptional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/praca1/com/company/OptionalMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/praca1/com/company/OptionalMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/OptionalMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/OptionalMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,13 +267,8 @@
       <workItem from="1636226902803" duration="85000" />
       <workItem from="1636273362157" duration="1731000" />
       <workItem from="1636287390747" duration="4554000" />
-    </task>
-    <task id="LOCAL-00008" summary="added Map">
-      <created>1630936480560</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1630936480560</updated>
+      <workItem from="1636399270630" duration="259000" />
+      <workItem from="1636447141455" duration="1273000" />
     </task>
     <task id="LOCAL-00009" summary="fixed Map">
       <created>1631010130050</created>
@@ -614,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636135385472</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="added methods in optional">
+      <created>1636399497299</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1636399497300</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +635,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
-    <MESSAGE value="fixed all functional interfaces" />
     <MESSAGE value="fixed all ulamek methods except compareTo" />
     <MESSAGE value="added StreamMain" />
     <MESSAGE value="fixed Fraction" />
@@ -661,6 +659,7 @@
     <MESSAGE value="added findArray" />
     <MESSAGE value="tested findArray" />
     <MESSAGE value="added ifPresent in optional" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ifPresent in optional" />
+    <MESSAGE value="added methods in optional" />
+    <option name="LAST_COMMIT_MESSAGE" value="added methods in optional" />
   </component>
 </project>
