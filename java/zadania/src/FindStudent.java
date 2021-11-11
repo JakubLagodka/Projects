@@ -45,7 +45,7 @@ public class FindStudent {
 //                .map(list -> list.get(1))
 //                .sorted(Comparator.comparingDouble(Student::getGradesAverage))
                 .findFirst()
-                .orElse({null})
+                .orElse(null)
 //                .map(map -> map.get(1))
                 .stream()
 //                .collect(Collectors.toSet(TreeSet::new))

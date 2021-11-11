@@ -125,9 +125,10 @@ public class Main {
         List<String[]> operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
                 .map(line -> line.split(" "))
                 .collect(Collectors.toList());
-
-        if (operations.get(operations.size() - 1)[0].equals("apply")) {
-            double result = Double.parseDouble(operations.get(operations.size() - 1)[1]);
+//do poprawy
+        if ("apply".equals(operations.get(operations.size() - 1)[0])){
+            String[] strings1 = operations.remove(operations.size() - 1);
+            double result = Double.parseDouble(strings1[1]);
 
             for (int i = 0; i < operations.size() - 1; i++) {
                 result = MathematicalOperation.findOperationByName(operations.get(i)[0]).calculate(result, Double.parseDouble(operations.get(i)[1]));
@@ -176,7 +177,7 @@ public class Main {
         products.add(Arrays.asList("woda", "9.99", "0"));
         products.add(Arrays.asList("ksiazka", "39.99", "8"));
         List<Tax> taxes = new ArrayList<>();
-
+//osobna klasa i klasa dla produktów z polami
         Tax.Calculate.calculateTax(products);
 //        taxes.add(new Tax("0 procent", brutto0, brutto0, 0.0));
 //        taxes.add(new Tax("8 procent", brutto8, netto8, tax8));
@@ -231,7 +232,7 @@ public class Main {
     static List<Integer>[] findPairs(List<Integer> integers, Integer sum) {
 
         //List<Integer>[] returnedPairs = new ArrayList<Integer>[]{(ArrayList<Integer>) Arrays.asList(2, 3, 4, 4, 6)};
-
+//stworzyć obiekt 2 elementowy, jeśli jest możliwe stworzenie obiektu, to tworzymy obiekt
         List<Integer>[] pairs = new ArrayList[2];
         int indexOfPairs = 0;
         int indexOfIntegers = 0;
@@ -310,19 +311,21 @@ public class Main {
 //        return returnedList;
 //    }
     static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
-        List<Integer> returnedList = new ArrayList<>();
+
         if (integers == null)
-            return returnedList;
+            //return returnedList;
+            return Collections.emptyList();
         Map<Integer, Integer> number = new HashMap<>();
 
         for (Integer integer : integers) {
+            //do zmiennej
             if (number.containsKey(integer)) {
                 number.put(integer, number.get(integer) + 1);
             } else {
                 number.put(integer, 1);
             }
         }
-
+        List<Integer> returnedList = new ArrayList<>();
         for (Map.Entry<Integer, Integer> mapEntry : number.entrySet()) {
 
             if (mapEntry.getValue().equals(numberOfDuplicates)) {
@@ -334,15 +337,16 @@ public class Main {
 
     //zapytać o te rozwiązanie!
     static List<Integer> findDuplicatesStream(List<Integer> integers, Integer numberOfDuplicates) {
-        List<Integer> returnedList = new ArrayList<>();
+//        List<Integer> returnedList = new ArrayList<>();
         if (integers == null)
-            return returnedList;
+            return Collections.emptyList();
 
+        long l = numberOfDuplicates.longValue();
         return integers.stream()
                 //.map( integer -> Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
-                .filter(map -> map.getValue() == 2)
+                .filter(map -> map.getValue().equals(l))
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
         //.filter(map -> map.getValue() == 2)
