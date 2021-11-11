@@ -126,7 +126,7 @@ public class Main {
                 .map(line -> line.split(" "))
                 .collect(Collectors.toList());
 //do poprawy
-        if ("apply".equals(operations.get(operations.size() - 1)[0])){
+        if ("apply".equals(operations.get(operations.size() - 1)[0])) {
             String[] strings1 = operations.remove(operations.size() - 1);
             double result = Double.parseDouble(strings1[1]);
 
@@ -318,9 +318,10 @@ public class Main {
         Map<Integer, Integer> number = new HashMap<>();
 
         for (Integer integer : integers) {
-            //do zmiennej
-            if (number.containsKey(integer)) {
-                number.put(integer, number.get(integer) + 1);
+            //zapytać o map merge!
+            Integer NumberInteger = number.get(integer);
+            if (NumberInteger != null) {
+                number.put(integer, NumberInteger + 1);
             } else {
                 number.put(integer, 1);
             }
