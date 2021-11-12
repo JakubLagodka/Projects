@@ -5,15 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
+@Table(name = "users", indexes = @Index(name = "idx_login", columnList = "login", unique = true))
 public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

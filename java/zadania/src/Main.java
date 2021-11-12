@@ -336,7 +336,6 @@ public class Main {
         return returnedList;
     }
 
-    //zapytać o te rozwiązanie!
     static List<Integer> findDuplicatesStream(List<Integer> integers, Integer numberOfDuplicates) {
 //        List<Integer> returnedList = new ArrayList<>();
         if (integers == null)
