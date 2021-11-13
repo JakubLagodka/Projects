@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import pl.lagodka.shop.model.User;
+import pl.lagodka.shop.model.dao.User;
 import pl.lagodka.shop.repository.UserRepository;
 import pl.lagodka.shop.service.UserService;
 
