@@ -41,23 +41,23 @@ public class Main {
 //        System.out.println(FindStudent.findSecondTheBestStudent(null));
 //        System.out.println(FindStudent.findSecondTheBestStudent(Collections.emptyList()));
 //        System.out.println(FindStudent.findSecondTheBestStudent(Collections.singletonList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.6))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.3), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.3), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
-        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5))));
-
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.6))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.6), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.3), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.3), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(1999, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7))));
+//        System.out.println(FindStudent.findSecondTheBestStudent(Arrays.asList(new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.4), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.7), new Student("name", "surename", LocalDate.of(2000, 2, 20), 4.5), new Student("name", "surename", LocalDate.of(2001, 2, 20), 4.5))));
+//
 
         System.out.println(FindStudent.findSecondTheBestStudent(studentList));
 
@@ -66,6 +66,8 @@ public class Main {
         System.out.println(findPairsList(Arrays.asList(2, 3, 4, 4, 6), 8));
 
         System.out.println(findPairsMap(Arrays.asList(2, 3, 4, 4, 6), 8));
+
+        System.out.println(findPairsObject(Arrays.asList(2, 3, 4, 4, 6), 8));
 
         System.out.println(findDuplicates(Arrays.asList(1, 2, 4, 5, 2, 4, 5, 8, 9, 4), 2));
 
@@ -171,23 +173,40 @@ public class Main {
 //            } else throw new IOException();
 //        }
 
-        List<List<String>> products = new ArrayList<>();
-        products.add(Arrays.asList("mleko", "4.99", "8"));
-        products.add(Arrays.asList("jogurt", "1.99", "23"));
-        products.add(Arrays.asList("woda", "9.99", "0"));
-        products.add(Arrays.asList("ksiazka", "39.99", "8"));
+//        List<List<String>> products = new ArrayList<>();
+//        products.add(Arrays.asList("mleko", "4.99", "8"));
+//        products.add(Arrays.asList("jogurt", "1.99", "23"));
+//        products.add(Arrays.asList("woda", "9.99", "0"));
+//        products.add(Arrays.asList("ksiazka", "39.99", "8"));
+
+        List<Product> products = new ArrayList<>();
+        products.add(new Product("mleko", 4.99, TaxPercentage.EIGHT));
+        products.add(new Product("jogurt", 1.99, TaxPercentage.TWENTY_THREE));
+        products.add(new Product("woda", 9.99, TaxPercentage.NONE));
+        products.add(new Product("ksiazka", 39.99, TaxPercentage.EIGHT));
+
         List<Tax> taxes = new ArrayList<>();
+
 //osobna klasa i klasa dla produktów z polami
-        Tax.Calculate.calculateTax(products);
+//        Tax.Calculate.calculateTax(products);
 //        taxes.add(new Tax("0 procent", brutto0, brutto0, 0.0));
 //        taxes.add(new Tax("8 procent", brutto8, netto8, tax8));
 //        taxes.add(new Tax("23 procent", brutto23, netto23, tax23));
 //        taxes.add(new Tax("suma", brutto0 + brutto8 + brutto23, brutto0 + netto8 + netto23, tax8 + tax23));
-        taxes.add(new Tax("0 procent", Tax.Calculate.getSumBrutto0(), Tax.Calculate.getSumBrutto0(), 0.0));
-        taxes.add(new Tax("8 procent", Tax.Calculate.getSumBrutto8(), Tax.Calculate.getSumNetto8(), Tax.Calculate.getSumTaxes8()));
-        taxes.add(new Tax("23 procent", Tax.Calculate.getSumBrutto23(), Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes23()));
-        taxes.add(new Tax("suma", Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumBrutto8() + Tax.Calculate.getSumBrutto23(),
-                Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumNetto8() + Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes8() + Tax.Calculate.getSumTaxes23()));
+//        taxes.add(new Tax("0 procent", Tax.Calculate.getSumBrutto0(), Tax.Calculate.getSumBrutto0(), 0.0));
+//        taxes.add(new Tax("8 procent", Tax.Calculate.getSumBrutto8(), Tax.Calculate.getSumNetto8(), Tax.Calculate.getSumTaxes8()));
+//        taxes.add(new Tax("23 procent", Tax.Calculate.getSumBrutto23(), Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes23()));
+//        taxes.add(new Tax("suma", Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumBrutto8() + Tax.Calculate.getSumBrutto23(),
+//                Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumNetto8() + Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes8() + Tax.Calculate.getSumTaxes23()));
+//
+        CalculateTax calculateTax = new CalculateTax();
+        calculateTax.calculate(products);
+
+        taxes.add(new Tax("0 procent", calculateTax.getSumBrutto0(), calculateTax.getSumBrutto0(), 0.0));
+        taxes.add(new Tax("8 procent", calculateTax.getSumBrutto8(), calculateTax.getSumNetto8(), calculateTax.getSumTaxes8()));
+        taxes.add(new Tax("23 procent", calculateTax.getSumBrutto23(), calculateTax.getSumNetto23(), calculateTax.getSumTaxes23()));
+        taxes.add(new Tax("suma", calculateTax.getSumBrutto0() + calculateTax.getSumBrutto8() + calculateTax.getSumBrutto23(),
+                calculateTax.getSumBrutto0() + calculateTax.getSumNetto8() + calculateTax.getSumNetto23(), calculateTax.getSumTaxes8() + calculateTax.getSumTaxes23()));
 
         System.out.println(taxes);
 
@@ -289,6 +308,20 @@ public class Main {
         return pairs;
     }
 
+    static List<Pair> findPairsObject(List<Integer> integers, Integer sum){
+        List<Pair> pairs = new ArrayList<>();
+        int indexOfIntegers = 0;
+        for (Integer integer : integers) {
+            for (int i = indexOfIntegers + 1; i < integers.size(); i++) {
+                if (integer + integers.get(i) == sum) {
+                  pairs.add(new Pair(integer, integers.get(i)));
+                }
+            }
+            indexOfIntegers++;
+        }
+
+        return pairs;
+    }
     //napisać na podstawie userów po job
 //    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
 //        List<Integer> returnedList = new ArrayList<>();
@@ -363,7 +396,6 @@ public class Main {
 //                .collect(Collectors.toList());
     }
 
-    static void moveFile() {
-    }
+  
 
 }
