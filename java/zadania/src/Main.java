@@ -124,16 +124,17 @@ public class Main {
 //        }
 //
 //        System.out.println(result);
-        List<String[]> operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
+        List<Operation>  operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
                 .map(line -> line.split(" "))
+                .map(line -> new Operation(line[0],Double.parseDouble(line[1])))
                 .collect(Collectors.toList());
-//do poprawy
-        if ("apply".equals(operations.get(operations.size() - 1)[0])) {
-            String[] strings1 = operations.remove(operations.size() - 1);
-            double result = Double.parseDouble(strings1[1]);
 
-            for (int i = 0; i < operations.size() - 1; i++) {
-                result = MathematicalOperation.findOperationByName(operations.get(i)[0]).calculate(result, Double.parseDouble(operations.get(i)[1]));
+        if ("apply".equals(operations.get(operations.size() - 1).getName())) {
+            Operation apply = operations.remove(operations.size() - 1);
+            double result = apply.getValue();
+
+            for (Operation operation : operations) {
+                result = MathematicalOperation.findOperationByName(operation.getName()).calculate(result, operation.getValue());
             }
             System.out.println(result);
         }
