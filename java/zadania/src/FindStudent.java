@@ -4,6 +4,44 @@ import java.util.stream.Collectors;
 
 public class FindStudent {
     static Student findSecondTheBestStudent(List<Student> studentList) {
+
+        if (studentList == null || studentList.size() < 2)
+            return null;
+
+        int higherIndex = 0;
+        int secondHigherIndex = -1;
+
+//        for (Student student : studentList) {
+        for (int i = 1; i < studentList.size(); i++) {
+            //przerobić na sprawdzanie drugiej średniej!
+            if (studentList.get(i).getGradesAverage() > studentList.get(higherIndex).getGradesAverage()
+                    || studentList.get(i).getGradesAverage().equals(studentList.get(higherIndex).getGradesAverage())
+                    && studentList.get(higherIndex).getBirthDate().isBefore(studentList.get(i).getBirthDate())) {
+                if (!(studentList.get(i).getGradesAverage().equals(studentList.get(higherIndex).getGradesAverage())
+                        && studentList.get(higherIndex).getBirthDate().isBefore(studentList.get(i).getBirthDate()))) {
+
+                    secondHigherIndex = higherIndex;
+                }
+
+                higherIndex = i;
+
+            } else if ((studentList.get(i).getGradesAverage() < studentList.get(higherIndex).getGradesAverage()
+                    && (secondHigherIndex == -1
+                    || studentList.get(i).getGradesAverage() > studentList.get(secondHigherIndex).getGradesAverage())
+                    || (secondHigherIndex != -1 && studentList.get(i).getGradesAverage().equals(studentList.get(secondHigherIndex).getGradesAverage())
+                    && studentList.get(secondHigherIndex).getBirthDate().isBefore(studentList.get(i).getBirthDate())))) {
+
+                secondHigherIndex = i;
+
+            }
+        }
+        if (secondHigherIndex == -1)
+            return null;
+
+        return studentList.get(secondHigherIndex);
+    }
+
+    static Student findSecondTheBestStudentStream(List<Student> studentList) {
 //        Student found = null;
 //        double higher = 0.0;
 //        int higherIndex = 0;
