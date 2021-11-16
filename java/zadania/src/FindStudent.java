@@ -28,32 +28,42 @@ public class FindStudent {
 //            }
 //        }
 //        return found;
-        return studentList.stream()
+        if (studentList == null)
+            return null;
+        else {
+            List<Student> students = studentList.stream()
 //                .sorted(Comparator.comparingDouble(Student::getGradesAverage).reversed())
 //                .skip(1)
 ////                .findFirst() .orElse(null);
-                .collect(Collectors.groupingBy(Student::getGradesAverage, () -> new TreeMap<>(Comparator.comparingDouble(Double::doubleValue).reversed()), Collectors.toList()))
+//                .filter(Objects::isNull)
+                    .collect(Collectors.groupingBy(Student::getGradesAverage, () -> new TreeMap<>(Comparator.comparingDouble(Double::doubleValue).reversed()), Collectors.toList()))
 //                .collect(Collectors.groupingBy(Student::getGradesAverage, () -> new LinkedHashMap<>(), Collectors.toList()))
-                .entrySet().stream()
+                    .entrySet().stream()
 //                .sorted(Comparator.comparingDouble(Student::getGradesAverage).reversed())
 //                .values()
 //                .stream()
-                .skip(1)
-                .map(Map.Entry::getValue)
+                    .skip(1)
+                    .map(Map.Entry::getValue)
 //                .map(map -> map.get(1))
-
+//                .filter(Objects::isNull)
 //                .map(list -> list.get(1))
 //                .sorted(Comparator.comparingDouble(Student::getGradesAverage))
-                .findFirst()
-                .orElse(null)
+//                .orElse(null)
+                    .findFirst()
+                    .orElse(null);
+            if (students == null)
+                return null;
+            else return students
 //                .map(map -> map.get(1))
-                .stream()
+                    .stream()
 //                .collect(Collectors.toSet(TreeSet::new))
-                .sorted(Comparator.comparing(Student::getBirthDate).reversed())
+                    .sorted(Comparator.comparing(Student::getBirthDate).reversed())
 
 //                .skip(1)
-                .findFirst()
-                .orElse(null);
+                    .findFirst()
+                    .orElse(null);
+
+        }
 
 
 //        return studentList.stream()
