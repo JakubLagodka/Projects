@@ -10,6 +10,7 @@ public class FindStudent {
 
         int higherIndex = 0;
         int secondHigherIndex = -1;
+        //zadeklarować 2 studentów, do których można przypisywać wartości z listy, zrobić isEmpty()
 
 //        for (Student student : studentList) {
         for (int i = 1; i < studentList.size(); i++) {
@@ -91,7 +92,7 @@ public class FindStudent {
                     .orElse(null);
             if (students == null)
                 return null;
-            else return students
+            return students
 //                .map(map -> map.get(1))
                     .stream()
 //                .collect(Collectors.toSet(TreeSet::new))

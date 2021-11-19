@@ -37,7 +37,7 @@ public class CalculateTax {
     public double getSumTaxes23() {
         return sumTaxes23;
     }
-
+//przerobić na enuma zrobić po ang, value nazwać gros i brutto!
     public void calculate(List<Product> products) {
 
         for (Product product : products) {

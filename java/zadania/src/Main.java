@@ -126,11 +126,11 @@ public class Main {
 //        System.out.println(result);
         List<Operation>  operations = Files.lines(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\zadania\\src\\input.txt"))
                 .map(line -> line.split(" "))
-                .map(line -> new Operation(line[0],Double.parseDouble(line[1])))
+                .map(line -> new Operation(line[0], Double.parseDouble(line[1])))
                 .collect(Collectors.toList());
+        Operation apply = operations.remove(operations.size() - 1);
+        if ("apply".equals(apply.getName())) {
 
-        if ("apply".equals(operations.get(operations.size() - 1).getName())) {
-            Operation apply = operations.remove(operations.size() - 1);
             double result = apply.getValue();
 
             for (Operation operation : operations) {
@@ -308,7 +308,7 @@ public class Main {
 
         return pairs;
     }
-
+//zrobić na secie
     static List<Pair> findPairsObject(List<Integer> integers, Integer sum){
         List<Pair> pairs = new ArrayList<>();
         int indexOfIntegers = 0;
@@ -352,13 +352,13 @@ public class Main {
         Map<Integer, Integer> number = new HashMap<>();
 
         for (Integer integer : integers) {
-            //zapytać o map merge!
-            Integer NumberInteger = number.get(integer);
-            if (NumberInteger != null) {
-                number.put(integer, NumberInteger + 1);
-            } else {
-                number.put(integer, 1);
-            }
+
+            //            if (NumberInteger != null) {
+//                number.put(integer, NumberInteger + 1);
+//            } else {
+//                number.put(integer, 1);
+//            }
+            number.merge(integer, 1, Integer::sum);
         }
         List<Integer> returnedList = new ArrayList<>();
         for (Map.Entry<Integer, Integer> mapEntry : number.entrySet()) {
