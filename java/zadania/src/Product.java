@@ -1,7 +1,7 @@
 public class Product {
     private String name;
     private double price;
-    TaxPercentage taxPercentage;
+    private TaxPercentage taxPercentage;
 
     public Product(String name, double price, TaxPercentage taxPercentage) {
         this.name = name;

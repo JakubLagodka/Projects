@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods call in optional">
+      <change afterPath="$PROJECT_DIR$/../zadania/src/TaxCalculate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../zadania/src/UnpredictedTaxException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/FindStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/FindStudent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/FindStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/FindStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/CalculateTax.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/CalculateTax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Product.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,6 +275,9 @@
       <workItem from="1636461413196" duration="9619000" />
       <workItem from="1636629074961" duration="665000" />
       <workItem from="1637086145606" duration="1380000" />
+      <workItem from="1637424535007" duration="642000" />
+      <workItem from="1637510762959" duration="1214000" />
+      <workItem from="1637580587557" duration="4054000" />
     </task>
     <task id="LOCAL-00010" summary="added Map entry">
       <created>1631188508741</created>

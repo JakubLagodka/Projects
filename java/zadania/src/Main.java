@@ -201,13 +201,24 @@ public class Main {
 //                Tax.Calculate.getSumBrutto0() + Tax.Calculate.getSumNetto8() + Tax.Calculate.getSumNetto23(), Tax.Calculate.getSumTaxes8() + Tax.Calculate.getSumTaxes23()));
 //
         CalculateTax calculateTax = new CalculateTax();
-        calculateTax.calculate(products);
+        for (Product product : products) {
+            calculateTax.calculate(product);
+        }
+//        calculateTax.calculate(products);
+//
+//        taxes.add(new Tax("0 procent", calculateTax.getSumBrutto0(), calculateTax.getSumBrutto0(), 0.0));
+//        taxes.add(new Tax("8 procent", calculateTax.getSumBrutto8(), calculateTax.getSumNetto8(), calculateTax.getSumTaxes8()));
+//        taxes.add(new Tax("23 procent", calculateTax.getSumBrutto23(), calculateTax.getSumNetto23(), calculateTax.getSumTaxes23()));
+//        taxes.add(new Tax("suma", calculateTax.getSumBrutto0() + calculateTax.getSumBrutto8() + calculateTax.getSumBrutto23(),
+//                calculateTax.getSumBrutto0() + calculateTax.getSumNetto8() + calculateTax.getSumNetto23(), calculateTax.getSumTaxes8() + calculateTax.getSumTaxes23()));
+//
+        taxes.add(new Tax("0 procent", calculateTax.getSumNet0(), calculateTax.getSumNet0(), 0.0));
+        taxes.add(new Tax("8 procent", calculateTax.getSumNet8(), calculateTax.getSumGross8() + calculateTax.getSumNet8(), calculateTax.getSumGross8()));
+        taxes.add(new Tax("23 procent", calculateTax.getSumNet23(),calculateTax.getSumGross23() + calculateTax.getSumNet23(), calculateTax.getSumGross23()));
+        taxes.add(new Tax("suma", calculateTax.getSumNet0() + calculateTax.getSumNet8() + calculateTax.getSumNet23(),
+                calculateTax.getSumNet0() + calculateTax.getSumNet8() + calculateTax.getSumNet23() + calculateTax.getSumGross8() + calculateTax.getSumGross23(),
+                calculateTax.getSumGross8() + calculateTax.getSumGross23()));
 
-        taxes.add(new Tax("0 procent", calculateTax.getSumBrutto0(), calculateTax.getSumBrutto0(), 0.0));
-        taxes.add(new Tax("8 procent", calculateTax.getSumBrutto8(), calculateTax.getSumNetto8(), calculateTax.getSumTaxes8()));
-        taxes.add(new Tax("23 procent", calculateTax.getSumBrutto23(), calculateTax.getSumNetto23(), calculateTax.getSumTaxes23()));
-        taxes.add(new Tax("suma", calculateTax.getSumBrutto0() + calculateTax.getSumBrutto8() + calculateTax.getSumBrutto23(),
-                calculateTax.getSumBrutto0() + calculateTax.getSumNetto8() + calculateTax.getSumNetto23(), calculateTax.getSumTaxes8() + calculateTax.getSumTaxes23()));
 
         System.out.println(taxes);
 
