@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 public class FindStudent {
     static Student findSecondTheBestStudent(List<Student> studentList) {
 
-        if (studentList == null || studentList.size() < 2)
+        if (studentList == null || studentList.isEmpty() || studentList.size() < 2)
             return null;
 
         int higherIndex = 0;

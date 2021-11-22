@@ -16,6 +16,8 @@ public class MoveFile {
                         Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\TXT", fileName));
                     } else if (fileName.endsWith(".csv")){
                         Files.delete(sourceFile);
+                    }else {
+                        Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\OTHERS", fileName));
                     }
                 } catch (IOException e) {
 

@@ -334,6 +334,21 @@ public class Main {
 
         return pairs;
     }
+//    static List<Pair> findPairsSet(List<Integer> integers, Integer sum){
+//        List<Pair> pairs = new ArrayList<>();
+//        Set<Pair> pairSet = new HashSet<>();
+//        //int indexOfIntegers = 0;
+//        for (Integer integer : integers) {
+//            for (int i = indexOfIntegers + 1; i < integers.size(); i++) {
+//                if (integer + integers.get(i) == sum) {
+//                    pairs.add(new Pair(integer, integers.get(i)));
+//                }
+//            }
+//            indexOfIntegers++;
+//        }
+//
+//        return pairs;
+//    }
     //napisać na podstawie userów po job
 //    static List<Integer> findDuplicates(List<Integer> integers, Integer numberOfDuplicates) {
 //        List<Integer> returnedList = new ArrayList<>();
