@@ -1,7 +1,9 @@
 import java.io.IOException;
 import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class FilesSorter {
     static void moveFile() throws Exception {
@@ -13,11 +15,13 @@ public class FilesSorter {
             watchKey.pollEvents().forEach(watchEvent -> {
                 String fileName = watchEvent.context().toString();
                 Path sourceFile = Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\HOME", fileName);
+
                 try {
+                    BasicFileAttributes attr = Files.readAttributes(sourceFile, BasicFileAttributes.class);
                     if (fileName.endsWith(".xml")) {
                         Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\DEV", fileName));
                     } else if (fileName.endsWith(".jar")) {
-                        if (true/*czy godzina jest parzysta*/)
+                        if (attr.creationTime().to(TimeUnit.HOURS) % 2 == 0/*czy godzina jest parzysta*/)
                             Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\DEV", fileName));
                         else
                             Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\TEST", fileName));
@@ -28,7 +32,7 @@ public class FilesSorter {
                     List<String> collect = new ArrayList<>();
                     collect.add("liczba przeniesionych plików = ");
                     try {
-                        Files.write(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\praca1\\src\\com\\company\\output.txt"), collect,
+                        Files.write(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\HOME\\count.txt"), collect,
                                 StandardOpenOption.CREATE_NEW, StandardOpenOption.TRUNCATE_EXISTING);
                     } catch (IOException e) {
                         e.printStackTrace();
