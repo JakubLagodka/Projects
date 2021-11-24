@@ -2,10 +2,10 @@ import java.util.List;
 import java.util.Map;
 
 public class DepositFinder implements Finder{
-    Map<Long, List<Long>> accounts;
+    Map<Long, List<Account>> accounts;
 
     @Override
-    public List<Long> findCustomerAccounts(Long customerId) {
+    public List<Account> findCustomerAccounts(Long customerId) {
         return accounts.get(customerId);
     }
 }

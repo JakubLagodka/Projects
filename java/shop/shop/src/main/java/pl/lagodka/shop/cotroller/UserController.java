@@ -9,6 +9,8 @@ import pl.lagodka.shop.model.dao.User;
 import pl.lagodka.shop.model.dto.UserDto;
 import pl.lagodka.shop.service.UserService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
@@ -18,7 +20,7 @@ public class UserController {
     private final UserMapper userMapper;
 
     @PostMapping
-    public UserDto saveUser(@RequestBody UserDto user) {
+    public UserDto saveUser(@RequestBody @Valid UserDto user) {
         return userMapper.toDto(userService.create(userMapper.toDao(user)));
     }
 

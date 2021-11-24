@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods call in optional">
+      <change afterPath="$PROJECT_DIR$/../zadania/src/FileStatistics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/CalculateTax.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/CalculateTax.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/FindStudent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/FindStudent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/FilesSorter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/FilesSorter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/MoveFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/MoveFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/out/production/zadania/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/out/production/zadania/Product.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/src/FilesSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/FilesSorter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/FindStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/FindStudent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zadania/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zadania/src/MoveFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zadania/src/MoveFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,6 +278,8 @@
       <workItem from="1637510762959" duration="1214000" />
       <workItem from="1637580587557" duration="4226000" />
       <workItem from="1637604595569" duration="284000" />
+      <workItem from="1637683121045" duration="1558000" />
+      <workItem from="1637776770222" duration="796000" />
     </task>
     <task id="LOCAL-00010" summary="added Map entry">
       <created>1631188508741</created>

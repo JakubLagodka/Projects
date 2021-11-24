@@ -15,30 +15,40 @@ public class FilesSorter {
             watchKey.pollEvents().forEach(watchEvent -> {
                 String fileName = watchEvent.context().toString();
                 Path sourceFile = Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\HOME", fileName);
+                FileStatistics fileStatistics;
+                try {
+                    fileStatistics = FileStatistics.toFileStatistics(Files.readString(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\HOME\\count.txt")));
+                } catch (IOException e) {
+                    fileStatistics = new FileStatistics();
+                }
 
                 try {
                     BasicFileAttributes attr = Files.readAttributes(sourceFile, BasicFileAttributes.class);
+                    fileStatistics.increaseTotalCounter();
                     if (fileName.endsWith(".xml")) {
-                        Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\DEV", fileName));
+                        Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\DEV", fileName), StandardCopyOption.REPLACE_EXISTING);
+                        fileStatistics.increaseDevCounter();
                     } else if (fileName.endsWith(".jar")) {
-                        if (attr.creationTime().to(TimeUnit.HOURS) % 2 == 0/*czy godzina jest parzysta*/)
-                            Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\DEV", fileName));
-                        else
-                            Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\TEST", fileName));
+                        if (attr.creationTime().to(TimeUnit.HOURS) % 2 == 0/*czy godzina jest parzysta*/) {
+                            Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\DEV", fileName), StandardCopyOption.REPLACE_EXISTING);
+                            fileStatistics.increaseDevCounter();
+                        } else {
+                            Files.move(sourceFile, Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\TEST", fileName), StandardCopyOption.REPLACE_EXISTING);
+                            fileStatistics.increaseTestCounter();
+                        }
                     }
                 } catch (IOException e) {
+                    e.printStackTrace();
 
                 } finally {
-                    List<String> collect = new ArrayList<>();
-                    collect.add("liczba przeniesionych plików = ");
                     try {
-                        Files.write(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\HOME\\count.txt"), collect,
-                                StandardOpenOption.CREATE_NEW, StandardOpenOption.TRUNCATE_EXISTING);
+                        System.out.println(fileStatistics);
+                        Files.writeString(Paths.get("C:\\Users\\Kuba\\Desktop\\Programs\\java\\katalogi\\HOME\\count.txt"), fileStatistics.toString(),
+                                StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
-
             });
             watchKey.reset();
         }
