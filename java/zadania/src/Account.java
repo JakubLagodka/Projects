@@ -12,5 +12,20 @@ public abstract class Account {
     }
     //wzorzec projektowy chain of responsility!
 
+
+    public Long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public Long getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public Double getAccountState() {
+        return accountState;
+    }
 }
-//klasa watchService

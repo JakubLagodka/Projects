@@ -3,23 +3,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SavingFinder implements Finder{
+public class RorFinder implements Finder{
     Map<Long, List<Account>> accounts;
 
-    private CreditFinder creditFinder;
+    private SavingFinder savingFinder;
 
-    SavingFinder(){
+    RorFinder(){
         accounts = new HashMap<>();
 
     }
 
     @Override
     public List<Account> findCustomerAccounts(Long customerId) {
-        creditFinder = new CreditFinder();
+        savingFinder = new SavingFinder();
         List<Account> userAccount = new ArrayList<>();
-        userAccount.add(new Credit(1L,AccountType.SAVING,1L,0.00));
+        userAccount.add(new Credit(1L,AccountType.ROR,1L,0.00));
         accounts.put(1L, userAccount);
-        userAccount.addAll(creditFinder.findCustomerAccounts(customerId));
+        userAccount.addAll(savingFinder.findCustomerAccounts(customerId));
         accounts.put(customerId, userAccount);
         return userAccount;
     }
