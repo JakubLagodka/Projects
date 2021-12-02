@@ -13,7 +13,7 @@ import pl.lagodka.shop.validator.group.Create;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping(value = "/api/products")
 @RequiredArgsConstructor
 @Validated
 public class ProductController {

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +20,8 @@ public class ProductDto {
     @NotBlank
     private String name;
     @NotNull
-    private double price;
+    @PositiveOrZero
+    private Double price;
     @NotNull
     private boolean isAvailable;
 }
