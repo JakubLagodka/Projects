@@ -2,6 +2,7 @@ package pl.lagodka.shop.cotroller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
@@ -44,6 +45,11 @@ public class AdviceController {
 //        System.out.println(objectError.getField());
 //        System.out.println(objectError);
 
+    }
+    @ExceptionHandler(EmptyResultDataAccessException.class)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void handleEmptyResultDataAccessException(EmptyResultDataAccessException e) {
+        log.error("Not found", e);
     }
 
 }
