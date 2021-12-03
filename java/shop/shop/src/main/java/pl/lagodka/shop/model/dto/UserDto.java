@@ -2,11 +2,16 @@ package pl.lagodka.shop.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import pl.lagodka.shop.validator.PasswordValid;
 import pl.lagodka.shop.validator.group.Create;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,4 +35,12 @@ public class UserDto {
     @Email
     @NotBlank
     private String mail;
+
+    private LocalDateTime createdDate;
+
+    private String createdBy;
+
+    private LocalDateTime lastModifiedDate;
+
+    private String lastModifiedBy;
 }
