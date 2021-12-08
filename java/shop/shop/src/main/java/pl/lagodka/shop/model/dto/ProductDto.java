@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,4 +25,12 @@ public class ProductDto {
     private Double price;
     @NotNull
     private boolean isAvailable;
+
+    private LocalDateTime createdDate;
+
+    private String createdBy;
+
+    private LocalDateTime lastModifiedDate;
+
+    private String lastModifiedBy;
 }
