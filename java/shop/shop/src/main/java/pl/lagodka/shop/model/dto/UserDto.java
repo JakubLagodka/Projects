@@ -1,11 +1,12 @@
 package pl.lagodka.shop.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import org.springframework.data.history.RevisionMetadata;
 import pl.lagodka.shop.validator.PasswordValid;
 import pl.lagodka.shop.validator.group.Create;
 
@@ -43,4 +44,8 @@ public class UserDto {
     private LocalDateTime lastModifiedDate;
 
     private String lastModifiedBy;
+
+    private RevisionMetadata.RevisionType revisionType;
+
+    private Integer revisionNumber;
 }
