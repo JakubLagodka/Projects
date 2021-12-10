@@ -21,7 +21,7 @@ public class HistoryController {
 
     private final HistoryMapper historyMapper;
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public Page<UserDto> getUserHistory(@PathVariable Long id, @RequestParam int page, @RequestParam int size){
         return userRepository.findRevisions(id, PageRequest.of(page, size))
                 .map(historyMapper::toUserDto);
