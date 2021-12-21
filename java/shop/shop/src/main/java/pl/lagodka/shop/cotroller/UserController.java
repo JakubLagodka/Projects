@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("isAuthenticated() && (@securityService.hasAccessToUser(#id) || hasRole('ADMIN'))")
     public UserDto getUserById(@PathVariable Long id) {
         return userMapper.toDto(userService.getById(id));
     }
@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("isAuthenticated() && (@securityService.hasAccessToUser(#id) || hasRole('ADMIN'))")
     public UserDto updateUser(@RequestBody @Valid UserDto user, @PathVariable Long id){
         return userMapper.toDto(userService.update(userMapper.toDao(user), id));
     }

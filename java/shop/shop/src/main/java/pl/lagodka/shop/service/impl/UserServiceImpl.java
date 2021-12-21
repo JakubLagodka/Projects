@@ -10,8 +10,11 @@ import pl.lagodka.shop.repository.RoleRepository;
 import pl.lagodka.shop.repository.UserRepository;
 import pl.lagodka.shop.service.UserService;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.Collections;
+
+import static pl.lagodka.shop.security.SecurityUtils.getCurrentUserLogin;
 
 @Service
 @RequiredArgsConstructor
@@ -54,5 +57,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Page<User> getPage(Pageable pageable) {
         return userRepository.findAll(pageable);
+    }
+
+    @Override
+    public User getCurrentUser() {
+        return userRepository.findByLogin(getCurrentUserLogin())
+                .orElseThrow(() -> new EntityNotFoundException("User not logged"));
     }
 }

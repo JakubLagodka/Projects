@@ -3,6 +3,7 @@ package pl.lagodka.shop.cotroller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.lagodka.shop.mapper.ProductMapper;
@@ -23,6 +24,7 @@ public class ProductController {
 
     @PostMapping
     @Validated(Create.class)
+    @PreAuthorize("hasRole('ADMIN')")
     public ProductDto saveProduct(@RequestBody @Valid ProductDto productDto) {
         return productMapper.toDto(productService.create(productMapper.toDao(productDto)));
     }
@@ -39,11 +41,13 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ProductDto updateProduct(@RequestBody @Valid ProductDto productDto, @PathVariable Long id) {
         return productMapper.toDto(productService.update(productMapper.toDao(productDto), id));
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteProduct(@PathVariable Long id) {
         productService.delete(id);
     }

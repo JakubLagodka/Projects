@@ -14,4 +14,6 @@ public interface UserService {
     User getById(Long id);
 
     Page<User> getPage(Pageable pageable);
+
+    User getCurrentUser();
 }
