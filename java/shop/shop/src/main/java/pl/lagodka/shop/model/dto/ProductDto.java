@@ -26,6 +26,8 @@ public class ProductDto {
     private Double price;
     @NotNull
     private boolean isAvailable;
+    @PositiveOrZero
+    private Double quantity;
 
     private LocalDateTime createdDate;
 

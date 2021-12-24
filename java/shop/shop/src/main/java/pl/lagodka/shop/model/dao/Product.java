@@ -32,6 +32,8 @@ public class Product {
 
     private boolean isAvailable;
 
+    private Double quantity;
+
     @CreatedDate
     private LocalDateTime createdDate;
     @CreatedBy
