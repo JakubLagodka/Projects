@@ -34,6 +34,8 @@ public class BasketServiceImpl implements BasketService {
 
     @Override
     public List<Product> getBasket() {
+
+        //napisać metodę szukającą po id usera aktualnie zalogowanego użytkownika.
         return null;
     }
 
@@ -43,7 +45,7 @@ public class BasketServiceImpl implements BasketService {
     }
 
     @Override
-    public void deleteProductById(Long id) {
+    public void deleteProductByProductId(Long productId) {
 
     }
 }

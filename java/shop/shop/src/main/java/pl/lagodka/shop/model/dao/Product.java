@@ -1,5 +1,8 @@
 package pl.lagodka.shop.model.dao;
 
+import com.hazelcast.nio.ObjectDataInput;
+import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +15,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -21,7 +25,7 @@ import java.time.LocalDateTime;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Audited
-public class Product {
+public class Product implements IdentifiedDataSerializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
@@ -42,4 +46,32 @@ public class Product {
     private LocalDateTime lastModifiedDate;
     @LastModifiedBy
     private String lastModifiedBy;
+
+    @Override
+    public int getFactoryId() {
+        return 1;
+    }
+
+    @Override
+    public int getClassId() {
+        return 1;
+    }
+
+    @Override
+    public void writeData(ObjectDataOutput objectDataOutput) throws IOException {
+        objectDataOutput.writeLong(id);
+        objectDataOutput.writeString(name);
+        objectDataOutput.writeDouble(price);
+        objectDataOutput.writeBoolean(isAvailable);
+        objectDataOutput.writeDouble(quantity);
+    }
+
+    @Override
+    public void readData(ObjectDataInput objectDataInput) throws IOException {
+        id = objectDataInput.readLong();
+        name = objectDataInput.readString();
+        price = objectDataInput.readDouble();
+        isAvailable = objectDataInput.readBoolean();
+        quantity = objectDataInput.readDouble();
+    }
 }
