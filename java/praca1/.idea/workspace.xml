@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b71686ff-6d86-47b4-8786-29d90d5313c1" name="Changes" comment="added methods call in optional">
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/libraries/Maven__com_hazelcast_hazelcast_5_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/libraries/Maven__com_hazelcast_hazelcast_spring_5_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_5_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/config/HazelcastConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/cotroller/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/flyweight/model/FileType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/flyweight/nongeneric/GeneratorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/flyweight/nongeneric/strategy/GeneratorStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/flyweight/nongeneric/strategy/impl/PdfGeneratorStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/flyweight/nongeneric/strategy/impl/XlsGenerationStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/shop/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/shop/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/service/BasketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/service/BasketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/service/impl/BasketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/service/impl/BasketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop/shop/src/main/java/pl/lagodka/shop/service/impl/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,6 +287,7 @@
       <workItem from="1638272172334" duration="5700000" />
       <workItem from="1638356461618" duration="731000" />
       <workItem from="1640712661667" duration="628000" />
+      <workItem from="1640970147185" duration="594000" />
     </task>
     <task id="LOCAL-00010" summary="added Map entry">
       <created>1631188508741</created>
