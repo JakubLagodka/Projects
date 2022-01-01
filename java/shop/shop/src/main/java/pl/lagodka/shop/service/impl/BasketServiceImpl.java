@@ -13,6 +13,7 @@ import pl.lagodka.shop.service.UserService;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,11 +28,15 @@ public class BasketServiceImpl implements BasketService {
     @Override
     public void addProduct(Long productId, double quantity) {
         User currentUser = userService.getCurrentUser();
+        if (quantity > productService.getById(productId).getQuantity())
+            throw new NoSuchElementException();
         basketRepository.findByProductIdAndUserId(productId, currentUser.getId())
                 .ifPresentOrElse(basket -> {
+                    if (basket.getQuantity() + quantity > productService.getById(productId).getQuantity())
+                        throw new NoSuchElementException();
                     basket.setQuantity(basket.getQuantity() + quantity);
                     basketRepository.save(basket);
-                }, () ->  basketRepository.save(Basket.builder()
+                }, () -> basketRepository.save(Basket.builder()
                         .product(productService.getById(productId))
                         .quantity(quantity)
                         .user(currentUser)
@@ -62,6 +67,6 @@ public class BasketServiceImpl implements BasketService {
     @Transactional
     public void deleteProductByProductId(Long productId) {
         User currentUser = userService.getCurrentUser();
-        basketRepository.deleteByProductIdAndUserId(productId,currentUser.getId());
+        basketRepository.deleteByProductIdAndUserId(productId, currentUser.getId());
     }
 }

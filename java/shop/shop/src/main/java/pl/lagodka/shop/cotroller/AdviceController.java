@@ -14,6 +14,7 @@ import pl.lagodka.shop.model.dto.FieldErrorDto;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
@@ -46,10 +47,16 @@ public class AdviceController {
 //        System.out.println(objectError);
 
     }
+
     @ExceptionHandler(EmptyResultDataAccessException.class)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void handleEmptyResultDataAccessException(EmptyResultDataAccessException e) {
         log.error("Not found", e);
     }
 
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public void handleNoSuchElementException(NoSuchElementException e) {
+        log.error("Requested products are not available in given quantity", e);
+    }
 }
