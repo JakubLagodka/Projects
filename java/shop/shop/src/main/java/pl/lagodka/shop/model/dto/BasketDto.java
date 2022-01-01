@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class BasketDto {
     private Long productId;
-    private Double quantity;
+    private double quantity;
 }

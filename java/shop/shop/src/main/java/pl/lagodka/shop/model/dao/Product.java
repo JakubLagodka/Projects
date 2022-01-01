@@ -36,7 +36,7 @@ public class Product implements IdentifiedDataSerializable {
 
     private boolean isAvailable;
 
-    private Double quantity;
+    private double quantity;
 
     @CreatedDate
     private LocalDateTime createdDate;

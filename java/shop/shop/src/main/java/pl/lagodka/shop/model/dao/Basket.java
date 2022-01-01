@@ -25,6 +25,6 @@ public class Basket {
     @ManyToOne
     private Product product;
 
-    private Double quantity;
+    private double quantity;
 
 }

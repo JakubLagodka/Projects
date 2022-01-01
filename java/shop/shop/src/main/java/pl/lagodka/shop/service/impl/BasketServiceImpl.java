@@ -10,6 +10,7 @@ import pl.lagodka.shop.service.BasketService;
 import pl.lagodka.shop.service.ProductService;
 import pl.lagodka.shop.service.UserService;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,14 +25,18 @@ public class BasketServiceImpl implements BasketService {
     private final ProductService productService;
 
     @Override
-    public void addProduct(Long productId, Double quantity) {
+    public void addProduct(Long productId, double quantity) {
         User currentUser = userService.getCurrentUser();
         basketRepository.findByProductIdAndUserId(productId, currentUser.getId())
-                .ifPresentOrElse(basket -> basket.setQuantity(basket.getQuantity() + quantity), () -> Basket.builder()
+                .ifPresentOrElse(basket -> {
+                    basket.setQuantity(basket.getQuantity() + quantity);
+                    basketRepository.save(basket);
+                }, () ->  basketRepository.save(Basket.builder()
                         .product(productService.getById(productId))
                         .quantity(quantity)
                         .user(currentUser)
-                        .build());
+                        .build()));
+
     }
 
     @Override
@@ -47,12 +52,14 @@ public class BasketServiceImpl implements BasketService {
     }
 
     @Override
+    @Transactional
     public void clearBasket() {
         User currentUser = userService.getCurrentUser();
         basketRepository.deleteByUserId(currentUser.getId());
     }
 
     @Override
+    @Transactional
     public void deleteProductByProductId(Long productId) {
         User currentUser = userService.getCurrentUser();
         basketRepository.deleteByProductIdAndUserId(productId,currentUser.getId());

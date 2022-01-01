@@ -9,7 +9,7 @@ import pl.lagodka.shop.flyweight.nongeneric.strategy.GeneratorStrategy;
 public class CsvGeneratorStrategy implements GeneratorStrategy {
     @Override
     public FileType getType() {
-        return FileType.XLS;
+        return FileType.CSV;
     }
 
     @Override
