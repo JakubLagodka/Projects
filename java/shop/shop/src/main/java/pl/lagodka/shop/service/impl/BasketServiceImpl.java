@@ -10,7 +10,9 @@ import pl.lagodka.shop.service.BasketService;
 import pl.lagodka.shop.service.ProductService;
 import pl.lagodka.shop.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -34,18 +36,25 @@ public class BasketServiceImpl implements BasketService {
 
     @Override
     public List<Product> getBasket() {
+        User currentUser = userService.getCurrentUser();
+        List<Product> retBasket = new ArrayList<>();
 
-        //napisać metodę szukającą po id usera aktualnie zalogowanego użytkownika.
-        return null;
+        retBasket = basketRepository.findByUserId(currentUser.getId()).stream()
+                .map(Basket::getProduct)
+                .collect(Collectors.toList());
+        return retBasket;
+
     }
 
     @Override
     public void clearBasket() {
-
+        User currentUser = userService.getCurrentUser();
+        basketRepository.deleteByUserId(currentUser.getId());
     }
 
     @Override
     public void deleteProductByProductId(Long productId) {
-
+        User currentUser = userService.getCurrentUser();
+        basketRepository.deleteByProductIdAndUserId(productId,currentUser.getId());
     }
 }
