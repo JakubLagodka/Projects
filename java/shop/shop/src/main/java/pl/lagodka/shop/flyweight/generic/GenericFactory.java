@@ -3,7 +3,6 @@ package pl.lagodka.shop.flyweight.generic;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pl.lagodka.shop.flyweight.generic.strategy.GenericStrategy;
-import pl.lagodka.shop.flyweight.nongeneric.strategy.GeneratorStrategy;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
