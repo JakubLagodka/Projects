@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pl.lagodka.shop.mapper.ProductMapper;
 import pl.lagodka.shop.model.dto.ProductDto;
 import pl.lagodka.shop.service.ProductService;
@@ -24,9 +25,9 @@ public class ProductController {
 
     @PostMapping
     @Validated(Create.class)
-    @PreAuthorize("hasRole('ADMIN')")
-    public ProductDto saveProduct(@RequestBody @Valid ProductDto productDto) {
-        return productMapper.toDto(productService.create(productMapper.toDao(productDto)));
+    //@PreAuthorize("hasRole('ADMIN')")
+    public ProductDto saveProduct(@Valid @RequestPart ProductDto productDto, @RequestPart MultipartFile image) {
+        return productMapper.toDto(productService.create(productMapper.toDao(productDto), image));
     }
 
     @GetMapping("/{id}")

@@ -40,4 +40,7 @@ public class ProductDto {
     private RevisionMetadata.RevisionType revisionType;
 
     private Integer revisionNumber;
+
+    private String imageUrl;
+
 }

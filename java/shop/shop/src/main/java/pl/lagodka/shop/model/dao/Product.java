@@ -47,6 +47,8 @@ public class Product implements IdentifiedDataSerializable {
     @LastModifiedBy
     private String lastModifiedBy;
 
+    private String imageUrl;
+
     @Override
     public int getFactoryId() {
         return 1;
