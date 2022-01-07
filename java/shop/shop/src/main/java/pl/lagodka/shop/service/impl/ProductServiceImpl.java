@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     public Product create(Product product, MultipartFile image) {
          productRepository.save(product);
         try {
-            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + ".png" /*+ image.getOriginalFilename().*/);
+            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." + image.getOriginalFilename().toLowerCase());
             Files.copy(image.getInputStream(),path );
             product.setImageUrl(path.toString());
         } catch (IOException e) {
@@ -44,12 +44,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @CachePut(cacheNames = "product", key = "#result.id")
     public Product update(Product product, Long id) {
-        Product productDB = getById(id);
-        productDB.setName(product.getName());
-        productDB.setAvailable(product.isAvailable());
-        productDB.setPrice(product.getPrice());
-        productDB.setQuantity(product.getQuantity());
-        return productDB;
+        Product productDb = getById(id);
+        productDb.setName(product.getName());
+        productDb.setAvailable(product.isAvailable());
+        productDb.setPrice(product.getPrice());
+        productDb.setQuantity(product.getQuantity());
+        return productDb;
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 class UserMapperImplSpec extends Specification {
     def userMapper = new UserMapperImpl()
 
-    def 'should map User to UserDto'() {
+    def 'should map user to userDto'() {
         given:
         def user = new User(1, "Jakub", "Lagodka", "kuba", "password", "mail@gmail.com",
                 LocalDateTime.of(2022, 1, 6, 13, 30, 50), "kuba",
@@ -36,7 +36,7 @@ class UserMapperImplSpec extends Specification {
         result.revisionType == null
     }
 
-    def 'should map UserDto to User'() {
+    def 'should map userDto to user'() {
         given:
         def userDto = new UserDto(1, "Jakub", "Lagodka", "kuba", "password", "password", "mail@gmail.com",
                 LocalDateTime.of(2022, 1, 6, 13, 30, 50), "kuba",

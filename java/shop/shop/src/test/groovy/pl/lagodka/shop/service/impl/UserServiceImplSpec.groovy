@@ -1,6 +1,9 @@
 package pl.lagodka.shop.service.impl
 
 import org.springframework.data.domain.Pageable
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContext
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.crypto.password.PasswordEncoder
 import pl.lagodka.shop.model.dao.Role
 import pl.lagodka.shop.model.dao.User
@@ -78,11 +81,18 @@ class UserServiceImplSpec extends Specification {
         userService.update(user, id)
 
         then:
-        1 * userService.getById(id)
-        1 * user.getFirstName()
+        1 * userRepository.getById(id) >> userDb
+        1 * user.getFirstName() >> "Jakub"
         1 * userDb.setFirstName("Jakub")
-        1 * user.getLastName()
+        1 * user.getLastName() >> "Lagodka"
         1 * userDb.setLastName("Lagodka")
         0 * _
+    }
+
+    def 'should get current user'(){
+        given:
+        def authentication = Mock(Authentication)
+        def securityContext = Mock(SecurityContext)
+        SecurityContextHolder.setContext(securityContext)
     }
 }

@@ -2,6 +2,7 @@ package pl.lagodka.shop.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.lagodka.shop.exception.NotEnoughProductQuantityException;
 import pl.lagodka.shop.model.dao.Basket;
 import pl.lagodka.shop.model.dao.Product;
 import pl.lagodka.shop.model.dao.User;
@@ -29,11 +30,11 @@ public class BasketServiceImpl implements BasketService {
     public void addProduct(Long productId, double quantity) {
         User currentUser = userService.getCurrentUser();
         if (quantity > productService.getById(productId).getQuantity())
-            throw new NoSuchElementException();
+            throw new NotEnoughProductQuantityException("Given quantity " + quantity + " is too high for product" + productId);
         basketRepository.findByProductIdAndUserId(productId, currentUser.getId())
                 .ifPresentOrElse(basket -> {
                     if (basket.getQuantity() + quantity > productService.getById(productId).getQuantity())
-                        throw new NoSuchElementException();
+                        throw new NotEnoughProductQuantityException("Given quantity " + basket.getQuantity() + quantity + " is too high for product" + productId);
                     basket.setQuantity(basket.getQuantity() + quantity);
                     basketRepository.save(basket);
                 }, () -> basketRepository.save(Basket.builder()
