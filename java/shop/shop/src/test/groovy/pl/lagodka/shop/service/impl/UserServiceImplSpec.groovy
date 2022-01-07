@@ -67,4 +67,22 @@ class UserServiceImplSpec extends Specification {
         1 * userRepository.save(user)
         0 * _
     }
+
+    def 'should update user'() {
+        given:
+        def user = Mock(User)
+        def id = 1
+        def userDb = Mock(User)
+
+        when:
+        userService.update(user, id)
+
+        then:
+        1 * userService.getById(id)
+        1 * user.getFirstName()
+        1 * userDb.setFirstName("Jakub")
+        1 * user.getLastName()
+        1 * userDb.setLastName("Lagodka")
+        0 * _
+    }
 }
