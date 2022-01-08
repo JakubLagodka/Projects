@@ -89,10 +89,20 @@ class UserServiceImplSpec extends Specification {
         0 * _
     }
 
-    def 'should get current user'(){
+    def 'should get current user'() {
         given:
         def authentication = Mock(Authentication)
         def securityContext = Mock(SecurityContext)
         SecurityContextHolder.setContext(securityContext)
+
+
+        when:
+        userService.getCurrentUser()
+
+        then:
+        1 * securityContext.getAuthentication() >> authentication
+        1 * authentication.getName() >> "kuba"
+        1 * userRepository.findByLogin("kuba") >> Optional.of(new User())
+        0 * _
     }
 }

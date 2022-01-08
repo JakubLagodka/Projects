@@ -2,6 +2,8 @@ package pl.lagodka.shop.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -32,7 +34,8 @@ public class ProductServiceImpl implements ProductService {
     public Product create(Product product, MultipartFile image) {
          productRepository.save(product);
         try {
-            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." + image.getOriginalFilename().toLowerCase());
+
+            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
             Files.copy(image.getInputStream(),path );
             product.setImageUrl(path.toString());
         } catch (IOException e) {

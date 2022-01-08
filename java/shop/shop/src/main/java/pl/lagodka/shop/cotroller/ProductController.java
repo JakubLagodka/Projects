@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import pl.lagodka.shop.mapper.ProductMapper;
 import pl.lagodka.shop.model.dto.ProductDto;
 import pl.lagodka.shop.service.ProductService;
+import pl.lagodka.shop.validator.FileValid;
 import pl.lagodka.shop.validator.group.Create;
 
 import javax.validation.Valid;
@@ -24,9 +25,8 @@ public class ProductController {
     private final ProductMapper productMapper;
 
     @PostMapping
-    @Validated(Create.class)
     //@PreAuthorize("hasRole('ADMIN')")
-    public ProductDto saveProduct(@Valid @RequestPart ProductDto productDto, @RequestPart MultipartFile image) {
+    public ProductDto saveProduct(@Valid @RequestPart ProductDto productDto,  @RequestPart @Valid @FileValid MultipartFile image) {
         return productMapper.toDto(productService.create(productMapper.toDao(productDto), image));
     }
 
