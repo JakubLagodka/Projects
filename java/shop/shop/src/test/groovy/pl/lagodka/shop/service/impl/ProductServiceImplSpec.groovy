@@ -47,7 +47,7 @@ class ProductServiceImplSpec extends Specification {
         0 * _
     }
 
-    def 'should create product'() {
+    def 'should save product'() {
         given:
         def product = Mock(Product)
         def image = Mock(MultipartFile)
@@ -59,6 +59,7 @@ class ProductServiceImplSpec extends Specification {
         1 * productRepository.save(product)
         0 * _
     }
+
     def 'should update product'() {
         given:
         def product = Mock(Product)

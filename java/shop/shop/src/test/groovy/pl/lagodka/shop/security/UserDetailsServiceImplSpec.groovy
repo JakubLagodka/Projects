@@ -12,11 +12,11 @@ class UserDetailsServiceImplSpec extends Specification {
         def username = "kuba"
         def userRepository = Mock(UserRepository)
 
-        then:
+        when:
         userDetailsServiceImpl.loadUserByUsername(username)
 
-        when:
+        then:
         1 * userRepository.findByLoginOrMail(username, username)
-        1*
+        0 * _
     }
 }
