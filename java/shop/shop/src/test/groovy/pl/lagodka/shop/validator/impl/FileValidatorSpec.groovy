@@ -1,5 +1,6 @@
 package pl.lagodka.shop.validator.impl
 
+import org.apache.commons.io.FilenameUtils
 import org.springframework.mock.web.MockMultipartFile
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.commons.CommonsMultipartFile
@@ -12,7 +13,8 @@ class FileValidatorSpec extends Specification {
     def 'should test file validator'() {
         given:
         def multipartFile = Mock(MultipartFile)
-       // extension: extension
+        multipartFile.getOriginalFilename() >> extension
+
         when:
         def result = fileValidator.isValid(multipartFile, null)
 
@@ -21,8 +23,8 @@ class FileValidatorSpec extends Specification {
 
         where:
         extension || expected
-        "jpg"     || true
-        "png"     || true
-        "txt"     || false
+        "file.jpg"     || true
+        "file.png"     || true
+        "file.txt"     || false
     }
 }

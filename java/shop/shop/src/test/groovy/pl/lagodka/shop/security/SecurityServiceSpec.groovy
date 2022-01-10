@@ -19,20 +19,21 @@ class SecurityServiceSpec extends Specification {
         def securityContext = Mock(SecurityContext)
         SecurityContextHolder.setContext(securityContext)
         def userRepository = Mock(UserRepository)
-        def user = Mock(User)
+        def user = new User(id : id)
+        userService.getCurrentUser() >> user
 
         when:
-        securityService.hasAccessToUser(id)
+        def result = securityService.hasAccessToUser(id)
 
         then:
-        1 * securityContext.getAuthentication() >> authentication
-        1 * authentication.getName() >> "kuba"
-        1 * SecurityUtils.getCurrentUserLogin() >> "kuba"
-        1 * userService.getCurrentUser() >> new User()
-        1 * userRepository.findByLogin("kuba") >> Optional.of(new User())
-        1 * user.getId() >> id
-        1 * id.equals(id) >> true
-        0 * _
-
+//        1 * securityContext.getAuthentication() >> authentication
+//        1 * authentication.getName() >> "kuba"
+//        1 * SecurityUtils.getCurrentUserLogin() >> "kuba"
+//        1 * userService.getCurrentUser()
+//        1 * userRepository.findByLogin("kuba") >> Optional.of(new User())
+//        1 * user.getId() >> id
+//        1 * user.getId().equals(id)
+//        0 * _
+        result
     }
 }
