@@ -36,6 +36,28 @@ class UserMapperImplSpec extends Specification {
         result.revisionType == null
     }
 
+    def 'should map user to userDto return null'(){
+        given:
+        def user = null
+
+        when:
+        def result = userMapper.toDto(user)
+
+        then:
+        result == null
+    }
+
+    def 'should map userDto to user return null'(){
+        given:
+        def userDto = null
+
+        when:
+        def result = userMapper.toDao(userDto)
+
+        then:
+        result == null
+    }
+
     def 'should map userDto to user'() {
         given:
         def userDto = new UserDto(1, "Jakub", "Lagodka", "kuba", "password", "password", "mail@gmail.com",

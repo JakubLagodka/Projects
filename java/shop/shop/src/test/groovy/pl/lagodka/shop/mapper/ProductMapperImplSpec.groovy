@@ -53,4 +53,26 @@ class ProductMapperImplSpec extends Specification {
         result.quantity == productDto.quantity
         result.imageUrl == productDto.imageUrl
     }
+
+    def 'should map product to productDto return null'(){
+        given:
+        def product = null
+
+        when:
+        def result = productMapper.toDto(product)
+
+        then:
+        result == null
+    }
+
+    def 'should map productDto to product return null'(){
+        given:
+        def productDto = null
+
+        when:
+        def result = productMapper.toDao(productDto)
+
+        then:
+        result == null
+    }
 }
