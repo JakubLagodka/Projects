@@ -13,15 +13,14 @@ class UserDetailsServiceImplSpec extends Specification {
     def 'should load user by username'() {
         given:
         def username = "kuba"
-        def user = new User()
-        user.getRoles() >> Arrays.asList(new Role())
+        def user = new User(login:"login",password: "password", roles: Arrays.asList(new Role(name: "user")))
+      //  user.getRoles() >> Arrays.asList(new Role())
 
         when:
         userDetailsServiceImpl.loadUserByUsername(username)
 
         then:
         1 * userRepository.findByLoginOrMail(username, username) >> Optional.of(user)
-        1 * user.getRoles() >> Arrays.asList(new Role())
-                0 * _
+        0 * _
     }
 }
