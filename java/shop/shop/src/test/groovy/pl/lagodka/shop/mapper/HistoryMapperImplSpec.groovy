@@ -54,4 +54,26 @@ class HistoryMapperImplSpec extends Specification{
         result.revisionType == revision.getMetadata().getRevisionType()
 
     }
+    def 'should map revision to productDto return null'(){
+        given:
+        def revision = null
+
+        when:
+        def result = historyMapper.toProductDto(revision)
+
+        then:
+        result == null
+    }
+
+    def 'should map revision to userDto return null'(){
+        given:
+        def revision = null
+
+        when:
+        def result = historyMapper.toUserDto(revision)
+
+        then:
+        result == null
+    }
+
 }
