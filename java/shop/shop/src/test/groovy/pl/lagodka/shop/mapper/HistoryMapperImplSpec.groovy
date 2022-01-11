@@ -34,7 +34,7 @@ class HistoryMapperImplSpec extends Specification{
 
     def 'should map Revision<Integer, Product> to productDto'(){
         given:
-        def revision = new  Revision<Integer, Product>()
+        def revision = new Revision<Integer, Product>()
 
         when:
         def result = historyMapper.toProductDto(revision)

@@ -7,6 +7,8 @@ import pl.lagodka.shop.model.dao.Product
 import pl.lagodka.shop.repository.ProductRepository
 import spock.lang.Specification
 
+import java.nio.file.Paths
+
 class ProductServiceImplSpec extends Specification {
     def productRepository = Mock(ProductRepository)
     def productService = new ProductServiceImpl(productRepository)
@@ -51,12 +53,18 @@ class ProductServiceImplSpec extends Specification {
         given:
         def product = Mock(Product)
         def image = Mock(MultipartFile)
+        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\")
 
         when:
         productService.create(product, image)
 
         then:
         1 * productRepository.save(product)
+        1 * product.getId()
+        1 * image.getOriginalFilename() >> "file.png"
+        1 * image.getInputStream()
+        1 * path.toString() >> "file.png"
+        1 * product.setImageUrl("file.png");
         0 * _
     }
 
@@ -70,15 +78,15 @@ class ProductServiceImplSpec extends Specification {
         productService.update(product, id)
 
         then:
-        1 * productRepository.getById(id)
-        1 * product.getName()
+        1 * productRepository.getById(id) >> productDb
+        1 * product.getName() >> "pen"
         1 * productDb.setName("pen");
-        1 * product.isAvailable()
-        1 * productDb.setAvailable();
-        1 * product.getPrice()
-        1 * productDb.setPrice();
-        1 * product.getQuantity()
-        1 * productDb.setQuantity();
+        1 * product.isAvailable() >> true
+        1 * productDb.setAvailable(true);
+        1 * product.getPrice() >> 9.99
+        1 * productDb.setPrice(9.99);
+        1 * product.getQuantity() >> 10
+        1 * productDb.setQuantity(10);
         0 * _
     }
 }
