@@ -1,0 +1,4 @@
+INSERT INTO vacation(type) VALUES ('TYPE_LEISURE');
+INSERT INTO vacation(type) VALUES ('TYPE_ON_DEMAND');
+INSERT INTO vacation(type) VALUES ('TYPE_OCCASIONAL');
+INSERT INTO vacation(type) VALUES ('TYPE_ON_THE_BABY');
