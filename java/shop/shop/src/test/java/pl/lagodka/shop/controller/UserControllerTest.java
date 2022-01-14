@@ -39,17 +39,16 @@ class UserControllerTest {
                                 .build())))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists())
-                .andExpect(jsonPath("$.password").doesNotExist())
-                .andExpect(jsonPath("$.confirmPassword").doesNotExist())
                 .andExpect(jsonPath("$.login").value("jan"))
                 .andExpect(jsonPath("$.mail").value("jan@gmail.com"))
                 .andExpect(jsonPath("$.firstName").value("Jan"))
                 .andExpect(jsonPath("$.lastName").value("Kowalski"))
-                .andExpect(jsonPath("$.lastName").value("Kowalski"))
-                .andExpect(jsonPath("$.lastName").value("Kowalski"));
-
-
-
+                .andExpect(jsonPath("$.createdDate").exists())
+                .andExpect(jsonPath("$.createdBy").exists())
+                .andExpect(jsonPath("$.lastModifiedDate").exists())
+                .andExpect(jsonPath("$.lastModifiedBy").exists())
+                .andExpect(jsonPath("$.revisionType").doesNotExist())
+                .andExpect(jsonPath("$.revisionNumber").doesNotExist());
 
     }
 }
