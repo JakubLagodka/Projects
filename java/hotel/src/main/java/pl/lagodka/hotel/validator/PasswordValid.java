@@ -1,6 +1,6 @@
-package pl.lagodka.shop.validator;
+package pl.lagodka.hotel.validator;
 
-import pl.lagodka.shop.validator.impl.PasswordValidator;
+import pl.lagodka.hotel.validator.impl.PasswordValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
