@@ -5,11 +5,12 @@ import org.springframework.security.core.context.SecurityContext
 import org.springframework.security.core.context.SecurityContextHolder
 import pl.lagodka.shop.model.dao.User
 import pl.lagodka.shop.repository.UserRepository
+import pl.lagodka.shop.service.UserService
 import pl.lagodka.shop.service.impl.UserServiceImpl
 import spock.lang.Specification
 
 class SecurityServiceSpec extends Specification {
-    def userService = Mock(UserServiceImpl)
+    def userService = Mock(UserService)
     def securityService = new SecurityService(userService)
 
     def 'should check if has access to user'() {
