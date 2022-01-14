@@ -44,7 +44,7 @@ public class ReservationController {
     @PutMapping("/{id}")
     @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public ReservationDto updateReservation(@RequestBody @Valid ReservationDto reservation, @PathVariable Long id){
-        return reservationMapper.toDto(reservationMapper.update(reservationMapper.toDao(reservation), id));
+        return reservationMapper.toDto(reservationService.update(reservationMapper.toDao(reservation), id));
     }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")

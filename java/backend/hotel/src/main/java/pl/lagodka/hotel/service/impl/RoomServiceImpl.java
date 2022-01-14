@@ -1,10 +1,13 @@
 package pl.lagodka.hotel.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 import pl.lagodka.hotel.model.dao.Room;
 import pl.lagodka.hotel.service.RoomService;
-
+@Service
+@RequiredArgsConstructor
 public class RoomServiceImpl implements RoomService {
     @Override
     public Room create(Room room) {

@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import pl.lagodka.shop.helper.FileHelper;
 import pl.lagodka.shop.model.dao.Product;
 import pl.lagodka.shop.repository.ProductRepository;
 import pl.lagodka.shop.service.ProductService;
@@ -28,6 +29,8 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
+    private final FileHelper fileHelper;
+
     @Override
     @CachePut(cacheNames = "product", key = "#result.id")
     @Transactional
@@ -36,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
         try {
 
             Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
-            Files.copy(image.getInputStream(),path );
+            fileHelper.saveFile(image.getInputStream(),path);
             product.setImageUrl(path.toString());
         } catch (IOException e) {
             log.error("Failed to save file", e);

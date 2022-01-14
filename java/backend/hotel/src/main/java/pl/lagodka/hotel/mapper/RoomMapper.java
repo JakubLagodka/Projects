@@ -8,6 +8,5 @@ import pl.lagodka.hotel.model.dto.RoomDto;
 public interface RoomMapper {
     Room toDao(RoomDto roomDto);
 
-    @Mapping(target = "password",ignore = true)
     RoomDto toDto(Room room);
 }

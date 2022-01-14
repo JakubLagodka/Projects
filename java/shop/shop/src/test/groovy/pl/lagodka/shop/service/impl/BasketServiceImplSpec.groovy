@@ -61,7 +61,7 @@ class BasketServiceImplSpec extends Specification {
         1 * userService.getCurrentUser() >> currentUser
         2 * productService.getById(productId) >> new Product(quantity: 5)
         1 * basketRepository.findByProductIdAndUserId(productId, userId) >> Optional.empty()
-        1 * basketRepository.save(basket)
+        1 * basketRepository.save(_ as Basket)
         0 * _
     }
 

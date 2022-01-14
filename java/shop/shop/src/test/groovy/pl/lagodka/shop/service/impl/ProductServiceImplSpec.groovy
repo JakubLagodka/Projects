@@ -1,8 +1,9 @@
 package pl.lagodka.shop.service.impl
 
-
+import org.apache.commons.io.FilenameUtils
 import org.springframework.data.domain.Pageable
 import org.springframework.web.multipart.MultipartFile
+import pl.lagodka.shop.helper.FileHelper
 import pl.lagodka.shop.model.dao.Product
 import pl.lagodka.shop.repository.ProductRepository
 import spock.lang.Specification
@@ -11,7 +12,8 @@ import java.nio.file.Paths
 
 class ProductServiceImplSpec extends Specification {
     def productRepository = Mock(ProductRepository)
-    def productService = new ProductServiceImpl(productRepository)
+    def fileHelper = Mock(FileHelper)
+    def productService = new ProductServiceImpl(productRepository, fileHelper)
 
     def 'should return product by id'() {
         given:
@@ -53,18 +55,40 @@ class ProductServiceImplSpec extends Specification {
         given:
         def product = Mock(Product)
         def image = Mock(MultipartFile)
-        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\")
+        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
+        def inputStream = Mock(InputStream)
+
 
         when:
         productService.create(product, image)
 
         then:
         1 * productRepository.save(product)
-        1 * product.getId()
+        1 * product.getId() >> 1
         1 * image.getOriginalFilename() >> "file.png"
-        1 * image.getInputStream()
-        1 * path.toString() >> "file.png"
-        1 * product.setImageUrl("file.png");
+        1 * image.getInputStream() >> inputStream
+        1 * fileHelper.saveFile(inputStream, path)
+        1 * product.setImageUrl("C:\\Users\\Kuba\\Desktop\\images\\1.png");
+        0 * _
+    }
+
+    def 'should save product without file'() {
+        given:
+        def product = Mock(Product)
+        def image = Mock(MultipartFile)
+        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
+        def inputStream = Mock(InputStream)
+
+
+        when:
+        productService.create(product, image)
+
+        then:
+        1 * productRepository.save(product)
+        1 * product.getId() >> 1
+        1 * image.getOriginalFilename() >> "file.png"
+        1 * image.getInputStream() >> inputStream
+        1 * fileHelper.saveFile(inputStream, path) >> {throw new IOException()}
         0 * _
     }
 

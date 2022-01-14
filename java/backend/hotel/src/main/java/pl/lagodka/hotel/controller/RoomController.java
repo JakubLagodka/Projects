@@ -47,7 +47,7 @@ public class RoomController {
     @PutMapping("/{id}")
     @PreAuthorize("isAuthenticated() && hasRole('ADMIN')")
     public RoomDto updateRoom(@RequestBody @Valid RoomDto room, @PathVariable Long id){
-        return roomMapper.toDto(roomMapper.update(roomMapper.toDao(room), id));
+        return roomMapper.toDto(roomService.update(roomMapper.toDao(room), id));
     }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
