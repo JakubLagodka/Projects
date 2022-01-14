@@ -49,12 +49,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @CachePut(cacheNames = "product", key = "#result.id")
-    public Product update(Product product, Long id) {
+    public Product update(Product product, Long id, MultipartFile image) {
         Product productDb = getById(id);
         productDb.setName(product.getName());
         productDb.setAvailable(product.isAvailable());
         productDb.setPrice(product.getPrice());
         productDb.setQuantity(product.getQuantity());
+        try {
+            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
+            fileHelper.saveFile(image.getInputStream(),path);
+            product.setImageUrl(path.toString());
+        } catch (IOException e) {
+            log.error("Failed to save file", e);
+        }
         return productDb;
     }
 

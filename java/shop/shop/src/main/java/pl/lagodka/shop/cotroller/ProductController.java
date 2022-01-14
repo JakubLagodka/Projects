@@ -42,9 +42,9 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ProductDto updateProduct(@RequestBody @Valid ProductDto productDto, @PathVariable Long id) {
-        return productMapper.toDto(productService.update(productMapper.toDao(productDto), id));
+    //@PreAuthorize("hasRole('ADMIN')")
+    public ProductDto updateProduct(@Valid @RequestPart ProductDto productDto, @RequestPart @Valid @FileValid  MultipartFile image, @PathVariable Long id) {
+        return productMapper.toDto(productService.update(productMapper.toDao(productDto), id, image));
     }
 
     @DeleteMapping("/{id}")

@@ -8,7 +8,7 @@ import pl.lagodka.shop.model.dao.Product;
 public interface ProductService {
     Product create(Product product, MultipartFile image);
 
-    Product update(Product product, Long id);
+    Product update(Product product, Long id, MultipartFile image);
 
     void delete(Long id);
 
