@@ -88,7 +88,7 @@ class ProductServiceImplSpec extends Specification {
         1 * product.getId() >> 1
         1 * image.getOriginalFilename() >> "file.png"
         1 * image.getInputStream() >> inputStream
-        1 * fileHelper.saveFile(inputStream, path) >> {throw new IOException()}
+        1 * fileHelper.saveFile(inputStream, path) >> { throw new IOException() }
         0 * _
     }
 
@@ -100,9 +100,10 @@ class ProductServiceImplSpec extends Specification {
         def image = Mock(MultipartFile)
         def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
         def inputStream = Mock(InputStream)
+        def oldImageUrl = "C:\\Users\\Kuba\\Desktop\\images\\1.png"
 
         when:
-        productService.update(product, id,image)
+        productService.update(product, id, image)
 
         then:
         1 * productRepository.getById(id) >> productDb
@@ -114,11 +115,12 @@ class ProductServiceImplSpec extends Specification {
         1 * productDb.setPrice(9.99);
         1 * product.getQuantity() >> 10
         1 * productDb.setQuantity(10);
-        1 * product.getId() >> 1
+        1 * productDb.getId() >> 1
         1 * image.getOriginalFilename() >> "file.png"
         1 * image.getInputStream() >> inputStream
         1 * fileHelper.saveFile(inputStream, path)
-        1 * product.setImageUrl("C:\\Users\\Kuba\\Desktop\\images\\1.png");
+        1 * productDb.getImageUrl() >> oldImageUrl
+        1 * productDb.setImageUrl("C:\\Users\\Kuba\\Desktop\\images\\1.png");
         0 * _
     }
 
@@ -145,10 +147,10 @@ class ProductServiceImplSpec extends Specification {
         1 * productDb.setPrice(9.99);
         1 * product.getQuantity() >> 10
         1 * productDb.setQuantity(10);
-        1 * product.getId() >> 1
+        1 * productDb.getId() >> 1
         1 * image.getOriginalFilename() >> "file.png"
         1 * image.getInputStream() >> inputStream
-        1 * fileHelper.saveFile(inputStream, path) >> {throw new IOException()}
+        1 * fileHelper.saveFile(inputStream, path) >> { throw new IOException() }
         0 * _
     }
 }
