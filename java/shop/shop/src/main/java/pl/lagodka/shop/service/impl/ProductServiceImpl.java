@@ -56,9 +56,14 @@ public class ProductServiceImpl implements ProductService {
         productDb.setPrice(product.getPrice());
         productDb.setQuantity(product.getQuantity());
         try {
-            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
+            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + productDb.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
             fileHelper.saveFile(image.getInputStream(),path);
-            product.setImageUrl(path.toString());
+            String oldImageUrl = productDb.getImageUrl();
+            productDb.setImageUrl(path.toString());
+            if(!path.toString().equals(oldImageUrl)){
+                Files.delete(Paths.get(oldImageUrl));
+            }
+
         } catch (IOException e) {
             log.error("Failed to save file", e);
         }

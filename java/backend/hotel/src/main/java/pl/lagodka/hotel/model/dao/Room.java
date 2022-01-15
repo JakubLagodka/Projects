@@ -1,6 +1,5 @@
 package pl.lagodka.hotel.model.dao;
 
-import org.springframework.lang.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

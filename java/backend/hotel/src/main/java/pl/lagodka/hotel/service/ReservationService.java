@@ -3,7 +3,7 @@ package pl.lagodka.hotel.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pl.lagodka.hotel.model.dao.Reservation;
-import pl.lagodka.hotel.model.dao.User;
+
 
 public interface ReservationService {
     Reservation create(Reservation reservation);
