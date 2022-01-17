@@ -45,6 +45,8 @@ class UserControllerTest {
                                 .build())))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.password").doesNotExist())
+                .andExpect(jsonPath("$.confirmPassword").doesNotExist())
                 .andExpect(jsonPath("$.login").value("jan"))
                 .andExpect(jsonPath("$.mail").value("jan@gmail.com"))
                 .andExpect(jsonPath("$.firstName").value("Jan"))
@@ -96,5 +98,20 @@ class UserControllerTest {
                 .andExpect(jsonPath("$[*].fieldName",containsInAnyOrder("login","lastName","mail","firstName")))
                 .andExpect(jsonPath("$[*].message",containsInAnyOrder("must not be blank","must not be blank","must not be blank","must not be blank")));
 
+    }
+
+    @Test
+    void shouldNotSaveUserWhenNotValidPassword() throws Exception {
+        mockMvc.perform(post("/api/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(UserDto.builder()
+                                .password("password")
+                                .confirmPassword("pass")
+                                .mail("")
+                                .firstName("")
+                                .lastName("")
+                                .login("")
+                                .build())))
+                .andExpect(status().isBadRequest());
     }
 }

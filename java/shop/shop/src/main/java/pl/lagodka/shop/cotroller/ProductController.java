@@ -25,7 +25,7 @@ public class ProductController {
     private final ProductMapper productMapper;
 
     @PostMapping
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ProductDto saveProduct(@Valid @RequestPart ProductDto productDto,  @RequestPart @Valid @FileValid MultipartFile image) {
         return productMapper.toDto(productService.create(productMapper.toDao(productDto), image));
     }
@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ProductDto updateProduct(@Valid @RequestPart ProductDto productDto, @RequestPart @Valid @FileValid  MultipartFile image, @PathVariable Long id) {
         return productMapper.toDto(productService.update(productMapper.toDao(productDto), id, image));
     }
