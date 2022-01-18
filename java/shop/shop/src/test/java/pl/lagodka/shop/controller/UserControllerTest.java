@@ -14,6 +14,8 @@ import pl.lagodka.shop.model.dao.User;
 import pl.lagodka.shop.model.dto.UserDto;
 import pl.lagodka.shop.repository.UserRepository;
 
+import java.time.LocalDateTime;
+
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -67,17 +69,21 @@ class UserControllerTest {
                 .login("jan")
                 .mail("jan@gmail.com")
                 .password("password")
+                .createdBy("user")
+                .createdDate(LocalDateTime.of(2022, 1, 5, 12, 40, 50))
+                .lastModifiedBy("user")
+                .lastModifiedDate(LocalDateTime.of(2022, 1, 15, 12, 40, 50))
                 .build());
         mockMvc.perform(post("/api/users")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(UserDto.builder()
-                        .firstName("Jan")
-                        .lastName("Kowalski")
-                        .login("jan")
-                        .mail("jan@gmail.com")
-                        .password("password")
-                        .confirmPassword("password")
-                        .build())))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(UserDto.builder()
+                                .firstName("Jan")
+                                .lastName("Kowalski")
+                                .login("jan")
+                                .mail("jan@gmail.com")
+                                .password("password")
+                                .confirmPassword("password")
+                                .build())))
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$").doesNotExist());
     }
@@ -85,18 +91,18 @@ class UserControllerTest {
     @Test
     void shouldNotSaveUserWhenUncorrectedData() throws Exception {
         mockMvc.perform(post("/api/users")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(UserDto.builder()
-                        .password("password")
-                        .confirmPassword("password")
-                        .mail("")
-                        .firstName("")
-                        .lastName("")
-                        .login("")
-                        .build())))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(UserDto.builder()
+                                .password("password")
+                                .confirmPassword("password")
+                                .mail("")
+                                .firstName("")
+                                .lastName("")
+                                .login("")
+                                .build())))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$[*].fieldName",containsInAnyOrder("login","lastName","mail","firstName")))
-                .andExpect(jsonPath("$[*].message",containsInAnyOrder("must not be blank","must not be blank","must not be blank","must not be blank")));
+                .andExpect(jsonPath("$[*].fieldName", containsInAnyOrder("login", "lastName", "mail", "firstName")))
+                .andExpect(jsonPath("$[*].message", containsInAnyOrder("must not be blank", "must not be blank", "must not be blank", "must not be blank")));
 
     }
 
@@ -112,6 +118,9 @@ class UserControllerTest {
                                 .lastName("")
                                 .login("")
                                 .build())))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$[*].fieldName", containsInAnyOrder("login", "lastName", "mail", "firstName")))
+                .andExpect(jsonPath("$[*].message", containsInAnyOrder("must not be blank", "must not be blank", "must not be blank", "must not be blank")));
+
     }
 }

@@ -25,7 +25,7 @@ public class ProductDto {
     @PositiveOrZero
     private Double price;
     @NotNull
-    private boolean isAvailable;
+    private boolean available;
     @PositiveOrZero
     private double quantity;
 

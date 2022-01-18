@@ -22,7 +22,8 @@ public interface HistoryMapper {
     @Mapping(source = "entity.id", target = "id")
     @Mapping(source = "entity.name", target = "name")
     @Mapping(source = "entity.price", target = "price")
-    @Mapping(source = "entity.available", target = "isAvailable")
+    @Mapping(source = "entity.quantity", target = "quantity")
+    @Mapping(source = "entity.available", target = "available")
     @Mapping(source = "metadata.revisionType", target = "revisionType")
     @Mapping(source = "requiredRevisionNumber", target = "revisionNumber")
     ProductDto toProductDto(Revision<Integer, Product> revision);

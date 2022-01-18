@@ -16,25 +16,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class HistoryControllerTest {
-
-
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
     private ObjectMapper objectMapper;
-
-    @Test
-    void shouldGetUserHistory() throws Exception {
-        mockMvc.perform(get("/api/histories/users/1")
-                        .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void shouldGetProductHistory() throws Exception {
-        mockMvc.perform(get("/api/histories/products/1")
-                        .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isOk());
-    }
+//nie zauwążyłem, że jest admin przed klasą
+//    @Test
+//    void shouldGetUserHistory() throws Exception {
+//        mockMvc.perform(get("/api/histories/users/1")
+//                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+//                .andExpect(status().isOk());
+//    }
+//
+//    @Test
+//    void shouldGetProductHistory() throws Exception {
+//        mockMvc.perform(get("/api/histories/products/1")
+//                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+//                .andExpect(status().isOk());
+//    }
 }

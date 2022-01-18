@@ -61,7 +61,7 @@ class HistoryMapperImplSpec extends Specification{
         result.lastModifiedDate == null
         result.name == revision.getEntity().getName()
         result.price == revision.getEntity().getPrice()
-        result.quantity == 0
+        result.quantity == 10
         result.imageUrl == null
         result.available == revision.getEntity().isAvailable()
         result.revisionNumber == revision.getRequiredRevisionNumber()

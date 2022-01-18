@@ -34,7 +34,7 @@ public class Product implements IdentifiedDataSerializable {
 
     private double price;
 
-    private boolean isAvailable;
+    private boolean available;
 
     private double quantity;
 
@@ -64,7 +64,7 @@ public class Product implements IdentifiedDataSerializable {
         objectDataOutput.writeLong(id);
         objectDataOutput.writeString(name);
         objectDataOutput.writeDouble(price);
-        objectDataOutput.writeBoolean(isAvailable);
+        objectDataOutput.writeBoolean(available);
         objectDataOutput.writeDouble(quantity);
     }
 
@@ -73,7 +73,7 @@ public class Product implements IdentifiedDataSerializable {
         id = objectDataInput.readLong();
         name = objectDataInput.readString();
         price = objectDataInput.readDouble();
-        isAvailable = objectDataInput.readBoolean();
+        available = objectDataInput.readBoolean();
         quantity = objectDataInput.readDouble();
     }
 }
