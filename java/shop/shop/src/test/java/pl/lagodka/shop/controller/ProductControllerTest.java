@@ -56,6 +56,15 @@ public class ProductControllerTest {
     }
 
     @Test
+    void shouldGetProductDoesNotExistsException() throws Exception {
+
+        mockMvc.perform(get("/api/products/1")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$").doesNotExist());
+    }
+
+    @Test
     void shouldGetProductPage() throws Exception {
         productRepository.save(Product.builder()
                 .name("pen")
@@ -74,5 +83,25 @@ public class ProductControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content").exists())
                 .andExpect(jsonPath("$.pageable").exists());
+    }
+
+    @Test
+    void shouldGetIllegalArgumentException() throws Exception {
+        productRepository.save(Product.builder()
+                .name("pen")
+                .price(9.99)
+                .available(true)
+                .quantity(10)
+                .createdBy("user")
+                .createdDate(LocalDateTime.of(2022, 1, 5, 12, 40, 50))
+                .imageUrl("http:://https://m")
+                .lastModifiedBy("jan")
+                .lastModifiedDate(LocalDateTime.of(2022, 1, 15, 12, 40, 50))
+                .build());
+
+        mockMvc.perform(get("/api/products?page=1&size=0")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isInternalServerError())
+                .andExpect(jsonPath("$").doesNotExist());
     }
 }
