@@ -18,7 +18,7 @@ import pl.lagodka.shop.service.ProductService;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
-import java.nio.file.Files;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -61,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
             String oldImageUrl = productDb.getImageUrl();
             productDb.setImageUrl(path.toString());
             if(!path.toString().equals(oldImageUrl)){
-                Files.delete(Paths.get(oldImageUrl));
+                fileHelper.deleteFile(Paths.get(oldImageUrl));
             }
 
         } catch (IOException e) {
