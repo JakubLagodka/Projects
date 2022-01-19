@@ -58,7 +58,7 @@ public class ProductControllerTest {
     @Test
     void shouldGetProductDoesNotExistsException() throws Exception {
 
-        mockMvc.perform(get("/api/products/1")
+        mockMvc.perform(get("/api/products/10")
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isNotFound())
                 .andExpect(jsonPath("$").doesNotExist());
