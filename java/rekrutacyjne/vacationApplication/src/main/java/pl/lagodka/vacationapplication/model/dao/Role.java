@@ -1,19 +1,20 @@
 package pl.lagodka.vacationapplication.model.dao;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Data
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Role {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id", nullable = false)
     private Long id;
 
     private String name;
