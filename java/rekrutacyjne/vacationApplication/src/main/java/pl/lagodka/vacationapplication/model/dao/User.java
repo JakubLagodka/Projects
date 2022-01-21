@@ -27,8 +27,8 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 @Audited
 public class User {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id", nullable = false)
     private Long id;
 
     private String firstName;
@@ -36,7 +36,7 @@ public class User {
     private String lastName;
 
     private String login;
-
+    @NotAudited
     private String password;
 
     private Integer intership;
