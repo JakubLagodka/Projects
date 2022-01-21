@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import pl.lagodka.shop.model.dto.FieldErrorDto;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -58,5 +59,11 @@ public class AdviceController {
     @ResponseStatus(HttpStatus.CONFLICT)
     public void handleNoSuchElementException(NoSuchElementException e) {
         log.error("Requested products are not available in given quantity", e);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void handleConstraintViolationException(ConstraintViolationException e) {
+        log.error(e.getMessage(), e);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,10 +15,12 @@ import pl.lagodka.shop.model.dao.User;
 import pl.lagodka.shop.model.dto.UserDto;
 import pl.lagodka.shop.repository.UserRepository;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -25,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @TestPropertySource(locations = "classpath:application-test.yml")
+@Transactional
 class UserControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -113,14 +117,87 @@ class UserControllerTest {
                         .content(objectMapper.writeValueAsString(UserDto.builder()
                                 .password("password")
                                 .confirmPassword("pass")
-                                .mail("")
-                                .firstName("")
-                                .lastName("")
-                                .login("")
+                                .mail("jan@gmail.com")
+                                .firstName("Jan")
+                                .lastName("Nowak")
+                                .login("jak")
                                 .build())))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$[*].fieldName", containsInAnyOrder("login", "lastName", "mail", "firstName")))
                 .andExpect(jsonPath("$[*].message", containsInAnyOrder("must not be blank", "must not be blank", "must not be blank", "must not be blank")));
+
+    }
+
+    @Test
+    void shouldNotGetUserWhenUserIsUnauthorized() throws Exception {
+        mockMvc.perform(get("/api/users/1"))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$").doesNotExist());
+    }
+
+    @Test
+    void shouldNotGetUserWhenUserHasNotAccess() throws Exception {
+        mockMvc.perform(get("/api/users/1"))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$").doesNotExist());
+    }
+
+    //dopisac!
+    @Test
+    @WithMockUser(username = "john")
+    void shouldGetUserWhenUserHasAccess() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(get("/api/users/" + save.getId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").exists());
+    }
+
+    //dopisac!
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldGetUserWhenUserIsAdmin() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(get("/api/users/" + save.getId()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").exists());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldNotGetUserWhenUserDoesNotExist() throws Exception {
+        mockMvc.perform(get("/api/users/1"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$").doesNotExist());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldGetUserPage() throws Exception {
+        userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(get("/api/users/")
+                        .queryParam("page", "0")
+                        .queryParam("size", "10"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.content.length()").value(1))
+                .andExpect(jsonPath("$.content[*].firstName",containsInAnyOrder("John")));
 
     }
 }
