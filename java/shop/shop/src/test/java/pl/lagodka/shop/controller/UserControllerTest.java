@@ -223,7 +223,7 @@ class UserControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "john")
+    @WithMockUser
     void shouldNotGetUserPageWhenUserIsNotAdmin() throws Exception {
         userRepository.save(User.builder()
                 .firstName("John")

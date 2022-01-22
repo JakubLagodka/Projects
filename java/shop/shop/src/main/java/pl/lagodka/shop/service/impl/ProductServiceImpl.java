@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import pl.lagodka.shop.config.properties.FilePropertiesConfig;
 import pl.lagodka.shop.helper.FileHelper;
 import pl.lagodka.shop.model.dao.Product;
 import pl.lagodka.shop.repository.ProductRepository;
@@ -31,6 +32,8 @@ public class ProductServiceImpl implements ProductService {
 
     private final FileHelper fileHelper;
 
+    private final FilePropertiesConfig filePropertiesConfig;
+
     @Override
     @CachePut(cacheNames = "product", key = "#result.id")
     @Transactional
@@ -38,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
          productRepository.save(product);
         try {
 
-            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + product.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
+            Path path = Paths.get(filePropertiesConfig.getProduct() + product.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
             fileHelper.saveFile(image.getInputStream(),path);
             product.setImageUrl(path.toString());
         } catch (IOException e) {
@@ -56,7 +59,7 @@ public class ProductServiceImpl implements ProductService {
         productDb.setPrice(product.getPrice());
         productDb.setQuantity(product.getQuantity());
         try {
-            Path path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\" + productDb.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
+            Path path = Paths.get(filePropertiesConfig.getProduct() + productDb.getId() + "." +  FilenameUtils.getExtension(image.getOriginalFilename().toLowerCase()));
             fileHelper.saveFile(image.getInputStream(),path);
             String oldImageUrl = productDb.getImageUrl();
             productDb.setImageUrl(path.toString());
