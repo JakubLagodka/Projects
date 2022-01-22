@@ -1,6 +1,5 @@
 package pl.lagodka.shop.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -197,7 +195,140 @@ class UserControllerTest {
                         .queryParam("size", "10"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content.length()").value(1))
-                .andExpect(jsonPath("$.content[*].firstName",containsInAnyOrder("John")));
+                .andExpect(jsonPath("$.content[*].firstName", containsInAnyOrder("John")));
 
+    }
+
+    @Test
+    @WithMockUser(username = "john")
+    void shouldNotGetUserPageWhenUserIsNotAdmin() throws Exception {
+        userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(get("/api/users/")
+                        .queryParam("page", "0")
+                        .queryParam("size", "10"))
+                .andExpect(status().isForbidden());
+
+    }
+
+    @Test
+    @WithMockUser(username = "john")
+    void shouldUpdateUserWhenUserHasAccess() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(put("/api/users/" + save.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(UserDto.builder()
+                                .firstName("John")
+                                .lastName("Kowalski")
+                                .login("john")
+                                .mail("john@gmail.com")
+                                .password("password")
+                                .confirmPassword("password")
+                                .build())))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").exists());
+    }
+
+    @Test
+    @WithMockUser(username = "john")
+    void shouldNotUpdateUserWhenUserHasNotAccess() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("jacek")
+                .mail("jacek@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(put("/api/users/" + save.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(UserDto.builder()
+                                .firstName("John")
+                                .lastName("Kowalski")
+                                .login("jacek")
+                                .mail("jacek@gmail.com")
+                                .password("password")
+                                .confirmPassword("password")
+                                .build())))
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$").doesNotExist());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldUpdateUserWhenUserIsAdmin() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(put("/api/users/" + save.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(UserDto.builder()
+                                .firstName("John")
+                                .lastName("Kowalski")
+                                .login("john")
+                                .mail("john@gmail.com")
+                                .password("password")
+                                .confirmPassword("password")
+                                .build())))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").exists());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldNotUpdateUserWhenUserDoesNotExist() throws Exception {
+        mockMvc.perform(put("/api/users/1"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$").doesNotExist());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldDeleteUser() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(delete("/api/users/" + save.getId()))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(username = "john")
+    void shouldNotDeleteUserWhenUserIsNotAdmin() throws Exception {
+        User save = userRepository.save(User.builder()
+                .firstName("John")
+                .lastName("John")
+                .login("john")
+                .mail("john@gmail.com")
+                .password("pass")
+                .build());
+        mockMvc.perform(delete("/api/users/" + save.getId()))
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldNotDeleteUserWhenUserDoesNotExist() throws Exception {
+        mockMvc.perform(delete("/api/users/1"))
+                .andExpect(status().isNoContent())
+                .andExpect(jsonPath("$").doesNotExist());
     }
 }
