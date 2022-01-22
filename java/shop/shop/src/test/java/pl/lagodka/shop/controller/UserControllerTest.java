@@ -121,8 +121,7 @@ class UserControllerTest {
                                 .login("jak")
                                 .build())))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$[*].fieldName", containsInAnyOrder("login", "lastName", "mail", "firstName")))
-                .andExpect(jsonPath("$[*].message", containsInAnyOrder("must not be blank", "must not be blank", "must not be blank", "must not be blank")));
+                .andExpect(jsonPath("$").doesNotExist());
 
     }
 
@@ -140,7 +139,7 @@ class UserControllerTest {
                 .andExpect(jsonPath("$").doesNotExist());
     }
 
-    //dopisac!
+
     @Test
     @WithMockUser(username = "john")
     void shouldGetUserWhenUserHasAccess() throws Exception {
@@ -153,10 +152,22 @@ class UserControllerTest {
                 .build());
         mockMvc.perform(get("/api/users/" + save.getId()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").exists());
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.password").doesNotExist())
+                .andExpect(jsonPath("$.confirmPassword").doesNotExist())
+                .andExpect(jsonPath("$.login").value("john"))
+                .andExpect(jsonPath("$.mail").value("john@gmail.com"))
+                .andExpect(jsonPath("$.firstName").value("John"))
+                .andExpect(jsonPath("$.lastName").value("John"))
+                .andExpect(jsonPath("$.createdDate").exists())
+                .andExpect(jsonPath("$.createdBy").value("john"))
+                .andExpect(jsonPath("$.lastModifiedDate").exists())
+                .andExpect(jsonPath("$.lastModifiedBy").value("john"))
+                .andExpect(jsonPath("$.revisionType").doesNotExist())
+                .andExpect(jsonPath("$.revisionNumber").doesNotExist());
     }
 
-    //dopisac!
+
     @Test
     @WithMockUser(roles = "ADMIN")
     void shouldGetUserWhenUserIsAdmin() throws Exception {
@@ -169,7 +180,19 @@ class UserControllerTest {
                 .build());
         mockMvc.perform(get("/api/users/" + save.getId()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").exists());
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.password").doesNotExist())
+                .andExpect(jsonPath("$.confirmPassword").doesNotExist())
+                .andExpect(jsonPath("$.login").value("john"))
+                .andExpect(jsonPath("$.mail").value("john@gmail.com"))
+                .andExpect(jsonPath("$.firstName").value("John"))
+                .andExpect(jsonPath("$.lastName").value("John"))
+                .andExpect(jsonPath("$.createdDate").exists())
+                .andExpect(jsonPath("$.createdBy").value("user"))
+                .andExpect(jsonPath("$.lastModifiedDate").exists())
+                .andExpect(jsonPath("$.lastModifiedBy").value("user"))
+                .andExpect(jsonPath("$.revisionType").doesNotExist())
+                .andExpect(jsonPath("$.revisionNumber").doesNotExist());
     }
 
     @Test
@@ -212,8 +235,8 @@ class UserControllerTest {
         mockMvc.perform(get("/api/users/")
                         .queryParam("page", "0")
                         .queryParam("size", "10"))
-                .andExpect(status().isForbidden());
-
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$").doesNotExist());
     }
 
     @Test
@@ -237,7 +260,19 @@ class UserControllerTest {
                                 .confirmPassword("password")
                                 .build())))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").exists());
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.password").doesNotExist())
+                .andExpect(jsonPath("$.confirmPassword").doesNotExist())
+                .andExpect(jsonPath("$.login").value("john"))
+                .andExpect(jsonPath("$.mail").value("john@gmail.com"))
+                .andExpect(jsonPath("$.firstName").value("John"))
+                .andExpect(jsonPath("$.lastName").value("Kowalski"))
+                .andExpect(jsonPath("$.createdDate").exists())
+                .andExpect(jsonPath("$.createdBy").value("john"))
+                .andExpect(jsonPath("$.lastModifiedDate").exists())
+                .andExpect(jsonPath("$.lastModifiedBy").value("john"))
+                .andExpect(jsonPath("$.revisionType").doesNotExist())
+                .andExpect(jsonPath("$.revisionNumber").doesNotExist());
     }
 
     @Test
@@ -285,7 +320,19 @@ class UserControllerTest {
                                 .confirmPassword("password")
                                 .build())))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").exists());
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.password").doesNotExist())
+                .andExpect(jsonPath("$.confirmPassword").doesNotExist())
+                .andExpect(jsonPath("$.login").value("john"))
+                .andExpect(jsonPath("$.mail").value("john@gmail.com"))
+                .andExpect(jsonPath("$.firstName").value("John"))
+                .andExpect(jsonPath("$.lastName").value("Kowalski"))
+                .andExpect(jsonPath("$.createdDate").exists())
+                .andExpect(jsonPath("$.createdBy").value("user"))
+                .andExpect(jsonPath("$.lastModifiedDate").exists())
+                .andExpect(jsonPath("$.lastModifiedBy").value("user"))
+                .andExpect(jsonPath("$.revisionType").doesNotExist())
+                .andExpect(jsonPath("$.revisionNumber").doesNotExist());
     }
 
     @Test
@@ -307,7 +354,8 @@ class UserControllerTest {
                 .password("pass")
                 .build());
         mockMvc.perform(delete("/api/users/" + save.getId()))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").doesNotExist());
     }
 
     @Test
@@ -321,7 +369,8 @@ class UserControllerTest {
                 .password("pass")
                 .build());
         mockMvc.perform(delete("/api/users/" + save.getId()))
-                .andExpect(status().isForbidden());
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$").doesNotExist());
     }
 
     @Test
