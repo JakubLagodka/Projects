@@ -1,21 +1,21 @@
 package pl.lagodka.shop.service.impl
 
-import org.apache.commons.io.FilenameUtils
+
 import org.springframework.data.domain.Pageable
 import org.springframework.web.multipart.MultipartFile
+import pl.lagodka.shop.config.properties.FilePropertiesConfig
 import pl.lagodka.shop.helper.FileHelper
 import pl.lagodka.shop.model.dao.Product
 import pl.lagodka.shop.repository.ProductRepository
 import spock.lang.Specification
 
-import java.nio.file.Files
-import java.nio.file.NoSuchFileException
 import java.nio.file.Paths
 
 class ProductServiceImplSpec extends Specification {
     def productRepository = Mock(ProductRepository)
     def fileHelper = Mock(FileHelper)
-    def productService = new ProductServiceImpl(productRepository, fileHelper)
+    def FilePropertiesConfig = new FilePropertiesConfig();
+    def productService = new ProductServiceImpl(productRepository, fileHelper, FilePropertiesConfig)
 
     def 'should return product by id'() {
         given:
@@ -57,7 +57,7 @@ class ProductServiceImplSpec extends Specification {
         given:
         def product = Mock(Product)
         def image = Mock(MultipartFile)
-        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
+        def path = Paths.get(filePropertiesConfig.getProduct() + "1.png")
         def inputStream = Mock(InputStream)
 
 
@@ -70,7 +70,7 @@ class ProductServiceImplSpec extends Specification {
         1 * image.getOriginalFilename() >> "file.png"
         1 * image.getInputStream() >> inputStream
         1 * fileHelper.saveFile(inputStream, path)
-        1 * product.setImageUrl("C:\\Users\\Kuba\\Desktop\\images\\1.png");
+        1 * product.setImageUrl(filePropertiesConfig.getProduct() + "1.png");
         0 * _
     }
 
@@ -78,7 +78,7 @@ class ProductServiceImplSpec extends Specification {
         given:
         def product = Mock(Product)
         def image = Mock(MultipartFile)
-        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
+        def path = Paths.get(filePropertiesConfig.getProduct() + "1.png")
         def inputStream = Mock(InputStream)
 
 
@@ -100,9 +100,9 @@ class ProductServiceImplSpec extends Specification {
         def productDb = Mock(Product)
         def id = 1
         def image = Mock(MultipartFile)
-        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
+        def path = Paths.get(filePropertiesConfig.getProduct() + "1.png")
         def inputStream = Mock(InputStream)
-        def oldImageUrl = "C:\\Users\\Kuba\\Desktop\\images\\1.png"
+        def oldImageUrl = filePropertiesConfig.getProduct() + "1.png"
 
         when:
         productService.update(product, id, image)
@@ -122,7 +122,7 @@ class ProductServiceImplSpec extends Specification {
         1 * image.getInputStream() >> inputStream
         1 * fileHelper.saveFile(inputStream, path)
         1 * productDb.getImageUrl() >> oldImageUrl
-        1 * productDb.setImageUrl("C:\\Users\\Kuba\\Desktop\\images\\1.png");
+        1 * productDb.setImageUrl(filePropertiesConfig.getProduct() + "1.png");
         0 * _
     }
 
@@ -132,7 +132,7 @@ class ProductServiceImplSpec extends Specification {
         def productDb = Mock(Product)
         def id = 1
         def image = Mock(MultipartFile)
-        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\1.png")
+        def path = Paths.get(filePropertiesConfig.getProduct() + "1.png")
         def inputStream = Mock(InputStream)
 
 
@@ -162,9 +162,9 @@ class ProductServiceImplSpec extends Specification {
         def productDb = Mock(Product)
         def id = 2
         def image = Mock(MultipartFile)
-        def path = Paths.get("C:\\Users\\Kuba\\Desktop\\images\\2.png")
+        def path = Paths.get(filePropertiesConfig.getProduct() + "2.png")
         def inputStream = Mock(InputStream)
-        def oldImageUrl = "C:\\Users\\Kuba\\Desktop\\images\\1.png"
+        def oldImageUrl = filePropertiesConfig.getProduct() + "1.png"
 
         when:
         productService.update(product, id, image)

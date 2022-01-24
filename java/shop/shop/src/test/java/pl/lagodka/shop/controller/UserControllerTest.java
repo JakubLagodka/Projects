@@ -218,7 +218,19 @@ class UserControllerTest {
                         .queryParam("size", "10"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content.length()").value(1))
-                .andExpect(jsonPath("$.content[*].firstName", containsInAnyOrder("John")));
+                .andExpect(jsonPath("$.content[*].id").exists())
+                .andExpect(jsonPath("$.content[*].password").doesNotExist())
+                .andExpect(jsonPath("$.content[*].confirmPassword").doesNotExist())
+                .andExpect(jsonPath("$.content[*].login", containsInAnyOrder("john")))
+                .andExpect(jsonPath("$.content[*].mail", containsInAnyOrder("john@gmail.com")))
+                .andExpect(jsonPath("$.content[*].firstName", containsInAnyOrder("John")))
+                .andExpect(jsonPath("$.content[*].lastName", containsInAnyOrder("John")))
+                .andExpect(jsonPath("$.content[*].createdDate").exists())
+                .andExpect(jsonPath("$.content[*].createdBy", containsInAnyOrder("user")))
+                .andExpect(jsonPath("$.content[*].lastModifiedDate").exists())
+                .andExpect(jsonPath("$.content[*].lastModifiedBy", containsInAnyOrder("user")))
+                .andExpect(jsonPath("$.content[*].revisionType").doesNotExist())
+                .andExpect(jsonPath("$.content[*].revisionNumber").doesNotExist());
 
     }
 

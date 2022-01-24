@@ -63,7 +63,7 @@ public class ProductServiceImpl implements ProductService {
             fileHelper.saveFile(image.getInputStream(),path);
             String oldImageUrl = productDb.getImageUrl();
             productDb.setImageUrl(path.toString());
-            if(!path.toString().equals(oldImageUrl)){
+            if(oldImageUrl != null && !path.toString().equals(oldImageUrl)){
                 fileHelper.deleteFile(Paths.get(oldImageUrl));
             }
 
