@@ -49,11 +49,11 @@ ngOnInit() {
   }
 
   login(username: string, password: string) {
-    return this.http.post<Token>(`${environment.apiUrl}/authentication/login`, { username, password })
+    return this.http.post<Token>(`localhost:8080/api/login`, { username, password })
       .pipe(map(token => {
 
         localStorage.setItem('token', JSON.stringify(token));
-        this.http.get<User>(`${environment.apiUrl}/user/self`)
+        this.http.get<User>(`localhost:8080/api/users`)
           .subscribe(user => {
             this.loggedUserSubject.next(user);
             localStorage.setItem('currentUser', JSON.stringify(user));

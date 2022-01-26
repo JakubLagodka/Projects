@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import pl.lagodka.hotel.model.dto.FieldErrorDto;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.stream.Collectors;
 @RestControllerAdvice
@@ -52,4 +53,9 @@ public class AdviceController {
         log.error("Not found", e);
     }
 
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void handleConstraintViolationException(ConstraintViolationException e) {
+        log.error(e.getMessage(), e);
+    }
 }
