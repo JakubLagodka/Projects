@@ -53,12 +53,12 @@ ngOnInit() {
       .pipe(map(token => {
 
         localStorage.setItem('token', JSON.stringify(token));
-        this.http.get<User>(`localhost:8080/api/users`)
-          .subscribe(user => {
-            this.loggedUserSubject.next(user);
-            localStorage.setItem('currentUser', JSON.stringify(user));
-
-          });
+        // this.http.get<User>(`localhost:8080/api/users`)
+        //   .subscribe(user => {
+        //     this.loggedUserSubject.next(user);
+        //     localStorage.setItem('currentUser', JSON.stringify(user));
+        //
+        //   });
         this.loggedUser = this.loggedUserSubject.asObservable();
       }));
   }
