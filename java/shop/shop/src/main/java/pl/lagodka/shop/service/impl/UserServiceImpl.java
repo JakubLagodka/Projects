@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
     public User create(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         roleRepository.findByName("ROLE_USER").ifPresent(role -> user.setRoles(Collections.singletonList(role)));
-
         return userRepository.save(user);
     }
 

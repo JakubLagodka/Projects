@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import pl.lagodka.shop.model.dao.Product;
 import pl.lagodka.shop.model.dto.BasketDto;
@@ -24,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
+@TestPropertySource(locations = "classpath:application-test.yml")
 @Transactional
 public class BasketControllerTest {
 
@@ -39,6 +41,7 @@ public class BasketControllerTest {
     @Test
     @WithMockUser(username = "john")
     void shouldGetBasket() throws Exception {
+
         mockMvc.perform(get("/api/basket")
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk());

@@ -5,9 +5,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.history.Revision;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import pl.lagodka.shop.model.dao.Product;
 import pl.lagodka.shop.model.dao.User;
@@ -24,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
+@TestPropertySource(locations = "classpath:application-test.yml")
 @Transactional
 public class HistoryControllerTest {
     @Autowired
@@ -41,15 +46,17 @@ public class HistoryControllerTest {
     @Test
     @WithMockUser(roles = "ADMIN")
     void shouldGetUserHistory() throws Exception {
-        User save = userRepository.save(User.builder()
+        User user = userRepository.save(User.builder()
                 .firstName("John")
                 .lastName("John")
                 .login("john")
                 .mail("john@gmail.com")
                 .password("pass")
                 .build());
+        Page<Revision<Integer, User>> revisions = userRepository.findRevisions(user.getId(), PageRequest.of(0,10));
 
-        mockMvc.perform(get("/api/histories/users/" + save.getId())
+
+        mockMvc.perform(get("/api/histories/users/" + user.getId())
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .queryParam("page", "0")
                         .queryParam("size", "10"))
