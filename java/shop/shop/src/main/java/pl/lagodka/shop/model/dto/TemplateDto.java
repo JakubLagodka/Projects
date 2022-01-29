@@ -1,28 +1,22 @@
-package pl.lagodka.shop.model.dao;
+package pl.lagodka.shop.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
-@Entity
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 @Data
-@Table(indexes = @Index(name = "idx_name", columnList = "name", unique = true))
-public class Template {
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+public class TemplateDto {
     private Long id;
 
     private String name;
 
     private String subject;
 
-    @Lob
     private String body;
 }

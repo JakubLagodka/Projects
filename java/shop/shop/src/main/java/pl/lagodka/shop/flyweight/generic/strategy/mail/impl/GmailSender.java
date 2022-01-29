@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.MailSender;
 import org.springframework.stereotype.Component;
 import pl.lagodka.shop.flyweight.generic.strategy.mail.MailSenderStrategy;
-import pl.lagodka.shop.service.impl.MailService;
+import pl.lagodka.shop.service.MailService;
 
 import javax.mail.MessagingException;
 
@@ -23,10 +23,10 @@ public class GmailSender implements MailSenderStrategy {
     @Override
     public void sendMail(String to, String subject, String text) {
         log.info("Sending mail");
-        try {
-            mailService.sendMail(to, subject, text);
-        } catch (MessagingException e) {
-            log.error("Failed to send mail", e);
-        }
+//        try {
+//            mailService.sendMail(to, subject, text);
+//        } catch (MessagingException e) {
+//            log.error("Failed to send mail", e);
+//        }
     }
 }

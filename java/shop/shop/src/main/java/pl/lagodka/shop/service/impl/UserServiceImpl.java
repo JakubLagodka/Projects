@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import pl.lagodka.shop.model.dao.User;
 import pl.lagodka.shop.repository.RoleRepository;
 import pl.lagodka.shop.repository.UserRepository;
+import pl.lagodka.shop.service.MailService;
 import pl.lagodka.shop.service.UserService;
 
 import javax.persistence.EntityNotFoundException;
@@ -26,11 +27,15 @@ public class UserServiceImpl implements UserService {
 
     private final RoleRepository roleRepository;
 
+    private final MailService mailService;
+
     @Override
     public User create(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         roleRepository.findByName("ROLE_USER").ifPresent(role -> user.setRoles(Collections.singletonList(role)));
-        return userRepository.save(user);
+        userRepository.save(user);
+        mailService.sendMail(user.getMail(),"WelcomeMail");
+        return user;
     }
 
     @Override

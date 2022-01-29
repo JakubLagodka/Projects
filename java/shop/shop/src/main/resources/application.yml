@@ -3,6 +3,8 @@ spring:
     url: jdbc:postgresql://localhost:5433/shop
     username: postgres
     password: postgres
+    hikari:
+      auto-commit: false
   jpa:
     hibernate:
       ddl-auto: update
@@ -19,8 +21,13 @@ spring:
     properties:
       mail:
         smtp:
+          ssl:
+            trust: smtp.gmail.com
           auth: true
           starttls:
             enable: true
+            required: true
+        transport:
+          protocol: smtp
 file:
   product: C:\Users\Kuba\Desktop\images\
