@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+//przypadek testowy duplikowanie kodu status 409
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")

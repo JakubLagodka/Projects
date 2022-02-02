@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import pl.lagodka.shop.exception.NotEnoughProductQuantityException;
 import pl.lagodka.shop.model.dto.FieldErrorDto;
 
 import javax.persistence.EntityNotFoundException;
@@ -55,9 +56,9 @@ public class AdviceController {
         log.error("Not found", e);
     }
 
-    @ExceptionHandler(NoSuchElementException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
-    public void handleNoSuchElementException(NoSuchElementException e) {
+    @ExceptionHandler(NotEnoughProductQuantityException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void handleNotEnoughProductQuantityException(NotEnoughProductQuantityException e) {
         log.error("Requested products are not available in given quantity", e);
     }
 

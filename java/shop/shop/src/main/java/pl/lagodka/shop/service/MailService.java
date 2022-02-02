@@ -1,8 +1,8 @@
 package pl.lagodka.shop.service;
 
-import javax.mail.MessagingException;
+import java.util.Map;
 
 public interface MailService {
 
-    void sendMail(String to, String templateName) ;
+    void sendMail(String to, String templateName, Map<String, Object> variables);
 }

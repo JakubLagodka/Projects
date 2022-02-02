@@ -1,6 +1,7 @@
 package pl.lagodka.shop.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,11 +15,14 @@ import pl.lagodka.shop.service.UserService;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import static pl.lagodka.shop.security.SecurityUtils.getCurrentUserLogin;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -34,7 +38,11 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         roleRepository.findByName("ROLE_USER").ifPresent(role -> user.setRoles(Collections.singletonList(role)));
         userRepository.save(user);
-        mailService.sendMail(user.getMail(),"WelcomeMail");
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("firstName", user.getFirstName());
+        variables.put("lastName", user.getLastName());
+        mailService.sendMail(user.getMail(), "WelcomeMail", variables);
+        log.info("user has been created");
         return user;
     }
 
