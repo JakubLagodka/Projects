@@ -23,6 +23,6 @@ public class Template {
 
     private String subject;
 
-    @Lob
+    //@Lob
     private String body;
 }

@@ -1,1 +1,1 @@
-<h2>Welcome <span th:text="${firstName}" th:remove="tag"></span><span th:text="${lastName}" th:remove="tag"></span></h2>
+<h2 th:text="'Welcome ' + ${firstName} + ' ' + ${lastName}" >Welcome</h2>
