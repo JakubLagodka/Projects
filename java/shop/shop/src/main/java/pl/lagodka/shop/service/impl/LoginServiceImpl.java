@@ -1,4 +1,6 @@
 package pl.lagodka.shop.service.impl;
 
-public class LoginServiceImpl {
+import pl.lagodka.shop.service.LoginService;
+
+public class LoginServiceImpl implements LoginService {
 }

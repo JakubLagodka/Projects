@@ -1,5 +1,7 @@
 package pl.lagodka.shop.cotroller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -30,12 +32,14 @@ public class UserController {
 
     @GetMapping("/{id}")
     @PreAuthorize("isAuthenticated() && (@securityService.hasAccessToUser(#id) || hasRole('ADMIN'))")
+    @Operation(description = "get user by his id", security = @SecurityRequirement(name = "bearer"))
     public UserDto getUserById(@PathVariable Long id) {
         return userMapper.toDto(userService.getById(id));
     }
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(description = "get page of users", security = @SecurityRequirement(name = "bearer"))
     public Page<UserDto> getUserPage(@RequestParam int page, @RequestParam int size) {
         return userService.getPage(PageRequest.of(page, size))
                 .map(userMapper::toDto);
@@ -43,11 +47,13 @@ public class UserController {
 
     @PutMapping("/{id}")
     @PreAuthorize("isAuthenticated() && (@securityService.hasAccessToUser(#id) || hasRole('ADMIN'))")
+    @Operation(description = "update given user", security = @SecurityRequirement(name = "bearer"))
     public UserDto updateUser(@RequestBody @Valid UserDto user, @PathVariable Long id){
         return userMapper.toDto(userService.update(userMapper.toDao(user), id));
     }
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(description = "delete given user", security = @SecurityRequirement(name = "bearer"))
     public void deleteUser(@PathVariable Long id){
         userService.delete(id);
     }

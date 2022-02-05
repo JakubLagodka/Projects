@@ -25,16 +25,19 @@ public class BasketController {
     }
 
     @GetMapping
+    @Operation(description = "get all products in basket", security = @SecurityRequirement(name = "bearer"))
     public List<Product> getBasket() {
         return basketService.getBasket();
     }
 
     @DeleteMapping
+    @Operation(description = "remove basket", security = @SecurityRequirement(name = "bearer"))
     public void clearBasket() {
         basketService.clearBasket();
     }
 
     @DeleteMapping("/{productId}")
+    @Operation(description = "remove specified product in basket", security = @SecurityRequirement(name = "bearer"))
     public void deleteProductByProductId(@PathVariable Long productId) {
         basketService.deleteProductByProductId(productId);
     }

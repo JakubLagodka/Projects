@@ -1,5 +1,7 @@
 package pl.lagodka.shop.cotroller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +28,7 @@ public class ProductController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(description = "create new product", security = @SecurityRequirement(name = "bearer"))
     public ProductDto saveProduct(@Valid @RequestPart ProductDto productDto,  @RequestPart @Valid @FileValid MultipartFile image) {
         return productMapper.toDto(productService.create(productMapper.toDao(productDto), image));
     }
@@ -43,12 +46,14 @@ public class ProductController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(description = "update given product", security = @SecurityRequirement(name = "bearer"))
     public ProductDto updateProduct(@Valid @RequestPart ProductDto productDto, @RequestPart @Valid @FileValid  MultipartFile image, @PathVariable Long id) {
         return productMapper.toDto(productService.update(productMapper.toDao(productDto), id, image));
     }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(description = "delete given product", security = @SecurityRequirement(name = "bearer"))
     public void deleteProduct(@PathVariable Long id) {
         productService.delete(id);
     }

@@ -1,5 +1,7 @@
 package pl.lagodka.shop.cotroller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,12 +26,14 @@ public class HistoryController {
     private final HistoryMapper historyMapper;
 
     @GetMapping("/users/{id}")
+    @Operation(description = "get user history", security = @SecurityRequirement(name = "bearer"))
     public Page<UserDto> getUserHistory(@PathVariable Long id, @RequestParam int page, @RequestParam int size) {
         return userRepository.findRevisions(id, PageRequest.of(page, size))
                 .map(historyMapper::toUserDto);
     }
 
     @GetMapping("/products/{id}")
+    @Operation(description = "get produ history", security = @SecurityRequirement(name = "bearer"))
     public Page<ProductDto> getProductHistory(@PathVariable Long id, @RequestParam int page, @RequestParam int size) {
         return productRepository.findRevisions(id, PageRequest.of(page, size))
                 .map(historyMapper::toProductDto);

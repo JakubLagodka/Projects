@@ -20,7 +20,7 @@ public class OpenApiConfig {
                                 .bearerFormat("JWT")))
                 .info(new Info()
                         .title("Shop Api")
-                        .description("shop application description")
+                        .description("This is an application for operating an online store. The application was written in Spring Boot using the cache. It also allows you to generate reports in the form of selected files. Also tests are included.")
                         .version("1.0.0")
                         .contact(new Contact()
                                 .email("jakub.lagodka.pl@gmail.com")
