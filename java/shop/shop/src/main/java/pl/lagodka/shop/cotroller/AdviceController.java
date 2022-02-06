@@ -46,9 +46,6 @@ public class AdviceController {
 
                 })
                 .collect(Collectors.toList());
-//        System.out.println(objectError.getField());
-//        System.out.println(objectError);
-
     }
 
     @ExceptionHandler(EmptyResultDataAccessException.class)

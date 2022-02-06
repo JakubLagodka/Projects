@@ -9,13 +9,15 @@ import pl.lagodka.shop.model.dao.Role
 import pl.lagodka.shop.model.dao.User
 import pl.lagodka.shop.repository.RoleRepository
 import pl.lagodka.shop.repository.UserRepository
+import pl.lagodka.shop.service.MailService
 import spock.lang.Specification
 
 class UserServiceImplSpec extends Specification {
     def userRepository = Mock(UserRepository)
     def passwordEncoder = Mock(PasswordEncoder)
     def roleRepository = Mock(RoleRepository)
-    def userService = new UserServiceImpl(userRepository, passwordEncoder, roleRepository)
+    def mailService = Mock(MailService)
+    def userService = new UserServiceImpl(userRepository, passwordEncoder, roleRepository, mailService)
 
     def 'should return user by id'() {
         given:
@@ -68,6 +70,10 @@ class UserServiceImplSpec extends Specification {
         1 * roleRepository.findByName("ROLE_USER") >> Optional.of(role)
         1 * user.setRoles(Collections.singletonList(role))
         1 * userRepository.save(user)
+        1 * user.getFirstName() >> "admin"
+        1 * user.getLastName() >> "admin"
+        2 * user.getMail() >> "admin@gmail.com"
+        1 * mailService.sendMail(user.getMail(), 'WelcomeMail', ['firstName':'admin', 'lastName':'admin'])
         0 * _
     }
 

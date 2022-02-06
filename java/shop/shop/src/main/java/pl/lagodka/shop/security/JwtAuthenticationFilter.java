@@ -53,10 +53,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         Claims claims = new DefaultClaims()
                 .setSubject(authResult.getName())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24));
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 1));
         claims.put("authorities", authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(",")));
+
 
         String token = Jwts.builder()
                 .setClaims(claims)
