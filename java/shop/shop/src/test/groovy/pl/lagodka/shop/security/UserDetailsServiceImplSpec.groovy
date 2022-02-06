@@ -14,7 +14,6 @@ class UserDetailsServiceImplSpec extends Specification {
         given:
         def username = "kuba"
         def user = new User(login:"login",password: "password", roles: Arrays.asList(new Role(name: "user")))
-      //  user.getRoles() >> Arrays.asList(new Role())
 
         when:
         userDetailsServiceImpl.loadUserByUsername(username)
