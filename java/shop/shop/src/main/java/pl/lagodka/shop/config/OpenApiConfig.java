@@ -20,7 +20,7 @@ public class OpenApiConfig {
                                 .bearerFormat("JWT")))
                 .info(new Info()
                         .title("Shop Api")
-                        .description("This is an application for operating an online store. The application was written in Spring Boot using the cache. It also allows you to generate reports in the form of selected files. Also tests are included.")
+                        .description("This is an application for operating an online store. The application was written in Java using Spring Boot and PostgreSQL as a database. It allows user to review products and add it to basket and order products from basket. To perform this operation user has to login. It also allows you to generate report of products in the form of selected files. Application is tested by unit and integration tests.")
                         .version("1.0.0")
                         .contact(new Contact()
                                 .email("jakub.lagodka.pl@gmail.com")
