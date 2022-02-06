@@ -23,6 +23,6 @@ public class Template {
 
     private String subject;
 
-    //@Lob
+    @Column(columnDefinition = "text")
     private String body;
 }

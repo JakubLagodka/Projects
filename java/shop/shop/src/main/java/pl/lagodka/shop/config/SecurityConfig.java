@@ -1,6 +1,5 @@
 package pl.lagodka.shop.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import pl.lagodka.shop.security.JwtAuthenticationFilter;
 import pl.lagodka.shop.security.JwtAuthorizationFilter;
 
 @EnableWebSecurity
@@ -24,12 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
 
-    private final ObjectMapper objectMapper;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .addFilter(new JwtAuthenticationFilter(authenticationManager(), objectMapper))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()))
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
