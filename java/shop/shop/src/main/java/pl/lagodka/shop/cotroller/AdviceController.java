@@ -5,6 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -69,6 +70,12 @@ public class AdviceController {
     @ExceptionHandler(AuthenticationServiceException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public void handleAuthenticationServiceException(AuthenticationServiceException e) {
+        log.error(e.getMessage(), e);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public void handleBadCredentialsException(BadCredentialsException e) {
         log.error(e.getMessage(), e);
     }
 

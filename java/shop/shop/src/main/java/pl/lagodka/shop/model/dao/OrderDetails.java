@@ -3,24 +3,27 @@ package pl.lagodka.shop.model.dao;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import pl.lagodka.shop.model.OrderStatus;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "orders")
-public class Order {
+public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double quantity;
+    private LocalDateTime date;
+
+    private OrderStatus status;
+
+    private String orderNumber;
 
     @ManyToOne
-    private OrderDetails orderDetails;
+    private User user;
 
-    @ManyToOne
-    private Product product;
 }
