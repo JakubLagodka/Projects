@@ -74,28 +74,6 @@ public class BasketControllerTest {
                 .quantity(10)
                 .user(user)
                 .build());
-//        basketRepository.save(Basket.builder()
-//                .product(Product.builder()
-//                        .name("pen")
-//                        .price(9.99)
-//                        .available(true)
-//                        .quantity(10)
-//                        .createdBy("user")
-//                        .createdDate(LocalDateTime.of(2022, 1, 5, 12, 40, 50))
-//                        .imageUrl("http:://https://m")
-//                        .lastModifiedBy("jan")
-//                        .lastModifiedDate(LocalDateTime.of(2022, 1, 15, 12, 40, 50))
-//                        .build())
-//                .quantity(10)
-//                .user(User.builder()
-//                        .firstName("John")
-//                        .lastName("John")
-//                        .login("john")
-//                        .mail("john@gmail.com")
-//                        .password("pass")
-//                        .build())
-//                .build());
-
 
         mockMvc.perform(get("/api/basket")
                         .contentType(MediaType.APPLICATION_JSON_VALUE))

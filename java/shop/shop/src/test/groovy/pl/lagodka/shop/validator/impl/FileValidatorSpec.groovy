@@ -1,10 +1,7 @@
 package pl.lagodka.shop.validator.impl
 
-import org.apache.commons.io.FilenameUtils
-import org.springframework.mock.web.MockMultipartFile
+
 import org.springframework.web.multipart.MultipartFile
-import org.springframework.web.multipart.commons.CommonsMultipartFile
-import pl.lagodka.shop.model.dto.UserDto
 import spock.lang.Specification
 
 class FileValidatorSpec extends Specification {
