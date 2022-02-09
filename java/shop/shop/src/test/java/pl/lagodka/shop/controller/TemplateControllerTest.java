@@ -130,7 +130,7 @@ public class TemplateControllerTest {
 
     @Test
     @WithMockUser
-    void shouldNotGetTemplatePageWhenTemplateIsNotAdmin() throws Exception {
+    void shouldNotGetTemplatePageWhenUserIsNotAdmin() throws Exception {
         templateRepository.save(Template.builder()
                 .name("name")
                 .body("body")
