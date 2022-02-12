@@ -1,34 +1,62 @@
 public class Challenge {
     public static void main(String[] args) {
-        System.out.println(ArrayChallenge(new String[]{"1", "2", "2", "3", "#", "#", "3"}));
-        System.out.println(StringChallenge("abcNdgM"));
-        System.out.println(StringChallenge2("cab"));
-        System.out.println(StringChallenge2("bcab"));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "#", "#", "3"}));
+        System.out.println(arrayChallenge(new String[]{"1"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "3"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3","3","3","4","4","4","4","4","4","4","4"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3","3","3","4","4","4","4","4","4","4","5"}));
+        System.out.println();
+        System.out.println(stringChallenge("abcNdgM"));
+        System.out.println(stringChallenge("MMba"));
+        System.out.println(stringChallenge("Mba"));
+        System.out.println(stringChallenge("Nba"));
+        System.out.println(stringChallenge("abcN"));
+        System.out.println(stringChallenge("abcNN"));
+        System.out.println(stringChallenge("abcM"));
+        System.out.println(stringChallenge("abcMM"));
+        System.out.println();
+        System.out.println(stringChallenge2("cab"));
+        System.out.println(stringChallenge2("bcab"));
+        System.out.println(stringChallenge2("a"));
+        System.out.println(stringChallenge2("aaa"));
+        System.out.println(stringChallenge2("cabb"));
+        //System.out.println(stringChallenge2("caaa"));
+        System.out.println(stringChallenge2("aaab"));
+        System.out.println();
         System.out.println(bracket("(){}[]"));
         System.out.println(bracket("([{}])"));
         System.out.println(bracket("(}"));
         System.out.println(bracket("[(])"));
         System.out.println(bracket("[({})](]"));
         System.out.println(bracket("(({}]()"));
+        System.out.println(bracket("(({"));
+        System.out.println(bracket(")}]"));
+        System.out.println(bracket(""));
 
     }
-
-    static boolean ArrayChallenge(String[] strArr) {
+//zrobić w pętli
+    static boolean arrayChallenge(String[] strArr) {
         if (strArr.length >= 3) {
             if (!strArr[1].equals(strArr[2]))
+                return false;
+            if (strArr.length > 3 && strArr.length < 7)
                 return false;
             if (strArr.length >= 7) {
                 if (!strArr[3].equals(strArr[6]) || !strArr[4].equals(strArr[5]))
                     return false;
             }
-        } else return false;
+        } else if (strArr.length == 2)
+            return false;
 
         return true;
     }
-
-    static String StringChallenge(String str) {
+//poprawić dla Mba
+    static String stringChallenge(String str) {
         String returned = "";
-        returned += str.charAt(0);
+       // returned += str.charAt(0);
 
         for (int i = 1; i < str.length(); i++) {
             if ('M' == str.charAt(i))
@@ -38,8 +66,8 @@ public class Challenge {
         }
         return returned;
     }
-
-    static int StringChallenge2(String str) {
+//poprawić
+    static int stringChallenge2(String str) {
         String returned = "";
         String returned2 = "";
         boolean isReduced = false;
