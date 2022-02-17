@@ -6,8 +6,8 @@ public class Challenge {
         System.out.println(arrayChallenge(new String[]{"1", "2", "2"}));
         System.out.println(arrayChallenge(new String[]{"1", "2", "3"}));
         System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3"}));
-        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3","3","3","4","4","4","4","4","4","4","4"}));
-        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3","3","3","4","4","4","4","4","4","4","5"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3", "3", "3", "4", "4", "4", "4", "4", "4", "4", "4"}));
+        System.out.println(arrayChallenge(new String[]{"1", "2", "2", "3", "3", "3", "3", "4", "4", "4", "4", "4", "4", "4", "5"}));
         System.out.println();
         System.out.println(stringChallenge("abcNdgM"));
         System.out.println(stringChallenge("MMba"));
@@ -37,7 +37,7 @@ public class Challenge {
         System.out.println(bracket(""));
 
     }
-//zrobić w pętli
+
     static boolean arrayChallenge(String[] strArr) {
         if (strArr.length >= 3) {
             if (!strArr[1].equals(strArr[2]))
@@ -45,28 +45,37 @@ public class Challenge {
             if (strArr.length > 3 && strArr.length < 7)
                 return false;
             if (strArr.length >= 7) {
-                if (!strArr[3].equals(strArr[6]) || !strArr[4].equals(strArr[5]))
-                    return false;
+                for (int i = 8; i < 1000; i *= 2) {
+                    if (strArr.length > i / 2 - 1 && strArr.length < i - 1)
+                        return false;
+                    if (!strArr[i / 2 - 1].equals(strArr[i - 2]) || !strArr[i / 2].equals(strArr[i - 3]))
+                        return false;
+                    if (strArr.length < i)
+                        break;
+                }
+
             }
-        } else if (strArr.length == 2)
+        } else if (strArr.length == 2 || strArr.length == 0)
             return false;
 
         return true;
     }
-//poprawić dla Mba
+
     static String stringChallenge(String str) {
         String returned = "";
-       // returned += str.charAt(0);
+        if(str.length() > 0 && str.charAt(0) != 'M' && str.charAt(0) != 'N')
+        returned += str.charAt(0);
 
         for (int i = 1; i < str.length(); i++) {
-            if ('M' == str.charAt(i))
+            if ('M' == str.charAt(i) && str.charAt(i - 1) != 'M' && str.charAt(i - 1) != 'N' )
                 returned += str.charAt(i - 1);
-            else if ('N' != str.charAt(i) && 'N' != str.charAt(i - 1))
+            else if ('N' != str.charAt(i) && 'N' != str.charAt(i - 1) && 'M' != str.charAt(i))
                 returned += str.charAt(i);
         }
         return returned;
     }
-//poprawić
+
+    //poprawić
     static int stringChallenge2(String str) {
         String returned = "";
         String returned2 = "";
