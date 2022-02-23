@@ -10,15 +10,7 @@ public class Hobbies {
 
     public List<String> findAllHobbyists(String hobby) {
         List<String> stringList = new ArrayList<>();
-        for (int i = 0; i < hobbies.size(); i++) {
 
-        }
-        for (int i = 0; i < hobbies.values().size(); i++) {
-
-        }
-        for (int i = 0; i < hobbies.entrySet().size(); i++) {
-
-        }
         Set<Map.Entry<String, String[]>> entries = hobbies.entrySet();
         List keys = new ArrayList(hobbies.keySet());
         for (int i = 0; i < keys.size(); i++) {
