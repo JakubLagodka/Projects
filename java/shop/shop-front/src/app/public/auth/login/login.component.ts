@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { Store } from '@ngxs/store';
+import { LoginAction } from '../state/user.actions';
 
 @Component({
   selector: 'app-login',
@@ -31,9 +33,12 @@ export class LoginComponent implements OnInit {
       }
     }
   ]
-  constructor() { }
+  constructor(private readonly store: Store) { }
 
   ngOnInit(): void {
   }
 
+  submit(){
+    this.store.dispatch(new LoginAction(this.formGroup.value))
+  }
 }

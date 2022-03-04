@@ -7,16 +7,18 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
-import {MatButtonModule} from '@angular/material/button'; 
+import { MatButtonModule } from '@angular/material/button';
+import { NgxsModule } from '@ngxs/store';
+import { UserState } from './state/user.state';
 
 const routes: Routes = [
   {
     path: "",
-    component:AuthComponent,
-    children:[
+    component: AuthComponent,
+    children: [
       {
-        path:"login",
-        component:LoginComponent
+        path: "login",
+        component: LoginComponent
       },
       {
         path: "register",
@@ -38,7 +40,10 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormlyModule,
     FormlyMaterialModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxsModule.forFeature([
+      UserState
+    ])
   ]
 })
 export class AuthModule { }

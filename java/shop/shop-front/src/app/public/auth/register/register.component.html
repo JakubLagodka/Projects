@@ -1,1 +1,4 @@
-<p>register works!</p>
+<form [formGroup]="formGroup">
+    <formly-form [fields]="formFields" [form]="formGroup"></formly-form>
+    <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Primary</button>
+    </form>
