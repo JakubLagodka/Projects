@@ -15,6 +15,8 @@ import { PublicModule } from './public/public.module';
 import { PrivateModule } from './private/private.module';
 import { NgxsModule } from '@ngxs/store';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     PublicModule,
     PrivateModule,
     NgxsModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsRouterPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

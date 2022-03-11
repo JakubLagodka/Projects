@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { Store } from '@ngxs/store';
+import { RegisterAction } from '../state/user.actions';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,7 @@ export class RegisterComponent implements OnInit {
   formGroup: FormGroup = new FormGroup({});
   formFields: FormlyFieldConfig[] = [
     {
-      key: "username",
+      key: "login",
       type: "input",
       templateOptions: {
         label: "login",
@@ -31,6 +33,16 @@ export class RegisterComponent implements OnInit {
       }
     },
     {
+      key: "confirmPassword",
+      type: "input",
+      templateOptions: {
+        label: "password",
+        placeholder: "confirm your password",
+        required: true,
+        type: "password"
+      }
+    },
+    {
       key: "mail",
       type: "input",
       templateOptions: {
@@ -40,7 +52,7 @@ export class RegisterComponent implements OnInit {
       }
     },
       {
-        key: "name",
+        key: "firstName",
         type: "input",
         templateOptions: {
           label: "name",
@@ -49,7 +61,7 @@ export class RegisterComponent implements OnInit {
         }
       },
         {
-          key: "surname",
+          key: "lastName",
           type: "input",
           templateOptions: {
             label: "surname",
@@ -59,9 +71,13 @@ export class RegisterComponent implements OnInit {
     }
   ]
   
-  constructor() { }
+  constructor(private readonly store: Store) { }
 
   ngOnInit(): void {
   }
 
+  submit(){
+    console.log("submit")
+    this.store.dispatch(new RegisterAction(this.formGroup.value))
+  }
 }
