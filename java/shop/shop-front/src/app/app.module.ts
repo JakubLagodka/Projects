@@ -17,6 +17,27 @@ import { NgxsModule } from '@ngxs/store';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { AbstractControl } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+
+export function minlengthValidationMessages(err, field) {
+  return `Should have atleast ${field.templateOptions.minLength} characters`;
+}
+
+export function fieldMatchValidator(control: AbstractControl) {
+  const { password, confirmPassword } = control.value;
+
+  // avoid displaying the message error when values are empty
+  if (!confirmPassword || !password) {
+    return null;
+  }
+
+  if (confirmPassword === password) {
+    return null;
+  }
+
+  return { fieldMatch: { message: 'Password Not Matching' } };
+} 
 
 @NgModule({
   declarations: [
@@ -38,7 +59,16 @@ import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
     NgxsModule.forRoot(),
     HttpClientModule,
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsRouterPluginModule.forRoot()
+    NgxsRouterPluginModule.forRoot(),
+    FormlyModule.forRoot({
+      validators: [
+        { name: 'fieldMatch', validation: fieldMatchValidator },
+      ],
+      validationMessages: [
+        { name: 'required', message: 'This field is required' },
+        { name: 'minlength', message: minlengthValidationMessages },
+      ],
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

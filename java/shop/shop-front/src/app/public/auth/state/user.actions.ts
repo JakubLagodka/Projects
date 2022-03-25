@@ -8,3 +8,8 @@ export class RegisterAction {
   static readonly type = '[User] RegisterAction';
   constructor(public userDto: UserDto) { }
 }
+
+export class LogoutAction{
+  static readonly type = '[User] LogoutAction';
+  constructor(){}
+}

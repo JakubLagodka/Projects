@@ -12,45 +12,51 @@ import { RegisterAction } from '../state/user.actions';
 export class RegisterComponent implements OnInit {
 
   formGroup: FormGroup = new FormGroup({});
-  formFields: FormlyFieldConfig[] = [
-    {
-      key: "login",
-      type: "input",
-      templateOptions: {
-        label: "login",
-        placeholder: "enter login",
-        required: true
-      }
+  formFields: FormlyFieldConfig[] = [{
+    validators: {
+      validation: [
+        { name: 'fieldMatch', options: { errorPath: 'confirmPassword' } },
+      ],
     },
-    {
-      key: "password",
-      type: "input",
-      templateOptions: {
-        label: "password",
-        placeholder: "enter password",
-        required: true,
-        type: "password"
-      }
-    },
-    {
-      key: "confirmPassword",
-      type: "input",
-      templateOptions: {
-        label: "password",
-        placeholder: "confirm your password",
-        required: true,
-        type: "password"
-      }
-    },
-    {
-      key: "mail",
-      type: "input",
-      templateOptions: {
-        label: "mail",
-        placeholder: "enter mail",
-        required: true,
-      }
-    },
+    fieldGroup: [
+      {
+        key: "login",
+        type: "input",
+        templateOptions: {
+          label: "login",
+          placeholder: "enter login",
+          required: true
+        }
+      },
+      {
+        key: "password",
+        type: "input",
+        templateOptions: {
+          label: "password",
+          placeholder: "enter password",
+          required: true,
+          type: "password"
+        }
+      },
+      {
+        key: "confirmPassword",
+        type: "input",
+        templateOptions: {
+          label: "confirmPassword",
+          placeholder: "confirm your password",
+          required: true,
+          type: "password"
+        }
+      },
+      {
+        key: "mail",
+        type: "input",
+        templateOptions: {
+          label: "mail",
+          placeholder: "enter mail",
+          required: true,
+        }
+      },
       {
         key: "firstName",
         type: "input",
@@ -60,23 +66,24 @@ export class RegisterComponent implements OnInit {
           required: true
         }
       },
-        {
-          key: "lastName",
-          type: "input",
-          templateOptions: {
-            label: "surname",
-            placeholder: "enter surname",
-            required: true
-          },
-    }
-  ]
-  
+      {
+        key: "lastName",
+        type: "input",
+        templateOptions: {
+          label: "surname",
+          placeholder: "enter surname",
+          required: true
+        },
+      }
+    ]
+  }]
+
   constructor(private readonly store: Store) { }
 
   ngOnInit(): void {
   }
 
-  submit(){
+  submit() {
     console.log("submit")
     this.store.dispatch(new RegisterAction(this.formGroup.value))
   }

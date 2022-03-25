@@ -25,9 +25,12 @@ export class UserState {
   login({ patchState }: StateContext<UserStateModel>, { loginDto }: LoginAction) {
     return this.loginControllerService.login({ body: loginDto }).pipe(
       tap(response => {
+        console.log(response)
         patchState({
           token: response.token
         })
+        localStorage.setItem("token", response.token)
+        //localStorage.deleteItem()
       })
     )
   }
