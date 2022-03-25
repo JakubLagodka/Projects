@@ -3,7 +3,7 @@ import { Navigate } from '@ngxs/router-plugin';
 import { State, Action, StateContext } from '@ngxs/store';
 import { catchError, tap } from 'rxjs';
 import { LoginControllerService, UserControllerService } from 'src/api/services';
-import { LoginAction, RegisterAction } from './user.actions';
+import { LoginAction, LogoutAction, RegisterAction } from './user.actions';
 
 export class UserStateModel {
   public token: string
@@ -13,7 +13,7 @@ const defaults = {
   token: null
 };
 
-State<UserStateModel>({
+@State<UserStateModel>({
   name: 'user',
   defaults
 })
@@ -30,7 +30,6 @@ export class UserState {
           token: response.token
         })
         localStorage.setItem("token", response.token)
-        //localStorage.deleteItem()
       })
     )
   }
@@ -40,5 +39,13 @@ export class UserState {
       tap(response => dispatch(new Navigate(["/auth/login"])))
     )
 
+  }
+  @Action(LogoutAction)
+  logout({ patchState }: StateContext<UserStateModel>) {
+
+    localStorage.removeItem("token")
+    patchState({
+      token: null
+    })
   }
 }

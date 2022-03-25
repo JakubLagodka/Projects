@@ -19,6 +19,8 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin'
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { AbstractControl } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
+import { ApiModule } from 'src/api/api.module';
+import { environment } from 'src/environments/environment';
 
 export function minlengthValidationMessages(err, field) {
   return `Should have atleast ${field.templateOptions.minLength} characters`;
@@ -37,7 +39,7 @@ export function fieldMatchValidator(control: AbstractControl) {
   }
 
   return { fieldMatch: { message: 'Password Not Matching' } };
-} 
+}
 
 @NgModule({
   declarations: [
@@ -69,6 +71,9 @@ export function fieldMatchValidator(control: AbstractControl) {
         { name: 'minlength', message: minlengthValidationMessages },
       ],
     }),
+    ApiModule.forRoot({
+      rootUrl: environment.backendUrl
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
