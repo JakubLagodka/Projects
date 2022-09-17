@@ -36,7 +36,7 @@ status = null;
       /*this.users = this.http.get<User[]>(`${environment.apiUrl}/user`).pipe(
         shareReplay()
       );*/
-      return this.http.get<User[]>( `${environment.apiUrl}/user/all`);
+      return this.http.get<User[]>( `${environment.apiUrl}/api/users`);
 
      /* this.users.subscribe(x => {
         this.workers.next(x.filter(y => y.roleCode === 'WOR'));
@@ -113,7 +113,7 @@ status = null;
   }
 
   registerUser(userPost: User): Observable<User> {
-    const user = this.http.post<User>(`${environment.apiUrl}/user/register`, userPost).pipe(shareReplay());
+    const user = this.http.post<User>(`${environment.apiUrl}/api/users`, userPost).pipe(shareReplay());
 
     user.pipe(take(1)).subscribe(x => {
       this.placeUserInArray(x);
@@ -125,7 +125,7 @@ status = null;
   }
 
   updateUser(user: User, oldUser: User): Observable<User> {
-    const result = this.http.patch<User>(`${environment.apiUrl}/user/` + oldUser.id + `/`, user).pipe(shareReplay());
+    const result = this.http.patch<User>(`${environment.apiUrl}/api/users` + oldUser.id + `/`, user).pipe(shareReplay());
 
     result.pipe(take(1)).subscribe(x => {
       if(oldUser.roleCode !== user.roleCode) {
