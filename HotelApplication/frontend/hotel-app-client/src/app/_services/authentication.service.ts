@@ -25,7 +25,6 @@ export class AuthenticationService implements OnInit{
     {
       this.loggedUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
     }
-
     this.loggedUser = this.loggedUserSubject.asObservable();
   }
 
