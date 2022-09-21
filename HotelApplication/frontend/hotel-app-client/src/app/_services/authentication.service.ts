@@ -66,7 +66,6 @@ ngOnInit() {
     localStorage.removeItem('currentUser');
     this.loggedUserSubject.next(new User());
     this.loggedUser = this.loggedUserSubject.asObservable();
-
     this.router.navigate(['/']);
   }
 }
