@@ -86,7 +86,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
       return;
     }
-
     // this.calendarService = new CalendarService(new RoomService(this.http), new HotelNightService(this.http, this.authenticationService));
     if (this.authenticationService.isUserLoggedIn)
     {
