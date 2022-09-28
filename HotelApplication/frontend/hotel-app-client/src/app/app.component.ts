@@ -83,7 +83,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.calendarSubmitted = false;
       }, 5000);
       this.calendarSubmitted = true;
-
       return;
     }
     // this.calendarService = new CalendarService(new RoomService(this.http), new HotelNightService(this.http, this.authenticationService));
