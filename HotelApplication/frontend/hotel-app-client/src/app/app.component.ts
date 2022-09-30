@@ -77,7 +77,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   calendarSubmit() {
-
     if (this.range.invalid || this.range.controls.end.value === null) {
       setTimeout(() => {
         this.calendarSubmitted = false;
