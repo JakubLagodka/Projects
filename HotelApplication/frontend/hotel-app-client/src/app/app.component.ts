@@ -57,7 +57,6 @@ export class AppComponent implements OnInit, OnDestroy {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-
     if (this.authenticationService.isUserLoggedIn &&  this.authenticationService.currentUserValue.roleCode !== 'CLI')
     {
       setTimeout(() => {
