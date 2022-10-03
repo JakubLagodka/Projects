@@ -63,7 +63,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.sidenav.close();
       }, 50);
     }
-
     this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '/greeting';
 
     const currentYear = new Date().getFullYear();
