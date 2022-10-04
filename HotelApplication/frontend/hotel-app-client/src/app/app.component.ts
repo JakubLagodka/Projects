@@ -64,7 +64,6 @@ export class AppComponent implements OnInit, OnDestroy {
       }, 50);
     }
     this.returnUrl = this.route.snapshot.queryParams[`returnUrl`] || '/greeting';
-
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth();
     const currentDay = new Date().getDate();
