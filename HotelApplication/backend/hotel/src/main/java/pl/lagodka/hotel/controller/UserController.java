@@ -6,8 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pl.lagodka.hotel.config.MailConfig;
-import pl.lagodka.hotel.flyweight.generic.strategy.mail.MailSenderStrategy;
+//import pl.lagodka.hotel.config.MailConfig;
+//import pl.lagodka.hotel.flyweight.generic.strategy.mail.MailSenderStrategy;
 import pl.lagodka.hotel.mapper.UserMapper;
 import pl.lagodka.hotel.model.dto.UserDto;
 import pl.lagodka.hotel.service.UserService;
@@ -24,14 +24,14 @@ public class UserController {
 
     private final UserMapper userMapper;
 
-    private final MailSenderStrategy mailSenderGenericStrategy;
-
-    private final MailConfig mailConfig;
+//    private final MailSenderStrategy mailSenderGenericStrategy;
+//
+//    private final MailConfig mailConfig;
 
     @PostMapping
     @Validated(Create.class)
     public UserDto saveUser(@RequestBody @Valid UserDto user) {
-        mailSenderGenericStrategy.sendMail(mailConfig,user.getMail(),"User has been created", "User with given data has been created");
+        //mailSenderGenericStrategy.sendMail(mailConfig,user.getMail(),"User has been created", "User with given data has been created");
         return userMapper.toDto(userService.create(userMapper.toDao(user)));
     }
 
