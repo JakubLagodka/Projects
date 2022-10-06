@@ -21,7 +21,6 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class XlsFileGenerator implements FileGeneratorStrategy {
-
 private final ReservationRepository reservationRepository;
 
     @Override
