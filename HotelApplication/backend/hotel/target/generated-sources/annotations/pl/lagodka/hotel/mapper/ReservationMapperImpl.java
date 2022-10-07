@@ -9,7 +9,7 @@ import pl.lagodka.hotel.model.dto.ReservationDto.ReservationDtoBuilder;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-10-06T15:53:09+0200",
+    date = "2022-10-07T15:41:02+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.1 (Oracle Corporation)"
 )
 @Component
