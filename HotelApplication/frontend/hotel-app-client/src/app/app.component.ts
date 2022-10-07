@@ -91,7 +91,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.notLogged = false;
       }, 5000);
       this.notLogged = true;
-
       this.router.navigate(['/register']);
     }
   }
