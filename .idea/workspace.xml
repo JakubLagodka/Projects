@@ -4,44 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe456eb4-1834-44fb-a5ee-fc74699fd0ac" name="Changes" comment="added house">
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/AuthorizationKeycloakEmbeddedApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/AuthorizationKeycloakEmbeddedApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/KeycloakServerProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/KeycloakServerProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/RegularJsonConfigProviderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/RegularJsonConfigProviderFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/Resteasy3Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/Resteasy3Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/SimplePlatformProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/SimplePlatformProvider.java" afterDir="false" />
+    <list default="true" id="fe456eb4-1834-44fb-a5ee-fc74699fd0ac" name="Changes" comment="added rest interviews">
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl" afterDir="false" />
     </list>
-    <list id="8e3bb536-33d0-45a3-8cc1-af32a3c4ef7b" name="notCommit" comment="notCommit">
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/src/main/java/bench/artshop/order/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/src/main/resources/application-local.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/src/test/resources/test-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/main/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/main/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/test/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/test/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service/src/main/java/it/unipol/crm/anagrafica/gestione/service/AnagraficaPersistenceServiceModifingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service/src/main/java/it/unipol/crm/anagrafica/gestione/service/AnagraficaPersistenceServiceModifingData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/modules/OrderService.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator/report/source.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl/spring-rest-example.iml" beforeDir="false" />
-    </list>
+    <list id="8e3bb536-33d0-45a3-8cc1-af32a3c4ef7b" name="notCommit" comment="notCommit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,15 +49,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;making__order__with__projects&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "making__order__with__projects",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\development\Gitlab\Projects\java\rekrutacyjne\interviews\security\keycloak-embedded\src\main\java\com" />
@@ -155,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770716879715</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added rest interviews">
+      <option name="closed" value="true" />
+      <created>1770717390082</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1770717390082</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,8 +156,29 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/houseInfrastructure/houseInfrastructure" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/comunicazione-service" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/filesComparator" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-basic-auth" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/sso-client" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/sso-resource-server" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/stampa-persistence" />
+      <path value="$PROJECT_DIR$/java/rekrutacyjne/interviews/stampa-service" />
+    </ignored-roots>
     <MESSAGE value="added interviews" />
     <MESSAGE value="added house" />
-    <option name="LAST_COMMIT_MESSAGE" value="added house" />
+    <MESSAGE value="added rest interviews" />
+    <option name="LAST_COMMIT_MESSAGE" value="added rest interviews" />
   </component>
 </project>
