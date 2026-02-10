@@ -138,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770717390082</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added rest interviews">
+      <option name="closed" value="true" />
+      <created>1770717605096</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1770717605096</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
