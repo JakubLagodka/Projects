@@ -1,0 +1,11 @@
+tabela Users
+Pola: id, name, departmentId, salary
+table Department
+Pola: id, name
+wyszukaj wszystkich użytkowników, których departmentId=2
+SELECT * FROM Users u JOIN Department d on u.departmentId=d.id WHERE
+u.depantmentId=2
+
+srednia pensja pracowników w danym dziale
+SELECT departmentId, avg(salary) FROM Users
+GROUP BY departmentId

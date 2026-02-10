@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: Slot Machine
+
+slot-machine:
+  type: shape
+
+digital:
+  numberOfWheels: 5
+  wheelSymbols: [1,2,2,3,3,3,4,4,4,4]
+  scoreTable:
+    "11111": 100
+    "22222": 80
+    "33333": 60
+    "44444": 40
+
+  shape:
+    numberOfWheels: 5
+    wheelSymbols:
+      - { name: square, color: red }
+      - { name: circle, color: blue }
+      - { name: circle, color: blue }
+      - { name: triangle, color: green }
+      - { name: triangle, color: green }
+      - { name: triangle, color: green }
+      - { name: star, color: yellow }
+      - { name: star, color: yellow }
+      - { name: star, color: yellow }
+      - { name: star, color: yellow }
+    scoreTable:
+      "srsrsrsrsr": 100
+      "cbcbcbcbcb": 80
+      "tgtgtgtgtg": 60
+      "sysysysysy": 40
