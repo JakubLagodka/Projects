@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: lektury
+external:
+  wolne-lektury:
+    base:
+      url: https://wolnelektury.pl/api/authors/

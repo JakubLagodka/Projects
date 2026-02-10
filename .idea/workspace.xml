@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe456eb4-1834-44fb-a5ee-fc74699fd0ac" name="Changes" comment="added rest interviews">
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/src/main/java/pl/lektury/reactive/api/AuthorInformationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/src/main/java/pl/lektury/reactive/model/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/src/main/java/pl/lektury/reactive/service/AuthorInformationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/src/main/java/pl/lektury/LekturyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/lektury/src/main/java/pl/lektury/LekturyApplication.java" afterDir="false" />
     </list>
     <list id="8e3bb536-33d0-45a3-8cc1-af32a3c4ef7b" name="notCommit" comment="notCommit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/jbad/dev/github" value="20mCTehatwjEbdLch7ImzjLGXZS" />
+    </persistenceIdMap>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,7 +36,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/JakubLagodka/Projects.git&quot;,
-    &quot;accountId&quot;: &quot;11426031-5cd3-4671-888c-8194a90de66c&quot;
+    &quot;accountId&quot;: &quot;42101ba2-e0a5-4b74-8fd2-8cf00851e909&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -49,16 +51,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "making__order__with__projects",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;making__order__with__projects&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\development\Gitlab\Projects\java\rekrutacyjne\interviews\security\keycloak-embedded\src\main\java\com" />
@@ -188,5 +190,13 @@
     <MESSAGE value="added house" />
     <MESSAGE value="added rest interviews" />
     <option name="LAST_COMMIT_MESSAGE" value="added rest interviews" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
