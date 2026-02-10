@@ -1,0 +1,3 @@
+cicd:
+# type identifica la tipologia del componente
+  type: config-archive

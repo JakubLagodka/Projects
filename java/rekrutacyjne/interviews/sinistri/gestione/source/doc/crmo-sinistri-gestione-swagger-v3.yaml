@@ -1,0 +1,380 @@
+swagger: '2.0'
+info:
+  description: Api Documentation
+  version: '1.0'
+  title: Api Documentation
+  termsOfService: urn:tos
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+host: localhost:8080
+tags:
+  - name: Gestione Sinistri
+    description: Servizi per la gestione dell'entità Sinistri
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+paths:
+  /api/sinistri/v1:
+    post:
+      tags:
+        - Gestione Sinistri
+      summary: Inserisce un Sinistro
+      operationId: addSinistroUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      security:
+        - Bearer: []
+      parameters:
+        - name: Authorization
+          in: header
+          description: Access Token
+          required: true
+          type: string
+          x-example: Bearer access_token
+        - name: X-UNIPOL-APPLICATION
+          in: header
+          description: X-UNIPOL-APPLICATION
+          required: true
+          type: string
+        - name: X-UNIPOL-REQUESTID
+          in: header
+          description: X-UNIPOL-REQUESTID
+          required: true
+          type: string
+        - name: Sinistro
+          in: body
+          description: Sinistro to add
+          required: true
+          schema:
+            $ref: '#/definitions/Sinistro'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/SinistroRisp'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+      deprecated: false
+    get:
+      tags:
+        - Gestione Sinistri
+      summary: Effettua una ricerca paginata nella collection Sinistri
+      operationId: searchSinistriUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      security:
+        - Bearer: []
+      parameters:
+        - name: Authorization
+          in: header
+          description: Access Token
+          required: true
+          type: string
+          x-example: Bearer access_token
+        - name: X-UNIPOL-APPLICATION
+          in: header
+          description: X-UNIPOL-APPLICATION
+          required: true
+          type: string
+        - name: X-UNIPOL-REQUESTID
+          in: header
+          description: X-UNIPOL-REQUESTID
+          required: true
+          type: string
+        - name: contattoId
+          in: query
+          description: Identificativo dell'anagrafica associata al sinistro
+          required: true
+          type: integer
+          x-example: 279841945880287602
+        - name: pagina
+          in: query
+          description: pagina da ritornare
+          required: false
+          type: integer
+          default: 0
+        - name: risultatiPerPagina
+          in: query
+          description: Numero massimo di sinistri ritornati
+          required: false
+          type: integer
+          default: 20
+        - name: dataDenunciaDa
+          in: query
+          description: Data di inizio per filtrare sulla data di denuncia del Sinistro
+          required: false
+          type: string
+          format: date
+          x-example: 2020-12-31
+        - name: dataDenunciaA
+          in: query
+          description: Data di fine per filtrare sulla data di denuncia del Sinistro
+          required: false
+          type: string
+          format: date
+          x-example: 2020-12-31
+        - name: chiaveSinistro
+          in: query
+          description: Chiave logica del Sinistro
+          required: false
+          type: string
+          x-example: 120208001000121815
+        - name: contrattoId
+          in: query
+          description: Identificativo del contratto su cui è stato aperto il Sinistro
+          required: false
+          type: integer
+          x-example: 279841945880287602
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SinistroPaginatoRisp'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+      deprecated: false
+  /api/sinistri/v1/{sinistroId}:
+    get:
+      tags:
+        - Gestione Sinistri
+      summary: Recupera un Sinistro
+      operationId: getSinistroUsingGET
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      security:
+        - Bearer: []
+      parameters:
+        - name: Authorization
+          in: header
+          description: Access Token
+          required: true
+          type: string
+          x-example: Bearer access_token
+        - name: X-UNIPOL-APPLICATION
+          in: header
+          description: X-UNIPOL-APPLICATION
+          required: true
+          type: string
+        - name: X-UNIPOL-REQUESTID
+          in: header
+          description: X-UNIPOL-REQUESTID
+          required: true
+          type: string
+        - name: sinistroId
+          in: path
+          description: sinistroId
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SinistroRisp'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+        '503':
+          description: Service Unavailable
+          schema:
+            $ref: '#/definitions/ErroreRisp'
+      deprecated: false
+definitions:
+  Sinistro:
+    type: object
+    title: Sinistro
+    properties:
+      chiaveSinistro:
+        type: string
+        description: chaive logica del sinistro
+        example: 120160890000247342
+      numero:
+        type: string
+        description: numero del sisnitro
+        example: 10129001290080
+      importo:
+        type: number
+        format: double
+        description: importo che si prevede di pagare
+        example: 123,45
+      importoLiquidato:
+        type: number
+        format: double
+        description: importo liquidato
+        example: 123,45
+      numeroPolizza:
+        type: integer
+        format: int32
+        description: numero polizza associata
+        example: 123456789
+      agenzia:
+        type: integer
+        format: int32
+        description: agenzia del sinistro
+        example: 1234
+      ramo:
+        type: integer
+        format: int32
+        description: ramo polizza associata
+        example: 030
+      codStato:
+        type: integer
+        format: int32
+        description: codice stato del sinistro
+        example: 1
+      codFiscControparte:
+        type: string
+        description:  codice fiscale controparte
+        example: AAABBB11A22C345F
+      dataUltimaLiquidazione:
+        type: string
+        format: date
+        description: data ultima liquidazione
+        example: 2023-01-01
+      dataAvvenimento:
+        type: string
+        format: date
+        description: data sinistro
+        example: 2023-01-01
+      dataDenuncia:
+        type: string
+        format: date
+        description: data denuncia
+        example: 2023-01-01
+      ragioneSocialeControparte:
+        type: string
+        description: ragione sociale controparte
+        example: Condominio ABC
+      ruoli:
+        type: array
+        items: 
+          $ref: "#/definitions/RuoliSinistro"
+      contrattoAssociato:
+        type: object
+        properties: 
+          contrattoId:
+            type: integer
+            format: int64
+            description: identificativo contratto
+            example: 279841945880287602
+          dataFine:
+            type: string
+            format: date
+            description: data fine validità
+            example: 2023-01-01
+  SinistroRisp:
+    title: SinistroRisp
+    allOf:
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: identificativo sinistro
+            example: 279841945880287602
+          dataUltimoAggiornamento:
+            type: string
+            format: date-time
+            description: data ultimo aggiornamento
+            example: 2023-01-01
+      - $ref: '#/definitions/Sinistro'
+  SinistroPaginatoRisp:
+    title: SinistroPaginatoRisp
+    properties:
+      paginazione:
+        description: Oggetto di utility per gestione paginazione a FE
+        $ref: '#/definitions/Paginazione'
+      sinistri:
+        type: array
+        items: 
+          $ref: '#/definitions/SinistroRisp'
+  RuoliSinistro:
+    title: RuoliSinistro
+    type: object
+    properties: 
+      codRuolo:
+        type: string
+        enum: [CONTRAENTE, PROPRIETARIO_AUTO_SINISTRATA]
+        description: Contraente (1001), Proprietario Auto Sinistrata (1002)
+        example: CONTRAENTE
+      contattoId:
+        type: integer
+        format: int64
+        description: identificativo contatto
+        example: 279841945880287602
+      dataFine:
+        type: string
+        format: date
+        description: data fine validità
+        example: 2023-01-01
+  Paginazione:
+    title: Paginazione
+    type: object
+    properties:
+      totale:
+        type: integer
+        format: int64
+        description: numero totale di risultati
+        example: 99
+      risultatiPerPagina:
+        type: integer
+        format: int32
+        description: numero di risultati per pagina
+        example: 20
+      pagina:
+        type: integer
+        format: int32
+        description: numero pagina
+        example: 2
+  ErroreRisp:
+    title: ErroreRisp
+    type: object
+    properties:
+      messaggioErrore:
+        type: string
+        description: messaggio di errore
+        example: Descrizione dell'errore riscontrato

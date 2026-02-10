@@ -1,0 +1,24 @@
+INSERT INTO ALL_TYPES_MODEL
+    (BIG_INTEGER,
+    BIG_DECIMAL,
+    A_LONG,
+    A_INTEGER,
+    STRING,
+    FLAG,
+    SQL_TIMESTAMP,
+    SQL_DATE,
+    LOCAL_DATE_TIME,
+    EMPTY_BIG_INTEGER,
+    EMPTY_LONG)
+VALUES
+    (1,
+    2.2,
+    3,
+    4,
+    'string value',
+    TRUE,
+    '2011-01-01 01:00:00.000000',
+    '2022-02-02 02:00:00.000000',
+    '2033-03-03 03:00:00.000000',
+    NULL,
+    NULL);

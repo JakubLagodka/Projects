@@ -1,0 +1,22 @@
+TRUNCATE TABLE UPL_CRM_ANAGRAFICHE_PF;
+INSERT INTO UPL_CRM_ANAGRAFICHE_PF
+(ID_SOGGETTO ,
+     CODICE_STATO_CIVILE ,
+      CODICE_SETTORE ,
+           CODICE_MERCATO_PREFERENZIALE ,
+             SESSO ,
+        DATA_NASCITA ,
+     DATA_AGGIORNAMENTO  ,
+           UTENTE_AGGIORNAMENTO ,
+        NOME ,
+              COGNOME ,
+                    NATURA_NOMINATIVO ,
+                          FLAG_STANDARDIZZAZIONE ,         
+     DATA_INSERIMENTO ,
+       UTENTE_INSERIMENTO )
+VALUES
+(1,1,1,1,'','2022-12-20 00.00.00.0','2022-12-10 00.00.00.0','','','','','','2022-12-20 00.00.00.0',''),
+(2,2,2,2,'','2022-12-20 00.00.00.0','2022-12-20 00.00.00.0','','','','','','2022-12-20 00.00.00.0',''),
+(3,3,3,3,'','2022-12-20 00.00.00.0','2022-12-20 00.00.00.0','','','','','','2022-12-20 00.00.00.0',''),
+(4,4,4,4,'','2022-12-20 00.00.00.0','2022-12-20 00.00.00.0','','','','','','2022-12-20 00.00.00.0',''),
+(5,5,5,5,'','2022-12-20 00.00.00.0','2022-12-20 00.00.00.0','','','','','','2022-12-20 00.00.00.0','');

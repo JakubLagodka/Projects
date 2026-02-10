@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/anagrafica/persistence" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/anagrafica/service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bench/artShop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bench/artShopProjects/OrderNew" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bench/artShopProjects/order-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bench/artShopProjects/service-discovery" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/comparator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/comunicazione-service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/filesComparator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/houseInfrastructure/houseInfrastructure" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/security/keycloak-embedded" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/security/rest-spring-examples-basic-auth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/security/rest-spring-examples-ssl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/security/sso-client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/security/sso-resource-server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/stampa-persistence" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/stampa-service" vcs="Git" />
+  </component>
+</project>

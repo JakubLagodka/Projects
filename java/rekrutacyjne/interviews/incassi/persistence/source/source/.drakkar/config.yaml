@@ -1,0 +1,6 @@
+cicd:
+# type identifica la tipologia del componente
+  type: java-library
+
+# identifica l'agente dello slave Jenkins sul quale fare al build
+#agent: TODO

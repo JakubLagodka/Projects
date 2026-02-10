@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/bench/Tictactoe/pom.xml" />
+        <option value="$PROJECT_DIR$/bench/TicTacToeGame/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka/kafkaTraining/pom.xml" />
+        <option value="$PROJECT_DIR$/kotlin/pom.xml" />
+        <option value="$PROJECT_DIR$/source/pom.xml" />
+        <option value="$PROJECT_DIR$/incassi/persistence/source/source/pom.xml" />
+        <option value="$PROJECT_DIR$/activita/source/pom.xml" />
+        <option value="$PROJECT_DIR$/attivita/batch-load/source/pom.xml" />
+        <option value="$PROJECT_DIR$/attivita/batch-load/release_1_9_1/source/pom.xml" />
+        <option value="$PROJECT_DIR$/security/sso-client/pom.xml" />
+        <option value="$PROJECT_DIR$/security/keycloak-embedded/pom.xml" />
+        <option value="$PROJECT_DIR$/security/sso-resource-server/pom.xml" />
+        <option value="$PROJECT_DIR$/security/rest-spring-examples-ssl/pom.xml" />
+        <option value="$PROJECT_DIR$/security/rest-spring-examples-basic-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/sinistri/gestione/source/pom.xml" />
+        <option value="$PROJECT_DIR$/sinistri/persistance-lib/source/pom.xml" />
+        <option value="$PROJECT_DIR$/anagrafica/unipol/pom.xml" />
+        <option value="$PROJECT_DIR$/anagrafica/service/pom.xml" />
+        <option value="$PROJECT_DIR$/anagrafica/persistence/pom.xml" />
+        <option value="$PROJECT_DIR$/comparator/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Node/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Cards/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/cycke/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Split/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/arrays/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/digits/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Picnic/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/record/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/stocks/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Triage/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/wzorce/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Factory/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/printer/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/backpack/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/Relative/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/rotation/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/breweries/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/frequency/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/TicTacToe/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/birthDates/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/multiplier/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/CountLetter/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/K-thLargest/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/combinations/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/happyNumbers/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/NonRepeating/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/ReverseWords/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/SortedArrays/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/addTwoNumbers/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/MaxSubarraySum/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/VendingMachine/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/BracketsChecker/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/ExecutorService/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/NonRepeatingWord/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/BinaryTreePruding/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/FindNumberInArray/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/ReversePolishNotation/pom.xml" />
+        <option value="$PROJECT_DIR$/interviews/LongestConcecutiveSubsequence/pom.xml" />
+        <option value="$PROJECT_DIR$/stampa-service/pom.xml" />
+        <option value="$PROJECT_DIR$/stampa-persistence/pom.xml" />
+        <option value="$PROJECT_DIR$/houseInfrastructure/houseInfrastructure/pom.xml" />
+        <option value="$PROJECT_DIR$/comunicazione-service/pom.xml" />
+        <option value="$PROJECT_DIR$/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

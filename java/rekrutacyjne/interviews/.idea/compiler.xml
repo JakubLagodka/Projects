@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sso-client-app-1" />
+        <module name="holiday-house-reservation-reminder" />
+        <module name="NonRepeating" />
+        <module name="NonRepeatingWord" />
+        <module name="ReverseWords" />
+        <module name="happyNumbers" />
+        <module name="Node" />
+        <module name="frequency" />
+        <module name="wzorce" />
+        <module name="repositories" />
+        <module name="record" />
+        <module name="attivita-service" />
+        <module name="kafkaTraining" />
+        <module name="Cards" />
+        <module name="holiday-client" />
+        <module name="Relative" />
+        <module name="BinaryTreePruding" />
+        <module name="Picnic" />
+        <module name="multiplier" />
+        <module name="holiday-house-service" />
+        <module name="crmo-anagrafica-gestione (1)" />
+        <module name="printer" />
+        <module name="birthDates" />
+        <module name="incassi-persistence" />
+        <module name="Tictactoe" />
+        <module name="combinations" />
+        <module name="attivita-batch" />
+        <module name="addTwoNumbers" />
+        <module name="arrays" />
+        <module name="query-results-comparator" />
+        <module name="Split" />
+        <module name="sinistri-persistence" />
+        <module name="spring-rest-example" />
+        <module name="crmo-anagrafica-gestione" />
+        <module name="Factory" />
+        <module name="LongestConcecutiveSubsequence" />
+        <module name="sinistri-service" />
+        <module name="cycle" />
+        <module name="stocks" />
+        <module name="stampa-persistence" />
+        <module name="SortedArrays" />
+        <module name="ReversePolishNotation" />
+        <module name="authorization-keycloak-embedded" />
+        <module name="attivita-batch (2)" />
+        <module name="spring-rest-basic-auth" />
+        <module name="Triage" />
+        <module name="sso-resource-server" />
+        <module name="VendingMachine" />
+        <module name="FindNumberInArray" />
+        <module name="rotation" />
+        <module name="kotlin" />
+        <module name="breweries" />
+        <module name="holiday-house-api" />
+        <module name="CountLetter" />
+        <module name="backpack" />
+        <module name="MaxSubarraySum" />
+        <module name="ExecutorService" />
+        <module name="TicTacToe (1)" />
+        <module name="TicTacToeGame" />
+        <module name="digits" />
+        <module name="K-thLargest" />
+        <module name="attivita-batch (1)" />
+      </profile>
+      <profile name="Annotation profile for crmo-anagrafica-persistence" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.3.Final/mapstruct-processor-1.5.3.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.3.Final/mapstruct-1.5.3.Final.jar" />
+        </processorPath>
+        <module name="crmo-anagrafica-persistence" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="authorization-keycloak-embedded" options="-parameters" />
+      <module name="holiday-house-reservation-reminder" options="-parameters" />
+      <module name="repositories" options="-parameters" />
+      <module name="spring-rest-basic-auth" options="-parameters" />
+      <module name="spring-rest-example" options="-parameters" />
+      <module name="sso-client-app-1" options="-parameters" />
+      <module name="sso-resource-server" options="-parameters" />
+    </option>
+  </component>
+</project>

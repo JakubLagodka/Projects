@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: it.unipolsai.crmo.attivita.persistence-lib:attivita-persistence:1.17.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/unipolsai/crmo/attivita/persistence-lib/attivita-persistence/1.17.1-SNAPSHOT/attivita-persistence-1.17.1-20230227.185703-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/it/unipolsai/crmo/attivita/persistence-lib/attivita-persistence/1.17.1-SNAPSHOT/attivita-persistence-1.17.1-20230227.185703-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/unipolsai/crmo/attivita/persistence-lib/attivita-persistence/1.17.1-SNAPSHOT/attivita-persistence-1.17.1-20230227.185703-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

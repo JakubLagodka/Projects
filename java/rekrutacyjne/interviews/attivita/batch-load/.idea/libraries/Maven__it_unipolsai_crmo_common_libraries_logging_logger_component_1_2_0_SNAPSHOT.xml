@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: it.unipolsai.crmo.common-libraries.logging:logger-component:1.2.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/unipolsai/crmo/common-libraries/logging/logger-component/1.2.0-SNAPSHOT/logger-component-1.2.0-20230224.143440-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/it/unipolsai/crmo/common-libraries/logging/logger-component/1.2.0-SNAPSHOT/logger-component-1.2.0-20230224.143440-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/unipolsai/crmo/common-libraries/logging/logger-component/1.2.0-SNAPSHOT/logger-component-1.2.0-20230224.143440-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

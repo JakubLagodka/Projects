@@ -1,0 +1,26 @@
+TRUNCATE TABLE UPL_CRM_ANAGRAFICA_AGENZIA;
+INSERT INTO UPL_CRM_ANAGRAFICA_AGENZIA
+(ID_ANAGRAFICA_AGENZIA  ,
+     ID_SOGGETTO ,
+   RETE_VENDITA_DI_PROVENIENZA ,
+   AGENZIA_MADRE_ASSICURATIVA ,
+   AGENZIA_PREVALENTE ,
+          DATA_CESSAZIONE_CLIENTE,
+   STATO_CLIENTE_AGENZIA ,
+   FLAG_CLIENTE_TOP ,
+          DATA_CLIENTE_TOP,
+           SUBAGENZIA ,
+            PRODUTTORE ,
+             ZONA_TERRITORIALE ,
+              MODALITA_INCASSO ,
+           UTENTE_AGGIORNAMENTO ,
+   TIPOLOGIA_AVVISO ,
+      DATA_AGGIORNAMENTO ,
+     DATA_INSERIMENTO ,
+       UTENTE_INSERIMENTO)
+VALUES
+(1, 1, 'a', '0', '1', '2023-05-10','a','a', '2023-05-10', '1', 'S', '2', '0', '0', 'K','2022-12-10 11.34.54.8', '2022-12-10 11.34.54.8','1'),
+(2, 2, 'a', '0', '1', '2023-05-10','a','a', '2023-05-10', '1', 'S', '2', '0', '0', 'K','2022-12-10 11.34.54.8', '2022-12-10 11.34.54.8','1'),
+(3, 3, 'a', '0', '1', '2023-05-10','a','a', '2023-05-10', '1', 'S', '2', '0', '0', 'K','2022-12-10 11.34.54.8', '2022-12-10 11.34.54.8','1'),
+(4, 4, 'a', '0', '1', '2023-05-10','a','a', '2023-05-10', '1', 'S', '2', '0', '0', 'K','2022-12-10 11.34.54.8', '2022-12-10 11.34.54.8','1'),
+(5, 5, 'a', '0', '1', '2023-05-10','a','a', '2023-05-10', '1', 'S', '2', '0', '0', 'K','2029-12-10 11.34.54.8', '2022-12-10 11.34.54.8','1');
