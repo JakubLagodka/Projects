@@ -1,0 +1,7 @@
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/domain/entity/ReservationNotification.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/client/boundary/ReservationClient.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/domain/control/SseController.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/Application.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/client/control/ReservationClientImpl.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/domain/control/NotificationJob.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-reservation-reminder/src/main/java/com/house/holiday/reminder/domain/entity/HolidayHouseClientEmitter.java

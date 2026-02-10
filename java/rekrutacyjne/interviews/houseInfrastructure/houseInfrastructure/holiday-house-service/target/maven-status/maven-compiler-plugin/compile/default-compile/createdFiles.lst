@@ -1,0 +1,13 @@
+com/house/holiday/domain/control/RoomManager.class
+com/house/holiday/domain/control/HolidayHouseServiceImpl.class
+com/house/holiday/domain/boundary/RoomResource.class
+com/house/holiday/client/control/HolidayHouseClientImpl$2.class
+com/house/holiday/client/boundary/HolidayHouseClient.class
+com/house/holiday/client/control/HolidayHouseClientImpl$1.class
+com/house/holiday/domain/control/ReservationManager.class
+com/house/holiday/HolidayHouseApplication.class
+com/house/holiday/client/control/HolidayHouseClientImpl.class
+com/house/holiday/domain/boundary/ReservationResource.class
+com/house/holiday/client/control/HolidayHouseClientImpl$4.class
+com/house/holiday/client/control/HolidayHouseClientImpl$3.class
+com/house/holiday/domain/boundary/HolidayHouseService.class

@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe456eb4-1834-44fb-a5ee-fc74699fd0ac" name="Changes" comment="" />
+    <list default="true" id="fe456eb4-1834-44fb-a5ee-fc74699fd0ac" name="Changes" comment="added house">
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/service-discovery/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/AuthorizationKeycloakEmbeddedApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/AuthorizationKeycloakEmbeddedApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/EmbeddedKeycloakRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/KeycloakServerProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/KeycloakServerProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/RegularJsonConfigProviderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/RegularJsonConfigProviderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/Resteasy3Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/Resteasy3Provider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/gft/examples/authorizationkeycloakembedded/config/SimplePlatformProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/keycloak-embedded/src/main/java/com/examples/authorizationkeycloakembedded/config/SimplePlatformProvider.java" afterDir="false" />
+    </list>
+    <list id="8e3bb536-33d0-45a3-8cc1-af32a3c4ef7b" name="notCommit" comment="notCommit">
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/src/main/java/bench/artshop/order/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/src/main/resources/application-local.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/src/test/resources/test-local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/2019_Rozwiazanie_Software-Engineer-Intern_Poznan/2019_Rozwiązanie_Software Engineer - Intern_Poznan/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/main/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/main/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/test/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/persistence/src/test/java/it/unipol/crm/anagrafica/persistence/service/AnagraficaPersistenceServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service/src/main/java/it/unipol/crm/anagrafica/gestione/service/AnagraficaPersistenceServiceModifingData.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/anagrafica/service/src/main/java/it/unipol/crm/anagrafica/gestione/service/AnagraficaPersistenceServiceModifingData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShop/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/OrderNew/OrderService/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/modules/OrderService.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/bench/artShopProjects/order-service/OrderService/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/comparator/report/source.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/rekrutacyjne/interviews/security/rest-spring-examples-ssl/spring-rest-example.iml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,28 +49,113 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JakubLagodka&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JakubLagodka/Projects.git&quot;,
+    &quot;accountId&quot;: &quot;11426031-5cd3-4671-888c-8194a90de66c&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="20mCTehatwjEbdLch7ImzjLGXZS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="nodejs_package_manager_path" value="npm" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;making__order__with__projects&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\development\Gitlab\Projects\java\rekrutacyjne\interviews\security\keycloak-embedded\src\main\java\com" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fe456eb4-1834-44fb-a5ee-fc74699fd0ac" name="Changes" comment="" />
+      <changelist id="8e3bb536-33d0-45a3-8cc1-af32a3c4ef7b" name="notCommit" comment="" />
       <created>1636640385144</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636640385144</updated>
       <workItem from="1636640386864" duration="1107000" />
     </task>
+    <task id="LOCAL-00001" summary="added interviews">
+      <option name="closed" value="true" />
+      <created>1770716408728</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716408728</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added house">
+      <option name="closed" value="true" />
+      <created>1770716796275</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716796275</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added house">
+      <option name="closed" value="true" />
+      <created>1770716805296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716805296</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added house">
+      <option name="closed" value="true" />
+      <created>1770716818780</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716818780</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added house">
+      <option name="closed" value="true" />
+      <created>1770716839791</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716839791</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added house">
+      <option name="closed" value="true" />
+      <created>1770716879715</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716879715</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -46,5 +171,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added interviews" />
+    <MESSAGE value="added house" />
+    <option name="LAST_COMMIT_MESSAGE" value="added house" />
   </component>
 </project>

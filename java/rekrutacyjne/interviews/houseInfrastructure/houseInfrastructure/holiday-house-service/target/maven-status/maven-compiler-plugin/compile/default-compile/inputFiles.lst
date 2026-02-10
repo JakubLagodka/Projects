@@ -1,0 +1,9 @@
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/domain/control/ReservationManager.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/client/control/HolidayHouseClientImpl.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/domain/boundary/ReservationResource.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/domain/boundary/RoomResource.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/domain/control/HolidayHouseServiceImpl.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/HolidayHouseApplication.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/client/boundary/HolidayHouseClient.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/domain/control/RoomManager.java
+/home/kalqa/Pulpit/houseInfrastructure/holiday-house-service/src/main/java/com/house/holiday/domain/boundary/HolidayHouseService.java
