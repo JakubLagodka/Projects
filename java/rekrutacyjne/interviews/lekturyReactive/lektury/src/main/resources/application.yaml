@@ -1,3 +1,7 @@
 spring:
   application:
-    name: lektury
+    name: AuthorInformation
+
+app:
+  clients:
+    clientWl.url: https://wolnelektury.pl/api/

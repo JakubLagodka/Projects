@@ -1,4 +1,4 @@
-package pl.lektury.reactive.model;
+package pl.lektury.model;
 
 public record Author(String id, String name) {
     public static Author of(String id, String name) {
