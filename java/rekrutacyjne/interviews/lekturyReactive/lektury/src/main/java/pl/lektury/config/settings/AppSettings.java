@@ -1,14 +1,13 @@
 package pl.lektury.config.settings;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.aot.AbstractAotProcessor;
-import org.springframework.web.reactive.function.client.WebClient;
-
+import org.springframework.context.annotation.Configuration;
+@Configuration
 public class AppSettings {
     @Value ( "${app.clients.clientWl.url}" )
-    private  settings;
+    private  String settings;
 
-    public WebClient clients(){
+    public String url(){
         return settings;
     };
 }

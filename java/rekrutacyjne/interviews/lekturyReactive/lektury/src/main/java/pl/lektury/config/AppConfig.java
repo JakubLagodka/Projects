@@ -19,7 +19,7 @@ public class AppConfig {
     @Bean("client-wl")
     public WebClient webClient( AppSettings appSettings) {
         return WebClient.builder()
-                .baseUrl( appSettings.clients().clientWl().url() )
+                .baseUrl( appSettings.url() )
                 .build();
     }
 
