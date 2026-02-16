@@ -7,13 +7,17 @@ import java.util.List;
 //        Method sort() for sorting cards in the deck.
 //        Method for comparing cards based on their values - similarly to the game of War
 //        (bonus points for handling ties like in the game of War).
-public class Main {
+//Homework: Implement Card Deck Logic (Shuffle, Sort, Compare)
+//        Requirements:
+//        Shuffle Functionality: Enable a shuffle() method to provide a random distribution of cards.
+//        Sort Functionality: Implement a sort() method to return the deck to a structured order.
+//        Comparison: Implement the Comparable or Comparator interface to evaluate card strength.
+
+        public class Main {
     public static void main(String[] args) {
-//        List<Card> cards1 = allCards.subList(0, ((allCards.size()) / 2));
-//        List<Card> cards1 = cards.stream()
-//                .limit(0)
-//                .skip(cards.size() / 2)
-//                .toList();
+
+            List<Card> cards = List.of(new Card( "10","Spades" ), new Card("2","Hearts"));
+            System.out.println(cards);
             Deck deck = new Deck();
             System.out.println("Original Deck: ");
             deck.print();
@@ -29,5 +33,9 @@ public class Main {
             System.out.println("\nComparing cards: ");
             System.out.println(card1 + " vs " + card2);
             System.out.println(card1.compareTo(card2) > 0 ? card1 + " wins" : card2 + " wins");
+
+            Deck deck1 = new Deck();
+            deck1.shuffleRandom();
+            deck1.print();
     }
 }
